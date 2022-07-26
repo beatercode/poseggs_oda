@@ -1,0 +1,533 @@
+{
+    "56": {
+        "MIN_DEP": 0.01,
+        "REF_RULES": [
+            {
+                "level": 0,
+                "referrals": 0,
+                "turnover": 0,
+                "perc": 0,
+                "toolTip": "The structure’s turnover is 0 BNB."
+            },
+            {
+                "level": 1,
+                "referrals": 0,
+                "turnover": 0.01,
+                "perc": 5,
+                "toolTip": "The structure’s turnover is 0,01 BNB."
+            },
+            {
+                "level": 2,
+                "referrals": 15,
+                "turnover": 30,
+                "perc": 7,
+                "toolTip": "The structure’s turnover is 30 BNB."
+            },
+            {
+                "level": 3,
+                "referrals": 25,
+                "turnover": 100,
+                "perc": 9,
+                "toolTip": "The structure’s turnover is 100 BNB."
+            },
+            {
+                "level": 4,
+                "referrals": 50,
+                "turnover": 300,
+                "perc": 11,
+                "toolTip": "The structure’s turnover is 300 BNB."
+            },
+            {
+                "level": 5,
+                "referrals": 100,
+                "turnover": 500,
+                "perc": 14,
+                "toolTip": "The structure’s turnover is 500 BNB."
+            },
+            {
+                "level": 6,
+                "referrals": 150,
+                "turnover": 1000,
+                "perc": 16,
+                "toolTip": "The structure’s turnover is 1 000 BNB."
+            },
+            {
+                "level": 7,
+                "referrals": 300,
+                "turnover": 3000,
+                "perc": 18,
+                "toolTip": "The structure’s turnover is 3 000 BNB."
+            },
+            {
+                "level": 8,
+                "referrals": 500,
+                "turnover": 10000,
+                "perc": 20,
+                "toolTip": "The structure’s turnover is 10 000 BNB."
+            }
+        ],
+        "LEAD_RULES": [
+            {
+                "level": 0,
+                "referrals": 0,
+                "turnover": 0,
+                "perc": 0,
+                "timePerc": "",
+                "profitPerc": "",
+                "toolTip": "Leadership Level 1 will become available when your net's turnover of 0.01 BNB and 10 people in it."
+            },
+            {
+                "level": 1,
+                "referrals": 10,
+                "turnover": 0.01,
+                "perc": 5,
+                "timePerc": "0",
+                "profitPerc": "1",
+                "toolTip": "With your net's turnover of 0,01+ BNB and 10+ people in it."
+            },
+            {
+                "level": 2,
+                "referrals": 15,
+                "turnover": 30,
+                "perc": 7,
+                "timePerc": "1",
+                "profitPerc": "1.5",
+                "toolTip": "With your net's turnover of 30+ BNB and 15+ people in it."
+            },
+            {
+                "level": 3,
+                "referrals": 25,
+                "turnover": 100,
+                "perc": 9,
+                "timePerc": "1.5",
+                "profitPerc": "2",
+                "toolTip": "With your net's turnover of 100+ BNB and 25+ people in it."
+            },
+            {
+                "level": 4,
+                "referrals": 50,
+                "turnover": 300,
+                "perc": 11,
+                "timePerc": "2",
+                "profitPerc": "2.5",
+                "toolTip": "With your net's turnover of 300+ BNB and 50+ people in it."
+            },
+            {
+                "level": 5,
+                "referrals": 100,
+                "turnover": 500,
+                "perc": 14,
+                "timePerc": "2.5",
+                "profitPerc": "3",
+                "toolTip": "With your net's turnover of 500+ BNB and 100+ people in it."
+            },
+            {
+                "level": 6,
+                "referrals": 150,
+                "turnover": 1000,
+                "perc": 16,
+                "timePerc": "3",
+                "profitPerc": "3.5",
+                "toolTip": "With your net's turnover of 1 000+ BNB and 150+ people in it.."
+            },
+            {
+                "level": 7,
+                "referrals": 300,
+                "turnover": 3000,
+                "perc": 18,
+                "timePerc": "3.5",
+                "profitPerc": "4",
+                "toolTip": "With your net's turnover of 3 000+ BNB and 300+ people in it."
+            },
+            {
+                "level": 8,
+                "referrals": 500,
+                "turnover": 10000,
+                "perc": 20,
+                "timePerc": "4",
+                "profitPerc": "4.5",
+                "toolTip": "With your net's turnover of 10 000+ BNB and 500+ people in it."
+            },
+            {
+                "level": 9,
+                "referrals": 1000,
+                "turnover": 20000,
+                "perc": 20,
+                "timePerc": "4.5",
+                "profitPerc": "5",
+                "toolTip": "With your net's turnover of 20 000+ BNB and 1 000+ people in it."
+            },
+            {
+                "level": 10,
+                "referrals": 2500,
+                "turnover": 50000,
+                "perc": 20,
+                "timePerc": "5",
+                "profitPerc": "5.5",
+                "toolTip": "With your net's turnover of 50 000+ BNB and 2 500+ people in it."
+            }
+        ],
+        "STAKING_PLANS": {
+            "0": {
+                "days": 0,
+                "profitPerDay": 3.33
+            },
+            "1": {
+                "days": 17,
+                "perc": 120,
+                "profitPerDay": 7.0588
+            },
+            "2": {
+                "days": 27,
+                "perc": 140,
+                "profitPerDay": 5.1851
+            },
+            "3": {
+                "days": 47,
+                "perc": 220,
+                "profitPerDay": 4.6808
+            }
+        },
+        "MIN_NFT_PRICE": "0.01",
+        "DEFAULT_GAS_PRICE_GWEI": "45",
+        "STAKE_CONTRACT": "0x5d39ffbf9a10d93e82017613a085f35a53211d1e",
+        "ERC20_CONTRACT": "0xee712de8b6dc5afbd03f4a7cb6edef9a89fbc4e5",
+        "BOOST_NFT_CONTRACT": "0x04746fcfee78ca138e73973fb6a7e6acb809bcec",
+        "NFT_CONTRACT": "0x7ab2cc564627457dd50078ea2345610997c8a04b",
+        "DEFAULT_REFERRER": "0x5e633caE917f2c8A8E59498011B7C906478C7888",
+        "AIRDROP_CONTRACT": "0xeba513d7951e6fd9112bbb1512d2438fb4958b5c",
+        "NODE": "https://bsc-dataseed1.binance.org/"
+    },
+    "137": {
+        "REF_RULES": [
+            {
+                "level": 1,
+                "referrals": 0,
+                "turnover": 5,
+                "perc": 5,
+                "toolTip": "The structure’s turnover is 5 MATIC."
+            },
+            {
+                "level": 2,
+                "referrals": 15,
+                "turnover": 10500,
+                "perc": 7,
+                "toolTip": "The structure’s turnover is 10 500 MATIC."
+            },
+            {
+                "level": 3,
+                "referrals": 25,
+                "turnover": 35000,
+                "perc": 9,
+                "toolTip": "The structure’s turnover is 35 000 MATIC."
+            },
+            {
+                "level": 4,
+                "referrals": 50,
+                "turnover": 105000,
+                "perc": 11,
+                "toolTip": "The structure’s turnover is 105 000 MATIC."
+            },
+            {
+                "level": 5,
+                "referrals": 100,
+                "turnover": 175000,
+                "perc": 14,
+                "toolTip": "The structure’s turnover is 175 000 MATIC."
+            },
+            {
+                "level": 6,
+                "referrals": 150,
+                "turnover": 350000,
+                "perc": 16,
+                "toolTip": "The structure’s turnover is 350 000 MATIC."
+            },
+            {
+                "level": 7,
+                "referrals": 300,
+                "turnover": 1050000,
+                "perc": 18,
+                "toolTip": "The structure’s turnover is 1 050 000 MATIC."
+            },
+            {
+                "level": 8,
+                "referrals": 500,
+                "turnover": 3500000,
+                "perc": 20,
+                "toolTip": "The structure’s turnover is 3 500 000 MATIC."
+            }
+        ],
+        "LEAD_RULES": [
+            {
+                "level": 0,
+                "referrals": 0,
+                "turnover": 0,
+                "perc": 0,
+                "timePerc": "",
+                "profitPerc": "",
+                "toolTip": "Leadership Level 1 will become available when your net's turnover of 5 MATIC and 10 people in it."
+            },
+            {
+                "level": 1,
+                "referrals": 10,
+                "turnover": 5,
+                "perc": 5,
+                "timePerc": "0",
+                "profitPerc": "1",
+                "toolTip": "With your net's turnover of 5+ MATIC and 10+ people in it."
+            },
+            {
+                "level": 2,
+                "referrals": 15,
+                "turnover": 10500,
+                "perc": 7,
+                "timePerc": "1",
+                "profitPerc": "1.5",
+                "toolTip": "With your net's turnover of 10 500+ MATIC and 15+ people in it."
+            },
+            {
+                "level": 3,
+                "referrals": 25,
+                "turnover": 35000,
+                "perc": 9,
+                "timePerc": "1.5",
+                "profitPerc": "2",
+                "toolTip": "With your net's turnover of 35 000+ MATIC and 25+ people in it."
+            },
+            {
+                "level": 4,
+                "referrals": 50,
+                "turnover": 105000,
+                "perc": 11,
+                "timePerc": "2",
+                "profitPerc": "2.5",
+                "toolTip": "With your net's turnover of 105 000+ MATIC and 50+ people in it."
+            },
+            {
+                "level": 5,
+                "referrals": 100,
+                "turnover": 175000,
+                "perc": 14,
+                "timePerc": "2.5",
+                "profitPerc": "3",
+                "toolTip": "With your net's turnover of 175 000+ MATIC and 100+ people in it."
+            },
+            {
+                "level": 6,
+                "referrals": 150,
+                "turnover": 350000,
+                "perc": 16,
+                "timePerc": "3",
+                "profitPerc": "3.5",
+                "toolTip": "With your net's turnover of 1 350 000+ MATIC and 150+ people in it.."
+            },
+            {
+                "level": 7,
+                "referrals": 300,
+                "turnover": 1050000,
+                "perc": 18,
+                "timePerc": "3.5",
+                "profitPerc": "4",
+                "toolTip": "With your net's turnover of 1 050 000+ MATIC and 300+ people in it."
+            },
+            {
+                "level": 8,
+                "referrals": 500,
+                "turnover": 3500000,
+                "perc": 20,
+                "timePerc": "4",
+                "profitPerc": "4.5",
+                "toolTip": "With your net's turnover of 3 500 000+ MATIC and 500+ people in it."
+            },
+            {
+                "level": 9,
+                "referrals": 1000,
+                "turnover": 7000000,
+                "perc": 20,
+                "timePerc": "4.5",
+                "profitPerc": "5",
+                "toolTip": "With your net's turnover of 7 000 000+ MATIC and 1 000+ people in it."
+            },
+            {
+                "level": 10,
+                "referrals": 2500,
+                "turnover": 17000000,
+                "perc": 20,
+                "timePerc": "5",
+                "profitPerc": "5.5",
+                "toolTip": "With your net's turnover of 17 000 000+ MATIC and 2 500+ people in it."
+            }
+        ],
+        "MIN_NFT_PRICE": "5",
+        "DEFAULT_GAS_PRICE_GWEI": "45",
+        "STAKE_CONTRACT": "0x5d39ffbf9a10d93e82017613a085f35a53211d1e",
+        "ERC20_CONTRACT": "0x0000000000000000000000000000000000000000",
+        "BOOST_NFT_CONTRACT": "0x04746fcfee78ca138e73973fb6a7e6acb809bcec",
+        "NFT_CONTRACT": "0x7ab2cc564627457dd50078ea2345610997c8a04b",
+        "DEFAULT_REFERRER": "0x5e633caE917f2c8A8E59498011B7C906478C7888",
+        "AIRDROP_CONTRACT": "0x0000000000000000000000000000000000000000",
+        "STAKING_PLANS": {
+            "0": {
+                "days": 0,
+                "profitPerDay": 3.33
+            },
+            "1": {
+                "days": 17,
+                "perc": 120,
+                "profitPerDay": 7.0588
+            },
+            "2": {
+                "days": 27,
+                "perc": 140,
+                "profitPerDay": 5.1851
+            },
+            "3": {
+                "days": 47,
+                "perc": 220,
+                "profitPerDay": 4.6808
+            }
+        },
+        "NODE": "https://polygon-rpc.com/"
+    },
+    "PRIMARY_BLOCKCHAIN": {
+        "symbol": "bscTest",
+        "chainid": "97",
+        "name": "BNB Chain"
+    },
+    "PRIMARY_BLOCKCHAIN_MAINNET": {
+        "symbol": "bsc",
+        "chainid": "56",
+        "name": "BNB Chain"
+    },
+    "BASE_URL": "https://base.posduck.com/api",
+    "REF_BASE": "https://posduck.com/",
+    "DEFAULT_REFERRER": "0x5e633caE917f2c8A8E59498011B7C906478C7888",
+    "ERROR_CODES": {
+        "10": "Token already swapped",
+        "11": "Invalid oracle address",
+        "12": "Address already registered",
+        "13": "Main contract address is already configured",
+        "14": "Only contract may be a minter",
+        "15": "This address is already a minter",
+        "16": "This contract may have only 2 minters",
+        "17": "Address is not a minter",
+        "18": "Caller is not the minter contract",
+        "19": "Invalid prices list size",
+        "20": "Price should be greater than zero",
+        "21": "Invalid ERC-20 token address",
+        "22": "Invalid boost type",
+        "23": "Invalid boost level",
+        "24": "Invalid BNB amount",
+        "25": "Failed to send BNB to the main NFT contract",
+        "00": "Only owner can call this method",
+        "01": "Invalid contract address",
+        "02": "Invalid NFT buy price amount",
+        "03": "Failed to send BNB to the main contract",
+        "04": "Invalid referrers list",
+        "05": "You can't claim your leadership now",
+        "06": "You should spend 0.1 BNB to claim boosts",
+        "07": "Boost already received",
+        "08": "Invalid receiver address",
+        "09": "Invalid signature"
+    },
+    "NETWORK_PARAMS": [
+        {
+            "name": "BNB Chain",
+            "symbol": "bsc",
+            "chainId": "0x38",
+            "params": {
+                "chainId": "0x38",
+                "chainName": "Binance SmartChain mainnet",
+                "nativeCurrency": {
+                    "name": "Binance",
+                    "symbol": "BNB",
+                    "decimals": 18
+                },
+                "rpcUrls": [
+                    "https://bsc-dataseed1.binance.org/"
+                ],
+                "blockExplorerUrls": [
+                    "https://bsc-dataseed1.binance.org/"
+                ]
+            }
+        },
+        {
+            "name": "BNB Chain",
+            "symbol": "bscTest",
+            "chainId": "0x61",
+            "params": {
+                "chainId": "0x61",
+                "chainName": "BNB Chain Testnet",
+                "nativeCurrency": {
+                    "name": "Binance",
+                    "symbol": "tBNB",
+                    "decimals": 18
+                },
+                "rpcUrls": [
+                    "https://data-seed-prebsc-1-s1.binance.org:8545/"
+                ],
+                "blockExplorerUrls": [
+                    "https://testnet.bscscan.org/"
+                ]
+            }
+        },
+        {
+            "name": "Polygon Mainnet",
+            "symbol": "poly",
+            "chainId": "0x89",
+            "params": {
+                "chainId": "0x89",
+                "chainName": "Polygon Mainnet",
+                "nativeCurrency": {
+                    "name": "Polygon",
+                    "symbol": "MATIC",
+                    "decimals": 18
+                },
+                "rpcUrls": [
+                    "https://polygon-rpc.com/"
+                ],
+                "blockExplorerUrls": [
+                    "https://polygonscan.com/"
+                ]
+            }
+        },
+        {
+            "name": "Polygon Mumbai",
+            "chainId": "0x13881",
+            "params": {
+                "chainId": "0x13881",
+                "chainName": "Polygon Mumbai",
+                "nativeCurrency": {
+                    "name": "Polygon",
+                    "symbol": "MATIC",
+                    "decimals": 18
+                },
+                "rpcUrls": [
+                    "https://matic-testnet-archive-rpc.bwarelabs.com"
+                ],
+                "blockExplorerUrls": [
+                    "https://mumbai.polygonscan.com/"
+                ]
+            }
+        }
+    ],
+    "BLOCKCHAINS": {
+        "1": "Ethereum Mainnet",
+        "3": "Ethereum Ropsten",
+        "4": "Ethereum Rinkeby",
+        "5": "Ethereum Goerli",
+        "42": "Ethereum Kovan",
+        "56": "BNB Chain",
+        "97": "BNB Chain TestNet",
+        "137": "Polygon Mainnet",
+        "43113": "Avalanche Testnet",
+        "43114": "Avalanche C-chain",
+        "80001": "Polygon Testnet",
+        "1666600000": "Harmony ",
+        "1666700000": "Harmony TestNet"
+    },
+    "SUPPORTED_BLOCKCHAINS": [
+        56,
+        137
+    ]
+}

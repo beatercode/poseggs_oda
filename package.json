@@ -4,35 +4,39 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "build": "vue-cli-service build"
   },
   "dependencies": {
+    "@ethersproject/contracts": "^5.6.2",
+    "@metamask/safe-event-emitter": "^2.0.0",
+    "@metamask/utils": "^2.1.0",
+    "@walletconnect/client": "^1.7.8",
+    "@walletconnect/web3-provider": "^1.7.8",
+    "axios": "^0.27.2",
     "core-js": "^3.8.3",
-    "vue": "^3.2.13"
+    "ethers": "^5.6.9",
+    "metamask": "^0.0.1-security",
+    "node-polyfill-webpack-plugin": "^2.0.0",
+    "v-clipboard": "^2.2.3",
+    "vue": "2.3.0",
+    "vue-device-detector": "^1.1.6",
+    "vue-loader": "^15.10.0",
+    "vue-router": "^3.5.4",
+    "vue-slider-component": "^3.2.18",
+    "vue-template-compiler": "^2.3.0",
+    "vuex": "^3.6.2",
+    "web3-provider-engine": "^16.0.4"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
-    "@babel/eslint-parser": "^7.12.16",
     "@vue/cli-plugin-babel": "~5.0.0",
-    "@vue/cli-plugin-eslint": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
-    "eslint": "^7.32.0",
-    "eslint-plugin-vue": "^8.0.3"
+    "@vue/compiler-sfc": "^3.2.37"
   },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/vue3-essential",
-      "eslint:recommended"
-    ],
-    "parserOptions": {
-      "parser": "@babel/eslint-parser"
-    },
-    "rules": {}
+  "browser": {
+    "http": false,
+    "https": false,
+    "os": false
   },
   "browserslist": [
     "> 1%",

@@ -1,26 +1,30 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div id="app">
+        <router-view />
+        <notification-list />
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+    import ReferralController from "../src/core/ReferralController";
+    import NotificationList from "./components/NotificationList.vue";
+    import Config from "../config.json";
+    export default {
+        mounted() {
+            let _this = this;
+            ReferralController.setReferrerAddressIfExists(this);
+            setTimeout(async function init() {
+                try {
+                    const res = await fetch(`${Config.BASE_URL}/getSiteStats?chainIds[]=56&chainIds[]=137`);
+                    const data = await res.json();
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+                    _this.$store.commit("setSiteData", data);
+                } catch (error) {
+                    setTimeout(init, 300);
+                }
+            }, 1000);
+            window.scrollTo(0, 0);
+        },
+        components: { NotificationList },
+    };
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
