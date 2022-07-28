@@ -126,19 +126,19 @@ table{
     -webkit-animation:nft .35s linear .6s 1 forwards;
     animation:nft .35s linear .6s 1 forwards
 }
-.section-our-nft.section-active .ul-our-nfts:nth-child(2) li:first-child{
+.section-our-nft.section-active .ul-our-nfts:first-child li:nth-child(5){
     -webkit-animation:nft .35s linear .8s 1 forwards;
     animation:nft .35s linear .8s 1 forwards
 }
-.section-our-nft.section-active .ul-our-nfts:nth-child(2) li:nth-child(2){
+.section-our-nft.section-active .ul-our-nfts:first-child li:nth-child(6){
     -webkit-animation:nft .35s linear 1s 1 forwards;
     animation:nft .35s linear 1s 1 forwards
 }
-.section-our-nft.section-active .ul-our-nfts:nth-child(2) li:nth-child(3){
+.section-our-nft.section-active .ul-our-nfts:first-child li:nth-child(7){
     -webkit-animation:nft .35s linear 1.2s 1 forwards;
     animation:nft .35s linear 1.2s 1 forwards
 }
-.section-our-nft.section-active .ul-our-nfts:nth-child(2) li:nth-child(4){
+.section-our-nft.section-active .ul-our-nfts:first-child li:nth-child(8){
     -webkit-animation:nft .35s linear 1.4s 1 forwards;
     animation:nft .35s linear 1.4s 1 forwards
 }
@@ -710,19 +710,34 @@ table{
 }
 .ul-our-nfts{
     display:flex;
-    justify-content:flex-start;
+    justify-content:left !important;
     width:100%;
-    max-width:100%
+    max-width:100%;
+    flex-wrap:wrap;
 }
 .li-our-nfts{
-    padding:10px;
+    flex-grow: 0;
+    padding:8px;
     border-radius:8px;
-    height:264px;
     max-width:264px;
     min-width:calc(25% - 48px);
+    height: auto;
     margin:24px;
     position:relative;
-    cursor:pointer
+    cursor:pointer;
+}
+.nft-list-buy {
+    max-width: unset !important;
+    padding: 5px;
+    min-width: calc(25% - 16px);
+    margin: 8px;
+    width: calc(25% - 39px);
+}
+.card-header-nft-image-buy {
+    width: 100%;
+    padding-top: 0 !important;
+    padding-left: 0 !important;
+    max-width: 1000px;
 }
 .li-nft-img,.li-our-nft-wrap{
     position:relative;
@@ -736,14 +751,19 @@ table{
     position:absolute;
     content:"";
     left:50%;
-    bottom:20%;
+    top:2%;
+    border-radius:8px;
     transform:translateX(-50%);
     width:90%;
-    height:90%;
+    height:auto;
     background-repeat:no-repeat;
     background-size:contain;
-    background-position:bottom
+    background-position:top
 }
+.card-egg-image {
+    border-radius: 6px 6px 0px 0px;
+}
+/*
 .nft-wrap .nft-img-block.nft-56-1:before,.row-binance .general-card.reward .general-card-col:nth-child(2),.ul-our-nfts.ul-binance:first-child .li-our-nfts:first-child .li-nft-img:after{
     background-image:url(../images/all/nft-1.png)
 }
@@ -756,59 +776,36 @@ table{
 .nft-wrap .nft-img-block.nft-56-4:before,.ul-our-nfts.ul-binance:first-child .li-our-nfts:nth-child(4) .li-nft-img:after{
     background-image:url(../images/all/nft-4.png)
 }
-.nft-wrap .nft-img-block.nft-56-5:before,.row-binance .general-card.team .general-card-col:nth-child(2),.ul-our-nfts.ul-binance:nth-child(2) .li-our-nfts:first-child .li-nft-img:after{
+.nft-wrap .nft-img-block.nft-56-5:before,.ul-our-nfts.ul-binance:first-child .li-our-nfts:nth-child(5) .li-nft-img:after{
     background-image:url(../images/all/nft-5.png)
 }
-.nft-wrap .nft-img-block.nft-56-6:before,.row-binance .general-card.percent .general-card-col:nth-child(2),.ul-our-nfts.ul-binance:nth-child(2) .li-our-nfts:nth-child(2) .li-nft-img:after{
+.nft-wrap .nft-img-block.nft-56-6:before,.ul-our-nfts.ul-binance:first-child .li-our-nfts:nth-child(6) .li-nft-img:after{
     background-image:url(../images/all/nft-6.png)
 }
-.nft-wrap .nft-img-block.nft-56-7:before,.row-binance .general-card.lvl .general-card-col:nth-child(2),.ul-our-nfts.ul-binance:nth-child(2) .li-our-nfts:nth-child(3) .li-nft-img:after{
+.nft-wrap .nft-img-block.nft-56-7:before,.ul-our-nfts.ul-binance:first-child .li-our-nfts:nth-child(7) .li-nft-img:after{
     background-image:url(../images/all/nft-7.png)
 }
-.nft-wrap .nft-img-block.nft-56-8:before,.row-binance .general-card.turnover .general-card-col:nth-child(2),.ul-our-nfts.ul-binance:nth-child(2) .li-our-nfts:nth-child(4) .li-nft-img:after{
+.nft-wrap .nft-img-block.nft-56-8:before,.ul-our-nfts.ul-binance:first-child .li-our-nfts:nth-child(8) .li-nft-img:after{
     background-image:url(../images/all/nft-8.png)
 }
-.nft-wrap .nft-img-block.nft-137-1:before,.row-polygon .general-card.reward .general-card-col:nth-child(2),.ul-our-nfts.ul-polygon:first-child .li-our-nfts:first-child .li-nft-img:after{
-    background-image:url(../images/all/nft-1.png)
-}
-.nft-wrap .nft-img-block.nft-137-2:before,.row-polygon .general-card.profit .general-card-col:nth-child(2),.ul-our-nfts.ul-polygon:first-child .li-our-nfts:nth-child(2) .li-nft-img:after{
-    background-image:url(../images/all/nft-2.png)
-}
-.nft-wrap .nft-img-block.nft-137-3:before,.ul-our-nfts.ul-polygon:first-child .li-our-nfts:nth-child(3) .li-nft-img:after{
-    background-image:url(../images/all/nft-3.png)
-}
-.nft-wrap .nft-img-block.nft-137-4:before,.ul-our-nfts.ul-polygon:first-child .li-our-nfts:nth-child(4) .li-nft-img:after{
-    background-image:url(../images/all/nft-4.png)
-}
-.nft-wrap .nft-img-block.nft-137-5:before,.row-polygon .general-card.team .general-card-col:nth-child(2),.ul-our-nfts.ul-polygon:nth-child(2) .li-our-nfts:first-child .li-nft-img:after{
-    background-image:url(../images/all/nft-5.png)
-}
-.nft-wrap .nft-img-block.nft-137-6:before,.row-polygon .general-card.percent .general-card-col:nth-child(2),.ul-our-nfts.ul-polygon:nth-child(2) .li-our-nfts:nth-child(2) .li-nft-img:after{
-    background-image:url(../images/all/nft-6.png)
-}
-.nft-wrap .nft-img-block.nft-137-7:before,.row-polygon .general-card.lvl .general-card-col:nth-child(2),.ul-our-nfts.ul-polygon:nth-child(2) .li-our-nfts:nth-child(3) .li-nft-img:after{
-    background-image:url(../images/all/nft-7.png)
-}
-.nft-wrap .nft-img-block.nft-137-8:before,.row-polygon .general-card.turnover .general-card-col:nth-child(2),.ul-our-nfts.ul-polygon:nth-child(2) .li-our-nfts:nth-child(4) .li-nft-img:after{
-    background-image:url(../images/all/nft-8.png)
-}
+*/
 .ul-our-nfts:first-child .li-our-nfts:first-child{
-    background:linear-gradient(0deg,rgba(0,0,0,.4),rgba(0,0,0,.4)),radial-gradient(59.63% 59.63% at 50% 40.37%,#77d15c 0,#45972c 100%)
+    background:linear-gradient(0deg,rgba(0,0,0,.4),rgba(0,0,0,.4)),radial-gradient(59.63% 59.63% at 50% 40.37%,#a94c26 0,#b87e52 100%)
 }
 .ul-our-nfts:first-child .li-our-nfts:first-child .li-nft-img{
-    background:radial-gradient(59.63% 59.63% at 50% 40.37%,#77d15c 0,#45972c 100%)
+    background:radial-gradient(59.63% 59.63% at 50% 40.37%,#a94c26 0,#b87e52 100%)
 }
 .ul-our-nfts:first-child .li-our-nfts:nth-child(2){
-    background:linear-gradient(0deg,rgba(0,0,0,.4),rgba(0,0,0,.4)),radial-gradient(50% 50% at 50.15% 49.86%,#ff7e5f 0,#ce2c05 100%)
+    background:linear-gradient(0deg,rgba(0,0,0,.4),rgba(0,0,0,.4)),radial-gradient(50% 50% at 50.15% 49.86%,#90D5DC 0,#74A3C8 100%)
 }
 .ul-our-nfts:first-child .li-our-nfts:nth-child(2) .li-nft-img{
-    background:radial-gradient(50% 50% at 50.15% 49.86%,#ff7e5f 0,#ce2c05 100%)
+    background:radial-gradient(50% 50% at 50.15% 49.86%,#90D5DC 0,#74A3C8 100%)
 }
 .ul-our-nfts:first-child .li-our-nfts:nth-child(3){
-    background:linear-gradient(0deg,rgba(0,0,0,.4),rgba(0,0,0,.4)),radial-gradient(50% 50% at 50% 49.86%,#64b2ff 0,#0a5acc 100%)
+    background:linear-gradient(0deg,rgba(0,0,0,.4),rgba(0,0,0,.4)),radial-gradient(50% 50% at 50% 49.86%,#B87E52 0,#6a4f3b 100%)
 }
 .ul-our-nfts:first-child .li-our-nfts:nth-child(3) .li-nft-img{
-    background:radial-gradient(50% 50% at 50% 49.86%,#64b2ff 0,#0a5acc 100%)
+    background:radial-gradient(50% 50% at 50% 49.86%,#B87E52 0, #6a4f3b 100%)
 }
 .ul-our-nfts:first-child .li-our-nfts:nth-child(4){
     background:linear-gradient(0deg,rgba(0,0,0,.4),rgba(0,0,0,.4)),radial-gradient(50% 50% at 50% 49.86%,#d06cff 0,#820acc 100%)
@@ -816,32 +813,31 @@ table{
 .ul-our-nfts:first-child .li-our-nfts:nth-child(4) .li-nft-img{
     background:radial-gradient(50% 50% at 50% 49.86%,#d06cff 0,#820acc 100%)
 }
-.ul-our-nfts:nth-child(2) .li-our-nfts:first-child{
-    background:linear-gradient(0deg,rgba(0,0,0,.4),rgba(0,0,0,.4)),radial-gradient(50% 50% at 50.01% 49.95%,#ffb361 0,#ff8500 100%)
+.ul-our-nfts:first-child .li-our-nfts:nth-child(5){
+    background:linear-gradient(0deg,rgba(0,0,0,.4),rgba(0,0,0,.4)),radial-gradient(50% 50% at 50.01% 49.95%,#ADCEDF 0,#7CC5D7 100%)
 }
-.ul-our-nfts:nth-child(2) .li-our-nfts:first-child .li-nft-img{
-    background:radial-gradient(50% 50% at 50.01% 49.95%,#ffb361 0,#ff8500 100%)
+.ul-our-nfts:first-child .li-our-nfts:nth-child(5) .li-nft-img{
+    background:radial-gradient(50% 50% at 50.01% 49.95%,#ADCEDF 0,#7CC5D7 100%)
 }
-.ul-our-nfts:nth-child(2) .li-our-nfts:nth-child(2){
+.ul-our-nfts:first-child .li-our-nfts:nth-child(6){
     background:linear-gradient(0deg,rgba(0,0,0,.4),rgba(0,0,0,.4)),radial-gradient(50% 50% at 49.88% 50.25%,#f1ff3a 0,#ffd400 100%)
 }
-.ul-our-nfts:nth-child(2) .li-our-nfts:nth-child(2) .li-nft-img{
+.ul-our-nfts:first-child .li-our-nfts:nth-child(6) .li-nft-img{
     background:radial-gradient(50% 50% at 49.88% 50.25%,#f1ff3a 0,#ffd400 100%)
 }
-.ul-our-nfts:nth-child(2) .li-our-nfts:nth-child(3){
-    background:linear-gradient(0deg,rgba(0,0,0,.4),rgba(0,0,0,.4)),radial-gradient(50% 50% at 50.2% 50.09%,#969696 0,#666 100%)
+.ul-our-nfts:first-child .li-our-nfts:nth-child(7){
+    background:linear-gradient(0deg,rgba(0,0,0,.4),rgba(0,0,0,.4)),radial-gradient(50% 50% at 50.2% 50.09%,#7FCF7E 0,#3D784D 100%)
 }
-.ul-our-nfts:nth-child(2) .li-our-nfts:nth-child(3) .li-nft-img{
-    background:radial-gradient(50% 50% at 50.2% 50.09%,#969696 0,#666 100%)
+.ul-our-nfts:first-child .li-our-nfts:nth-child(7) .li-nft-img{
+    background:radial-gradient(50% 50% at 50.2% 50.09%,#7FCF7E 0,#3D784D 100%)
 }
-.ul-our-nfts:nth-child(2) .li-our-nfts:nth-child(4){
-    background:linear-gradient(0deg,rgba(0,0,0,.4),rgba(0,0,0,.4)),radial-gradient(50% 50% at 49.87% 50.15%,#75a6d2 .01%,#14548f 100%)
+.ul-our-nfts:first-child .li-our-nfts:nth-child(8){
+    background:linear-gradient(0deg,rgba(0,0,0,.4),rgba(0,0,0,.4)),radial-gradient(50% 50% at 49.87% 50.15%,#F4812E .01%,#f15b3d 100%)
 }
-.ul-our-nfts:nth-child(2) .li-our-nfts:nth-child(4) .li-nft-img{
-    background:radial-gradient(50% 50% at 49.87% 50.15%,#75a6d2 .01%,#14548f 100%)
+.ul-our-nfts:first-child .li-our-nfts:nth-child(8) .li-nft-img{
+    background:radial-gradient(50% 50% at 49.87% 50.15%, #F4812E .01%,#e57849 100%)
 }
 .li-nft-footer{
-    position:absolute;
     width:100%;
     bottom:0;
     display:flex;
@@ -862,8 +858,8 @@ table{
     opacity:.4
 }
 .li-nft-footer .icon{
-    width:40px;
-    height:40px;
+    width: 2em;
+    height: 2em;
     background-color:#2b2b2b;
     border-radius:8px;
     display:block;
@@ -1521,11 +1517,24 @@ table{
     right:0;
     transform:translateY(-100%)
 }
+.tabbar-more-shop {
+    left:0;
+}
 .tabbar-nav{
     display:flex;
     justify-content:center;
     width:100%;
     align-items:stretch
+}
+
+.tabbar-nav > .tab-item:nth-child(3) > a > span > i{
+    
+}
+.icon-new {
+    margin-left: 10px;
+    filter: invert(13%) sepia(100%) saturate(6776%) hue-rotate(358deg) brightness(89%) contrast(112%);
+    transform: scale(2);
+    background-color: #ffffff00 !important;
 }
 .tab-item{
     width:25%;
@@ -1741,6 +1750,9 @@ table{
 .sidebar a.active .icon-wrap,.tab-item .active .icon-wrap{
     background-color:#508eef
 }
+.sidebar a.active .icon-new,.tab-item .active .icon-new{
+    background-color:#ffffff00
+}
 .sidebar a:before{
     position:absolute;
     left:0;
@@ -1796,6 +1808,24 @@ table{
     margin-right:-10px;
     display:flex;
     flex-direction:row
+}
+.cab-row-stats {
+    width: 100%; 
+    margin-top: 5px !important;
+    margin-left: 0; 
+    margin-right: 0;
+    flex-direction:row !important;
+}
+.cab-row-stats > span {
+    line-height: 32px;
+}
+.stats-superiod {
+    border-radius: 4px;
+    background-color: #2A2B3D;
+    padding: 3px;
+}
+.stats-superiod > span {
+    
 }
 .cab-row.cab-row-load .cab-row-card{
     position:relative
@@ -1960,7 +1990,7 @@ table{
     background-image:url(../images/all/card-turnover.b507460d.png)
 }
 .buy-nft-card .cab-row-card{
-    flex-direction:column
+    flex-direction:column;
 }
 .cab-card-wrap{
     border-radius:8px;
@@ -1982,7 +2012,6 @@ table{
     margin-left:auto
 }
 .buy-nft-card .mint-nft-img{
-    margin-left:auto;
     max-width:330px
 }
 .buy-nft-card .cab-row:first-child{
@@ -3791,6 +3820,26 @@ header{
     font-size:16px;
     line-height:24px
 }
+.icon-card {
+    position: absolute;
+    right: 10px;
+    top: -20px;
+}
+.li-nft-footer-amount {
+    width: 50% !important;
+}
+.li-nft-footer-amount-price {
+    width: 100% !important;   
+}
+.li-nft-footer-amount-2 {
+    width: 50% !important;
+    text-align: right !important;
+}
+.card-footer-stats {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px !important;
+}
 .main-home .h5{
     margin-top:20px;
     color:hsla(0,0%,100%,.8)
@@ -4447,11 +4496,10 @@ header .btn{
     justify-content:stretch
 }
 .cab-col.cab-main-col{
-    width:calc(66.66667% - 30px)
+    min-width:100%
 }
 .cab-col.cab-minor-col{
-    padding-left:30px;
-    width:calc(33.33333% + 30px)
+    min-width:100%
 }
 .cab-col.cab-minor-col>.cab-row{
     height:100%
@@ -8445,7 +8493,6 @@ i[class*=" i-"],i[class^=i-]{
         width:calc(100% + 24px)
     }
     .ul-our-nfts{
-        flex-wrap:wrap
     }
     .header-nav ul li{
         margin-left:10px;
@@ -8518,13 +8565,6 @@ i[class*=" i-"],i[class^=i-]{
     }
     .card-data-col .card-data-title{
         margin-top:0
-    }
-    .cab-col.cab-main-col{
-        width:calc(66.66667% - 20px)
-    }
-    .cab-col.cab-minor-col{
-        padding-left:20px;
-        width:calc(33.33333% + 20px)
     }
     .your-boost-item{
         width:calc(100% - 10px)
@@ -8708,10 +8748,9 @@ i[class*=" i-"],i[class^=i-]{
 }
 @media (min-width:991.5px) and (max-width:1260.5px){
     .li-our-nfts{
-        margin:12px;
-        height:calc(25vw - 39px);
-        width:calc(25vw - 39px);
-        max-width:calc(25vw - 39px)
+        margin:8px;
+        width:calc(25% - 39px);
+        max-width:calc(25% - 39px)
     }
 }
 @media (max-width:991.5px){
@@ -8734,15 +8773,15 @@ i[class*=" i-"],i[class^=i-]{
         width:100%
     }
     .li-our-nfts{
-        padding:8px;
-        margin:6px;
-        flex-grow:1;
-        height:calc(25vw - 27px);
-        width:calc(25vw - 27px);
-        max-width:calc(25vw - 27px)
+        padding:4px;
+        margin:8px;
+        width:calc(33% - 16px);
     }
     .li-nft-footer-amount{
         font-size:14px
+    }
+    .li-nft-footer-amount-2{
+        text-align: left;
     }
     .cab-card-referral .block-timer,.card-timer .block-timer{
         max-width:400px
@@ -8998,9 +9037,6 @@ i[class*=" i-"],i[class^=i-]{
     .cab-col.cab-minor-col{
         padding-left:0;
         padding-top:20px;
-        min-width:100%
-    }
-    .cab-col.cab-main-col{
         min-width:100%
     }
     .your-boost-item{
@@ -9401,12 +9437,10 @@ i[class*=" i-"],i[class^=i-]{
         padding:4% 5%
     }
     .li-our-nfts{
-        margin:12px;
-        padding:2%;
-        flex-grow:1;
-        height:calc(50vw - 54px);
-        width:calc(50vw - 54px);
-        max-width:calc(50vw - 54px)
+        margin:8px;
+        padding:4px;
+        flex-grow:0;
+        width:calc(33% - 16px);
     }
     .slider-nft-container{
         margin-left:-8px;
@@ -9733,12 +9767,10 @@ i[class*=" i-"],i[class^=i-]{
         padding:4% 5%
     }
     .li-our-nfts{
-        margin:6px;
-        padding:2.1%;
+        margin:8px;
+        padding:4px;
         flex-grow:1;
-        height:calc(50vw - 28px);
-        width:calc(50vw - 28px);
-        max-width:calc(50vw - 28px)
+        width:calc(50% - 16px)
     }
     .ul-our-nfts{
         margin-left:-6px;
@@ -9910,6 +9942,14 @@ i[class*=" i-"],i[class^=i-]{
     }
     .section-mobile .img-comment{
         transform:translate(25%)
+    }
+}
+@media (max-width:390px){
+    .li-our-nfts{
+        margin:8px;
+        padding:4px;
+        flex-grow:1;
+        width:calc(50% - 16px)
     }
 }
 @media (max-width:560.5px){
@@ -10183,14 +10223,6 @@ i[class*=" i-"],i[class^=i-]{
     }
     .li-nft-footer{
         padding:3% 3%
-    }
-    .li-our-nfts{
-        margin:4px;
-        padding:6px;
-        flex-grow:1;
-        height:calc(50vw - 24px);
-        width:calc(50vw - 24px);
-        max-width:calc(50vw - 24px)
     }
     .ul-our-nfts{
         width:calc(100% + 12px);

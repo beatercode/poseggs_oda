@@ -2,20 +2,14 @@
     <div class="slider-nft">
         <div class="slider-nft-container">
             <div class="slider-nft-wrap">
-                <ul
-                    class="ul-our-nfts"
-                    :class="{
-                        'ul-binance': getPreselectedChain !== 'polygon',
-                        'ul-polygon': getPreselectedChain === 'polygon',
-                    }"
-                >
+                <ul class="ul-our-nfts" :class="'ul-binance'">
                     <li @click="redirect(1)" class="li-our-nfts li-nft-red">
                         <div class="li-our-nft-wrap">
                             <div class="li-nft-img"></div>
                             <div class="li-nft-footer">
                                 <div>
                                     <span class="li-nft-footer-title">{{ translatesGet("SLIDER_VALUE") }}</span>
-                                    <span v-if="getPreselectedChain != 'polygon'" class="li-nft-footer-amount">0.01 {{ currency }}</span>
+                                    <span v-if="getPreselectedChain == 'polygon'" class="li-nft-footer-amount">0.01 {{ currency }}</span>
                                     <span v-else class="li-nft-footer-amount">5 {{ currency }}</span>
                                 </div>
                                 <div class="icon logo-coin"></div>
@@ -28,7 +22,7 @@
                             <div class="li-nft-footer">
                                 <div>
                                     <span class="li-nft-footer-title">{{ translatesGet("SLIDER_VALUE") }}</span>
-                                    <span v-if="getPreselectedChain != 'polygon'" class="li-nft-footer-amount">0.1 {{ currency }}</span>
+                                    <span v-if="getPreselectedChain == 'polygon'" class="li-nft-footer-amount">0.1 {{ currency }}</span>
                                     <span v-else class="li-nft-footer-amount">35 {{ currency }}</span>
                                 </div>
                                 <div class="icon logo-coin"></div>
@@ -41,7 +35,7 @@
                             <div class="li-nft-footer">
                                 <div>
                                     <span class="li-nft-footer-title">{{ translatesGet("SLIDER_VALUE") }}</span>
-                                    <span v-if="getPreselectedChain != 'polygon'" class="li-nft-footer-amount">1 {{ currency }}</span>
+                                    <span v-if="getPreselectedChain == 'polygon'" class="li-nft-footer-amount">1 {{ currency }}</span>
                                     <span v-else class="li-nft-footer-amount">350 {{ currency }}</span>
                                 </div>
                                 <div class="icon logo-coin"></div>
@@ -54,28 +48,20 @@
                             <div class="li-nft-footer">
                                 <div>
                                     <span class="li-nft-footer-title">{{ translatesGet("SLIDER_VALUE") }}</span>
-                                    <span v-if="getPreselectedChain != 'polygon'" class="li-nft-footer-amount">2 {{ currency }}</span>
+                                    <span v-if="getPreselectedChain == 'polygon'" class="li-nft-footer-amount">2 {{ currency }}</span>
                                     <span v-else class="li-nft-footer-amount">700 {{ currency }}</span>
                                 </div>
                                 <div class="icon logo-coin"></div>
                             </div>
                         </div>
                     </li>
-                </ul>
-                <ul
-                    class="ul-our-nfts"
-                    :class="{
-                        'ul-binance': getPreselectedChain == 'binance',
-                        'ul-polygon': getPreselectedChain == 'polygon',
-                    }"
-                >
                     <li @click="redirect(5)" class="li-our-nfts li-nft-red">
                         <div class="li-our-nft-wrap">
                             <div class="li-nft-img"></div>
                             <div class="li-nft-footer">
                                 <div>
                                     <span class="li-nft-footer-title">{{ translatesGet("SLIDER_VALUE") }}</span>
-                                    <span v-if="getPreselectedChain != 'polygon'" class="li-nft-footer-amount">5 {{ currency }}</span>
+                                    <span v-if="getPreselectedChain == 'polygon'" class="li-nft-footer-amount">5 {{ currency }}</span>
                                     <span v-else class="li-nft-footer-amount">1700 {{ currency }}</span>
                                 </div>
                                 <div class="icon logo-coin"></div>
@@ -88,7 +74,7 @@
                             <div class="li-nft-footer">
                                 <div>
                                     <span class="li-nft-footer-title">{{ translatesGet("SLIDER_VALUE") }}</span>
-                                    <span v-if="getPreselectedChain != 'polygon'" class="li-nft-footer-amount">10 {{ currency }}</span>
+                                    <span v-if="getPreselectedChain == 'polygon'" class="li-nft-footer-amount">10 {{ currency }}</span>
                                     <span v-else class="li-nft-footer-amount">3 500 {{ currency }}</span>
                                 </div>
                                 <div class="icon logo-coin"></div>
@@ -101,7 +87,7 @@
                             <div class="li-nft-footer">
                                 <div>
                                     <span class="li-nft-footer-title">{{ translatesGet("SLIDER_VALUE") }}</span>
-                                    <span v-if="getPreselectedChain != 'polygon'" class="li-nft-footer-amount">50 {{ currency }}</span>
+                                    <span v-if="getPreselectedChain == 'polygon'" class="li-nft-footer-amount">50 {{ currency }}</span>
                                     <span v-else class="li-nft-footer-amount">17 000 {{ currency }}</span>
                                 </div>
                                 <div class="icon logo-coin"></div>
@@ -114,7 +100,7 @@
                             <div class="li-nft-footer">
                                 <div>
                                     <span class="li-nft-footer-title">{{ translatesGet("SLIDER_VALUE") }}</span>
-                                    <span v-if="getPreselectedChain != 'polygon'" class="li-nft-footer-amount">100 {{ currency }}</span>
+                                    <span v-if="getPreselectedChain == 'polygon'" class="li-nft-footer-amount">100 {{ currency }}</span>
                                     <span v-else class="li-nft-footer-amount">35 000 {{ currency }}</span>
                                 </div>
                                 <div class="icon logo-coin"></div>

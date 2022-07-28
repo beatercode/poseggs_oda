@@ -122,7 +122,7 @@
                                     <div class="img-comment comment">{{ translatesGet("QUACK_1") }}</div>
                                 </div>
                             </div>
-                            <div class="audited" v-if="getPreselectedChain != 'polygon'">
+                            <div class="audited" v-if="getPreselectedChain == 'polygon'">
                                 <div class="title-upper">{{ translatesGet("AUDITED_BY") }}</div>
                                 <ul class="audited-logos">
                                     <a href="https://posduck.gitbook.io/posduck-dock/audited" target="_blank">
@@ -193,7 +193,7 @@
                         <div class="section-wrap">
                             <div class="section-half">
                                 <div class="h2">{{ translatesGet("OUR_NFT") }}</div>
-                                <div v-if="getPreselectedChain != 'polygon'" class="h5">
+                                <div v-if="getPreselectedChain == 'polygon'" class="h5">
                                     {{ translatesGet("OUR_NFT_DESC") }}
                                 </div>
                                 <div v-if="getPreselectedChain == 'polygon'" class="h5">
@@ -244,7 +244,7 @@
                                     </li>
                                     <li class="home-list-item">
                                         <div class="list-item-icon icon-wrap"><i class="icon-check"></i></div>
-                                        <span v-if="getPreselectedChain != 'polygon'"> {{ translatesGet("LIMITED_STAKING_DESC_3") }}</span>
+                                        <span v-if="getPreselectedChain == 'polygon'"> {{ translatesGet("LIMITED_STAKING_DESC_3") }}</span>
                                         <span v-else> {{ translatesGet("LIMITED_STAKING_DESC_3_MATIC") }}</span>
                                     </li>
                                     <li class="home-list-item">
@@ -319,7 +319,7 @@
                                 <ul class="home-list">
                                     <li class="home-list-item">
                                         <div class="list-item-icon icon-wrap"><i class="icon-check"></i></div>
-                                        <span v-if="getPreselectedChain != 'polygon'"> {{ translatesGet("UNLIMITED_STAKING_DESC_1") }}</span>
+                                        <span v-if="getPreselectedChain == 'polygon'"> {{ translatesGet("UNLIMITED_STAKING_DESC_1") }}</span>
                                         <span v-else> {{ translatesGet("UNLIMITED_STAKING_DESC_1_MATIC") }}</span>
                                     </li>
                                     <li class="home-list-item">
@@ -425,7 +425,7 @@
                     <div class="h5">{{ translatesGet("HOW_TO_EARN_SUBTITLE") }}</div>
                     <div class="section-wrap">
                         <div class="section-half half-content">
-                            <ul class="earn-list" v-if="getPreselectedChain != 'polygon'">
+                            <ul class="earn-list" v-if="getPreselectedChain == 'polygon'">
                                 <li>
                                     <span class="earn-icon earn-buy"></span>
                                     <span class="h4">{{ translatesGet("HOW_TO_EARN_LIST_TITLE_1") }}</span>
@@ -1008,7 +1008,7 @@
                                 ></a>
                             </div>
                             <div class="section-container">
-                                <div class="h5" v-if="getPreselectedChain != 'polygon'">{{ translatesGet("REFERRAL_PROGRAM_DESC") }}</div>
+                                <div class="h5" v-if="getPreselectedChain == 'polygon'">{{ translatesGet("REFERRAL_PROGRAM_DESC") }}</div>
                                 <div class="h5" v-if="getPreselectedChain == 'polygon'">{{ translatesGet("REFERRAL_PROGRAM_DESC_MATIC") }}</div>
                             </div>
                             <div class="custom-table">
@@ -1214,7 +1214,7 @@
                                     </li>
                                     <li class="home-list-item">
                                         <div class="list-item-icon icon-wrap"><i class="icon-check"></i></div>
-                                        <span v-if="getPreselectedChain != 'polygon'">{{ translatesGet("REFERRAL_PROGRAM_ITEM_4") }}</span>
+                                        <span v-if="getPreselectedChain == 'polygon'">{{ translatesGet("REFERRAL_PROGRAM_ITEM_4") }}</span>
                                         <span v-if="getPreselectedChain == 'polygon'">{{ translatesGet("REFERRAL_PROGRAM_ITEM_4_MATIC") }}</span>
                                     </li>
                                 </ul>

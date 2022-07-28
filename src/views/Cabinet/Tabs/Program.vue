@@ -48,7 +48,7 @@
             </div>
         </section>
         <!-- section 2 -->
-        <section class="cab-row" :class="{ 'row-binance': !currentBlockchain || currentBlockchain === 56, 'row-polygon': currentBlockchain === 137 }">
+        <section class="cab-row" :class="{ 'row-binance': !currentBlockchain || currentBlockchain === 56 || currentBlockchain === 97, 'row-polygon': currentBlockchain === 137 }">
             <div class="cab-row-card general-info-card general-info-card-program">
                 <div class="general-card team">
                     <div class="general-card-col">
@@ -590,7 +590,7 @@
                                 <div class="h4">{{ translatesGet("REF_PROG") }}</div>
                                 <div class="h5">
                                     {{
-                                        !currentBlockchain || currentBlockchain === 56
+                                        !currentBlockchain || currentBlockchain === 56 || currentBlockchain === 97
                                             ? translatesGet("REF_PROG_DESCR")
                                             : translatesGet("REF_PROG_DESCR_POLYGON")
                                     }}
@@ -602,7 +602,7 @@
                                 <div class="h4">{{ translatesGet("PROGRESS_REF_TITLE") }}</div>
                                 <div class="h5">
                                     {{
-                                        !currentBlockchain || currentBlockchain === 56
+                                        !currentBlockchain || currentBlockchain === 56 || currentBlockchain === 97
                                             ? translatesGet("PROGRESS_REF_DESCRIBE_1")
                                             : translatesGet("PROGRESS_REF_DESCRIBE_1_POLYGON")
                                     }}
@@ -862,10 +862,10 @@
         mixins: [copiedMixin],
         methods: {
             getStats(level) {
-                if (this.isLeaderProgram && (!this.currentBlockchain || this.currentBlockchain === 56)) {
+                if (this.isLeaderProgram && (!this.currentBlockchain || this.currentBlockchain === 56 || this.currentBlockchain === 97)) {
                     const obj = conf[this.currentBlockchain || 56].LEAD_RULES.find((el) => el.level === level);
                     return [obj.turnover, obj.referrals];
-                } else if (this.isRefProgram && (!this.currentBlockchain || this.currentBlockchain === 56)) {
+                } else if (this.isRefProgram && (!this.currentBlockchain || this.currentBlockchain === 56 || this.currentBlockchain === 97)) {
                     const obj = conf[this.currentBlockchain || 56].REF_RULES.find((el) => el.level === level);
                     return [obj.turnover, obj.referrals];
                 } else if (this.isLeaderProgram && (!this.currentBlockchain || this.currentBlockchain === 137)) {

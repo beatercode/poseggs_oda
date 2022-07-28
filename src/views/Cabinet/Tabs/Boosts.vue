@@ -142,7 +142,7 @@
                                 <div v-if="!nfts || !nfts.length" class="your-boosts your-boosts-empty">
                                     <div class="empty-icon"></div>
                                     <div class="empty-title h4">{{ translatesGet("YOUR_BOOSTS_0_TITLE") }}</div>
-                                    <div class="empty-title h7" v-if="!currentBlockchain || currentBlockchain === 56">
+                                    <div class="empty-title h7" v-if="!currentBlockchain || currentBlockchain === 56 || currentBlockchain === 97">
                                         {{ translatesGet("YOUR_BOOSTS_0_DESCR_BNB") }}
                                     </div>
                                     <div class="empty-title h7" v-if="currentBlockchain === 137">{{ translatesGet("YOUR_BOOSTS_0_DESCR_MATIC") }}</div>
@@ -246,12 +246,17 @@
                     56: [
                         {
                             BNB: 0.172,
-                            PDT: 2000,
+                            BUSD: 2000,
                             BOOST_LEVEL_PERC: 2,
                             id: 1,
                         },
-                        { BNB: 0.515, PDT: 6000, BOOST_LEVEL_PERC: 5, id: 2 },
-                        { BNB: 1.718, PDT: 20000, BOOST_LEVEL_PERC: 10, id: 3 },
+                        { BNB: 0.515, BUSD: 6000, BOOST_LEVEL_PERC: 5, id: 2 },
+                        { BNB: 1.718, BUSD: 20000, BOOST_LEVEL_PERC: 10, id: 3 },
+                    ],
+                    97: [
+                        { BNB: 0.172, BUSD: 15, BOOST_LEVEL_PERC: 2, id: 1 },
+                        { BNB: 0.515, BUSD: 45, BOOST_LEVEL_PERC: 5, id: 2 },
+                        { BNB: 1.718, BUSD: 120, BOOST_LEVEL_PERC: 10, id: 3 },
                     ],
                     137: [
                         {

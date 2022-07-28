@@ -14,7 +14,20 @@
                 <li>
                     <router-link active-class="active" :to="{ name: 'BuyNFT' }">
                         <span class="icon-wrap"> <i class="icon icon-monitor"> </i></span>
-                        <span class="link-name">{{ translatesGet("BUY_NFT") }}</span>
+                        <span class="link-name">{{ "Mint NFT" }}</span>
+                    </router-link>
+                </li>
+                <li>
+                    <router-link active-class="active" :to="{ name: 'BuyLootbox' }">
+                        <span class="icon-wrap"> <i class="icon icon-monitor"> </i></span>
+                        <span class="link-name">{{ "Mint Lootbox" }}</span>
+                        <span class="icon-wrap icon-new"> <i class="icon icon-newtag"> </i></span>
+                    </router-link>
+                </li>
+                <li>
+                    <router-link active-class="active" :to="{ name: 'Inventory' }">
+                        <span class="icon-wrap"> <i class="icon icon-monitor"> </i></span>
+                        <span class="link-name">{{ "Inventory" }}</span>
                     </router-link>
                 </li>
                 <li>

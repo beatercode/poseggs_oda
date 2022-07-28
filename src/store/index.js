@@ -4,6 +4,7 @@ import axios from "axios";
 const SPREDSHEET_ID = "1iiJjsCNCrqq5RRBAURS0rrZxHg6nEFAyDxglbtghSpY";
 const API_KEY = "AIzaSyCM4VvxEviBjv-5jLyq8EQEI24Ep2464r0";
 import conf from "../../config.json";
+import langFile from "../../lang.json";
 
 Vue.use(Vuex);
 
@@ -169,10 +170,9 @@ export default new Vuex.Store({
             commit
         }, type) {
             let lang = window.localStorage.getItem("lang") || "en";
-            let main = await axios.get(`https://sheets.googleapis.com/v4/spreadsheets/${SPREDSHEET_ID}/values/lang?key=${API_KEY}`);
 
-            if (main && main.status == 200) {
-                let web = fetchLanguages(main.data.values);
+            if (langFile) {
+                let web = fetchLanguages(langFile.values);
                 commit("setInterfaceTranslations", web);
                 if (web && web.hasOwnProperty("en")) {
                     window.localStorage.setItem("interfaceTranslations", JSON.stringify({

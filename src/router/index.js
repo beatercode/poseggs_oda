@@ -59,6 +59,34 @@ const routes = [{
                     },
                 },
                 {
+                    path: "buylootbox",
+                    name: "BuyLootbox",
+                    component: () =>
+                        import ("../views/Cabinet/Tabs/BuyLootbox.vue"),
+                    beforeEnter(to, from, next) {
+                        window.scrollTo({
+                            top: 0,
+                            behavior: "instant",
+                        });
+                        next();
+                        // ...
+                    },
+                },
+                {
+                    path: "inventory",
+                    name: "Inventory",
+                    component: () =>
+                        import ("../views/Cabinet/Tabs/Inventory.vue"),
+                    beforeEnter(to, from, next) {
+                        window.scrollTo({
+                            top: 0,
+                            behavior: "instant",
+                        });
+                        next();
+                        // ...
+                    },
+                },
+                {
                     path: "staking",
                     name: "Staking",
                     component: () =>

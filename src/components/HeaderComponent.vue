@@ -73,11 +73,11 @@
                     <div class="btn-balance-wrap">
                         <div class="balance-title">{{ translatesGet("BALANCE") }}</div>
                         <div :class="{ active: !hideBalance }" class="balance">
-                            <div v-if="currentBlockchain && currentBlockchain === 56">{{ userERC20Balance }} PDT</div>
+                            <div v-if="currentBlockchain && currentBlockchain === 56 || currentBlockchain === 97">{{ userERC20Balance }} BUSD</div>
                             <div>{{ Number(userCoinBalance).toFixed(3) }} {{ currency }}</div>
                         </div>
                         <div :class="{ active: hideBalance }" class="balance">
-                            <div v-if="currentBlockchain && currentBlockchain === 56">*** PDT</div>
+                            <div v-if="currentBlockchain && currentBlockchain === 56 || currentBlockchain === 97">*** BUSD</div>
                             <div>*** {{ currency }}</div>
                         </div>
                     </div>
@@ -131,14 +131,14 @@
                         <div @click="hideBalance = !hideBalance" class="btn-balance-wrap">
                             <div class="balance-title">{{ translatesGet("BALANCE") }}</div>
                             <button :class="{ active: !hideBalance }" class="balance">
-                                <div v-if="currentBlockchain && currentBlockchain === 56">{{ Number(userERC20Balance) }} PDT</div>
+                                <div v-if="currentBlockchain && currentBlockchain === 56 || currentBlockchain === 97">{{ Number(userERC20Balance) }} BUSD</div>
                                 <div>{{ Number(userCoinBalance).toFixed(3) }} {{ currency }}</div>
                                 <div class="balance-icon icon-wrap">
                                     <i class="icon-eye-slash"></i>
                                 </div>
                             </button>
                             <button :class="{ active: hideBalance }" class="balance">
-                                <div v-if="currentBlockchain && currentBlockchain === 56">*** PDT</div>
+                                <div v-if="currentBlockchain && currentBlockchain === 56 || currentBlockchain === 97">*** BUSD</div>
                                 <div>*** {{ currency }}</div>
                                 <div class="balance-icon icon-wrap">
                                     <i class="icon-eye"></i>
@@ -225,7 +225,7 @@
         },
         computed: {
             ...mapState(["currentAddress", "userCoinBalance", "userERC20Balance", "currentBlockchain", "currency"]),
-
+            
             addressShort() {
                 if (this.currentAddress) {
                     return this.currentAddress.slice(0, 5) + "..." + this.currentAddress.slice(this.currentAddress.length - 3, this.currentAddress.length);
@@ -270,7 +270,7 @@
                             ? "icon-harmony"
                             : "";
                     const name =
-                        Number(window?.ethereum?.chainId) === 56 ? "BNB Chain" : Number(window?.ethereum?.chainId) === 137 ? "Polygon" : "Wrong Network";
+                        Number(window?.ethereum?.chainId) === 56 ? "BNB Chain" : Number(window?.ethereum?.chainId) === 137 ? "Polygon" : Number(window?.ethereum?.chainId) === 97 ? "Scam Test" : "Wrong Network";
                     return [name, iconName];
                 } else if (selectedWallet === "walletconnect") {
                     const WC_Obj = JSON.parse(window.localStorage.getItem("walletconnect"));

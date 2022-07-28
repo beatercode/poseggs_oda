@@ -22,7 +22,7 @@
         <div class="block-percent-content">
             <form class="form-radio">
                 <div class="radio-btns-wrap">
-                    <div v-if="currentBlockchain && currentBlockchain === 56" class="radio-btn">
+                    <div v-if="currentBlockchain && currentBlockchain === 56 || currentBlockchain === 97" class="radio-btn">
                         <input name="form4" checked type="radio" id="form4radioButton1" value="BNB" v-model="selectedCurrency" />
                         <label for="form4radioButton1">0.172 {{ currency }}</label>
                     </div>
@@ -31,8 +31,8 @@
                         <label for="form4radioButton1">72 {{ currency }}</label>
                     </div>
                     <div v-if="currentBlockchain && currentBlockchain !== 137" class="radio-btn">
-                        <input name="form4" type="radio" id="form4radioButton2" value="PDT" v-model="selectedCurrency" />
-                        <label for="form4radioButton2">2 000 PDT</label>
+                        <input name="form4" type="radio" id="form4radioButton2" value="BUSD" v-model="selectedCurrency" />
+                        <label for="form4radioButton2">15 BUSD</label>
                     </div>
                 </div>
 
@@ -63,7 +63,7 @@
         <div class="block-percent-content">
             <form class="form-radio">
                 <div class="radio-btns-wrap">
-                    <div v-if="currentBlockchain && currentBlockchain === 56" class="radio-btn">
+                    <div v-if="currentBlockchain && currentBlockchain === 56 || currentBlockchain === 97" class="radio-btn">
                         <input name="form5" checked type="radio" id="form5radioButton1" value="BNB" v-model="selectedCurrency" />
                         <label for="form5radioButton1">0.515 {{ currency }}</label>
                     </div>
@@ -72,8 +72,8 @@
                         <label for="form5radioButton1">215 {{ currency }}</label>
                     </div>
                     <div v-if="currentBlockchain && currentBlockchain !== 137" class="radio-btn">
-                        <input name="form5" type="radio" id="form5radioButton2" value="PDT" v-model="selectedCurrency" />
-                        <label for="form5radioButton2">6 000 PDT</label>
+                        <input name="form5" type="radio" id="form5radioButton2" value="BUSD" v-model="selectedCurrency" />
+                        <label for="form5radioButton2">45 BUSD</label>
                     </div>
                 </div>
 
@@ -104,7 +104,7 @@
         <div class="block-percent-content">
             <form class="form-radio">
                 <div class="radio-btns-wrap">
-                    <div v-if="currentBlockchain && currentBlockchain === 56" class="radio-btn">
+                    <div v-if="currentBlockchain && currentBlockchain === 56 || currentBlockchain === 97" class="radio-btn">
                         <input name="form6" checked type="radio" id="form6radioButton1" value="BNB" v-model="selectedCurrency" />
                         <label for="form6radioButton1">1.718 {{ currency }}</label>
                     </div>
@@ -113,8 +113,8 @@
                         <label for="form6radioButton1">720 {{ currency }}</label>
                     </div>
                     <div v-if="currentBlockchain && currentBlockchain !== 137" class="radio-btn">
-                        <input name="form6" type="radio" id="form6radioButton2" value="PDT" v-model="selectedCurrency" />
-                        <label for="form6radioButton2">20 000 PDT</label>
+                        <input name="form6" type="radio" id="form6radioButton2" value="BUSD" v-model="selectedCurrency" />
+                        <label for="form6radioButton2">120 BUSD</label>
                     </div>
                 </div>
 
@@ -148,7 +148,7 @@
         <div class="block-percent-content">
             <form class="form-radio">
                 <div class="radio-btns-wrap">
-                    <div v-if="currentBlockchain && currentBlockchain === 56" class="radio-btn">
+                    <div v-if="currentBlockchain && currentBlockchain === 56 || currentBlockchain === 97" class="radio-btn">
                         <input name="form1" checked type="radio" id="form1radioButton1" value="BNB" v-model="selectedCurrency" />
                         <label for="form1radioButton1">0.172 {{ currency }}</label>
                     </div>
@@ -157,8 +157,8 @@
                         <label for="form1radioButton1">72 {{ currency }}</label>
                     </div>
                     <div v-if="currentBlockchain && currentBlockchain !== 137" class="radio-btn">
-                        <input name="form1" type="radio" id="form1radioButton2" value="PDT" v-model="selectedCurrency" />
-                        <label for="form1radioButton2">2 000 PDT</label>
+                        <input name="form1" type="radio" id="form1radioButton2" value="BUSD" v-model="selectedCurrency" />
+                        <label for="form1radioButton2">15 BUSD</label>
                     </div>
                 </div>
 
@@ -192,7 +192,7 @@
         <div class="block-percent-content">
             <form class="form-radio">
                 <div class="radio-btns-wrap">
-                    <div v-if="currentBlockchain && currentBlockchain === 56" class="radio-btn">
+                    <div v-if="currentBlockchain && currentBlockchain === 56 || currentBlockchain === 97" class="radio-btn">
                         <input name="form2" checked type="radio" id="form2radioButton1" value="BNB" v-model="selectedCurrency" />
                         <label for="form2radioButton1">0.515 {{ currency }}</label>
                     </div>
@@ -201,8 +201,8 @@
                         <label for="form2radioButton1"> 215 {{ currency }}</label>
                     </div>
                     <div v-if="currentBlockchain && currentBlockchain !== 137" class="radio-btn">
-                        <input name="form2" type="radio" id="form2radioButton2" value="PDT" v-model="selectedCurrency" />
-                        <label for="form2radioButton2">6 000 PDT</label>
+                        <input name="form2" type="radio" id="form2radioButton2" value="BUSD" v-model="selectedCurrency" />
+                        <label for="form2radioButton2">45 BUSD</label>
                     </div>
                 </div>
 
@@ -236,7 +236,7 @@
         <div class="block-percent-content">
             <form class="form-radio">
                 <div class="radio-btns-wrap">
-                    <div v-if="currentBlockchain && currentBlockchain === 56" class="radio-btn">
+                    <div v-if="currentBlockchain && currentBlockchain === 56 || currentBlockchain === 97" class="radio-btn">
                         <input name="form3" checked type="radio" id="form3radioButton1" value="BNB" v-model="selectedCurrency" />
                         <label for="form3radioButton1">1.718 {{ currency }}</label>
                     </div>
@@ -245,8 +245,8 @@
                         <label for="form3radioButton1">720 {{ currency }}</label>
                     </div>
                     <div v-if="currentBlockchain && currentBlockchain !== 137" class="radio-btn">
-                        <input name="form3" type="radio" id="form3radioButton2" value="PDT" v-model="selectedCurrency" />
-                        <label for="form3radioButton2">20 000 PDT</label>
+                        <input name="form3" type="radio" id="form3radioButton2" value="BUSD" v-model="selectedCurrency" />
+                        <label for="form3radioButton2">120 BUSD</label>
                     </div>
                 </div>
 

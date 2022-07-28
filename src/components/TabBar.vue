@@ -8,31 +8,53 @@
                         <span class="link-name">{{ translatesGet("AIRDROP") }}</span>
                     </router-link>
                 </li>
-                <li class="tab-item" @click="showMore = false">
-                    <router-link active-class="active" :to="{ name: 'BuyNFT' }">
+                <li class="tab-item" @click="showMoreShop = !showMoreShop, showMore = false">
+                    <button class="tab-more">
+                        <span class="icon-wrap"> <i class="icon icon-more"> </i></span>
+                        <span class="link-name">{{ "Shop" }}</span>
+                    </button>
+                </li>
+                <li class="tab-item" @click="showMore = false, showMoreShop = false">
+                    <router-link active-class="active" :to="{ name: 'Inventory' }">
                         <span class="icon-wrap"> <i class="icon icon-monitor"> </i></span>
-                        <span class="link-name">{{ translatesGet("BUY_NFT") }}</span>
+                        <span class="link-name">{{ "Inventory" }}</span>
                     </router-link>
                 </li>
-                <li class="tab-item" @click="showMore = false">
+                <li class="tab-item" @click="showMore = false, showMoreShop = false">
                     <router-link active-class="active" :to="{ name: 'Staking' }">
                         <span class="icon-wrap"> <i class="icon icon-box"> </i></span>
                         <span class="link-name">{{ translatesGet("STAKING") }}</span>
                     </router-link>
                 </li>
-                <li class="tab-item" @click="showMore = false">
+                <li class="tab-item" @click="showMore = false, showMoreShop = false">
                     <router-link active-class="active" :to="{ name: 'YourStake' }">
                         <span class="icon-wrap"> <i class="icon icon-money"> </i></span>
                         <span class="link-name">{{ translatesGet("YOUR_STAKE") }}</span>
                     </router-link>
                 </li>
-                <li class="tab-item" @click="showMore = !showMore">
+                <li class="tab-item" @click="showMore = !showMore, showMoreShop = false">
                     <button class="tab-more">
                         <span class="icon-wrap"> <i class="icon icon-more"> </i></span>
                         <span class="link-name">{{ translatesGet("MORE") }}</span>
                     </button>
                 </li>
             </ul>
+        </nav>
+        <div class="close-tabbar-more" v-if="showMoreShop" @click="showMoreShop = false"></div>
+        <nav class="tabbar-more tabbar-more-shop" v-if="showMoreShop">
+            <li class="tab-item" @click="showMoreShop = !showMoreShop">
+                <router-link active-class="active" :to="{ name: 'BuyNFT' }">
+                    <span class="icon-wrap"> <i class="icon icon-monitor"> </i></span>
+                    <span class="link-name">{{ "NFT" }}</span>
+                </router-link>
+            </li>
+            <li class="tab-item" @click="showMoreShop = !showMoreShop">
+                <router-link active-class="active" :to="{ name: 'BuyLootbox' }">
+                    <span class="icon-wrap"> <i class="icon icon-monitor"> </i></span>
+                    <span class="link-name">{{ "Lootbox" }}</span>
+                    <span class="icon-wrap icon-new"> <i class="icon icon-newtag"> </i></span>
+                </router-link>
+            </li>
         </nav>
         <div class="close-tabbar-more" v-if="showMore" @click="showMore = false"></div>
         <nav class="tabbar-more" v-if="showMore">
@@ -101,6 +123,7 @@
         data() {
             return {
                 lang: new MultiLang(this),
+                showMoreShop: false,
                 showMore: false,
             };
         },

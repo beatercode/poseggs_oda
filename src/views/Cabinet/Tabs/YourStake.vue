@@ -13,7 +13,7 @@
                             <div class="h5">{{ translatesGet("STAKING_DASH_DESCR") }}</div>
                         </div>
                     </div>
-                    <div class="cab-row" :class="{ 'row-binance': !currentBlockchain || currentBlockchain === 56, 'row-polygon': currentBlockchain === 137 }">
+                    <div class="cab-row" :class="{ 'row-binance': !currentBlockchain || currentBlockchain === 56 || currentBlockchain === 97, 'row-polygon': currentBlockchain === 137 }">
                         <div class="cab-row-card general-info-card">
                             <div class="general-card profit">
                                 <div class="general-card-col">
@@ -394,7 +394,7 @@
                             this.$store.commit("push_notification", {
                                 type: "success",
                                 typeClass: "success",
-                                message: `You have successfully unstaked your DuckNFT. The NFT should appear in the "Your NFTs" section of the "Buy NFTs" tab now.`,
+                                message: `You have successfully unstaked your DuckNFT. The NFT should appear in the "Your NFTs" section of the "Mint NFTs" tab now.`,
                             });
                             this.disableChildLoader = true;
                             setTimeout(() => {

@@ -1,0 +1,1702 @@
+{
+    "range": "lang!A1:Z1118",
+    "majorDimension": "ROWS",
+    "values": [
+        [
+            "я",
+            "RU",
+            "EN"
+        ],
+        [
+            "Lang"
+        ],
+        [
+            "RUSSIAN",
+            "Русский",
+            "Русский"
+        ],
+        [
+            "CHINESE",
+            "中文",
+            "中文"
+        ],
+        [
+            "ENGLISH",
+            "English",
+            "English"
+        ],
+        [
+            "GERMAN",
+            "Deutsch",
+            "Deutsch"
+        ],
+        [
+            "IRANIAN",
+            "Iranian",
+            "Iranian"
+        ],
+        [
+            "ru",
+            "Русский",
+            "Русский"
+        ],
+        [
+            "zh",
+            "中文",
+            "中文"
+        ],
+        [
+            "en",
+            "English",
+            "English"
+        ],
+        [
+            "de",
+            "Deutsch",
+            "Deutsch"
+        ],
+        [
+            "ir",
+            "Iranian",
+            "Iranian"
+        ],
+        [
+            "LAUNCH",
+            "",
+            "Launch"
+        ],
+        [
+            "AIRDROP",
+            "",
+            "Airdrop PDT"
+        ],
+        [
+            "MAIN",
+            "",
+            "Main"
+        ],
+        [
+            "STAKING",
+            "",
+            "Staking Pools"
+        ],
+        [
+            "YOUR_STAKE",
+            "",
+            "Staked NFTs"
+        ],
+        [
+            "BOOSTS",
+            "",
+            "Boosts"
+        ],
+        [
+            "CONNECT_WALLET",
+            "",
+            "Connect Wallet"
+        ],
+        [
+            "CONNECT_YOUR_WALLET",
+            "",
+            "Connect Your Wallet"
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [
+            "REF_PROG",
+            "",
+            "Referral Program"
+        ],
+        [
+            "LEAD_PROG",
+            "",
+            "Leader Program"
+        ],
+        [
+            "GITBOOK",
+            "",
+            "GitBook"
+        ],
+        [
+            "MORE",
+            "",
+            "More"
+        ],
+        [
+            "DISCONNECT",
+            "",
+            "Log Out"
+        ],
+        [
+            "DAYS",
+            "",
+            "Days"
+        ],
+        [
+            "HOURS",
+            "",
+            "Hours"
+        ],
+        [
+            "MINS",
+            "",
+            "Min"
+        ],
+        [
+            "SECS",
+            "",
+            "Sec"
+        ],
+        [
+            "JOIN",
+            "",
+            "Join Team"
+        ],
+        [
+            "ABOUT",
+            "",
+            "About"
+        ],
+        [
+            "COMING_SOON",
+            "",
+            "Coming Soon"
+        ],
+        [
+            "------- FOR FOOTER"
+        ],
+        [
+            "COLLECTION",
+            "",
+            "About"
+        ],
+        [
+            "OUR_NFTS",
+            "",
+            "DuckNFTs"
+        ],
+        [
+            "LAUNCH_APP",
+            "",
+            "Launch App"
+        ],
+        [
+            "TERMS_SERVICE",
+            "",
+            "Terms of Service"
+        ],
+        [
+            "PRIVACY_POLICY",
+            "",
+            "Privacy Policy"
+        ],
+        [],
+        [],
+        [
+            "------- FOR TABLE"
+        ],
+        [
+            "Level",
+            "",
+            "LVL"
+        ],
+        [
+            "PARTNERS",
+            "",
+            "Partners"
+        ],
+        [
+            "MEMBER",
+            "",
+            "Members"
+        ],
+        [
+            "PEOPLE",
+            "",
+            "People"
+        ],
+        [
+            "TURNOVER",
+            "",
+            "Turnover"
+        ],
+        [
+            "PROFIT",
+            "",
+            "Profit"
+        ],
+        [
+            "TIME",
+            "",
+            "Time"
+        ],
+        [
+            "STRUCT_TURNOVER",
+            "",
+            "Structure Turnover"
+        ],
+        [
+            "REF_REWARD_TD",
+            "",
+            "Referral Reward"
+        ],
+        [
+            "BOOSTS_TD",
+            "",
+            "Boosts"
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [
+            "COPY_REF_LINK",
+            "",
+            "Copy Your Referral Link"
+        ],
+        [
+            "YOUR_SPONSOR",
+            "",
+            "Your Referrer"
+        ],
+        [
+            "USERS_IN_STUCTURE",
+            "",
+            "Structure Users"
+        ],
+        [],
+        [
+            "STRUCTURE_DEPTH",
+            "",
+            "The depth of the structure is up to 5 levels"
+        ],
+        [
+            "REF_LEVEL",
+            "",
+            "Referral Level"
+        ],
+        [
+            "REF_REWARD",
+            "",
+            "Referral Reward"
+        ],
+        [
+            "LEVEL",
+            "",
+            "Level"
+        ],
+        [
+            "LEAD_LEVEL",
+            "",
+            "Your Potential Leader Level"
+        ],
+        [
+            "TEAM_BOOST",
+            "",
+            "Your Team Boost"
+        ],
+        [
+            "TEAM_BOOST_UNAVAIL",
+            "",
+            "A higher-LVL Boost unlocks to your team each time your leader moves up a level."
+        ],
+        [
+            "TEAM_BOOST_UNAVAIL_DESC",
+            "",
+            "The higher your leader's level is, the higher is the Boost LVL your team members can claim. Go for a quacky chief to secure higher-LVL Boosts for your team."
+        ],
+        [
+            "TEAM_BOOST_UNAVAIL_DESC_2",
+            "",
+            "A higher-LVL Boost unlocks to your team each time your leader moves up a level."
+        ],
+        [
+            "BOOST",
+            "",
+            "Boost LVL"
+        ],
+        [
+            "CONNECT_YOU_WALLET",
+            "",
+            "Connect Your Wallet"
+        ],
+        [
+            "CHOOSE_OPTION",
+            "",
+            "Use one of the options to log in."
+        ],
+        [
+            "BACK",
+            "",
+            "To Home",
+            "alteration"
+        ],
+        [
+            "BALANCE",
+            "",
+            "Wallet Ballance:"
+        ],
+        [
+            "SWITCH_NET",
+            "",
+            "Select Network:"
+        ],
+        [
+            "OUR_NFT",
+            "",
+            "DuckNFTs"
+        ],
+        [
+            "HOW_TO_EARN",
+            "",
+            "How to Earn"
+        ],
+        [
+            "INCENTIVE_PROGRAM",
+            "",
+            "Incentive Programs"
+        ],
+        [],
+        [
+            "EARN",
+            "",
+            "Earn"
+        ],
+        [
+            "UP_TO_PERC",
+            "",
+            "Up to 7% Daily"
+        ],
+        [
+            "ON_NFT_STAKING",
+            "",
+            "Staking NFTs"
+        ],
+        [
+            "TITLE_DESC",
+            "",
+            "PoSDuck is a platform turning NFTs into stakeable assets. The PoS (Proof-of-Stake) mechanism is employed to reward participants."
+        ],
+        [
+            "BUY",
+            "",
+            "Buy"
+        ],
+        [
+            "BUY_NFT",
+            "",
+            "Mint NFTs"
+        ],
+        [
+            "BUY_LOOTBOX",
+            "",
+            "Mint Lootbox"
+        ],
+        [
+            "LEARN_MORE",
+            "",
+            "Learn More"
+        ],
+        [
+            "BECOME_LEAD",
+            "",
+            "Become Leader"
+        ],
+        [
+            "YOU_ARE_LEAD",
+            "",
+            "You're Leader"
+        ],
+        [
+            "QUACK_1",
+            "",
+            "Quack, quack! 🦆 Curious how I got these wheels? Join in to find out!"
+        ],
+        [
+            "AUDITED_BY",
+            "",
+            "Audited By"
+        ],
+        [
+            "NFT_SOLD",
+            "",
+            "NFTs Sold"
+        ],
+        [
+            "NFT_VOLUME",
+            "",
+            "NFT Sales Volume"
+        ],
+        [
+            "TOTAL_PARTICIPANTS",
+            "",
+            "Total Participants"
+        ],
+        [
+            "INCOME_FROM_REF",
+            "",
+            "Referral Income"
+        ],
+        [
+            "OUR_NFT_DESC",
+            "",
+            "PoSDuck has its own quacky NFT collection launched on the BNB Chain net. There's 8 NFT types of the ERC-721 standard."
+        ],
+        [
+            "OUR_NFT_DESC_MATIC",
+            "",
+            "PoSDuck has its own quacky NFT collection launched on the Polygon net. There's 8 NFT types of the ERC-721 standard."
+        ],
+        [
+            "QUACK_2",
+            "",
+            "First you need to purchase a staking NFT. Pick your fave duck and follow my lead. It's been ducky for me ever since I started staking NFTs!"
+        ],
+        [
+            "LIMITED_STAKING",
+            "",
+            "Limited Staking"
+        ],
+        [
+            "LIMITED_STAKING_DESC",
+            "",
+            "This staking type is time-limited. Your NFTs get burned once the pool's time's up."
+        ],
+        [
+            "LIMITED_STAKING_DESC_1",
+            "",
+            "Stake in Any Pool You Like Better"
+        ],
+        [
+            "LIMITED_STAKING_DESC_2",
+            "",
+            "Use Reward-Enhancing Boosts"
+        ],
+        [
+            "LIMITED_STAKING_DESC_3",
+            "",
+            "Instant BNB Payouts"
+        ],
+        [
+            "LIMITED_STAKING_DESC_3_MATIC",
+            "",
+            "Instant MATIC Payouts",
+            "Polygon"
+        ],
+        [
+            "LIMITED_STAKING_DESC_4",
+            "",
+            "Rewards Accrue on a Minute-To-Minute Basis"
+        ],
+        [
+            "LIMITED_STAKING_DESC_5",
+            "",
+            "Rewards Can Be Claimed Anytime"
+        ],
+        [
+            "STAKE_NOW",
+            "",
+            "Start Staking"
+        ],
+        [
+            "POOL",
+            "",
+            "Pool"
+        ],
+        [
+            "PROFIT_PER_PERIOD",
+            "",
+            "Profit per Period"
+        ],
+        [
+            "PROFIT_PER_DAY",
+            "",
+            "Profit per Day"
+        ],
+        [
+            "UNLIMITED_STAKING",
+            "",
+            "Unlimited Staking"
+        ],
+        [
+            "UNLIMITED_STAKING_DESC",
+            "",
+            "This staking type has no time limits. You can unstake your NFTs as many times you need - they don't get burned."
+        ],
+        [
+            "UNLIMITED_STAKING_DESC_1",
+            "",
+            "Instant BNB Payouts",
+            "Polygon"
+        ],
+        [
+            "UNLIMITED_STAKING_DESC_1_MATIC",
+            "",
+            "Instant MATIC Payouts"
+        ],
+        [
+            "UNLIMITED_STAKING_DESC_2",
+            "",
+            "Rewards Accrue on a Minute-To-Minute Basis"
+        ],
+        [
+            "UNLIMITED_STAKING_DESC_3",
+            "",
+            "The Boosts Can't Be Applied"
+        ],
+        [
+            "UNLIMITED_STAKING_DESC_4",
+            "",
+            "Claim Your Rewards Without Unstaking Your NFTs Anytime"
+        ],
+        [
+            "UNLIMITED_STAKING_DESC_5",
+            "",
+            "Unstake Your NFTs and Claim Rewards Anytime, Re-Stake"
+        ],
+        [
+            "UNLIM_DAYS",
+            "",
+            "Unlimited Days"
+        ],
+        [
+            "UNLIM_DAYS_MOBILE",
+            "",
+            "Unlim. Days"
+        ],
+        [
+            "WHY_UNLIM_POOL",
+            "",
+            "Hey, why did you go for the Unlimited one?"
+        ],
+        [
+            "ANSWER_WHY",
+            "",
+            "Actually, it's simple: I can sell my NFTs at any point, claiming my rewards!"
+        ],
+        [
+            "GO_TO_STAKE",
+            "",
+            "Start Staking"
+        ],
+        [
+            "BOOSTS_DESC_BNB",
+            "",
+            "Boosts are BNB Chain ERC-1155 NFTs that increase your staking rewards in different ways once applied."
+        ],
+        [
+            "BOOSTS_DESC_MATIC",
+            "",
+            "Boosts are Polygon ERC-1155 NFTs that increase your staking rewards in different ways once applied.",
+            "Polygon"
+        ],
+        [
+            "BOOSTS_TYPES",
+            "",
+            "Boost Types:"
+        ],
+        [
+            "BOOSTS_TYPES_TITLE_1",
+            "",
+            "Time Boost"
+        ],
+        [
+            "BOOSTS_TYPES_TITLE_2",
+            "",
+            "Profit Boost"
+        ],
+        [
+            "BOOSTS_TYPES_TITLE_3",
+            "",
+            "Team Boost"
+        ],
+        [
+            "BOOSTS_TYPES_DESC_1",
+            "",
+            "This Boost type extends your NFT pool's staking period, providing you with additional money-making time depending on the Boost's power."
+        ],
+        [
+            "BOOSTS_TYPES_DESC_2",
+            "",
+            "This Boost type increases the interest your earn on your staked NFTs by a number of percentage points depending on the Boost's power."
+        ],
+        [
+            "BOOSTS_TYPES_DESC_3",
+            "",
+            "There's 10 levels to this Boost type - the same as there's Leader Levels. You get a new one each time your team leader hits a new level. You can also obtain one from another person. The Boost increases interest on your NFTs and staking period duration simultaneously."
+        ],
+        [
+            "BUY_BOOSTS",
+            "",
+            "Buy"
+        ],
+        [
+            "HOW_TO_EARN_TITLE",
+            "",
+            "How to Earn With PoSDuck"
+        ],
+        [
+            "HOW_TO_EARN_SUBTITLE",
+            "",
+            "Take advantage of each profit opportunity the platform provides you with to maximize your gains."
+        ],
+        [
+            "HOW_TO_EARN_LIST_TITLE_1",
+            "",
+            "Buy NFT"
+        ],
+        [
+            "HOW_TO_EARN_LIST_DESC_1",
+            "",
+            "Buy a DuckNFT, the most affordable one is just 0.01 BNB."
+        ],
+        [
+            "HOW_TO_EARN_LIST_TITLE_2",
+            "",
+            "Stake"
+        ],
+        [
+            "HOW_TO_EARN_LIST_DESC_2",
+            "",
+            "Select an staking pool that suits your goals better."
+        ],
+        [
+            "HOW_TO_EARN_LIST_TITLE_3",
+            "",
+            "Boost Your NFTs"
+        ],
+        [
+            "HOW_TO_EARN_LIST_DESC_3",
+            "",
+            "Earn more rewards staking your DuckNFTs by applying special Boost NFTs."
+        ],
+        [
+            "HOW_TO_EARN_LIST_TITLE_4",
+            "",
+            "Earn BNB Rewards"
+        ],
+        [
+            "HOW_TO_EARN_LIST_DESC_4",
+            "",
+            "Turn your DuckNFTs into powerful passive income generators."
+        ],
+        [
+            "HOW_TO_EARN_LIST_TITLE_5",
+            "",
+            "Referral Program"
+        ],
+        [
+            "HOW_TO_EARN_LIST_DESC_5",
+            "",
+            "The more people you refer to PoSDuck, the more BNB you're going to passively make."
+        ],
+        [
+            "HOW_TO_EARN_LIST_TITLE_1_MATIC",
+            "",
+            "Buy NFT"
+        ],
+        [
+            "HOW_TO_EARN_LIST_DESC_1_MATIC",
+            "",
+            "Buy a DuckNFT, the most affordable one is just 5 MATIC."
+        ],
+        [
+            "HOW_TO_EARN_LIST_TITLE_2_MATIC",
+            "",
+            "Stake"
+        ],
+        [
+            "HOW_TO_EARN_LIST_DESC_2_MATIC",
+            "",
+            "Select an staking pool that suits your goals better."
+        ],
+        [
+            "HOW_TO_EARN_LIST_TITLE_3_MATIC",
+            "",
+            "Boost Your NFTs"
+        ],
+        [
+            "HOW_TO_EARN_LIST_DESC_3_MATIC",
+            "",
+            "Earn more rewards staking your DuckNFTs by applying special Boost NFTs."
+        ],
+        [
+            "HOW_TO_EARN_LIST_TITLE_4_MATIC",
+            "",
+            "Earn MATIC Rewards"
+        ],
+        [
+            "HOW_TO_EARN_LIST_DESC_4_MATIC",
+            "",
+            "Turn your DuckNFTs into powerful passive income generators."
+        ],
+        [
+            "HOW_TO_EARN_LIST_TITLE_5_MATIC",
+            "",
+            "Referral Program"
+        ],
+        [
+            "HOW_TO_EARN_LIST_DESC_5_MATIC",
+            "",
+            "The more people you refer to PoSDuck, the more MATIC you're going to passively make."
+        ],
+        [
+            "START_EARN",
+            "",
+            "Start Earning"
+        ],
+        [
+            "INCENTIVE_PROGRAM_DESC",
+            "",
+            "Join PoSDuck's Incentive Programs to Earn Extra Rewards."
+        ],
+        [
+            "LEADERSHIP",
+            "",
+            "Leader"
+        ],
+        [
+            "REFERRAL",
+            "",
+            "Referral"
+        ],
+        [
+            "LEADERSHIP_PROGRAMM",
+            "",
+            "Leader Program"
+        ],
+        [
+            "LEADERSHIP_PROGRAMM_DESC",
+            "",
+            "Leader Program gives PoSDuck's most active users - leaders - the opportunity to secure Boosts for their team members as their structures reach higher levels."
+        ],
+        [
+            "QUACK_3",
+            "",
+            "How do I take the leader's reins?"
+        ],
+        [
+            "QUACK_4",
+            "",
+            "Expand your structure inviting more quacky friends!"
+        ],
+        [
+            "QUACK_5",
+            "",
+            "How do I take the leader's reins?"
+        ],
+        [
+            "QUACK_6",
+            "",
+            "Expand your structure inviting more quacky friends!"
+        ],
+        [
+            "LEADERSHIP_PROGRAMM_ITEM_1",
+            "",
+            "Team Boosts unlock for all the leader's team members, helping increase their NFT pools' profitability and staking period duration.",
+            "alteration"
+        ],
+        [
+            "LEADERSHIP_PROGRAMM_ITEM_2",
+            "",
+            "You can claim each Leader Level Team Boost only once."
+        ],
+        [
+            "LEADERSHIP_PROGRAMM_ITEM_3",
+            "",
+            "If you missed out on claiming the Team Boost of a given Leader Level before your team leader reached a new one, you only can claim the new level Team Boost."
+        ],
+        [
+            "LEADERSHIP_PROGRAMM_ITEM_4",
+            "",
+            "A newly formed team adopts its new leader's Boost LVL. Their Boost LVL must be higher than the previous leader's one."
+        ],
+        [
+            "LEADERSHIP_PROGRAMM_ITEM_5",
+            "",
+            "You can apply Team Boosts to your own staked NFTs, sell them on a DEX, or give them to your friends."
+        ],
+        [
+            "BECOME_A_LEADER",
+            "",
+            "Become Leader"
+        ],
+        [
+            "NFT_TEAM_BOOST",
+            "",
+            "Team Boost NFTs"
+        ],
+        [
+            "TABLE_HEAD_1",
+            "",
+            "Reach"
+        ],
+        [
+            "TABLE_HEAD_2",
+            "",
+            "Your Reward"
+        ],
+        [
+            "REFERRAL_PROGRAM",
+            "",
+            "Referral Program"
+        ],
+        [
+            "REFERRAL_PROGRAM_DESC",
+            "",
+            "Referral Program enables its active users to earn passive BNB income. Expand your structure by referring more people to the platform to get from 5 to 20 percent of each user transaction in your structure."
+        ],
+        [
+            "REFERRAL_PROGRAM_DESC_MATIC",
+            "",
+            "Referral Program enables its active users to earn passive MATIC income. Expand your structure by referring more people to the platform to get from 5 to 20 percent of each user transaction in your structure.",
+            "Polygon"
+        ],
+        [
+            "REFERRAL_PROGRAM_ITEM_1",
+            "",
+            "Referral Program features 8 levels, each having its respective reward rate."
+        ],
+        [
+            "REFERRAL_PROGRAM_ITEM_2",
+            "",
+            "The referral reward rate distribution to a chain of different level referrers is calculated according to the difference between the rates their levels secure.",
+            "alteration"
+        ],
+        [
+            "REFERRAL_PROGRAM_ITEM_3",
+            "",
+            "The maximum referral reward rate is 20%."
+        ],
+        [
+            "REFERRAL_PROGRAM_ITEM_4",
+            "",
+            "Your referrer level depends on your structure's BNB turnover."
+        ],
+        [
+            "REFERRAL_PROGRAM_ITEM_4_MATIC",
+            "",
+            "Your referrer level depends on your structure's MATIC turnover.",
+            "Polygon"
+        ],
+        [
+            "SUCCESS_REG",
+            "",
+            "Congrats, you're on a team now! 🎉 Share your referral link to take your team to greener pastures and get closer to hopping into the leader position."
+        ],
+        [
+            "MODAL_TIMER_DESCR",
+            "",
+            "You haven't got any applicable Boosts yet. Come buy some with PDT, BNB or get them from other platform users."
+        ],
+        [
+            "MODAL_TIMER_DESCR_POLYGON",
+            "",
+            "You haven't got any applicable Boosts yet. Come buy some with MATIC or get them from other platform users.",
+            "Polygon"
+        ],
+        [
+            "SWAP_DASH",
+            "",
+            "Galaxy Swap"
+        ],
+        [
+            "SWAP_DASH_DESCR",
+            "",
+            "SWAP_DASH_DESCR"
+        ],
+        [
+            "STAKING_DASH",
+            "",
+            "Staking Dashboard"
+        ],
+        [
+            "STAKING_DASH_DESCR",
+            "",
+            "Monitor your staked DuckNFTs, your profits and rates. Apply special Boosts to your NFTs' pools to get more rewards and extend staking periods. Stake, unstake, claim your rewards from this tab."
+        ],
+        [
+            "BOOSTER_TIME",
+            "",
+            "Time Boost"
+        ],
+        [
+            "BOOSTER_TIME_DESCR",
+            "",
+            "This Boost type extends your NFT's staking period, providing you with additional money-making time depending on the Boost's power."
+        ],
+        [
+            "BOOSTER_INACTIVE",
+            "",
+            "You've already applied this Boost type in this pool. "
+        ],
+        [
+            "BOOSTER_PROFIT",
+            "",
+            "Profit Boost"
+        ],
+        [
+            "BOOSTER_PROFIT_DESCR",
+            "",
+            "This Boost type increases the interest you earn on your NFTs by a number of percentage points depending on the Boost's power."
+        ],
+        [
+            "BOOSTER_TEAM",
+            "",
+            "Team Boost"
+        ],
+        [
+            "BOOSTER_TEAM_DESCR",
+            "",
+            "There's 10 levels to this Boost type - the same as there's Leader Levels. You get a new one each time your team leader hits a new level. You can also obtain one from another person. The Boost increases interest on your NFTs and staking period duration simultaneously."
+        ],
+        [
+            "LEAD_PROG_DESCR",
+            "",
+            "Leader Program gives PoSDuck's most active users - Leaders - the opportunity to secure Team Boosts for their teams as their structures reach higher levels."
+        ],
+        [
+            "REF_PROG_DESCR",
+            "",
+            "Referral Program enables its active users to earn passive BNB income. Expand your structure by referring more people to the platform to get 5-20% of each DuckNFT or Boost purchased by your structure members."
+        ],
+        [
+            "REF_PROG_DESCR_POLYGON",
+            "",
+            "Referral Program enables its active users to earn passive MATIC income. Expand your structure by referring more people to the platform to get 5-20% of each DuckNFT or Boost purchased by your structure members.",
+            "Polygon"
+        ],
+        [
+            "YOU_HAVE_BOOSTS",
+            "",
+            "Claimable Team Boost:",
+            "",
+            "alterations"
+        ],
+        [
+            "BOOSTER_TEAM_UNAVAIL",
+            "",
+            "Team Boost of a certain level currently available to you is displayed here."
+        ],
+        [
+            "BOOSTER_TEAM_BTN",
+            "",
+            "Leader Program"
+        ],
+        [
+            "YOUR_BOOSTS",
+            "",
+            "Your Boosts"
+        ],
+        [
+            "YOUR_BOOSTS_0_TITLE",
+            "",
+            "No Boosts Yet"
+        ],
+        [
+            "YOUR_BOOSTS_0_DESCR_BNB",
+            "",
+            "Use PDT or BNB to buy some. You can also get Boosts from other people."
+        ],
+        [
+            "YOUR_BOOSTS_0_DESCR_MATIC",
+            "",
+            "Use MATIC to buy some. You can also get Boosts from other people."
+        ],
+        [
+            "YOUR_NFTS",
+            "",
+            "Your NFTs"
+        ],
+        [
+            "YOUR_NFTS_DESCR",
+            "",
+            "Choose the PoSEgg you want to mint. Each one have his own stats."
+        ],
+        [
+            "YOUR_LOOTBOX_DESCR",
+            "",
+            "Choose the Lootbox you want to mint. Each one have different stats, make sure to dyor about chance of getting the desired result!"
+        ],
+        [
+            "YOUR_NFTS_0_TITLE",
+            "",
+            "No NFTs Yet"
+        ],
+        [
+            "YOUR_NFTS_0_DESCR",
+            "",
+            "Use BNB to buy some. You can also get DuckNFTs from other people."
+        ],
+        [
+            "YOUR_NFTS_0_DESCR_MATIC",
+            "",
+            "Use MATIC to buy some. You can also get DuckNFTs from other people."
+        ],
+        [
+            "YOUR_STAKE_0_TITLE",
+            "",
+            "No Staked NFTs Yet"
+        ],
+        [
+            "YOUR_STAKE_0_DESCR",
+            "",
+            "Start staking your DuckNFTs to earn interest now!"
+        ],
+        [
+            "YOUR_STAKE_0_BTN",
+            "",
+            "To Staking Pools"
+        ],
+        [
+            "SWAP_0_TITLE",
+            "",
+            "You don’t have Galaxy NFT"
+        ],
+        [
+            "SWAP_0_DESCR",
+            "",
+            "Перевірте чи виграли ви POSDuck Mystery BOX на сторінці кампанії."
+        ],
+        [
+            "SWAP_0_BTN",
+            "",
+            "Get POSDuck Mystery Box"
+        ],
+        [
+            "BTN_STAKE",
+            "",
+            "Stake"
+        ],
+        [
+            "BTN_UNSTAKE",
+            "",
+            "Unstake"
+        ],
+        [
+            "BTN_GO_STAKE",
+            "",
+            "Stake Now"
+        ],
+        [
+            "BTN_TRANSFER",
+            "",
+            "Transfer"
+        ],
+        [
+            "BTN_USE",
+            "",
+            "Apply"
+        ],
+        [
+            "MY_PROFILE",
+            "",
+            "My Profile"
+        ],
+        [
+            "GOT_IT",
+            "",
+            "Got It"
+        ],
+        [
+            "SLIDER_VALUE",
+            "",
+            "Price"
+        ],
+        [
+            "AMOUNT",
+            "",
+            "Amount"
+        ],
+        [
+            "MINT",
+            "",
+            "Mint"
+        ],
+        [
+            "MINT_NFT",
+            "",
+            "Mint NFT"
+        ],
+        [
+            "MINT_LOOTBOX",
+            "",
+            "Mint Lootbox"
+        ],
+        [
+            "STAKE_BTN",
+            "",
+            "Stake"
+        ],
+        [
+            "STAKE",
+            "",
+            "Stake Your DuckNFTs"
+        ],
+        [
+            "STAKE_DESCR",
+            "",
+            "Please select a staking pool. There's Limited & Unlimited pools. DuckNFTs staked in the former get burned once the staking period's over, while the latter enables you to unstake anytime."
+        ],
+        [
+            "SELECT",
+            "",
+            "Select"
+        ],
+        [
+            "SELECTED",
+            "",
+            "Selected"
+        ],
+        [],
+        [],
+        [
+            "EXPECTED_REWARD",
+            "",
+            "Estimated Profit"
+        ],
+        [
+            "COPYRIGHT",
+            "",
+            "© 2022 PoSDuck. All rights reserved."
+        ],
+        [
+            "ON_STAKE",
+            "",
+            "Staked"
+        ],
+        [
+            "BURNED",
+            "",
+            "Burned"
+        ],
+        [
+            "STARTED",
+            "",
+            "Started"
+        ],
+        [
+            "END_ST_POOL",
+            "",
+            "Ends"
+        ],
+        [
+            "HIDE",
+            "",
+            "Hide Boost Types"
+        ],
+        [
+            "BOOST_MY_NFT",
+            "",
+            "Apply Boosts Here"
+        ],
+        [],
+        [
+            "CLAIM",
+            "",
+            "Claim"
+        ],
+        [
+            "CLAIM_ALL",
+            "",
+            "Claim All"
+        ],
+        [
+            "CLAIMED",
+            "",
+            "Claimed"
+        ],
+        [
+            "DAYS_OF_STAKING",
+            "",
+            "Staking Period"
+        ],
+        [
+            "REWARD_PERCENT_DAY",
+            "",
+            "Profit per Day"
+        ],
+        [
+            "TOTAL_ST_PERCENT",
+            "",
+            "Profit per Period"
+        ],
+        [
+            "NO_TEAM_BOOST",
+            "",
+            "You don't have any Team Boosts yet. Wait till you leader hits the next level or become a leader yourself. You can also get these Boosts from other people."
+        ],
+        [
+            "NO_TIME_BOOST",
+            "",
+            "You don't have any Time Boosts yet. Buy one it to extend your staking period."
+        ],
+        [
+            "NO_PROFIT_BOOST",
+            "",
+            "You don't have any Profit Boosts yet. Buy one it to increase interest on your NFT."
+        ],
+        [
+            "ACTIVE",
+            "",
+            "Apply"
+        ],
+        [
+            "BUY_BOOST",
+            "",
+            "Buy"
+        ],
+        [
+            "NFT_DETAILS",
+            "",
+            "NFT Details"
+        ],
+        [
+            "SHOW_DETAILS",
+            "",
+            "Show Details"
+        ],
+        [
+            "HIDE_DETAILS",
+            "",
+            "Hide Details"
+        ],
+        [
+            "TITLE_INPUT",
+            "",
+            "Enter Recipient's Address"
+        ],
+        [
+            "INFO",
+            "",
+            "Info"
+        ],
+        [
+            "CONTRACT",
+            "",
+            "CONTRACT"
+        ],
+        [
+            "TOKEN_ID",
+            "",
+            "TOKEN ID"
+        ],
+        [
+            "METADATA",
+            "",
+            "METADATA"
+        ],
+        [
+            "ATTRS",
+            "",
+            "Attributes"
+        ],
+        [
+            "PURCH_VALUE",
+            "",
+            "Purchase Price"
+        ],
+        [
+            "BG_COLOR",
+            "",
+            "Background Color"
+        ],
+        [
+            "NFT_BOOST_DET",
+            "",
+            "NFT Boost Details"
+        ],
+        [
+            "CENTRALIZED",
+            "",
+            "Centralized"
+        ],
+        [
+            "TYPE",
+            "",
+            "Type"
+        ],
+        [
+            "READ_ARTICLE",
+            "",
+            "Catch Full Article!"
+        ],
+        [],
+        [
+            "METAMASK",
+            "",
+            "MetaMask"
+        ],
+        [
+            "WALLET_CONNECT",
+            "",
+            "WalletConnect"
+        ],
+        [
+            "DEPENDS_ON_DAYS",
+            "",
+            "3.33% Profit per Day"
+        ],
+        [],
+        [
+            "STAKING_POOL",
+            "",
+            "Pool"
+        ],
+        [
+            "NFT_FOR_ST",
+            "",
+            "Staking NFT"
+        ],
+        [
+            "UNLIM_PROFIT",
+            "",
+            "Unlimited Profit"
+        ],
+        [
+            "YOUR_ST_POOL",
+            "",
+            "Your Staking Pool"
+        ],
+        [
+            "TOTAL_PROFIT",
+            "",
+            "Total Profit"
+        ],
+        [
+            "AVAILABLE_CLAIM",
+            "",
+            "Claimable Profit"
+        ],
+        [
+            "APPROVE",
+            "",
+            "Approve"
+        ],
+        [
+            "BLOCKCHAIN",
+            "",
+            "Blockchain"
+        ],
+        [
+            "--------PAGE_PROGRAM"
+        ],
+        [
+            "STRUCTURE_USERS",
+            "",
+            "Structure Members"
+        ],
+        [
+            "STRUCTURE_PERCENT",
+            "",
+            "Structure Turnover"
+        ],
+        [
+            "STRUCTURE_LVL",
+            "",
+            "Referral Reward"
+        ],
+        [
+            "STRUCTURE_TURNOVER",
+            "",
+            "Referral Income"
+        ],
+        [],
+        [
+            "REWARD_AVAILABLE",
+            "",
+            "Current LVL Boost"
+        ],
+        [
+            "REWARD_NEXT",
+            "",
+            "Next LVL Boost"
+        ],
+        [
+            "REWARD_INACTIVE",
+            "",
+            "Max LVL Boost Reached"
+        ],
+        [
+            "REWARD_INACTIVE_DESCR",
+            "",
+            "Wow, you can't go higher than that! Everything is just full-on ducky now!"
+        ],
+        [
+            "REWARD_LINK",
+            "",
+            "Invite People to Start Your Team"
+        ],
+        [],
+        [
+            "PROGRESS_LEAD_TITLE",
+            "",
+            "Team Progress"
+        ],
+        [
+            "PROGRESS_LEAD_DESCRIBE_1",
+            "",
+            "Keep track of your team's progress so that you can apply a newly unlocked Team Boost each time your leader gets to the next level."
+        ],
+        [
+            "PROGRESS_LEAD_DESCRIBE_2",
+            "",
+            "Keep track of your team's progress so that you can apply a newly unlocked Team Boost each time you get to the next level."
+        ],
+        [
+            "PROGRESS_REF_TITLE",
+            "",
+            "Your Referral Program Progress"
+        ],
+        [
+            "PROGRESS_REF_DESCRIBE_1",
+            "",
+            "Check how your referrals are faring with their BNB turnover to see if you upgraded to a new referral reward rate."
+        ],
+        [
+            "PROGRESS_REF_DESCRIBE_1_POLYGON",
+            "",
+            "Check how your referrals are faring with their MATIC turnover to see if you upgraded to a new referral reward rate.",
+            "Polygon"
+        ],
+        [
+            "STRUCTURE_ROW_NAME_1",
+            "",
+            "Level"
+        ],
+        [
+            "STRUCTURE_ROW_NAME_1_SHORT",
+            "",
+            "LVL"
+        ],
+        [
+            "STRUCTURE_ROW_NAME_2",
+            "",
+            "Turnover"
+        ],
+        [
+            "STRUCTURE_ROW_NAME_3",
+            "",
+            "Team Members"
+        ],
+        [
+            "STRUCTURE_ROW_NAME_4",
+            "",
+            "Progress Bar"
+        ],
+        [
+            "STRUCTURE_ROW_NAME_5",
+            "",
+            "Your Boost"
+        ],
+        [
+            "STRUCTURE_ROW_NAME_6",
+            "",
+            "Referral Reward"
+        ],
+        [
+            "TEAM_TURNOVER",
+            "",
+            "Team Turnover"
+        ],
+        [],
+        [
+            "GO_TO_CLAIM",
+            "",
+            "Claim Now"
+        ],
+        [],
+        [
+            "-------MODAL_LEAD"
+        ],
+        [
+            "MODAL_LEAD_TITLE",
+            "",
+            "Become Quacky Leader"
+        ],
+        [
+            "MODAL_LEAD_DESC_1",
+            "",
+            "To become your team’s leader, surpass the current leader’s stats, then hit the “Become Leader” button. The button will be lit up for you in this pop-up once you meet the conditions. Team Boosts unlock for your team members on your becoming the leader."
+        ],
+        [
+            "MODAL_LEAD_DESC_2",
+            "",
+            "Level 1 is the minimum required one to become your team's leader. Hit “Become Leader, Quack” if you're Level 1 or higher. The button will be lit up for you once you meet the conditions. Team Boosts unlock for your team members on your becoming the leader."
+        ],
+        [
+            "MODAL_LEAD_SECTION_TITLE_1_1",
+            "",
+            "Your Leader's Stats:"
+        ],
+        [
+            "MODAL_LEAD_SECTION_TITLE_1_2",
+            "",
+            "Required Stats:"
+        ],
+        [
+            "MODAL_LEAD_LINK_1",
+            "",
+            "Your Leader's Address"
+        ],
+        [
+            "MODAL_LEAD_BLOCK_1_1",
+            "",
+            "Level"
+        ],
+        [
+            "MODAL_LEAD_BLOCK_1_2",
+            "",
+            "Members"
+        ],
+        [
+            "MODAL_LEAD_BLOCK_1_3",
+            "",
+            "Turnover"
+        ],
+        [],
+        [
+            "MODAL_LEAD_SECTION_TITLE_2_1",
+            "",
+            "Your Stats:"
+        ],
+        [
+            "MODAL_LEAD_SECTION_TITLE_2_2",
+            "",
+            "Your Stats:"
+        ],
+        [
+            "MODAL_LEAD_LINK_2",
+            "",
+            "Your Address:"
+        ],
+        [
+            "MODAL_LEAD_BLOCK_2_1",
+            "",
+            "Level"
+        ],
+        [
+            "MODAL_LEAD_BLOCK_2_2",
+            "",
+            "Members"
+        ],
+        [
+            "MODAL_LEAD_BLOCK_2_3",
+            "",
+            "Turnover"
+        ],
+        [],
+        [],
+        [],
+        [
+            "MODAL_LEAD_MAIN_BTN",
+            "",
+            "Become Leader, Quack"
+        ],
+        [
+            "MODAL_LEAD_WARN_1",
+            "",
+            "Your stats are lower than your leader's. Make sure you increase them before trying to take leadership."
+        ],
+        [
+            "MODAL_LEAD_WARN_2",
+            "",
+            "Great news! You can become your structure's leader! Hit the button to initiate the process."
+        ],
+        [
+            "MODAL_LEAD_WARN_3",
+            "",
+            "Level 1 or higher is required to take leadership."
+        ],
+        [
+            "INPUT_PLACEHOLDER_1",
+            "",
+            "Starts With 0x00"
+        ],
+        [],
+        [
+            "--------------page claim"
+        ],
+        [
+            "BTN_CLAIM",
+            "",
+            "Claim PDT"
+        ],
+        [
+            "BUY_BOOST_AIRDROP",
+            "",
+            "Buy Boosts"
+        ],
+        [
+            "BTN_WRITE",
+            "",
+            "Write"
+        ],
+        [
+            "BTN_CLAIM_METAMASK",
+            "",
+            "Add PDT to MetaMask"
+        ],
+        [
+            "CLAIM_TITLE_1",
+            "",
+            "You Earned"
+        ],
+        [
+            "CLAIM_TITLE_2",
+            "",
+            "Airdrop Reward Claimed"
+        ],
+        [
+            "CLAIM_TITLE_3",
+            "",
+            "Ope, Nothing to Claim"
+        ],
+        [
+            "CLAIM_TITLE_4",
+            "",
+            "PoSDuck Airdrop Claiming Period Is Over"
+        ],
+        [
+            "",
+            "",
+            "You have sussessfully claimed your Airdrop PDT tokens. The tokens should now appear in your crypto wallet."
+        ],
+        [],
+        [
+            "CLAIM_DESCR",
+            "",
+            "Congrats on finishing off all the Airdrop tasks! Here's your fair share of PDT rewards.Treat yourself, you deserved it!"
+        ],
+        [
+            "CLAIM_DESCR_2",
+            "",
+            "You have successfully claimed your Airdrop PDT tokens. Stick around for more PDT giveaways!"
+        ],
+        [
+            "CLAIM_DESCR_3",
+            "",
+            "You missed out on the PoSDuck Airdrop. But keep your bill up, there are new PDT giveaways on their way. "
+        ],
+        [
+            "CLAIM_DESCR_4",
+            "",
+            "Please hit the button below to contact a PoSDuck rep on Telegram if you performed all the Airdrop tasks and would like to claim your tokens. In your message, include your wallet address you entered in the Airdrop Bot."
+        ],
+        [],
+        [
+            "SWAP",
+            "",
+            "Galaxy NFT Swap"
+        ],
+        [
+            "",
+            "",
+            "Обміняйте Вашу NFT отриману з Містері Боксів на DuckNFT або NFT Boost для використання на платформі POSDuck"
+        ]
+    ]
+}
