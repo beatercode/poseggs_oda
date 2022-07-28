@@ -716,6 +716,7 @@ table{
     flex-wrap:wrap;
 }
 .li-our-nfts{
+    overflow: hidden;
     flex-grow: 0;
     padding:8px;
     border-radius:8px;
@@ -789,6 +790,14 @@ table{
     background-image:url(../images/all/nft-8.png)
 }
 */
+@media (max-width:560.5px) {
+    .ul-our-nfts:first-child .li-our-nfts:nth-child(odd) {
+        margin-left: 0px !important;
+    }
+    .ul-our-nfts:first-child .li-our-nfts:nth-child(even) {
+        margin-right: 0px !important;
+    }
+}
 .ul-our-nfts:first-child .li-our-nfts:first-child{
     background:linear-gradient(0deg,rgba(0,0,0,.4),rgba(0,0,0,.4)),radial-gradient(59.63% 59.63% at 50% 40.37%,#a94c26 0,#b87e52 100%)
 }

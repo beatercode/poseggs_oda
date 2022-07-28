@@ -37,7 +37,7 @@
                                         <ul class="ul-our-nfts" :class="'ul-binance'">
                                             <li v-for="(price, index) of prices" @click="setBnbAmountFixed(price)"
                                                 class="li-our-nfts nft-list-buy li-nft-red">
-                                                <div class="li-our-nft-wrap">
+                                                <div class="li-our-nft-wrap" @click="showStats = !showStats">
                                                     <img class="card-egg-image" :src="getNftImage(index)" />
                                                     <div class="li-nft-footer">
                                                         <div style="width: 100%">
@@ -51,7 +51,7 @@
                                                                     {{ price }} USD
                                                                 </span>
                                                             </div>
-                                                            <div>
+                                                            <div v-if="showStats">
                                                                 <div class="cab-row cab-row-stats stats-superiod">
                                                                     <span
                                                                         class="li-nft-footer-amount card-footer-stats">Daily</span>
@@ -166,7 +166,7 @@
                                             <ul class="ul-our-nfts" :class="'ul-binance'">
                                                 <li v-for="(price, index) of prices" @click="setBnbAmountFixed(price)"
                                                     class="li-our-nfts nft-list-buy li-nft-red">
-                                                    <div class="li-our-nft-wrap">
+                                                    <div class="li-our-nft-wrap" @click="showStats = !showStats">
                                                         <img class="card-egg-image" :src="getNftImage(index)" />
                                                         <div class="li-nft-footer">
                                                             <div style="width: 100%">
@@ -180,66 +180,68 @@
                                                                         {{ price }} USD
                                                                     </span>
                                                                 </div>
-                                                                <div>
-                                                                    <div class="cab-row cab-row-stats stats-superiod">
-                                                                        <span
-                                                                            class="li-nft-footer-amount card-footer-stats">Daily</span>
-                                                                        <span
-                                                                            class="li-nft-footer-amount-2 card-footer-stats">{{
-                                                                                    profits[index]
-                                                                            }}%</span>
+                                                                <Transition name="stats-card">
+                                                                    <div v-if="showStats">
+                                                                        <div class="cab-row cab-row-stats stats-superiod">
+                                                                            <span
+                                                                                class="li-nft-footer-amount card-footer-stats">Daily</span>
+                                                                            <span
+                                                                                class="li-nft-footer-amount-2 card-footer-stats">{{
+                                                                                        profits[index]
+                                                                                }}%</span>
+                                                                        </div>
+                                                                        <div class="cab-row cab-row-stats stats-superiod">
+                                                                            <span
+                                                                                class="li-nft-footer-amount card-footer-stats">Days</span>
+                                                                            <span
+                                                                                class="li-nft-footer-amount-2 card-footer-stats">{{
+                                                                                        periods[index]
+                                                                                }}</span>
+                                                                        </div>
+                                                                        <div class="cab-row cab-row-stats stats-superiod">
+                                                                            <span
+                                                                                class="li-nft-footer-amount card-footer-stats">Total</span>
+                                                                            <span
+                                                                                class="li-nft-footer-amount-2 card-footer-stats">{{
+                                                                                        parseFloat(
+                                                                                            profits[index] * periods[index]
+                                                                                        ).toFixed(1)
+                                                                                }}%</span>
+                                                                        </div>
+                                                                        <div class="cab-row cab-row-stats">
+                                                                            <span
+                                                                                class="li-nft-footer-amount card-footer-stats">Strength</span>
+                                                                            <span
+                                                                                class="li-nft-footer-amount-2 card-footer-stats">{{
+                                                                                        stats[index]
+                                                                                }}</span>
+                                                                        </div>
+                                                                        <div class="cab-row cab-row-stats">
+                                                                            <span
+                                                                                class="li-nft-footer-amount card-footer-stats">Healt</span>
+                                                                            <span
+                                                                                class="li-nft-footer-amount-2 card-footer-stats">{{
+                                                                                        stats[index]
+                                                                                }}</span>
+                                                                        </div>
+                                                                        <div class="cab-row cab-row-stats">
+                                                                            <span
+                                                                                class="li-nft-footer-amount card-footer-stats">Agility</span>
+                                                                            <span
+                                                                                class="li-nft-footer-amount-2 card-footer-stats">{{
+                                                                                        stats[index]
+                                                                                }}</span>
+                                                                        </div>
+                                                                        <div class="cab-row cab-row-stats">
+                                                                            <span
+                                                                                class="li-nft-footer-amount card-footer-stats">Magic</span>
+                                                                            <span
+                                                                                class="li-nft-footer-amount-2 card-footer-stats">{{
+                                                                                        stats[index]
+                                                                                }}</span>
+                                                                        </div>
                                                                     </div>
-                                                                    <div class="cab-row cab-row-stats stats-superiod">
-                                                                        <span
-                                                                            class="li-nft-footer-amount card-footer-stats">Days</span>
-                                                                        <span
-                                                                            class="li-nft-footer-amount-2 card-footer-stats">{{
-                                                                                    periods[index]
-                                                                            }}</span>
-                                                                    </div>
-                                                                    <div class="cab-row cab-row-stats stats-superiod">
-                                                                        <span
-                                                                            class="li-nft-footer-amount card-footer-stats">Total</span>
-                                                                        <span
-                                                                            class="li-nft-footer-amount-2 card-footer-stats">{{
-                                                                                    parseFloat(
-                                                                                        profits[index] * periods[index]
-                                                                                    ).toFixed(1)
-                                                                            }}%</span>
-                                                                    </div>
-                                                                    <div class="cab-row cab-row-stats">
-                                                                        <span
-                                                                            class="li-nft-footer-amount card-footer-stats">Strength</span>
-                                                                        <span
-                                                                            class="li-nft-footer-amount-2 card-footer-stats">{{
-                                                                                    stats[index]
-                                                                            }}</span>
-                                                                    </div>
-                                                                    <div class="cab-row cab-row-stats">
-                                                                        <span
-                                                                            class="li-nft-footer-amount card-footer-stats">Healt</span>
-                                                                        <span
-                                                                            class="li-nft-footer-amount-2 card-footer-stats">{{
-                                                                                    stats[index]
-                                                                            }}</span>
-                                                                    </div>
-                                                                    <div class="cab-row cab-row-stats">
-                                                                        <span
-                                                                            class="li-nft-footer-amount card-footer-stats">Agility</span>
-                                                                        <span
-                                                                            class="li-nft-footer-amount-2 card-footer-stats">{{
-                                                                                    stats[index]
-                                                                            }}</span>
-                                                                    </div>
-                                                                    <div class="cab-row cab-row-stats">
-                                                                        <span
-                                                                            class="li-nft-footer-amount card-footer-stats">Magic</span>
-                                                                        <span
-                                                                            class="li-nft-footer-amount-2 card-footer-stats">{{
-                                                                                    stats[index]
-                                                                            }}</span>
-                                                                    </div>
-                                                                </div>
+                                                                </Transition>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -272,6 +274,7 @@ export default {
             lang: new MultiLang(this),
             inputActive: false,
             bnbAmount: "",
+            showStats: false,
             prices: conf.EGG_DATA.prices,
             stats: conf.EGG_DATA.stats,
             profits: conf.EGG_DATA.profits,

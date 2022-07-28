@@ -1140,6 +1140,26 @@ table {
     background: radial-gradient(50% 50% at 49.87% 50.15%, #75a6d2 .01%, #14548f 100%)
 }
 
+.ststs-card-animated {
+    animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+    transform: translate3d(0, 0, 0);
+}
+
+.stats-card-enter-active, .stats-card-leave-active::before {
+    transform: translateY(-60px);
+}
+.stats-card-enter-active, .stats-card-leave-active {
+    transform: translateY(0px);
+    transition: 0.2s;
+    opacity: 1;
+}
+.stats-card-enter, .stats-card-leave-to /* .stats-card-leave-active below version 2.1.8 */ {
+    
+    transform: translateY(-60px);
+    transition: 0.2s;
+    opacity: 0;
+}
+
 .li-nft-footer {
     width: 100%;
     bottom: 0;
