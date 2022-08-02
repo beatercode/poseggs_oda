@@ -803,10 +803,10 @@ table{
 }
 */
 @media (max-width:560.5px) {
-    .ul-our-nfts:first-child .li-our-nfts:nth-child(odd) {
+    .nft-list-buy-page:nth-child(odd) {
         margin-right: 0px !important;
     }
-    .ul-our-nfts:first-child .li-our-nfts:nth-child(even) {
+    .nft-list-buy-page:nth-child(even) {
         margin-left: 0px !important;
     }
 }

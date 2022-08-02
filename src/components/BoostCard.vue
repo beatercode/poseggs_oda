@@ -20,24 +20,22 @@
             </div>
         </div>
         <div class="block-percent-content">
-            <form class="form-radio">
+            <div class="mint-nft-block"
+                style="width: 100% !important; display: flex; flex-direction: row; margin-top: 3px;">
                 <div class="radio-btns-wrap">
-                    <div v-if="currentBlockchain && currentBlockchain === 56 || currentBlockchain === 97" class="radio-btn">
-                        <input name="form4" checked type="radio" id="form4radioButton1" value="BNB" v-model="selectedCurrency" />
-                        <label for="form4radioButton1">0.172 {{ currency }}</label>
-                    </div>
-                    <div v-if="currentBlockchain && currentBlockchain === 137" class="radio-btn">
-                        <!-- <input name="form4" checked type="radio" id="form4radioButton1" value="MATIC" v-model="selectedCurrency" /> -->
-                        <label for="form4radioButton1">72 {{ currency }}</label>
-                    </div>
-                    <div v-if="currentBlockchain && currentBlockchain !== 137" class="radio-btn">
-                        <input name="form4" type="radio" id="form4radioButton2" value="BUSD" v-model="selectedCurrency" />
-                        <label for="form4radioButton2">15 BUSD</label>
+                    <div class="input-title"
+                        style="width: auto; line-height: unset; margin-top: 10px; font-size: 16px;">
+                        {{ "Price" }}</div>
+                    <div class="price-card-wrap"
+                        style="width: 100%; text-align: right; position: relative; right: 0;">
+                        <span type="number"
+                            @input="disablePercWatcher = true"> {{ "15" }}
+                        </span>
+                        <span class="coin">BUSD</span>
                     </div>
                 </div>
-
-                <button class="btn btn-radio-submit" type="submit" @click.prevent="buyBoost()">{{ translatesGet("BUY") }}</button>
-            </form>
+            </div>
+            <button class="btn btn-radio-submit" type="submit" @click.prevent="buyBoost()">{{ translatesGet("BUY") }}</button>
         </div>
     </div>
     <div v-else-if="type === 'profit' && id === 1" class="block-percent">
