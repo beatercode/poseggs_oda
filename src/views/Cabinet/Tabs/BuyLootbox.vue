@@ -43,99 +43,116 @@
                                 <div class="card-header card-header-nft-image-buy card-header-desctop">
                                     <div class="slider-nft-wrap">
                                         <ul class="ul-our-nfts" :class="'ul-binance'">
-                                            <li @click="setBnbAmountFixed(prices[0])" class="li-our-nfts nft-list-buy li-nft-red">
+                                            <li v-for="(price, index) of pricesLootbox" @click="setSelectedLoot(price, index)"
+                                                :style="[index == selectedIndex ? { 'opacity': '1' } : { 'opacity': '0.7' }]"
+                                                class="li-our-nfts nft-list-buy li-nft-red">
                                                 <div class="li-our-nft-wrap">
-                                                    <div class="li-nft-img"></div>
+                                                    <img class="card-egg-image"
+                                                        :class="{ hopping: index == selectedIndex }"
+                                                        :src="getNftImage(index)" />
                                                     <div class="li-nft-footer">
-                                                        <div>
-                                                            <span class="li-nft-footer-title">{{ translatesGet("SLIDER_VALUE") }}</span>
-                                                            <span class="li-nft-footer-amount">17 <br /> USD</span>
+                                                        <div style="width: 100%">
+                                                            <span class="li-nft-footer-title">{{
+                                                                    "Stats"
+                                                            }}</span>
+                                                            <div class="icon logo-coin icon-card"></div>
+                                                            <div>
+                                                                <div class="cab-row cab-row-stats">
+                                                                    <span
+                                                                        class="li-nft-footer-amount card-footer-stats">
+                                                                            {{ index == 2 ? "BONUS" : index != 3 ? ("TIER ".concat(index * 2 + 5)) : "&nbsp;" }}
+                                                                        </span>
+                                                                    <div class="li-nft-footer-amount-2 card-footer-stats"
+                                                                        style="text-align: left !important; display: flex; flex-direction: row; justify-content: flex-end;">
+                                                                        <!--div class="plus-minus-mint-button">-</div-->
+                                                                        <span>{{ index != 3 ? "0.03%" : "&nbsp;" }}</span>
+                                                                        <!--div class="plus-minus-mint-button">+</div-->
+                                                                    </div>
+                                                                </div>
+                                                                <div class="cab-row cab-row-stats">
+                                                                    <span
+                                                                        class="li-nft-footer-amount card-footer-stats">
+                                                                            {{ index != 3 ? ("TIER ".concat(index * 2 + 4)) : "&nbsp;" }}
+                                                                        </span>
+                                                                    <div class="li-nft-footer-amount-2 card-footer-stats"
+                                                                        style="text-align: left !important; display: flex; flex-direction: row; justify-content: flex-end;">
+                                                                        <!--div class="plus-minus-mint-button">-</div-->
+                                                                        <span>{{ index != 3 ? "0.3%" : "&nbsp;" }}</span>
+                                                                        <!--div class="plus-minus-mint-button">+</div-->
+                                                                    </div>
+                                                                </div>
+                                                                <div class="cab-row cab-row-stats">
+                                                                    <span
+                                                                        class="li-nft-footer-amount card-footer-stats">
+                                                                            {{ index == 3 ? "BONUS" : ("TIER ".concat(index * 2 + 3)) }}
+                                                                            </span>
+                                                                    <div class="li-nft-footer-amount-2 card-footer-stats"
+                                                                        style="text-align: left !important; display: flex; flex-direction: row; justify-content: flex-end;">
+                                                                        <!--div class="plus-minus-mint-button">-</div-->
+                                                                        <span>{{ "3%" }}</span>
+                                                                        <!--div class="plus-minus-mint-button">+</div-->
+                                                                    </div>
+                                                                </div>
+                                                                <div class="cab-row cab-row-stats">
+                                                                    <span
+                                                                        class="li-nft-footer-amount card-footer-stats">
+                                                                            {{ "TIER ".concat(index * 2 + 2) }}
+                                                                        </span>
+                                                                    <div class="li-nft-footer-amount-2 card-footer-stats"
+                                                                        style="text-align: left !important; display: flex; flex-direction: row; justify-content: flex-end;">
+                                                                        <!--div class="plus-minus-mint-button">-</div-->
+                                                                        <span>{{ "20%" }}
+                                                                        </span>
+                                                                        <!--div class="plus-minus-mint-button">+</div-->
+                                                                    </div>
+                                                                </div>
+                                                                <div class="cab-row cab-row-stats">
+                                                                    <span
+                                                                        class="li-nft-footer-amount card-footer-stats">
+                                                                            {{ "TIER ".concat(index * 2 + 1) }}
+                                                                        </span>
+                                                                    <div class="li-nft-footer-amount-2 card-footer-stats"
+                                                                        style="text-align: left !important; display: flex; flex-direction: row; justify-content: flex-end;">
+                                                                        <!--div class="plus-minus-mint-button">-</div-->
+                                                                        <span>{{ "56.697%" }}
+                                                                        </span>
+                                                                        <!--div class="plus-minus-mint-button">+</div-->
+                                                                    </div>
+                                                                </div>
+                                                                <div class="cab-row cab-row-stats">
+                                                                    <span
+                                                                        class="li-nft-footer-amount card-footer-stats">
+                                                                            {{ "TIER ".concat(index * 2 + 0) }}
+                                                                        </span>
+                                                                    <div class="li-nft-footer-amount-2 card-footer-stats"
+                                                                        style="text-align: left !important; display: flex; flex-direction: row; justify-content: flex-end;">
+                                                                        <!--div class="plus-minus-mint-button">-</div-->
+                                                                        <span>{{ "20%" }}
+                                                                        </span>
+                                                                        <!--div class="plus-minus-mint-button">+</div-->
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                        <div class="icon logo-coin"></div>
+                                                        <div class="mint-nft-block"
+                                                            style="width: 100% !important; display: flex; flex-direction: row; margin-top: 3px;">
+                                                            <div class="input-title"
+                                                                style="width: auto; line-height: unset; margin-top: 10px; font-size: 16px;">
+                                                                {{ "Price" }}</div>
+                                                            <div class="price-card-wrap"
+                                                                style="width: 100%; text-align: right; position: relative; right: 0;">
+                                                                <span type="number" @input="disablePercWatcher = true">
+                                                                    {{ price }}
+                                                                </span>
+                                                                <span class="coin">BUSD</span>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </li>
-                                            <li @click="setBnbAmountFixed(prices[1])" class="li-our-nfts nft-list-buy li-nft-blue">
-                                                <div class="li-our-nft-wrap">
-                                                    <div class="li-nft-img"></div>
-                                                    <div class="li-nft-footer">
-                                                        <div>
-                                                            <span class="li-nft-footer-title">{{ translatesGet("SLIDER_VALUE") }}</span>
-                                                            <span class="li-nft-footer-amount">47 <br /> USD </span>
-                                                        </div>
-                                                        <div class="icon logo-coin"></div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li @click="setBnbAmountFixed(prices[2])" class="li-our-nfts nft-list-buy li-nft-yellow">
-                                                <div class="li-our-nft-wrap">
-                                                    <div class="li-nft-img"></div>
-                                                    <div class="li-nft-footer">
-                                                        <div>
-                                                            <span class="li-nft-footer-title">{{ translatesGet("SLIDER_VALUE") }}</span>
-                                                            <span class="li-nft-footer-amount">97 <br /> USD</span>
-                                                        </div>
-                                                        <div class="icon logo-coin"></div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li @click="setBnbAmountFixed(prices[3])" class="li-our-nfts nft-list-buy li-nft-green">
-                                                <div class="li-our-nft-wrap">
-                                                    <div class="li-nft-img"></div>
-                                                    <div class="li-nft-footer">
-                                                        <div>
-                                                            <span class="li-nft-footer-title">{{ translatesGet("SLIDER_VALUE") }}</span>
-                                                            <span class="li-nft-footer-amount">197 <br /> USD</span>
-                                                        </div>
-                                                        <div class="icon logo-coin"></div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li @click="setBnbAmountFixed(prices[4])" class="li-our-nfts nft-list-buy li-nft-red">
-                                                <div class="li-our-nft-wrap">
-                                                    <div class="li-nft-img"></div>
-                                                    <div class="li-nft-footer">
-                                                        <div>
-                                                            <span class="li-nft-footer-title">{{ translatesGet("SLIDER_VALUE") }}</span>
-                                                            <span class="li-nft-footer-amount">497 <br /> USD</span>
-                                                        </div>
-                                                        <div class="icon logo-coin"></div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li @click="setBnbAmountFixed(prices[5])" class="li-our-nfts nft-list-buy li-nft-blue">
-                                                <div class="li-our-nft-wrap">
-                                                    <div class="li-nft-img"></div>
-                                                    <div class="li-nft-footer">
-                                                        <div>
-                                                            <span class="li-nft-footer-title">{{ translatesGet("SLIDER_VALUE") }}</span>
-                                                            <span class="li-nft-footer-amount">997 <br /> USD</span>
-                                                        </div>
-                                                        <div class="icon logo-coin"></div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li @click="setBnbAmountFixed(prices[6])" class="li-our-nfts nft-list-buy li-nft-yellow">
-                                                <div class="li-our-nft-wrap">
-                                                    <div class="li-nft-img"></div>
-                                                    <div class="li-nft-footer">
-                                                        <div>
-                                                            <span class="li-nft-footer-title">{{ translatesGet("SLIDER_VALUE") }}</span>
-                                                            <span class="li-nft-footer-amount">1997 <br /> USD</span>
-                                                        </div>
-                                                        <div class="icon logo-coin"></div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li @click="setBnbAmountFixed(prices[7])" class="li-our-nfts nft-list-buy li-nft-green">
-                                                <div class="li-our-nft-wrap">
-                                                    <div class="li-nft-img"></div>
-                                                    <div class="li-nft-footer">
-                                                        <div>
-                                                            <span class="li-nft-footer-title">{{ translatesGet("SLIDER_VALUE") }}</span>
-                                                            <span class="li-nft-footer-amount">4997 <br /> USD</span>
-                                                        </div>
-                                                        <div class="icon logo-coin"></div>
+                                                    <div class="mint-nft-block" style="margin-top: 0px;">
+                                                        <button :disabled="showLoader" @click="BuyNFT(index)"
+                                                            class="btn btn-mint">
+                                                            {{ translatesGet("MINT") }}
+                                                        </button>
                                                     </div>
                                                 </div>
                                             </li>
@@ -145,32 +162,6 @@
                             </div>
 
                             <div class="cab-row">
-                                <div class="cab-row-card mint-nft">
-                                    <div class="mint-nft-block"></div>
-                                    <div class="mint-nft-block">
-                                        <div class="input-title">{{ translatesGet("AMOUNT") }}</div>
-                                        <div
-                                            class="input-wrap"
-                                            @focusin="focusInputIn()"
-                                            @focusout="focusInputOut()"
-                                            :class="{ active: inputActive, error: showInputError }"
-                                        >
-                                            <input
-                                                disabled
-                                                type="number"
-                                                v-model="bnbAmount"
-                                                :placeholder="`${this.currentBlockchain && this.currentBlockchain === 97 ? 17 : 0.01}`"
-                                                @input="disablePercWatcher = true"
-                                            />
-
-                                            <span class="coin">BUSD</span>
-                                        </div>
-                                        <div class="input-error-describe" :class="{ active: showInputError }">{{ inputErrorText }}</div>
-                                    </div>
-                                    <div class="mint-nft-block">
-                                        <button :disabled="showLoader" @click="BuyNFT()" class="btn btn-mint">{{ translatesGet("MINT") }}</button>
-                                    </div>
-                                </div>
                                 <div class="cab-row-card mint-nft-img">
                                     
                                     <div class="card-header card-header-mobile">
@@ -195,99 +186,116 @@
                                     <div class="card-header card-header-nft-image-buy card-header-mobile">
                                         <div class="slider-nft-wrap">
                                         <ul class="ul-our-nfts" :class="'ul-binance'">
-                                            <li @click="setBnbAmountFixed(prices[0])" class="li-our-nfts nft-list-buy li-nft-red">
+                                            <li v-for="(price, index) of pricesLootbox" @click="setSelectedLoot(price, index)"
+                                                :style="[index == selectedIndex ? { 'opacity': '1' } : { 'opacity': '0.7' }]"
+                                                class="li-our-nfts nft-list-buy li-nft-red">
                                                 <div class="li-our-nft-wrap">
-                                                    <div class="li-nft-img"></div>
+                                                    <img class="card-egg-image"
+                                                        :class="{ hopping: index == selectedIndex }"
+                                                        :src="getNftImage(index)" />
                                                     <div class="li-nft-footer">
-                                                        <div>
-                                                            <span class="li-nft-footer-title">{{ translatesGet("SLIDER_VALUE") }}</span>
-                                                            <span class="li-nft-footer-amount">17 <br /> USD</span>
+                                                        <div style="width: 100%">
+                                                            <span class="li-nft-footer-title">{{
+                                                                    "Stats"
+                                                            }}</span>
+                                                            <div class="icon logo-coin icon-card"></div>
+                                                            <div>
+                                                                <div class="cab-row cab-row-stats">
+                                                                    <span
+                                                                        class="li-nft-footer-amount card-footer-stats">
+                                                                            {{ index == 2 ? "BONUS" : index != 3 ? ("TIER ".concat(index * 2 + 5)) : "&nbsp;" }}
+                                                                        </span>
+                                                                    <div class="li-nft-footer-amount-2 card-footer-stats"
+                                                                        style="text-align: left !important; display: flex; flex-direction: row; justify-content: flex-end;">
+                                                                        <!--div class="plus-minus-mint-button">-</div-->
+                                                                        <span>{{ index != 3 ? "0.03%" : "&nbsp;" }}</span>
+                                                                        <!--div class="plus-minus-mint-button">+</div-->
+                                                                    </div>
+                                                                </div>
+                                                                <div class="cab-row cab-row-stats">
+                                                                    <span
+                                                                        class="li-nft-footer-amount card-footer-stats">
+                                                                            {{ index != 3 ? ("TIER ".concat(index * 2 + 4)) : "&nbsp;" }}
+                                                                        </span>
+                                                                    <div class="li-nft-footer-amount-2 card-footer-stats"
+                                                                        style="text-align: left !important; display: flex; flex-direction: row; justify-content: flex-end;">
+                                                                        <!--div class="plus-minus-mint-button">-</div-->
+                                                                        <span>{{ index != 3 ? "0.3%" : "&nbsp;" }}</span>
+                                                                        <!--div class="plus-minus-mint-button">+</div-->
+                                                                    </div>
+                                                                </div>
+                                                                <div class="cab-row cab-row-stats">
+                                                                    <span
+                                                                        class="li-nft-footer-amount card-footer-stats">
+                                                                            {{ index == 3 ? "BONUS" : ("TIER ".concat(index * 2 + 3)) }}
+                                                                            </span>
+                                                                    <div class="li-nft-footer-amount-2 card-footer-stats"
+                                                                        style="text-align: left !important; display: flex; flex-direction: row; justify-content: flex-end;">
+                                                                        <!--div class="plus-minus-mint-button">-</div-->
+                                                                        <span>{{ "3%" }}</span>
+                                                                        <!--div class="plus-minus-mint-button">+</div-->
+                                                                    </div>
+                                                                </div>
+                                                                <div class="cab-row cab-row-stats">
+                                                                    <span
+                                                                        class="li-nft-footer-amount card-footer-stats">
+                                                                            {{ "TIER ".concat(index * 2 + 2) }}
+                                                                        </span>
+                                                                    <div class="li-nft-footer-amount-2 card-footer-stats"
+                                                                        style="text-align: left !important; display: flex; flex-direction: row; justify-content: flex-end;">
+                                                                        <!--div class="plus-minus-mint-button">-</div-->
+                                                                        <span>{{ "20%" }}
+                                                                        </span>
+                                                                        <!--div class="plus-minus-mint-button">+</div-->
+                                                                    </div>
+                                                                </div>
+                                                                <div class="cab-row cab-row-stats">
+                                                                    <span
+                                                                        class="li-nft-footer-amount card-footer-stats">
+                                                                            {{ "TIER ".concat(index * 2 + 1) }}
+                                                                        </span>
+                                                                    <div class="li-nft-footer-amount-2 card-footer-stats"
+                                                                        style="text-align: left !important; display: flex; flex-direction: row; justify-content: flex-end;">
+                                                                        <!--div class="plus-minus-mint-button">-</div-->
+                                                                        <span>{{ "56.697%" }}
+                                                                        </span>
+                                                                        <!--div class="plus-minus-mint-button">+</div-->
+                                                                    </div>
+                                                                </div>
+                                                                <div class="cab-row cab-row-stats">
+                                                                    <span
+                                                                        class="li-nft-footer-amount card-footer-stats">
+                                                                            {{ "TIER ".concat(index * 2 + 0) }}
+                                                                        </span>
+                                                                    <div class="li-nft-footer-amount-2 card-footer-stats"
+                                                                        style="text-align: left !important; display: flex; flex-direction: row; justify-content: flex-end;">
+                                                                        <!--div class="plus-minus-mint-button">-</div-->
+                                                                        <span>{{ "20%" }}
+                                                                        </span>
+                                                                        <!--div class="plus-minus-mint-button">+</div-->
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                        <div class="icon logo-coin"></div>
+                                                        <div class="mint-nft-block"
+                                                            style="width: 100% !important; display: flex; flex-direction: row; margin-top: 3px;">
+                                                            <div class="input-title"
+                                                                style="width: auto; line-height: unset; margin-top: 10px; font-size: 16px;">
+                                                                {{ "Price" }}</div>
+                                                            <div class="price-card-wrap"
+                                                                style="width: 100%; text-align: right; position: relative; right: 0;">
+                                                                <span type="number" @input="disablePercWatcher = true">
+                                                                    {{ price }}
+                                                                </span>
+                                                                <span class="coin">BUSD</span>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </li>
-                                            <li @click="setBnbAmountFixed(prices[1])" class="li-our-nfts nft-list-buy li-nft-blue">
-                                                <div class="li-our-nft-wrap">
-                                                    <div class="li-nft-img"></div>
-                                                    <div class="li-nft-footer">
-                                                        <div>
-                                                            <span class="li-nft-footer-title">{{ translatesGet("SLIDER_VALUE") }}</span>
-                                                            <span class="li-nft-footer-amount">47 <br /> USD </span>
-                                                        </div>
-                                                        <div class="icon logo-coin"></div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li @click="setBnbAmountFixed(prices[2])" class="li-our-nfts nft-list-buy li-nft-yellow">
-                                                <div class="li-our-nft-wrap">
-                                                    <div class="li-nft-img"></div>
-                                                    <div class="li-nft-footer">
-                                                        <div>
-                                                            <span class="li-nft-footer-title">{{ translatesGet("SLIDER_VALUE") }}</span>
-                                                            <span class="li-nft-footer-amount">97 <br /> USD</span>
-                                                        </div>
-                                                        <div class="icon logo-coin"></div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li @click="setBnbAmountFixed(prices[3])" class="li-our-nfts nft-list-buy li-nft-green">
-                                                <div class="li-our-nft-wrap">
-                                                    <div class="li-nft-img"></div>
-                                                    <div class="li-nft-footer">
-                                                        <div>
-                                                            <span class="li-nft-footer-title">{{ translatesGet("SLIDER_VALUE") }}</span>
-                                                            <span class="li-nft-footer-amount">197 <br /> USD</span>
-                                                        </div>
-                                                        <div class="icon logo-coin"></div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li @click="setBnbAmountFixed(prices[4])" class="li-our-nfts nft-list-buy li-nft-red">
-                                                <div class="li-our-nft-wrap">
-                                                    <div class="li-nft-img"></div>
-                                                    <div class="li-nft-footer">
-                                                        <div>
-                                                            <span class="li-nft-footer-title">{{ translatesGet("SLIDER_VALUE") }}</span>
-                                                            <span class="li-nft-footer-amount">497 <br /> USD</span>
-                                                        </div>
-                                                        <div class="icon logo-coin"></div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li @click="setBnbAmountFixed(prices[5])" class="li-our-nfts nft-list-buy li-nft-blue">
-                                                <div class="li-our-nft-wrap">
-                                                    <div class="li-nft-img"></div>
-                                                    <div class="li-nft-footer">
-                                                        <div>
-                                                            <span class="li-nft-footer-title">{{ translatesGet("SLIDER_VALUE") }}</span>
-                                                            <span class="li-nft-footer-amount">997 <br /> USD</span>
-                                                        </div>
-                                                        <div class="icon logo-coin"></div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li @click="setBnbAmountFixed(prices[6])" class="li-our-nfts nft-list-buy li-nft-yellow">
-                                                <div class="li-our-nft-wrap">
-                                                    <div class="li-nft-img"></div>
-                                                    <div class="li-nft-footer">
-                                                        <div>
-                                                            <span class="li-nft-footer-title">{{ translatesGet("SLIDER_VALUE") }}</span>
-                                                            <span class="li-nft-footer-amount">1997 <br /> USD</span>
-                                                        </div>
-                                                        <div class="icon logo-coin"></div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li @click="setBnbAmountFixed(prices[7])" class="li-our-nfts nft-list-buy li-nft-green">
-                                                <div class="li-our-nft-wrap">
-                                                    <div class="li-nft-img"></div>
-                                                    <div class="li-nft-footer">
-                                                        <div>
-                                                            <span class="li-nft-footer-title">{{ translatesGet("SLIDER_VALUE") }}</span>
-                                                            <span class="li-nft-footer-amount">4997 <br /> USD</span>
-                                                        </div>
-                                                        <div class="icon logo-coin"></div>
+                                                    <div class="mint-nft-block" style="margin-top: 0px;">
+                                                        <button :disabled="showLoader" @click="BuyNFT(index)"
+                                                            class="btn btn-mint">
+                                                            {{ translatesGet("MINT") }}
+                                                        </button>
                                                     </div>
                                                 </div>
                                             </li>
@@ -321,12 +329,14 @@
                 inputActive: false,
                 bnbAmount: "",
                 prices: [17, 47, 97, 197, 497, 997, 1997, 4997],
+                pricesLootbox: [17, 97, 497, 1997],
                 amount1: false,
                 amount2: false,
                 amount3: false,
                 amount4: false,
                 showLoader: false,
                 percent: 0,
+                selectedIndex: 3,
                 showInputError: false,
                 inputErrorText: "",
                 selectedNft: null,
@@ -406,6 +416,17 @@
                 const amount = (this.userERC20Balance * perc) / 100;
                 this.bnbAmount = parseFloat(Number(this.$root.core.withoutRound(amount, 4)));
             },
+            getNftImage(index) {
+                var images = require.context("/src/assets/images/all/", false, /\.png$/);
+                return images("./lootbox-" + index + ".png");
+            },
+            setSelectedLoot(amount, _selectedIndex) {
+                if (this.selectedIndex == _selectedIndex) return;
+                this.selectedIndex = _selectedIndex;
+                this.busdAmount = parseFloat(
+                    Number(this.$root.core.withoutRound(amount, 4))
+                );
+            },
             async BuyNFT() {
                 if (!this.currentAddress || this.currentAddress === "0x0000000000000000000000000000000000000000") {
                     this.$emit("changeWallet");
@@ -458,7 +479,7 @@
                         typeClass: "warning",
                         message: `Your transaction has successfully entered the blockchain! Waiting for enough confirmations...`,
                     });
-                    fbq("track", "Lead");
+                    //fbq("track", "Lead");
                     await res.wait(5);
                 } catch (error) {
                     this.showLoader = false;
@@ -466,44 +487,6 @@
                     return;
                 }
             },
-            // async addNftToWallet(nft) {
-            //     if (window.ethereum && localStorage.getItem("selectedWallet") === "metamask") {
-            //         try {
-            //             // wasAdded is a boolean. Like any RPC method, an error may be thrown.
-            //             await window.ethereum.request({
-            //                 method: "wallet_watchAsset",
-            //                 params: {
-            //                     type: "ERC721",
-            //                     options: {
-            //                         address: conf[this.currentBlockchain].NFT_CONTRACT,
-            //                         symbol: "PSDC",
-            //                         id: nft.id,
-            //                         decimals: 0, // The number of decimals in the token
-            //                     },
-            //                 },
-            //             });
-            //         } catch (error) {
-            //             alert(error.message);
-            //         }
-            //     } else if (window.localStorage.getItem("selectedWallet") === "walletconnect") {
-            //         try {
-            //             await this.$root.core.provider.provider.request({
-            //                 method: "wallet_watchAsset",
-            //                 params: {
-            //                     type: "ERC20",
-            //                     options: {
-            //                         address: token.address,
-            //                         symbol: token.tag,
-            //                         decimals: token.decimals || 18, // The number of decimals in the token
-            //                         image: `${conf.REF_BASE}tokens/${token.tag.toLowerCase()}.png`, // A string url of the token logo
-            //                     },
-            //                 },
-            //             });
-            //         } catch (error) {
-            //             console.log(error);
-            //         }
-            //     }
-            // },
             async transfer(nft) {
                 this.selectedNft = nft;
                 this.showTransferModal = true;
@@ -689,9 +672,9 @@
                     this.currentAddress &&
                     this.currentAddress !== "0x0000000000000000000000000000000000000000"
                 ) {
-                    const arr = this.userNftsData[this.currentBlockchain][conf[this.currentBlockchain].NFT_CONTRACT] || [];
-
-                    return arr.sort((a, b) => b.id - a.id);
+                    // const arr = this.userNftsData[this.currentBlockchain][conf[this.currentBlockchain].NFT_CONTRACT] || [];
+                    // return arr.sort((a, b) => b.id - a.id);
+                    return this.userNftsData;
                 }
                 return null;
             },

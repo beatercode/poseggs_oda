@@ -19,24 +19,20 @@
                             <div class="h4">{{ translatesGet("YOUR_NFTS") }}</div>
 
                             <div v-if="nfts && nfts.length" class="your-nfts-card your-nfts" :class="{ 'your-nfts-alone': nfts && nfts.length === 1 }">
-                                <div class="your-nfts-block" v-for="nft of nfts">
-                                    <div class="img-wrap">
-                                        <div v-if="showLoader && selectedToken === nft.tokenId" class="nft-load">
-                                            <div class="nft-load-icon"></div>
+                                <li v-for="(nft, index) of nfts" class="li-our-nfts nft-list-buy li-nft-red">
+                                    <div class="li-our-nft-wrap">
+                                        <img class="card-egg-image" :src="getImageLinkByPrice(nft.price)" 
+                                            @click="(onlyData = true), (showTransferModal = true), (selectedNft = nft)" />
+                                        <div class="li-nft-footer" style="padding: 0px; background: #ffffff00;">
+                                            <router-link :to="{ name: 'Staking' }" class="btn btn-go-stake" style="margin-top: 0px; border-radius: 0px;">
+                                                {{ translatesGet("BTN_GO_STAKE") }}
+                                            </router-link>
+                                            <button :disabled="showLoader" @click="transfer(nft)" class="btn btn-transfer" style="margin-top: 0px; border-radius: 0px 0px 6px 6px;">
+                                                {{ translatesGet("BTN_TRANSFER") }}
+                                            </button>
                                         </div>
-
-                                        <img
-                                            v-else
-                                            class="your-nft-img"
-                                            :src="nft.image"
-                                            alt="main-img"
-                                            @click="(onlyData = true), (showTransferModal = true), (selectedNft = nft)"
-                                        />
                                     </div>
-                                    <router-link :to="{ name: 'Staking' }" class="btn btn-go-stake">{{ translatesGet("BTN_GO_STAKE") }}</router-link>
-                                    <button :disabled="showLoader" @click="transfer(nft)" class="btn btn-transfer">{{ translatesGet("BTN_TRANSFER") }}</button>
-                                    <!-- <button @click="addNftToWallet(nft)">Add to wallet</button> -->
-                                </div>
+                                </li>
                             </div>
 
                             <div v-else-if="!nfts || !nfts.length" class="your-nfts-card your-nfts-empty">
@@ -154,6 +150,16 @@
             setBnbAmountFixed(amount) {
                 this.bnbAmount = parseFloat(Number(this.$root.core.withoutRound(amount, 4)));
             },
+            getNftImage(index) {
+                var images = require.context("/src/assets/images/all/", false, /\.png$/);
+                return images("./nft-" + (index + 1) + ".png");
+            },
+            getImageLinkByPrice(nftPrice) {
+                console.log(nftPrice);
+                let nftId = nftPrice == 17 ? 1 : nftPrice == 47 ? 2 : nftPrice == 97 ? 3 : nftPrice == 197 ? 4 : nftPrice == 497 ? 5 : nftPrice == 997 ? 6 : nftPrice == 1997 ?  7 : nftPrice == 4997 ? 8 : 9;
+                var images = require.context("/src/assets/images/all/", false, /\.png$/);
+                return images("./nft-" + nftId + ".png");
+            },
             setBnbAmount(perc) {
                 const amount = (this.userERC20Balance * perc) / 100;
                 this.bnbAmount = parseFloat(Number(this.$root.core.withoutRound(amount, 4)));
@@ -210,7 +216,7 @@
                         typeClass: "warning",
                         message: `Your transaction has successfully entered the blockchain! Waiting for enough confirmations...`,
                     });
-                    fbq("track", "Lead");
+                    //fbq("track", "Lead");
                     await res.wait(5);
                 } catch (error) {
                     this.showLoader = false;
@@ -218,44 +224,6 @@
                     return;
                 }
             },
-            // async addNftToWallet(nft) {
-            //     if (window.ethereum && localStorage.getItem("selectedWallet") === "metamask") {
-            //         try {
-            //             // wasAdded is a boolean. Like any RPC method, an error may be thrown.
-            //             await window.ethereum.request({
-            //                 method: "wallet_watchAsset",
-            //                 params: {
-            //                     type: "ERC721",
-            //                     options: {
-            //                         address: conf[this.currentBlockchain].NFT_CONTRACT,
-            //                         symbol: "PSDC",
-            //                         id: nft.id,
-            //                         decimals: 0, // The number of decimals in the token
-            //                     },
-            //                 },
-            //             });
-            //         } catch (error) {
-            //             alert(error.message);
-            //         }
-            //     } else if (window.localStorage.getItem("selectedWallet") === "walletconnect") {
-            //         try {
-            //             await this.$root.core.provider.provider.request({
-            //                 method: "wallet_watchAsset",
-            //                 params: {
-            //                     type: "ERC20",
-            //                     options: {
-            //                         address: token.address,
-            //                         symbol: token.tag,
-            //                         decimals: token.decimals || 18, // The number of decimals in the token
-            //                         image: `${conf.REF_BASE}tokens/${token.tag.toLowerCase()}.png`, // A string url of the token logo
-            //                     },
-            //                 },
-            //             });
-            //         } catch (error) {
-            //             console.log(error);
-            //         }
-            //     }
-            // },
             async transfer(nft) {
                 this.selectedNft = nft;
                 this.showTransferModal = true;
@@ -435,15 +403,17 @@
                 }
             },
             nfts() {
+                console.log(this.userNftsData);
                 if (
                     this.userNftsData &&
                     this.currentBlockchain &&
                     this.currentAddress &&
                     this.currentAddress !== "0x0000000000000000000000000000000000000000"
                 ) {
-                    const arr = this.userNftsData[this.currentBlockchain][conf[this.currentBlockchain].NFT_CONTRACT] || [];
-
-                    return arr.sort((a, b) => b.id - a.id);
+                    // const arr = this.userNftsData[this.currentBlockchain][conf[this.currentBlockchain].NFT_CONTRACT] || [];
+                    // return arr.sort((a, b) => b.id - a.id); 
+                    console.log(this.userNftsData);
+                    return this.userNftsData;
                 }
                 return null;
             },

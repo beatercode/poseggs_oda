@@ -20,22 +20,10 @@
                 <div class="modal-section">
                     <div class="h4">{{ translatesGet("YOUR_ST_POOL") }}:</div>
                     <div class="modal-select-pool-wrap">
-                        <button class="select-pool-block" @click="selectedPool = 1" :class="{ active: selectedPool == 1 }">
-                            <div class="title">17 {{ translatesGet("DAYS") }}</div>
-                            <div class="value">120% {{ translatesGet("PROFIT") }}</div>
-                        </button>
-                        <button class="select-pool-block" @click="selectedPool = 2" :class="{ active: selectedPool == 2 }">
-                            <div class="title">27 {{ translatesGet("DAYS") }}</div>
-                            <div class="value">140% {{ translatesGet("PROFIT") }}</div>
-                        </button>
-                        <button class="select-pool-block" @click="selectedPool = 3" :class="{ active: selectedPool == 3 }">
-                            <div class="title">47 {{ translatesGet("DAYS") }}</div>
-                            <div class="value">220% {{ translatesGet("PROFIT") }}</div>
-                        </button>
-                        <button class="select-pool-block" @click="selectedPool = 0" :class="{ active: selectedPool == 0 }">
-                            <span class="title unlim-desctop">{{ translatesGet("UNLIM_DAYS") }}</span>
-                            <span class="title unlim-mobile">{{ translatesGet("UNLIM_DAYS_MOBILE") }}</span>
-                            <div class="value">3.33% {{ translatesGet("REWARD_PERCENT_DAY") }}</div>
+                        <button v-for="(stPlan, index) of this.conf[this.currentBlockchain].STAKING_PLANS" class="select-pool-block"
+                            @click="selectedPool = index" :class="{ active: selectedPool == index }">
+                            <div class="title">{{ stPlan.days }} {{ translatesGet("DAYS") }}</div>
+                            <div class="value">{{ stPlan.perc }}% {{ translatesGet("PROFIT") }}</div>
                         </button>
                     </div>
                 </div>
@@ -49,7 +37,7 @@
                                         <div v-if="showLoader && tokenId === nft.tokenId" class="nft-load">
                                             <div class="nft-load-icon"></div>
                                         </div>
-                                        <img :src="nft.image" alt="nft-img" class="your-nft-img" />
+                                        <img :src="getImageLink(nft.tokenId)" alt="nft-img" class="your-nft-img" />
                                     </div>
                                     <div class="title">{{ translatesGet("EXPECTED_REWARD") }}:</div>
                                     <div class="stake-nft-value">
@@ -59,18 +47,16 @@
                                             />
                                         </svg>
                                         <!-- <span>{{ translatesGet("DEPENDS_ON_DAYS") }}</span> -->
-
-                                        <span
-                                            >{{
-                                                getExpectedReward(nft.purchaseValue) ? getExpectedReward(nft.purchaseValue) : translatesGet("DEPENDS_ON_DAYS")
-                                            }}
-                                        </span>
+                                        <span>{{ getExpectedReward(nft) }}</span>
                                     </div>
                                 </div>
-                                <div v-if="!isApproved()" @click="approve(nft)" class="card-container-btn">
+                                <div v-if="!canNftStakeThere(nft, selectedPool)" class="card-container-btn">
+                                    <button :disabled="true" class="btn btn-stake not-enabled">{{ translatesGet("UNABLE_STAKE_HERE") }}</button>
+                                </div>
+                                <div v-if="!isApproved() && canNftStakeThere(nft, selectedPool)" @click="approve(nft)" class="card-container-btn">
                                     <button :disabled="showLoader" class="btn btn-stake">{{ translatesGet("APPROVE") }}</button>
                                 </div>
-                                <div v-if="isApproved()" @click="stake(nft)" class="card-container-btn">
+                                <div v-if="isApproved() && canNftStakeThere(nft, selectedPool)" @click="stake(nft)" class="card-container-btn">
                                     <button :disabled="showLoader" class="btn btn-stake">{{ translatesGet("STAKE_BTN") }}</button>
                                 </div>
                             </div>
@@ -108,6 +94,7 @@
                 lang: new MultiLang(this),
                 showLoader: false,
                 receiverAddress: "",
+                conf: conf,
                 showDetails: false,
                 selectedPool: this.selectedPlan,
                 approvedNfts: JSON.parse(window.localStorage.getItem("approvedNftsId")) || [],
@@ -134,15 +121,18 @@
                     return this.lang.get(key);
                 }
             },
-            getImageLink(nftId) {
-                return `https://base.posduck.com/api/getImage?id=${nftId}&chainId=${this.currentBlockchain}&nftAddress=${conf[
-                    this.currentBlockchain
-                ].NFT_CONTRACT.toLowerCase()}`;
+            canNftStakeThere(nft, selectedPool) {
+                console.log((nft.tokenId - 1) + " - " + selectedPool);
+                return (nft.tokenId - 1) >= selectedPool;
             },
-            getExpectedReward(purchasePrice) {
-                const res = parseFloat(((conf[this.currentBlockchain]?.STAKING_PLANS[this.selectedPool]?.perc * purchasePrice) / 100).toFixed(4));
+            getImageLink(index) {
+                var images = require.context("/src/assets/images/all/", false, /\.png$/);
+                return images("./nft-" + (index + 1) + ".png");
+            },
+            getExpectedReward(nft) {
 
-                return res >= 0 ? `${res} ${this.currency}` : undefined;
+                const totalProfit = parseFloat((nft.price * conf[this.currentBlockchain].STAKING_PLANS[this.selectedPool].perc) / 100).toFixed(2);
+                return `${totalProfit} BUSD`;
             },
             getEarnedReward(stake) {
                 const { lastWithdrawTimestamp, event_data } = stake;
@@ -245,9 +235,9 @@
                     this.currentAddress &&
                     this.currentAddress !== "0x0000000000000000000000000000000000000000"
                 ) {
-                    const arr = this.userNftsData[this.currentBlockchain][conf[this.currentBlockchain].NFT_CONTRACT] || [];
-
-                    return arr.sort((a, b) => b.id - a.id);
+                    // const arr = this.userNftsData[this.currentBlockchain][conf[this.currentBlockchain].NFT_CONTRACT] || [];
+                    // return arr.sort((a, b) => b.id - a.id);
+                    return this.userNftsData;
                 }
                 return null;
             },

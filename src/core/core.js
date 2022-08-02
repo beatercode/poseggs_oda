@@ -71,7 +71,7 @@ export default class Core {
                 // 1: "https://ethnode.cloud/",
             };
             for (let chainId of conf.SUPPORTED_BLOCKCHAINS) {
-                const url = conf.NETWORK_PARAMS.find((el) => Number(el.chainId) === Number(chainId)) ?.params.rpcUrls[0];
+                const url = conf.NETWORK_PARAMS.find((el) => Number(el.chainId) === Number(chainId))?.params.rpcUrls[0];
                 rpc[chainId] = url;
             }
 
@@ -94,7 +94,7 @@ export default class Core {
             }
             await this.subscribeToEvents();
             const WC_Obj = JSON.parse(window.localStorage.getItem("walletconnect"));
-            const blockchain = Number(WC_Obj ?.chainId);
+            const blockchain = Number(WC_Obj?.chainId);
             this.primaryPovider = new ethers.providers.Web3Provider(this.providerInstance, "any");
 
             for (let chainId of conf.SUPPORTED_BLOCKCHAINS) {
@@ -145,6 +145,8 @@ export default class Core {
             this.primaryPovider = new ethers.providers.Web3Provider(window.ethereum, "any");
 
             for (let chainId of conf.SUPPORTED_BLOCKCHAINS) {
+                if (chainId != 97) return;
+                /*
                 this[`provider_${chainId}`] = new ethers.providers.JsonRpcProvider(`${conf[chainId].NODE}`);
                 // TODO  Create ERC20? contract instance
                 this[`posduckNft_${chainId}`] = new ethers.Contract(conf[chainId].NFT_CONTRACT, nftAbi, this[`provider_${chainId}`]).connect(
@@ -162,6 +164,15 @@ export default class Core {
                 this[`airdrop_${chainId}`] = new ethers.Contract(conf[chainId].AIRDROP_CONTRACT, airdrop, this[`provider_${chainId}`]).connect(
                     this[`provider_${chainId}`]
                 );
+                */
+                this[`provider_${chainId}`] = new ethers.providers.JsonRpcProvider(`${conf[chainId].NODE}`);
+                // TODO  Create ERC20? contract instance
+                this[`posduckNft_${chainId}`] = new ethers.Contract(conf[chainId].NFT_CONTRACT, nftAbi, this[`provider_${chainId}`]).connect(this[`provider_${chainId}`])
+                this[`boostNft_${chainId}`] = null//new ethers.Contract(conf[chainId].BOOST_NFT_CONTRACT, boostAbi, this[`provider_${chainId}`]);
+                this[`stake_${chainId}`] = null//new ethers.Contract(conf[chainId].STAKE_CONTRACT, stakeAbi, this[`provider_${chainId}`]);
+                this[`BUSD_${chainId}`] = new ethers.Contract(conf[chainId].ERC20_CONTRACT, erc20, this[`provider_${chainId}`]);
+                this[`airdrop_${chainId}`] = null//new ethers.Contract(conf[chainId].AIRDROP_CONTRACT, airdrop, this[`provider_${chainId}`]);
+
 
                 if (blockchain === Number(chainId)) {
                     this.provider = this.primaryPovider;
@@ -177,6 +188,7 @@ export default class Core {
                 } else {
                     // TODO  Create ERC20? contract instance
                     this[`posduckNft_${chainId}`].connect(this[`provider_${chainId}`]);
+                    console.log(chainId)
                     this[`boostNft_${chainId}`].connect(this[`provider_${chainId}`]);
                     this[`stake_${chainId}`].connect(this[`provider_${chainId}`]);
                     this[`BUSD_${chainId}`].connect(this[`provider_${chainId}`]);
@@ -293,7 +305,7 @@ export default class Core {
                 const userStakes = await _this.getUserStakes(userAddress, _this.currentBlockchain);
                 const userRefData = await _this.getUserRefStats(userAddress);
                 const leaderData = await _this.getLeaderStats(userAddress);
-                
+
                 const isRegistered = !res.isUnique;
                 _this.context.$store.commit("setIsRegistered", isRegistered);
 
@@ -395,7 +407,7 @@ export default class Core {
             nativeCurrency: networkObject.params.nativeCurrency,
             rpcUrls: networkObject.params.rpcUrls,
             blockExplorerUrls: networkObject.params.blockExplorerUrls,
-        }, ];
+        },];
         const switchParams = [{
             chainId: networkObject.params.chainId
         }];
@@ -418,7 +430,7 @@ export default class Core {
                     console.log("chain changed");
                 } catch (switchError) {
                     // This error code indicates that the chain has not been added to MetaMask.
-                    if (switchError.code === 4902 || switchError ?.code ?.toString() === "-32603") {
+                    if (switchError.code === 4902 || switchError?.code?.toString() === "-32603") {
                         try {
                             await window.ethereum.request({
                                 method: "wallet_addEthereumChain",
@@ -459,7 +471,7 @@ export default class Core {
                 // }, 0);
             } catch (switchError) {
                 // This error code indicates that the chain has not been added to MetaMask.
-                if (switchError.code === 4902 || switchError ?.code ?.toString() === "-32603" || switchError.toString().includes("Unrecognized chain")) {
+                if (switchError.code === 4902 || switchError?.code?.toString() === "-32603" || switchError.toString().includes("Unrecognized chain")) {
                     try {
                         await this.provider.provider.request({
                             method: "wallet_addEthereumChain",
@@ -540,11 +552,9 @@ export default class Core {
         }
     }
 
-    async buyNFT(purchaseAmount, refs) {
-        console.log(refs);
-        const res = await this[`posduckNft_${this.currentBlockchain}`].buy(refs, {
-            value: ethers.utils.parseEther(purchaseAmount)
-        });
+    async buyNFT(refs, indexPlan) {
+        console.log(this[`posduckNft_${this.currentBlockchain}`])
+        const res = await this[`posduckNft_${this.currentBlockchain}`].mintNft(refs, indexPlan);
         return res;
     }
     async buyBoost(currency, purchaseAmount, type, level) {
@@ -681,17 +691,32 @@ export default class Core {
     }
 
     async getUserNftsInChain(address, chainId, nftAddresses) {
-        if (chainId != 56 || chainId != 137) return;
-        const res = await axios.get(`/getAllUsersNft`, {
-            baseURL: conf.BASE_URL,
-            params: {
-                chainId,
-                address,
-                nftAddresses,
-            },
-        });
+        if (chainId != 56 && chainId != 137 && chainId != 97) return;
+        const nftContract = this[`posduckNft_${this.currentBlockchain}`];
+        const buyersNftIds = await nftContract.tokensOfOwner(address);
+        const buyersNftInfo = [];
+        for(let ni of buyersNftIds) {
+            let eggPlan = await nftContract.MINTED_EGGS(ni.toNumber());
+            let eggPlanId = eggPlan.toNumber();
+            let eggInfo = await nftContract.EGGS(eggPlan);
+            eggInfo = await this.arrayOfBNtoNumber(eggInfo);
+            eggInfo.name = conf.EGG_DATA.name[eggPlanId - 1];
+            eggInfo.tokenId = ni.toNumber();
+            eggInfo.collection = "POSEggs-NFT";
+            eggInfo.description = "";
+            buyersNftInfo.push(eggInfo);
+        }
+        return buyersNftInfo;
+    }
 
-        return res.data;
+    async arrayOfBNtoNumber(array) {
+        let temp = {};
+        temp.price = array["price"].toNumber();
+        temp.base_strength = array["base_strength"].toNumber();
+        temp.base_healt = array["base_healt"].toNumber();
+        temp.base_speed = array["base_speed"].toNumber();
+        temp.base_magic = array["base_magic"].toNumber();
+        return temp;
     }
 
     async getBoostMetadata(tokenId) {
@@ -743,7 +768,7 @@ export default class Core {
                 },
             });
             return res.data;
-        } catch (error) {}
+        } catch (error) { }
     }
 
     async getUserRefStats(address) {
@@ -807,16 +832,16 @@ export default class Core {
                     refsNumber: res[3],
                     refTurnover: turnover,
                     referralsNumber,
-                    leaderLevel: leaderObject ?.level || 0,
+                    leaderLevel: leaderObject?.level || 0,
                     latestBoostAvailable: latest_level,
-                    leaderLevelNext: leaderObjectNext ?.level ||
-                        conf[this.currentBlockchain].LEAD_RULES.find((el) => el.level === Number(leaderObject ?.level || 0) + 1) ?.level,
-                    leaderProfitPercNext: leaderObjectNext ?.profitPerc ||
-                        conf[this.currentBlockchain].LEAD_RULES.find((el) => el.level === Number(leaderObject ?.level || 0) + 1) ?.profitPerc,
-                    leaderProfitPerc: leaderObject ?.profitPerc || 0,
-                    leaderTimePercNext: leaderObjectNext ?.timePerc ||
-                        conf[this.currentBlockchain].LEAD_RULES.find((el) => el.level === Number(leaderObject ?.level || 0) + 1) ?.timePerc,
-                    leaderTimePerc: leaderObject ?.timePerc || 0,
+                    leaderLevelNext: leaderObjectNext?.level ||
+                        conf[this.currentBlockchain].LEAD_RULES.find((el) => el.level === Number(leaderObject?.level || 0) + 1)?.level,
+                    leaderProfitPercNext: leaderObjectNext?.profitPerc ||
+                        conf[this.currentBlockchain].LEAD_RULES.find((el) => el.level === Number(leaderObject?.level || 0) + 1)?.profitPerc,
+                    leaderProfitPerc: leaderObject?.profitPerc || 0,
+                    leaderTimePercNext: leaderObjectNext?.timePerc ||
+                        conf[this.currentBlockchain].LEAD_RULES.find((el) => el.level === Number(leaderObject?.level || 0) + 1)?.timePerc,
+                    leaderTimePerc: leaderObject?.timePerc || 0,
                 };
             } else if (leader === "0x0000000000000000000000000000000000000000") {
                 const latest_level = 0;
@@ -834,14 +859,14 @@ export default class Core {
                     referralsNumber,
                     leaderLevel: 0,
                     latestBoostAvailable: latest_level,
-                    leaderLevelNext: leaderObjectNext ?.level ||
-                        conf[this.currentBlockchain].LEAD_RULES.find((el) => el.level === Number(leaderObject ?.level || 0) + 1) ?.level,
-                    leaderProfitPercNext: leaderObjectNext ?.profitPerc || 0,
-                    leaderProfitPerc: leaderObject ?.profitPerc ||
-                        conf[this.currentBlockchain].LEAD_RULES.find((el) => el.level === Number(leaderObject ?.level || 0) + 1) ?.profitPerc,
-                    leaderTimePercNext: leaderObjectNext ?.timePerc || 0,
-                    leaderTimePerc: leaderObject ?.timePerc ||
-                        conf[this.currentBlockchain].LEAD_RULES.find((el) => el.level === Number(leaderObject ?.level || 0) + 1) ?.timePerc,
+                    leaderLevelNext: leaderObjectNext?.level ||
+                        conf[this.currentBlockchain].LEAD_RULES.find((el) => el.level === Number(leaderObject?.level || 0) + 1)?.level,
+                    leaderProfitPercNext: leaderObjectNext?.profitPerc || 0,
+                    leaderProfitPerc: leaderObject?.profitPerc ||
+                        conf[this.currentBlockchain].LEAD_RULES.find((el) => el.level === Number(leaderObject?.level || 0) + 1)?.profitPerc,
+                    leaderTimePercNext: leaderObjectNext?.timePerc || 0,
+                    leaderTimePerc: leaderObject?.timePerc ||
+                        conf[this.currentBlockchain].LEAD_RULES.find((el) => el.level === Number(leaderObject?.level || 0) + 1)?.timePerc,
                 };
             } else {
                 const res = await this[`posduckNft_${this.currentBlockchain}`].getBuyerReferralsStats(leader);
@@ -873,13 +898,13 @@ export default class Core {
                     refsNumber: res[3],
                     refTurnover: turnover,
                     referralsNumber,
-                    leaderLevel: leaderObject ?.level || 0,
+                    leaderLevel: leaderObject?.level || 0,
                     latestBoostAvailable: latest_level,
-                    leaderLevelNext: leaderObjectNext ?.level || 0,
-                    leaderProfitPercNext: leaderObjectNext ?.profitPerc || 0,
-                    leaderProfitPerc: leaderObject ?.profitPerc || 0,
-                    leaderTimePercNext: leaderObjectNext ?.timePerc || 0,
-                    leaderTimePerc: leaderObject ?.timePerc || 0,
+                    leaderLevelNext: leaderObjectNext?.level || 0,
+                    leaderProfitPercNext: leaderObjectNext?.profitPerc || 0,
+                    leaderProfitPerc: leaderObject?.profitPerc || 0,
+                    leaderTimePercNext: leaderObjectNext?.timePerc || 0,
+                    leaderTimePerc: leaderObject?.timePerc || 0,
                 };
             }
         } catch (error) {

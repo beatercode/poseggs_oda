@@ -35,22 +35,19 @@
                                 <div class="card-header card-header-nft-image-buy card-header-desctop">
                                     <div class="slider-nft-wrap">
                                         <ul class="ul-our-nfts" :class="'ul-binance'">
-                                            <li v-for="(price, index) of prices" @click="setBnbAmountFixed(price, index)"
+                                            <li v-for="(price, index) of prices" @click="setSelectedEgg(price, index)"
+                                                :style="[index == selectedIndex ? { 'opacity': '1' } : { 'opacity': '0.7' }]"
                                                 class="li-our-nfts nft-list-buy li-nft-red">
-                                                <div class="li-our-nft-wrap" @click="showStats = !showStats">
-                                                    <img class="card-egg-image" :src="getNftImage(index)" />
+                                                <div class="li-our-nft-wrap" @click="showStats = showStats">
+                                                    <img class="card-egg-image"
+                                                        :class="{ hopping: index == selectedIndex }"
+                                                        :src="getNftImage(index)" />
                                                     <div class="li-nft-footer">
                                                         <div style="width: 100%">
                                                             <span class="li-nft-footer-title">{{
                                                                     "Stats"
                                                             }}</span>
                                                             <div class="icon logo-coin icon-card"></div>
-                                                            <div class="cab-row cab-row-stats">
-                                                                <span
-                                                                    class="li-nft-footer-amount li-nft-footer-amount-price">
-                                                                    {{ price }} USD
-                                                                </span>
-                                                            </div>
                                                             <div v-if="showStats">
                                                                 <div class="cab-row cab-row-stats stats-superiod">
                                                                     <span
@@ -112,6 +109,25 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        <div class="mint-nft-block"
+                                                            style="width: 100% !important; display: flex; flex-direction: row; margin-top: 3px;">
+                                                            <div class="input-title"
+                                                                style="width: auto; line-height: unset; margin-top: 10px; font-size: 16px;">
+                                                                {{ "Price" }}</div>
+                                                            <div class="price-card-wrap"
+                                                                style="width: 100%; text-align: right; position: relative; right: 0;">
+                                                                <span type="number" @input="disablePercWatcher = true">
+                                                                    {{ price }}
+                                                                </span>
+                                                                <span class="coin">BUSD</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mint-nft-block" style="margin-top: 0px;">
+                                                        <button :disabled="showLoader" @click="BuyNFT(index)"
+                                                            class="btn btn-mint">
+                                                            {{ translatesGet("MINT") }}
+                                                        </button>
                                                     </div>
                                                 </div>
                                             </li>
@@ -140,10 +156,14 @@
                                     <div class="card-header card-header-nft-image-buy card-header-mobile">
                                         <div class="slider-nft-wrap">
                                             <ul class="ul-our-nfts" :class="'ul-binance'">
-                                                <li v-for="(price, index) of prices" @click="setBnbAmountFixed(price, index)"
+                                                <li v-for="(price, index) of prices"
+                                                    @click="setSelectedEgg(price, index)"
+                                                    :style="[index == selectedIndex ? { 'opacity': '1' } : { 'opacity': '0.7' }]"
                                                     class="li-our-nfts nft-list-buy li-nft-red">
                                                     <div class="li-our-nft-wrap" @click="showStats = showStats">
-                                                        <img class="card-egg-image" :class="{ hopping: index == selectedIndex }" :src="getNftImage(index)" />
+                                                        <img class="card-egg-image"
+                                                            :class="{ hopping: index == selectedIndex }"
+                                                            :src="getNftImage(index)" />
                                                         <div class="li-nft-footer">
                                                             <div style="width: 100%">
                                                                 <span class="li-nft-footer-title">{{
@@ -180,50 +200,78 @@
                                                                     <div class="cab-row cab-row-stats">
                                                                         <span
                                                                             class="li-nft-footer-amount card-footer-stats">Strength</span>
-                                                                        <span
-                                                                            class="li-nft-footer-amount-2 card-footer-stats">{{
-                                                                                    stats[index]
-                                                                            }}</span>
+                                                                        <div class="li-nft-footer-amount-2 card-footer-stats"
+                                                                            style="text-align: left !important; display: flex; flex-direction: row; justify-content: flex-end;">
+                                                                            <!--div class="plus-minus-mint-button">-</div-->
+                                                                            <span>{{
+                                                                                    index != selectedIndex ? stats[index] :
+                                                                                        slectedStats[0]
+                                                                            }}
+                                                                            </span>
+                                                                            <!--div class="plus-minus-mint-button">+</div-->
+                                                                        </div>
                                                                     </div>
                                                                     <div class="cab-row cab-row-stats">
                                                                         <span
                                                                             class="li-nft-footer-amount card-footer-stats">Healt</span>
-                                                                        <span
-                                                                            class="li-nft-footer-amount-2 card-footer-stats">{{
-                                                                                    stats[index]
-                                                                            }}</span>
+                                                                        <div class="li-nft-footer-amount-2 card-footer-stats"
+                                                                            style="text-align: left !important; display: flex; flex-direction: row; justify-content: flex-end;">
+                                                                            <!--div class="plus-minus-mint-button">-</div-->
+                                                                            <span>{{
+                                                                                    index != selectedIndex ? stats[index] :
+                                                                                        slectedStats[1]
+                                                                            }}
+                                                                            </span>
+                                                                            <!--div class="plus-minus-mint-button">+</div-->
+                                                                        </div>
                                                                     </div>
                                                                     <div class="cab-row cab-row-stats">
                                                                         <span
                                                                             class="li-nft-footer-amount card-footer-stats">Agility</span>
-                                                                        <span
-                                                                            class="li-nft-footer-amount-2 card-footer-stats">{{
-                                                                                    stats[index]
-                                                                            }}</span>
+                                                                        <div class="li-nft-footer-amount-2 card-footer-stats"
+                                                                            style="text-align: left !important; display: flex; flex-direction: row; justify-content: flex-end;">
+                                                                            <!--div class="plus-minus-mint-button">-</div-->
+                                                                            <span>{{
+                                                                                    index != selectedIndex ? stats[index] :
+                                                                                        slectedStats[2]
+                                                                            }}
+                                                                            </span>
+                                                                            <!--div class="plus-minus-mint-button">+</div-->
+                                                                        </div>
                                                                     </div>
                                                                     <div class="cab-row cab-row-stats">
                                                                         <span
                                                                             class="li-nft-footer-amount card-footer-stats">Magic</span>
-                                                                        <span
-                                                                            class="li-nft-footer-amount-2 card-footer-stats">{{
-                                                                                    stats[index]
-                                                                            }}</span>
+                                                                        <div class="li-nft-footer-amount-2 card-footer-stats"
+                                                                            style="text-align: left !important; display: flex; flex-direction: row; justify-content: flex-end;">
+                                                                            <!--div class="plus-minus-mint-button">-</div-->
+                                                                            <span>{{
+                                                                                    index != selectedIndex ? stats[index] :
+                                                                                        slectedStats[3]
+                                                                            }}
+                                                                            </span>
+                                                                            <!--div class="plus-minus-mint-button">+</div-->
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="mint-nft-block" style="width: 100% !important;">
-                                                                <div class="input-title">{{ "Price" }}</div>
-                                                                <div class="price-card-wrap">
-                                                                    <span type="number" @input="disablePercWatcher = true"> {{ price }} </span>
+                                                            <div class="mint-nft-block"
+                                                                style="width: 100% !important; display: flex; flex-direction: row; margin-top: 3px;">
+                                                                <div class="input-title"
+                                                                    style="width: auto; line-height: unset; margin-top: 10px; font-size: 16px;">
+                                                                    {{ "Price" }}</div>
+                                                                <div class="price-card-wrap"
+                                                                    style="width: 100%; text-align: right; position: relative; right: 0;">
+                                                                    <span type="number"
+                                                                        @input="disablePercWatcher = true"> {{ price }}
+                                                                    </span>
                                                                     <span class="coin">BUSD</span>
-                                                                </div>
-                                                                <div class="input-error-describe" :class="{ active: showInputError }">
-                                                                    {{ inputErrorText }}
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="mint-nft-block" style="margin-top: 0px;">
-                                                            <button :disabled="showLoader" @click="BuyNFT()" class="btn btn-mint">
+                                                            <button :disabled="showLoader" @click="BuyNFT(index)"
+                                                                class="btn btn-mint">
                                                                 {{ translatesGet("MINT") }}
                                                             </button>
                                                         </div>
@@ -256,7 +304,7 @@ export default {
         return {
             lang: new MultiLang(this),
             inputActive: false,
-            bnbAmount: "",
+            busdAmount: "",
             showStats: true,
             prices: conf.EGG_DATA.prices,
             stats: conf.EGG_DATA.stats,
@@ -267,10 +315,10 @@ export default {
             amount3: false,
             amount4: false,
             showLoader: false,
-            percent: 0,
             showInputError: false,
             inputErrorText: "",
-            selectedIndex: 6,
+            selectedIndex: 7,
+            slectedStats: [79, 79, 79, 79],
             selectedNft: null,
             showTransferModal: false,
             disablePercWatcher: false,
@@ -343,24 +391,29 @@ export default {
         focusInputOut() {
             return (this.inputActive = false);
         },
+        decrementStats(i) {
+            this.slectedStats[i] = this.slectedStats[i] - 1;
+            console.log(this.slectedStats[i]);
+        },
         getNftImage(index) {
-            console.log(index);
             var images = require.context("/src/assets/images/all/", false, /\.png$/);
             return images("./nft-" + (index + 1) + ".png");
         },
-        setBnbAmountFixed(amount, _selectedIndex) {
+        setSelectedEgg(amount, _selectedIndex) {
+            if (this.selectedIndex == _selectedIndex) return;
             this.selectedIndex = _selectedIndex;
-            this.bnbAmount = parseFloat(
+            this.slectedStats = [this.stats[_selectedIndex], this.stats[_selectedIndex], this.stats[_selectedIndex], this.stats[_selectedIndex]]
+            this.busdAmount = parseFloat(
                 Number(this.$root.core.withoutRound(amount, 4))
             );
         },
-        setBnbAmount(perc) {
+        setbusdAmount(perc) {
             const amount = (this.userERC20Balance * perc) / 100;
-            this.bnbAmount = parseFloat(
+            this.busdAmount = parseFloat(
                 Number(this.$root.core.withoutRound(amount, 4))
             );
         },
-        async BuyNFT() {
+        async BuyNFT(index) {
             if (
                 !this.currentAddress ||
                 this.currentAddress === "0x0000000000000000000000000000000000000000"
@@ -368,23 +421,23 @@ export default {
                 this.$emit("changeWallet");
                 return;
             }
-            if (!this.bnbAmount) {
+            if (!this.busdAmount) {
                 this.disablePercWatcher = true;
-                this.bnbAmount =
+                this.busdAmount =
                     this.currentBlockchain && this.currentBlockchain === 97 ? 17 : 0.01;
             }
 
-            if (this.bnbAmount > 99999.9999) {
+            if (this.busdAmount > 99999.9999) {
                 this.$store.commit("push_notification", {
                     type: "error",
                     typeClass: "error",
                     message: `Max purchase amount is 99999.9999`,
                 });
-                this.bnbAmount = Math.min(
+                this.busdAmount = Math.min(
                     (this.userERC20Balance * 98) / 100,
                     99999.9999
                 );
-            } else if (this.bnbAmount > (this.userERC20Balance * 98) / 100) {
+            } else if (this.busdAmount > (this.userERC20Balance * 98) / 100) {
                 this.$store.commit("push_notification", {
                     type: "error",
                     typeClass: "error",
@@ -393,11 +446,11 @@ export default {
                 return;
             }
 
-            this.bnbAmount = parseFloat(
-                Number(this.$root.core.withoutRound(this.bnbAmount, 4))
+            this.busdAmount = parseFloat(
+                Number(this.$root.core.withoutRound(this.busdAmount, 4))
             );
             try {
-                if (this.bnbAmount < conf[this.currentBlockchain].MIN_NFT_PRICE) {
+                if (this.busdAmount < conf[this.currentBlockchain].MIN_NFT_PRICE) {
                     this.$store.commit("push_notification", {
                         type: "error",
                         typeClass: "error",
@@ -408,13 +461,7 @@ export default {
                 }
                 this.showLoader = true;
                 const refs = await this.$root.core.getReferrers(this.currentAddress);
-                console.log(
-                    "AM [" + this.bnbAmount.toString() + "] REF [" + refs + "]"
-                );
-                const res = await this.$root.core.buyNFT(
-                    this.bnbAmount.toString(),
-                    refs
-                );
+                const res = await this.$root.core.buyNFT(refs, (index + 1));
 
                 this.$store.commit("push_notification", {
                     type: "warning",
@@ -427,7 +474,7 @@ export default {
                     typeClass: "warning",
                     message: `Your transaction has successfully entered the blockchain! Waiting for enough confirmations...`,
                 });
-                fbq("track", "Lead");
+                //fbq("track", "Lead");
                 await res.wait(5);
             } catch (error) {
                 this.showLoader = false;
@@ -495,7 +542,7 @@ export default {
                         Number(_this?.$router?.currentRoute?.params?.chosenBlockchain)
                     ) {
                         _this.disablePercWatcher = true;
-                        _this.bnbAmount =
+                        _this.busdAmount =
                             _this?.$router?.currentRoute?.params?.chosenPrice.toString();
                     } else if (
                         _this.currentBlockchain &&
@@ -521,15 +568,15 @@ export default {
                             message: `It seems that you preselected ${Number(
                                 _this?.$router?.currentRoute?.params?.chosenBlockchain
                             ) === 56 ||
-                                    Number(
-                                        _this?.$router?.currentRoute?.params?.chosenBlockchain
-                                    ) === 97
-                                    ? "BNB Chain"
-                                    : Number(
-                                        _this?.$router?.currentRoute?.params?.chosenBlockchain
-                                    ) === 137
-                                        ? "Polygon"
-                                        : ""
+                                Number(
+                                    _this?.$router?.currentRoute?.params?.chosenBlockchain
+                                ) === 97
+                                ? "BNB Chain"
+                                : Number(
+                                    _this?.$router?.currentRoute?.params?.chosenBlockchain
+                                ) === 137
+                                    ? "Polygon"
+                                    : ""
                                 } network. If you want to use it, please accept network change in your wallet. Otherwise you may continue use the website.`,
                         });
                         await _this.$root.core.changeNetwork(symbol);
@@ -576,7 +623,7 @@ export default {
                             Number(_this.currentBlockchain) === 97)
                     ) {
                         _this.disablePercWatcher = true;
-                        _this.bnbAmount = obj.price.toString();
+                        _this.busdAmount = obj.price.toString();
                         window.localStorage.removeItem("selectedPrice");
                     } else {
                         throw Error("No current blockchain or address");
@@ -618,55 +665,55 @@ export default {
         getImage() {
             if (this.currentBlockchain === 56 || this.currentBlockchain === 97) {
                 const duckNumber =
-                    Number(this.bnbAmount) < 0.1
+                    Number(this.busdAmount) < 0.1
                         ? "56" + "-1"
-                        : Number(this.bnbAmount) < 1
+                        : Number(this.busdAmount) < 1
                             ? "56" + "-2"
-                            : Number(this.bnbAmount) < 2
+                            : Number(this.busdAmount) < 2
                                 ? "56" + "-3"
-                                : Number(this.bnbAmount) < 5
+                                : Number(this.busdAmount) < 5
                                     ? "56" + "-4"
-                                    : Number(this.bnbAmount) < 10
+                                    : Number(this.busdAmount) < 10
                                         ? "56" + "-5"
-                                        : Number(this.bnbAmount) < 50
+                                        : Number(this.busdAmount) < 50
                                             ? "56" + "-6"
-                                            : Number(this.bnbAmount) < 100
+                                            : Number(this.busdAmount) < 100
                                                 ? "56" + "-7"
                                                 : "56" + "-8";
                 return `${duckNumber}`;
             } else if (this.currentBlockchain === 137) {
                 const duckNumber =
-                    Number(this.bnbAmount) < 35
+                    Number(this.busdAmount) < 35
                         ? "137" + "-1"
-                        : Number(this.bnbAmount) < 350
+                        : Number(this.busdAmount) < 350
                             ? "137" + "-2"
-                            : Number(this.bnbAmount) < 700
+                            : Number(this.busdAmount) < 700
                                 ? "137" + "-3"
-                                : Number(this.bnbAmount) < 1700
+                                : Number(this.busdAmount) < 1700
                                     ? "137" + "-4"
-                                    : Number(this.bnbAmount) < 3500
+                                    : Number(this.busdAmount) < 3500
                                         ? "137" + "-5"
-                                        : Number(this.bnbAmount) < 17000
+                                        : Number(this.busdAmount) < 17000
                                             ? "137" + "-6"
-                                            : Number(this.bnbAmount) < 35000
+                                            : Number(this.busdAmount) < 35000
                                                 ? "137" + "-7"
                                                 : "137" + "-8";
                 return `${duckNumber}`;
             } else if (!this.currentBlockchain) {
                 const duckNumber =
-                    Number(this.bnbAmount) < 0.1
+                    Number(this.busdAmount) < 0.1
                         ? "56-1"
-                        : Number(this.bnbAmount) < 1
+                        : Number(this.busdAmount) < 1
                             ? "56-2"
-                            : Number(this.bnbAmount) < 2
+                            : Number(this.busdAmount) < 2
                                 ? "56-3"
-                                : Number(this.bnbAmount) < 5
+                                : Number(this.busdAmount) < 5
                                     ? "56-4"
-                                    : Number(this.bnbAmount) < 10
+                                    : Number(this.busdAmount) < 10
                                         ? "56-5"
-                                        : Number(this.bnbAmount) < 50
+                                        : Number(this.busdAmount) < 50
                                             ? "56-6"
-                                            : Number(this.bnbAmount) < 100
+                                            : Number(this.busdAmount) < 100
                                                 ? "56-7"
                                                 : "56-8";
                 return `${duckNumber}`;
@@ -679,12 +726,9 @@ export default {
                 this.currentAddress &&
                 this.currentAddress !== "0x0000000000000000000000000000000000000000"
             ) {
-                const arr =
-                    this.userNftsData[this.currentBlockchain][
-                    conf[this.currentBlockchain].NFT_CONTRACT
-                    ] || [];
-
-                return arr.sort((a, b) => b.id - a.id);
+                // const arr = this.userNftsData[this.currentBlockchain][conf[this.currentBlockchain].NFT_CONTRACT] || [];
+                // return arr.sort((a, b) => b.id - a.id);
+                return this.userNftsData;
             }
             return null;
         },
@@ -718,9 +762,6 @@ export default {
         },
     },
     watch: {
-        percent: function (newVal, oldVal) {
-            this.bnbAmount = parseFloat(newVal.toFixed(4));
-        },
         nfts: function (newVal, oldVal) {
             if (newVal && oldVal && newVal.length !== oldVal.length) {
                 this.showLoader = false;
@@ -735,10 +776,9 @@ export default {
             }
         },
 
-        bnbAmount: function (newVal, oldVal) {
-            this.percent = newVal;
+        busdAmount: function (newVal, oldVal) {
             if (newVal.toString().length > 10) {
-                this.bnbAmount = oldVal;
+                this.busdAmount = oldVal;
                 setTimeout(() => {
                     this.showInputError = true;
                     this.inputErrorText = "Amount should be less than 10 digits ";

@@ -3,107 +3,71 @@
         <div class="slider-nft-container">
             <div class="slider-nft-wrap">
                 <ul class="ul-our-nfts" :class="'ul-binance'">
-                    <li @click="redirect(1)" class="li-our-nfts li-nft-red">
-                        <div class="li-our-nft-wrap">
-                            <div class="li-nft-img"></div>
+                    <li v-for="(price, index) of prices" @click="redirect(8)"
+                        class="li-our-nfts nft-list-buy li-nft-red">
+                        <div class="li-our-nft-wrap" @click="showStats = showStats">
+                            <img class="card-egg-image"
+                                :src="getNftImage(index)" />
                             <div class="li-nft-footer">
-                                <div>
-                                    <span class="li-nft-footer-title">{{ translatesGet("SLIDER_VALUE") }}</span>
-                                    <span v-if="getPreselectedChain == 'polygon'" class="li-nft-footer-amount">0.01 {{ currency }}</span>
-                                    <span v-else class="li-nft-footer-amount">5 {{ currency }}</span>
+                                <div style="width: 100%">
+                                    <span class="li-nft-footer-title">{{
+                                            "Stats"
+                                    }}</span>
+                                    <div class="icon logo-coin icon-card"></div>
+                                    <div>
+                                        <div class="cab-row cab-row-stats stats-superiod">
+                                            <span class="li-nft-footer-amount card-footer-stats">Daily</span>
+                                            <span class="li-nft-footer-amount-2 card-footer-stats">{{
+                                                    profits[index]
+                                            }}%</span>
+                                        </div>
+                                        <div class="cab-row cab-row-stats stats-superiod">
+                                            <span class="li-nft-footer-amount card-footer-stats">Days</span>
+                                            <span class="li-nft-footer-amount-2 card-footer-stats">{{
+                                                    periods[index]
+                                            }}</span>
+                                        </div>
+                                        <div class="cab-row cab-row-stats stats-superiod">
+                                            <span class="li-nft-footer-amount card-footer-stats">Total</span>
+                                            <span class="li-nft-footer-amount-2 card-footer-stats">{{
+                                                    parseFloat(
+                                                        profits[index] * periods[index]
+                                                    ).toFixed(1)
+                                            }}%</span>
+                                        </div>
+                                        <div class="cab-row cab-row-stats">
+                                            <span class="li-nft-footer-amount card-footer-stats">Strength</span>
+                                            <span class="li-nft-footer-amount-2 card-footer-stats">{{
+                                                    stats[index]
+                                            }}</span>
+                                        </div>
+                                        <div class="cab-row cab-row-stats">
+                                            <span class="li-nft-footer-amount card-footer-stats">Healt</span>
+                                            <span class="li-nft-footer-amount-2 card-footer-stats">{{
+                                                    stats[index]
+                                            }}</span>
+                                        </div>
+                                        <div class="cab-row cab-row-stats">
+                                            <span class="li-nft-footer-amount card-footer-stats">Agility</span>
+                                            <span class="li-nft-footer-amount-2 card-footer-stats">{{
+                                                    stats[index]
+                                            }}</span>
+                                        </div>
+                                        <div class="cab-row cab-row-stats">
+                                            <span class="li-nft-footer-amount card-footer-stats">Magic</span>
+                                            <span class="li-nft-footer-amount-2 card-footer-stats">{{
+                                                    stats[index]
+                                            }}</span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="icon logo-coin"></div>
-                            </div>
-                        </div>
-                    </li>
-                    <li @click="redirect(2)" class="li-our-nfts li-nft-blue">
-                        <div class="li-our-nft-wrap">
-                            <div class="li-nft-img"></div>
-                            <div class="li-nft-footer">
-                                <div>
-                                    <span class="li-nft-footer-title">{{ translatesGet("SLIDER_VALUE") }}</span>
-                                    <span v-if="getPreselectedChain == 'polygon'" class="li-nft-footer-amount">0.1 {{ currency }}</span>
-                                    <span v-else class="li-nft-footer-amount">35 {{ currency }}</span>
+                                <div class="mint-nft-block" style="width: 100% !important; display: flex; flex-direction: row;">
+                                    <div class="input-title" style="width: 50%; line-height: unset; margin-top: 10px; font-size: 16px;">{{ "Price" }}</div>
+                                    <div class="price-card-wrap" style="width: 50%; text-align: right;">
+                                        <span type="number" @input="disablePercWatcher = true"> {{ price }} </span>
+                                        <span class="coin">BUSD</span>
+                                    </div>
                                 </div>
-                                <div class="icon logo-coin"></div>
-                            </div>
-                        </div>
-                    </li>
-                    <li @click="redirect(3)" class="li-our-nfts li-nft-yellow">
-                        <div class="li-our-nft-wrap">
-                            <div class="li-nft-img"></div>
-                            <div class="li-nft-footer">
-                                <div>
-                                    <span class="li-nft-footer-title">{{ translatesGet("SLIDER_VALUE") }}</span>
-                                    <span v-if="getPreselectedChain == 'polygon'" class="li-nft-footer-amount">1 {{ currency }}</span>
-                                    <span v-else class="li-nft-footer-amount">350 {{ currency }}</span>
-                                </div>
-                                <div class="icon logo-coin"></div>
-                            </div>
-                        </div>
-                    </li>
-                    <li @click="redirect(4)" class="li-our-nfts li-nft-green">
-                        <div class="li-our-nft-wrap">
-                            <div class="li-nft-img"></div>
-                            <div class="li-nft-footer">
-                                <div>
-                                    <span class="li-nft-footer-title">{{ translatesGet("SLIDER_VALUE") }}</span>
-                                    <span v-if="getPreselectedChain == 'polygon'" class="li-nft-footer-amount">2 {{ currency }}</span>
-                                    <span v-else class="li-nft-footer-amount">700 {{ currency }}</span>
-                                </div>
-                                <div class="icon logo-coin"></div>
-                            </div>
-                        </div>
-                    </li>
-                    <li @click="redirect(5)" class="li-our-nfts li-nft-red">
-                        <div class="li-our-nft-wrap">
-                            <div class="li-nft-img"></div>
-                            <div class="li-nft-footer">
-                                <div>
-                                    <span class="li-nft-footer-title">{{ translatesGet("SLIDER_VALUE") }}</span>
-                                    <span v-if="getPreselectedChain == 'polygon'" class="li-nft-footer-amount">5 {{ currency }}</span>
-                                    <span v-else class="li-nft-footer-amount">1700 {{ currency }}</span>
-                                </div>
-                                <div class="icon logo-coin"></div>
-                            </div>
-                        </div>
-                    </li>
-                    <li @click="redirect(6)" class="li-our-nfts li-nft-blue">
-                        <div class="li-our-nft-wrap">
-                            <div class="li-nft-img"></div>
-                            <div class="li-nft-footer">
-                                <div>
-                                    <span class="li-nft-footer-title">{{ translatesGet("SLIDER_VALUE") }}</span>
-                                    <span v-if="getPreselectedChain == 'polygon'" class="li-nft-footer-amount">10 {{ currency }}</span>
-                                    <span v-else class="li-nft-footer-amount">3 500 {{ currency }}</span>
-                                </div>
-                                <div class="icon logo-coin"></div>
-                            </div>
-                        </div>
-                    </li>
-                    <li @click="redirect(7)" class="li-our-nfts li-nft-yellow">
-                        <div class="li-our-nft-wrap">
-                            <div class="li-nft-img"></div>
-                            <div class="li-nft-footer">
-                                <div>
-                                    <span class="li-nft-footer-title">{{ translatesGet("SLIDER_VALUE") }}</span>
-                                    <span v-if="getPreselectedChain == 'polygon'" class="li-nft-footer-amount">50 {{ currency }}</span>
-                                    <span v-else class="li-nft-footer-amount">17 000 {{ currency }}</span>
-                                </div>
-                                <div class="icon logo-coin"></div>
-                            </div>
-                        </div>
-                    </li>
-                    <li @click="redirect(8)" class="li-our-nfts li-nft-green">
-                        <div class="li-our-nft-wrap">
-                            <div class="li-nft-img"></div>
-                            <div class="li-nft-footer">
-                                <div>
-                                    <span class="li-nft-footer-title">{{ translatesGet("SLIDER_VALUE") }}</span>
-                                    <span v-if="getPreselectedChain == 'polygon'" class="li-nft-footer-amount">100 {{ currency }}</span>
-                                    <span v-else class="li-nft-footer-amount">35 000 {{ currency }}</span>
-                                </div>
-                                <div class="icon logo-coin"></div>
                             </div>
                         </div>
                     </li>
@@ -120,70 +84,80 @@
 </template>
 
 <script>
-    const timer = (ms) => new Promise((res) => setTimeout(res, ms));
-    import MultiLang from "@/core/multilang";
-    import { mapState } from "vuex";
-    export default {
-        data() {
-            return {
-                sliderPage: 0,
-                sliderTranslate: 0,
-                isDown: false,
-                startX: 0,
-                scrollLeft: -50,
-                lang: new MultiLang(this),
-                xDown: null,
-                yDown: null,
-                currentChain: "",
+const timer = (ms) => new Promise((res) => setTimeout(res, ms));
+import MultiLang from "@/core/multilang";
+import { mapState } from "vuex";
+import conf from "../../config.json";
+
+export default {
+    data() {
+        return {
+            sliderPage: 0,
+            sliderTranslate: 0,
+            isDown: false,
+            prices: conf.EGG_DATA.prices,
+            stats: conf.EGG_DATA.stats,
+            profits: conf.EGG_DATA.profits,
+            periods: conf.EGG_DATA.periods,
+            startX: 0,
+            scrollLeft: -50,
+            lang: new MultiLang(this),
+            xDown: null,
+            yDown: null,
+            currentChain: "",
+        };
+    },
+    mounted() {
+        this.lang.init();
+        const _this = this;
+    },
+    methods: {
+        redirect(image) {
+            const prices = {
+                56: [0.01, 0.1, 1, 2, 5, 10, 50, 100],
+                137: [5, 35, 350, 700, 1700, 3500, 17000, 35000],
             };
+            if (this.preselectedChain === 56) {
+                const price = prices[this.preselectedChain][image - 1];
+                this.$router.push({
+                    name: "BuyNFT",
+                    params: { chosenPrice: price, chosenBlockchain: this.preselectedChain },
+                });
+            } else if (this.preselectedChain === 137) {
+                const price = prices[this.preselectedChain][image - 1];
+                this.$router.push({
+                    name: "BuyNFT",
+                    params: { chosenPrice: price, chosenBlockchain: this.preselectedChain },
+                });
+            }
         },
-        mounted() {
-            this.lang.init();
-            const _this = this;
+        getNftImage(index) {
+            var images = require.context("/src/assets/images/all/", false, /\.png$/);
+            return images("./nft-" + (index + 1) + ".png");
         },
-        methods: {
-            redirect(image) {
-                const prices = {
-                    56: [0.01, 0.1, 1, 2, 5, 10, 50, 100],
-                    137: [5, 35, 350, 700, 1700, 3500, 17000, 35000],
-                };
-                if (this.preselectedChain === 56) {
-                    const price = prices[this.preselectedChain][image - 1];
-                    this.$router.push({
-                        name: "BuyNFT",
-                        params: { chosenPrice: price, chosenBlockchain: this.preselectedChain },
-                    });
-                } else if (this.preselectedChain === 137) {
-                    const price = prices[this.preselectedChain][image - 1];
-                    this.$router.push({
-                        name: "BuyNFT",
-                        params: { chosenPrice: price, chosenBlockchain: this.preselectedChain },
-                    });
-                }
-            },
-            translatesGet(key) {
-                try {
-                    const translations = JSON.parse(window.localStorage.getItem("interfaceTranslations"));
-                    const res = translations.lang.find((el) => el.hasOwnProperty(`${key}`));
-                    return res[key];
-                } catch (ex) {
-                    return this.lang.get(key);
-                }
-            },
+        translatesGet(key) {
+            try {
+                const translations = JSON.parse(window.localStorage.getItem("interfaceTranslations"));
+                const res = translations.lang.find((el) => el.hasOwnProperty(`${key}`));
+                return res[key];
+            } catch (ex) {
+                return this.lang.get(key);
+            }
         },
-        computed: {
-            ...mapState(["preselectedChain"]),
-            getPreselectedChain() {
-                // return this.preselectedChain === 56 ? "ul-binance" : this.preselectedChain === 137 ? "ul-polygon" : "ul-binance";
-                return this.preselectedChain === 56
-                    ? (this.currentChain = "binance")
-                    : this.preselectedChain === 137
+    },
+    computed: {
+        ...mapState(["preselectedChain"]),
+        getPreselectedChain() {
+            // return this.preselectedChain === 56 ? "ul-binance" : this.preselectedChain === 137 ? "ul-polygon" : "ul-binance";
+            return this.preselectedChain === 56
+                ? (this.currentChain = "binance")
+                : this.preselectedChain === 137
                     ? (this.currentChain = "polygon")
                     : (this.currentChain = "binance");
-            },
-            currency() {
-                return this.preselectedChain && this.preselectedChain === 137 ? "MATIC" : "BNB";
-            },
         },
-    };
+        currency() {
+            return this.preselectedChain && this.preselectedChain === 137 ? "MATIC" : "BNB";
+        },
+    },
+};
 </script>

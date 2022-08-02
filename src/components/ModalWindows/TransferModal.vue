@@ -16,7 +16,7 @@
                             <div v-if="showLoader" class="nft-load">
                                 <div class="nft-load-icon"></div>
                             </div>
-                            <img class="your-nft-img" :src="nft.image" alt="main-img" />
+                            <img class="your-nft-img" :src="getImageLinkByPrice(nft.price)" alt="main-img" />
                         </div>
 
                         <template v-if="!onlyData">
@@ -53,14 +53,14 @@
                             <div v-if="showLoader" class="nft-load">
                                 <div class="nft-load-icon"></div>
                             </div>
-                            <img class="your-nft-img" :src="nft.image" alt="main-img" />
+                            <img class="your-nft-img" :src="getImageLinkByPrice(nft.price)" alt="main-img" />
                         </div>
                         <div class="nft-details">
                             <div class="nft-details-title">
                                 <div class="h3 nft-name">{{ nft.name }}</div>
                                 <div class="nft-details-collection">
                                     <div class="icon-wrap">
-                                        <img src="@/assets/images/push-icon.png" alt="" />
+                                        <img src="@/assets/images/all/push-icon.png" alt="" />
                                     </div>
                                     <span>{{ nft.collection }} </span>
                                 </div>
@@ -101,27 +101,9 @@
                                     </div>
 
                                     <div class="block-info-row">
-                                        <div class="block-info-td block-info-name">{{ translatesGet("TOKEN_ID") }}</div>
-                                        <div class="block-info-td block-info-value">
-                                            <a :href="nftTokenLink" target="_blank" rel="noopener noreferrer"
-                                                ><div class="block-info-link">{{ nft.tokenId }}</div></a
-                                            >
-                                        </div>
-                                    </div>
-
-                                    <div class="block-info-row">
                                         <div class="block-info-td block-info-name">{{ translatesGet("BLOCKCHAIN") }}</div>
                                         <div class="block-info-td block-info-value">
-                                            {{ nft.chainId === "97" ? "BNB Chain" : "Matic" }}
-                                        </div>
-                                    </div>
-
-                                    <div class="block-info-row">
-                                        <div class="block-info-td block-info-name">{{ translatesGet("METADATA") }}</div>
-                                        <div class="block-info-td block-info-value">
-                                            <a :href="getMetadata" target="_blank" rel="noopener noreferrer"
-                                                ><div class="block-info-link">{{ translatesGet("CENTRALIZED") }}</div></a
-                                            >
+                                            {{ "BNB Chain" }}
                                         </div>
                                     </div>
                                 </div>
@@ -135,8 +117,20 @@
                                         <div class="block-info-td block-info-value">{{ getPurchaseValue }}</div>
                                     </div>
                                     <div class="block-info-row">
-                                        <div class="block-info-td block-info-name">{{ translatesGet("BG_COLOR") }}</div>
-                                        <div class="block-info-td block-info-value">{{ getBackgroundColor.toUpperCase() }}</div>
+                                        <div class="block-info-td block-info-name">{{ "STRENGHT" }}</div>
+                                        <div class="block-info-td block-info-value">{{ this.nft.base_strength }}</div>
+                                    </div>
+                                    <div class="block-info-row">
+                                        <div class="block-info-td block-info-name">{{ "HEALT" }}</div>
+                                        <div class="block-info-td block-info-value">{{ this.nft.base_healt }}</div>
+                                    </div>
+                                    <div class="block-info-row">
+                                        <div class="block-info-td block-info-name">{{ "SPEED" }}</div>
+                                        <div class="block-info-td block-info-value">{{ this.nft.base_speed }}</div>
+                                    </div>
+                                    <div class="block-info-row">
+                                        <div class="block-info-td block-info-name">{{ "MAGIC" }}</div>
+                                        <div class="block-info-td block-info-value">{{ this.nft.base_magic }}</div>
                                     </div>
                                 </div>
                             </div>
@@ -203,7 +197,7 @@
                                 <div class="h3 nft-name">{{ nft.name }}</div>
                                 <div class="nft-details-collection">
                                     <div class="icon-wrap">
-                                        <img src="@/assets/images/push-icon.png" alt="" />
+                                        <img src="@/assets/images/all/push-icon.png" alt="" />
                                     </div>
                                     <span>{{ nft.collection }} </span>
                                 </div>
@@ -255,16 +249,7 @@
                                     <div class="block-info-row">
                                         <div class="block-info-td block-info-name">{{ translatesGet("BLOCKCHAIN") }}</div>
                                         <div class="block-info-td block-info-value">
-                                            {{ nft.chainId === "97" ? "BNB Chain" : "Matic" }}
-                                        </div>
-                                    </div>
-
-                                    <div class="block-info-row">
-                                        <div class="block-info-td block-info-name">{{ translatesGet("METADATA") }}</div>
-                                        <div class="block-info-td block-info-value">
-                                            <a :href="getMetadata" target="_blank" rel="noopener noreferrer"
-                                                ><div class="block-info-link">{{ translatesGet("CENTRALIZED") }}</div></a
-                                            >
+                                            {{ "BNB Chain" }}
                                         </div>
                                     </div>
                                 </div>
@@ -330,6 +315,15 @@
             focusInputOut() {
                 return (this.inputActive = false);
             },
+            getNftImage(index) {
+                var images = require.context("/src/assets/images/all/", false, /\.png$/);
+                return images("./nft-" + index + ".png");
+            },
+            getImageLinkByPrice(nftPrice) {
+                let nftId = nftPrice == 17 ? 1 : nftPrice == 47 ? 2 : nftPrice == 97 ? 3 : nftPrice == 197 ? 4 : nftPrice == 497 ? 5 : nftPrice == 997 ? 6 : nftPrice == 1997 ?  7 : nftPrice == 4997 ? 8 : 9;
+                var images = require.context("/src/assets/images/all/", false, /\.png$/);
+                return images("./nft-" + nftId + ".png");
+            },
             async transfer() {
                 if (!this.receiverAddress) {
                     this.showInputError = true;
@@ -351,7 +345,8 @@
                 }
                 try {
                     this.showLoader = true;
-                    const type = this.nft.collection.includes("Boost") ? "boost" : "duck";
+                    // const type = this.nft.collection.includes("Boost") ? "boost" : "duck";
+                    const type = "duck";
                     const res = await this.$root.core.transferNft(type, this.currentAddress, this.nft.tokenId, this.receiverAddress);
 
                     this.$store.commit("push_notification", {
@@ -394,14 +389,17 @@
         computed: {
             ...mapState(["currentBlockchain", "currentAddress", "userNftsData"]),
             getNftContract() {
-                return config[this.currentBlockchain][`${this.nft.collection.includes("Boost") ? "BOOST_NFT_CONTRACT" : "NFT_CONTRACT"}`];
+                // return config[this.currentBlockchain][`${this.nft.collection.includes("Boost") ? "BOOST_NFT_CONTRACT" : "NFT_CONTRACT"}`];
+                return config[this.currentBlockchain]["NFT_CONTRACT"];
             },
             getPurchaseValue() {
-                const currency = this.nft.image.includes("chainId=97") ? "BNB" : "MATIC";
-                return `${this.nft.purchaseValue} ${currency}`;
+                // const currency = this.nft.image.includes("chainId=97") ? "BNB" : "MATIC";
+                const currency = "BUSD";
+                return `${this.nft.price} ${currency}`;
             },
             getBackgroundColor() {
-                return this.nftType === "Posduck" ? this.nft.attributes.find((el) => el.trait_type === "background_color")?.value : "#000000";
+                // return this.nftType === "Posduck" ? this.nft.attributes.find((el) => el.trait_type === "background_color")?.value : "#000000";
+                return "#000000";
             },
             getClassImg() {
                 return this.nftType === "Boost" ? `img-boost-${this.nft.attributes[0].value?.toLowerCase()}-${this.nft.level}` : "";
@@ -413,12 +411,9 @@
                     this.currentAddress &&
                     this.currentAddress !== "0x0000000000000000000000000000000000000000"
                 ) {
-                    const arr =
-                        this.userNftsData[this.currentBlockchain][
-                            config[this.currentBlockchain][`${this.nft.collection.includes("Boost") ? "BOOST_NFT_CONTRACT" : "NFT_CONTRACT"}`]
-                        ] || [];
-
-                    return arr.sort((a, b) => b.id - a.id);
+                    // const arr = this.userNftsData[this.currentBlockchain][config[this.currentBlockchain][`${this.nft.collection.includes("Boost") ? "BOOST_NFT_CONTRACT" : "NFT_CONTRACT"}`]] || [];
+                    // return arr.sort((a, b) => b.id - a.id);
+                    return this.userNftsData;
                 }
                 return null;
             },
@@ -437,9 +432,10 @@
                     : "";
             },
             getMetadata() {
-                return this.nft.collection.includes("Boost")
-                    ? `https://base.posduck.com/api/getBoostMetadata?chainId=${this.currentBlockchain}&nftAddress=${this.nft.nftContractAddress}&id=${this.nft.tokenId}`
-                    : `https://base.posduck.com/api/getNftMetadata?chainId=${this.currentBlockchain}&nftAddress=${this.nft.nftContractAddress}&id=${this.nft.tokenId}`;
+                // return this.nft.collection.includes("Boost")
+                //     ? `https://base.posduck.com/api/getBoostMetadata?chainId=${this.currentBlockchain}&nftAddress=${this.nft.nftContractAddress}&id=${this.nft.tokenId}`
+                //     : `https://base.posduck.com/api/getNftMetadata?chainId=${this.currentBlockchain}&nftAddress=${this.nft.nftContractAddress}&id=${this.nft.tokenId}`;
+                return null;
             },
         },
         watch: {

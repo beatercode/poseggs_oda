@@ -1011,9 +1011,9 @@
                     this.currentAddress &&
                     this.currentAddress !== "0x0000000000000000000000000000000000000000"
                 ) {
-                    const arr = this.userNftsData[this.currentBlockchain][conf[this.currentBlockchain].BOOST_NFT_CONTRACT] || [];
-
-                    return arr.sort((a, b) => b.id - a.id);
+                    // const arr = this.userNftsData[this.currentBlockchain][conf[this.currentBlockchain].BOOST_NFT_CONTRACT] || [];
+                    // return arr.sort((a, b) => b.id - a.id);
+                    return this.userNftsData;
                 }
                 return null;
             },

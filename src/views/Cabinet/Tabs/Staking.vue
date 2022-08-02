@@ -25,105 +25,25 @@
                                 <i class="i-arrow-right-3"></i>
                             </a>
                         </div>
-                        <div class="select-pool-wrap">
-                            <div class="pool-program program-item light-blue" @click="selectedItem = 1">
+                        <div class="select-pool-wrap" v-if="this.conf && this.conf[this.currentBlockchain] && this.conf[this.currentBlockchain].STAKING_PLANS">
+                            <div v-for="(stPlan, index) of this.conf[this.currentBlockchain].STAKING_PLANS"
+                                class="pool-program program-item" :class="getStakeBgColor(index)" @click="selectedItem = index">
                                 <div class="program-conditions">
                                     <div class="program-col">
-                                        <span class="program-col-title">{{ translatesGet("POOL") }}-S</span>
-                                        <span class="program-col-value">17 {{ translatesGet("DAYS") }}</span>
+                                        <span class="program-col-title">{{ translatesGet("POOL") }}-{{ getPoolTag(index) }}</span>
+                                        <span class="program-col-value">{{stPlan.days}} {{ translatesGet("DAYS") }}</span>
                                     </div>
                                     <div class="program-col">
                                         <span class="program-col-title">{{ translatesGet("PROFIT_PER_PERIOD") }}</span>
-                                        <span class="program-col-value">120%</span>
+                                        <span class="program-col-value">{{stPlan.perc}}%</span>
                                     </div>
                                     <div class="program-col">
                                         <span class="program-col-title">{{ translatesGet("PROFIT_PER_DAY") }}</span>
-                                        <span class="program-col-value">7.06%</span>
+                                        <span class="program-col-value">{{stPlan.profitPerDay}}%</span>
                                     </div>
                                 </div>
                                 <div class="container-btn">
-                                    <div v-if="selectedItem !== 1" class="btn btn-select">{{ translatesGet("SELECT") }}</div>
-                                    <div v-else class="btn btn-select">
-                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M8.99984 0.666992C4.40817 0.666992 0.666504 4.40866 0.666504 9.00033C0.666504 13.592 4.40817 17.3337 8.99984 17.3337C13.5915 17.3337 17.3332 13.592 17.3332 9.00033C17.3332 4.40866 13.5915 0.666992 8.99984 0.666992ZM12.9832 7.08366L8.25817 11.8087C8.1415 11.9253 7.98317 11.992 7.8165 11.992C7.64984 11.992 7.4915 11.9253 7.37484 11.8087L5.0165 9.45033C4.77484 9.20866 4.77484 8.80866 5.0165 8.56699C5.25817 8.32533 5.65817 8.32533 5.89984 8.56699L7.8165 10.4837L12.0998 6.20033C12.3415 5.95866 12.7415 5.95866 12.9832 6.20033C13.2248 6.44199 13.2248 6.83366 12.9832 7.08366Z"
-                                                fill="#508EEF"
-                                            />
-                                        </svg>
-                                        {{ translatesGet("SELECTED") }}
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="pool-program program-item dark-blue" @click="selectedItem = 2">
-                                <div class="program-conditions">
-                                    <div class="program-col">
-                                        <span class="program-col-title">{{ translatesGet("POOL") }}-M</span>
-                                        <span class="program-col-value">27 {{ translatesGet("DAYS") }}</span>
-                                    </div>
-                                    <div class="program-col">
-                                        <span class="program-col-title">{{ translatesGet("PROFIT_PER_PERIOD") }}</span>
-                                        <span class="program-col-value">140%</span>
-                                    </div>
-                                    <div class="program-col">
-                                        <span class="program-col-title">{{ translatesGet("PROFIT_PER_DAY") }}</span>
-                                        <span class="program-col-value">5.19%</span>
-                                    </div>
-                                </div>
-                                <div class="container-btn">
-                                    <div v-if="selectedItem !== 2" class="btn btn-select">{{ translatesGet("SELECT") }}</div>
-                                    <div v-else class="btn btn-select">
-                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M8.99984 0.666992C4.40817 0.666992 0.666504 4.40866 0.666504 9.00033C0.666504 13.592 4.40817 17.3337 8.99984 17.3337C13.5915 17.3337 17.3332 13.592 17.3332 9.00033C17.3332 4.40866 13.5915 0.666992 8.99984 0.666992ZM12.9832 7.08366L8.25817 11.8087C8.1415 11.9253 7.98317 11.992 7.8165 11.992C7.64984 11.992 7.4915 11.9253 7.37484 11.8087L5.0165 9.45033C4.77484 9.20866 4.77484 8.80866 5.0165 8.56699C5.25817 8.32533 5.65817 8.32533 5.89984 8.56699L7.8165 10.4837L12.0998 6.20033C12.3415 5.95866 12.7415 5.95866 12.9832 6.20033C13.2248 6.44199 13.2248 6.83366 12.9832 7.08366Z"
-                                                fill="#508EEF"
-                                            />
-                                        </svg>
-                                        {{ translatesGet("SELECTED") }}
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="pool-program program-item light-green" @click="selectedItem = 3">
-                                <div class="program-conditions">
-                                    <div class="program-col">
-                                        <span class="program-col-title">{{ translatesGet("POOL") }}-L</span>
-                                        <span class="program-col-value">47 {{ translatesGet("DAYS") }}</span>
-                                    </div>
-                                    <div class="program-col">
-                                        <span class="program-col-title">{{ translatesGet("PROFIT_PER_PERIOD") }}</span>
-                                        <span class="program-col-value">220%</span>
-                                    </div>
-                                    <div class="program-col">
-                                        <span class="program-col-title">{{ translatesGet("PROFIT_PER_DAY") }}</span>
-                                        <span class="program-col-value">4.68%</span>
-                                    </div>
-                                </div>
-                                <div class="container-btn">
-                                    <div v-if="selectedItem !== 3" class="btn btn-select">{{ translatesGet("SELECT") }}</div>
-                                    <div v-else class="btn btn-select">
-                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M8.99984 0.666992C4.40817 0.666992 0.666504 4.40866 0.666504 9.00033C0.666504 13.592 4.40817 17.3337 8.99984 17.3337C13.5915 17.3337 17.3332 13.592 17.3332 9.00033C17.3332 4.40866 13.5915 0.666992 8.99984 0.666992ZM12.9832 7.08366L8.25817 11.8087C8.1415 11.9253 7.98317 11.992 7.8165 11.992C7.64984 11.992 7.4915 11.9253 7.37484 11.8087L5.0165 9.45033C4.77484 9.20866 4.77484 8.80866 5.0165 8.56699C5.25817 8.32533 5.65817 8.32533 5.89984 8.56699L7.8165 10.4837L12.0998 6.20033C12.3415 5.95866 12.7415 5.95866 12.9832 6.20033C13.2248 6.44199 13.2248 6.83366 12.9832 7.08366Z"
-                                                fill="#508EEF"
-                                            />
-                                        </svg>
-                                        {{ translatesGet("SELECTED") }}
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="pool-program program-item light-orange" @click="selectedItem = 0">
-                                <div class="program-conditions">
-                                    <div class="program-col">
-                                        <span class="program-col-title">{{ translatesGet("POOL") }}-XL</span>
-                                        <span class="program-col-value unlim-desctop">{{ translatesGet("UNLIM_DAYS") }}</span>
-                                        <span class="program-col-value unlim-mobile">{{ translatesGet("UNLIM_DAYS_MOBILE") }}</span>
-                                    </div>
-                                    <div class="program-col">
-                                        <span class="program-col-title">{{ translatesGet("PROFIT_PER_DAY") }}</span>
-                                        <span class="program-col-value">3.33%</span>
-                                    </div>
-                                </div>
-                                <div class="container-btn">
-                                    <div v-if="selectedItem !== 0" class="btn btn-select">{{ translatesGet("SELECT") }}</div>
+                                    <div v-if="selectedItem !== index" class="btn btn-select">{{ translatesGet("SELECT") }}</div>
                                     <div v-else class="btn btn-select">
                                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path
@@ -159,6 +79,7 @@
                 showStakeTab: 1,
                 showLoader: false,
                 tokenId: "",
+                conf: conf,
                 isUnstaking: false,
                 isStaking: false,
                 isApprovedForAll: false,
@@ -183,15 +104,20 @@
                     return this.lang.get(key);
                 }
             },
-            getImageLink(nftId) {
-                return `https://base.posduck.com/api/getImage?id=${nftId}&chainId=${this.currentBlockchain}&nftAddress=${conf[
-                    this.currentBlockchain
-                ].NFT_CONTRACT.toLowerCase()}`;
+            getImageLink(index) {
+                var images = require.context("/src/assets/images/all/", false, /\.png$/);
+                return images("./nft-" + (index + 1) + ".png");
+            },
+            getStakeBgColor(index) {
+                return "egg-".concat(+index + 1);
             },
             getExpectedReward(purchasePrice) {
                 const res = parseFloat(((conf[this.currentBlockchain].STAKING_PLANS[this.selectedItem].perc * purchasePrice) / 100).toFixed(4));
 
                 return res >= 0 ? `${res} BNB` : undefined;
+            },
+            getPoolTag(index) {
+                return index == 0 ? "XXS" : index == 1 ? "XS" : index == 2 ? "S" : index == 3 ? "M" : index == 4 ? "L" : index == 5 ? "XL" : index == 6 ? "XXL" : "XXXL"
             },
             getEarnedReward(stake) {
                 const { lastWithdrawTimestamp, event_data } = stake;
@@ -289,7 +215,6 @@
                         }
                     }
                 } catch (error) {
-                    console.log(error);
                     for (let timeout of _this.timeOuts) {
                         clearTimeout(timeout);
                     }

@@ -1378,6 +1378,11 @@
             "Approve"
         ],
         [
+            "UNABLE_STAKE_HERE",
+            "",
+            "Can't use this plan"
+        ],
+        [
             "BLOCKCHAIN",
             "",
             "Blockchain"

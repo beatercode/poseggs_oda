@@ -21,7 +21,7 @@
                         " class="nft-load">
                             <div class="nft-load-icon"></div>
                         </div>
-                        <img :src="getImageLink(fullStakeDetails.event_data.tokenId)" class="your-nft-img"
+                        <img :src="getImageLink(fullStakeDetails)" class="your-nft-img"
                             alt="main-img" />
                     </div>
                 </div>
@@ -663,8 +663,11 @@ export default {
             }
         },
         getImageLink(nftId) {
-            return `https://base.posduck.com/api/getImage?id=${nftId}&chainId=${this.currentBlockchain
-                }&nftAddress=${conf[this.currentBlockchain].NFT_CONTRACT.toLowerCase()}`;
+            console.log("AOOOOO");
+            console.log(this.fullStakeDetails);
+            console.log(nftId)
+            var images = require.context("/src/assets/images/all/", false, /\.png$/);
+            return images("./nft-" + (index + 1) + ".png");
         },
         getBoostImage(nft) {
             return this.$root.core
@@ -1003,13 +1006,9 @@ export default {
                 this.currentAddress &&
                 this.currentAddress !== "0x0000000000000000000000000000000000000000"
             ) {
-                const arr =
-                    this.userNftsData[this.currentBlockchain][
-                        conf[this.currentBlockchain].BOOST_NFT_CONTRACT
-                    ].filter((el) => el.type === "TEAM") || [];
-
-                arr.sort((a, b) => b.id - a.id);
-                return arr;
+                // const arr =this.userNftsData[this.currentBlockchain][conf[this.currentBlockchain].BOOST_NFT_CONTRACT].filter((el) => el.type === "TEAM") || [];
+                // return arr.sort((a, b) => b.id - a.id);
+                return this.userNftsData;
             }
             return null;
         },

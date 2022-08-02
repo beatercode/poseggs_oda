@@ -1,634 +1,380 @@
-const stakeAbi = [{
-        inputs: [{
-                internalType: "uint256",
-                name: "stakeIdx",
-                type: "uint256",
+const stakeAbi = [
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "nftContractAddress_",
+                "type": "address"
             },
             {
-                internalType: "uint256",
-                name: "boostTokenId",
-                type: "uint256",
-            },
+                "internalType": "address",
+                "name": "boostNFTContractAddress_",
+                "type": "address"
+            }
         ],
-        name: "addBoost",
-        outputs: [],
-        stateMutability: "nonpayable",
-        type: "function",
+        "stateMutability": "nonpayable",
+        "type": "constructor"
     },
     {
-        inputs: [],
-        name: "batchUnstake",
-        outputs: [],
-        stateMutability: "nonpayable",
-        type: "function",
-    },
-    {
-        inputs: [],
-        name: "batchWithdraw",
-        outputs: [],
-        stateMutability: "nonpayable",
-        type: "function",
-    },
-    {
-        inputs: [{
-            internalType: "uint8",
-            name: "stakeIdx",
-            type: "uint8",
-        }, ],
-        name: "claim",
-        outputs: [],
-        stateMutability: "nonpayable",
-        type: "function",
-    },
-    {
-        inputs: [{
-                internalType: "uint256",
-                name: "tokenId",
-                type: "uint256",
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "previousOwner",
+                "type": "address"
             },
             {
-                internalType: "uint8",
-                name: "stakeTypeIdx",
-                type: "uint8",
-            },
+                "indexed": true,
+                "internalType": "address",
+                "name": "newOwner",
+                "type": "address"
+            }
         ],
-        name: "stake",
-        outputs: [],
-        stateMutability: "nonpayable",
-        type: "function",
+        "name": "OwnershipTransferred",
+        "type": "event"
     },
     {
-        inputs: [{
-            internalType: "address",
-            name: "newOwner",
-            type: "address",
-        }, ],
-        name: "transferOwnership",
-        outputs: [],
-        stateMutability: "nonpayable",
-        type: "function",
-    },
-    {
-        inputs: [{
-                internalType: "address",
-                name: "nftContractAddress_",
-                type: "address",
-            },
+        "inputs": [
             {
-                internalType: "address",
-                name: "boostNFTContractAddress_",
-                type: "address",
-            },
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
         ],
-        stateMutability: "nonpayable",
-        type: "constructor",
-    },
-    {
-        anonymous: false,
-        inputs: [{
-                indexed: true,
-                internalType: "address",
-                name: "previousOwner",
-                type: "address",
-            },
+        "name": "STAKE_TYPES_DAILY_PERCENTS",
+        "outputs": [
             {
-                indexed: true,
-                internalType: "address",
-                name: "newOwner",
-                type: "address",
-            },
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
         ],
-        name: "OwnershipTransferred",
-        type: "event",
+        "stateMutability": "view",
+        "type": "function"
     },
     {
-        inputs: [],
-        name: "renounceOwnership",
-        outputs: [],
-        stateMutability: "nonpayable",
-        type: "function",
-    },
-    {
-        inputs: [{
-                internalType: "address",
-                name: "tokenAddress",
-                type: "address",
-            },
+        "inputs": [
             {
-                internalType: "uint256",
-                name: "amount",
-                type: "uint256",
-            },
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
         ],
-        name: "retrieveTokens",
-        outputs: [],
-        stateMutability: "nonpayable",
-        type: "function",
-    },
-    {
-        inputs: [{
-            internalType: "uint8",
-            name: "stakeIdx",
-            type: "uint8",
-        }, ],
-        name: "unstake",
-        outputs: [],
-        stateMutability: "nonpayable",
-        type: "function",
-    },
-    {
-        stateMutability: "payable",
-        type: "receive",
-    },
-    {
-        inputs: [],
-        name: "boostNFTContractAddress",
-        outputs: [{
-            internalType: "address",
-            name: "",
-            type: "address",
-        }, ],
-        stateMutability: "view",
-        type: "function",
-    },
-    {
-        inputs: [],
-        name: "investorsCount",
-        outputs: [{
-            internalType: "uint256",
-            name: "",
-            type: "uint256",
-        }, ],
-        stateMutability: "view",
-        type: "function",
-    },
-    {
-        inputs: [{
-            internalType: "address",
-            name: "investorAddr_",
-            type: "address",
-        }, ],
-        name: "isInvestor",
-        outputs: [{
-            internalType: "bool",
-            name: "",
-            type: "bool",
-        }, ],
-        stateMutability: "view",
-        type: "function",
-    },
-    {
-        inputs: [],
-        name: "nftContractAddress",
-        outputs: [{
-            internalType: "address",
-            name: "",
-            type: "address",
-        }, ],
-        stateMutability: "view",
-        type: "function",
-    },
-    {
-        inputs: [{
-                internalType: "address",
-                name: "operator",
-                type: "address",
-            },
+        "name": "STAKE_TYPES_TERMS",
+        "outputs": [
             {
-                internalType: "address",
-                name: "from",
-                type: "address",
-            },
-            {
-                internalType: "uint256",
-                name: "tokenId",
-                type: "uint256",
-            },
-            {
-                internalType: "bytes",
-                name: "data",
-                type: "bytes",
-            },
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
         ],
-        name: "onERC721Received",
-        outputs: [{
-            internalType: "bytes4",
-            name: "",
-            type: "bytes4",
-        }, ],
-        stateMutability: "pure",
-        type: "function",
+        "stateMutability": "view",
+        "type": "function"
     },
     {
-        inputs: [],
-        name: "owner",
-        outputs: [{
-            internalType: "address",
-            name: "",
-            type: "address",
-        }, ],
-        stateMutability: "view",
-        type: "function",
-    },
-    {
-        inputs: [{
-            internalType: "uint256",
-            name: "",
-            type: "uint256",
-        }, ],
-        name: "STAKE_TYPES_DAILY_PERCENTS",
-        outputs: [{
-            internalType: "uint256",
-            name: "",
-            type: "uint256",
-        }, ],
-        stateMutability: "view",
-        type: "function",
-    },
-    {
-        inputs: [{
-            internalType: "uint256",
-            name: "",
-            type: "uint256",
-        }, ],
-        name: "STAKE_TYPES_TERMS",
-        outputs: [{
-            internalType: "uint256",
-            name: "",
-            type: "uint256",
-        }, ],
-        stateMutability: "view",
-        type: "function",
-    },
-    {
-        inputs: [{
-                internalType: "address",
-                name: "",
-                type: "address",
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "stakeIdx",
+                "type": "uint256"
             },
             {
-                internalType: "uint256",
-                name: "",
-                type: "uint256",
-            },
+                "internalType": "uint256",
+                "name": "boostTokenId",
+                "type": "uint256"
+            }
         ],
-        name: "stakes",
-        outputs: [{
-                internalType: "uint8",
-                name: "stakeTypeIdx",
-                type: "uint8",
-            },
-            {
-                internalType: "uint256",
-                name: "startTime",
-                type: "uint256",
-            },
-            {
-                internalType: "uint256",
-                name: "tokenId",
-                type: "uint256",
-            },
-            {
-                internalType: "uint8",
-                name: "boostsSize",
-                type: "uint8",
-            },
-            {
-                internalType: "uint256",
-                name: "lastWithdrawalTime",
-                type: "uint256",
-            },
-            {
-                internalType: "bool",
-                name: "isExpired",
-                type: "bool",
-            },
-        ],
-        stateMutability: "view",
-        type: "function",
+        "name": "addBoost",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
     },
     {
-        inputs: [{
-            internalType: "uint256",
-            name: "",
-            type: "uint256",
-        }, ],
-        name: "stakeTypes",
-        outputs: [{
-                internalType: "uint256",
-                name: "dailyPercent",
-                type: "uint256",
-            },
-            {
-                internalType: "uint256",
-                name: "term",
-                type: "uint256",
-            },
-        ],
-        stateMutability: "view",
-        type: "function",
-    },
-
-    {
-        anonymous: false,
-        inputs: [{
-                indexed: true,
-                internalType: "address",
-                name: "buyer",
-                type: "address",
-            },
-            {
-                indexed: true,
-                internalType: "uint256",
-                name: "stakeIdx",
-                type: "uint256",
-            },
-            {
-                indexed: true,
-                internalType: "uint256",
-                name: "boostTokenId",
-                type: "uint256",
-            },
-            {
-                indexed: false,
-                internalType: "uint256",
-                name: "timestamp",
-                type: "uint256",
-            },
-        ],
-        name: "BoostApplied",
-        type: "event",
+        "inputs": [],
+        "name": "batchUnstake",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
     },
     {
-        anonymous: false,
-        inputs: [{
-                indexed: true,
-                internalType: "address",
-                name: "buyer",
-                type: "address",
-            },
-            {
-                indexed: true,
-                internalType: "address",
-                name: "referrer",
-                type: "address",
-            },
-            {
-                indexed: false,
-                internalType: "uint256",
-                name: "amount",
-                type: "uint256",
-            },
-            {
-                indexed: true,
-                internalType: "uint256",
-                name: "tokenId",
-                type: "uint256",
-            },
-            {
-                indexed: false,
-                internalType: "uint256",
-                name: "timestamp",
-                type: "uint256",
-            },
-        ],
-        name: "NFTBought",
-        type: "event",
+        "inputs": [],
+        "name": "batchWithdraw",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
     },
     {
-        anonymous: false,
-        inputs: [{
-                indexed: true,
-                internalType: "address",
-                name: "buyer",
-                type: "address",
-            },
+        "inputs": [],
+        "name": "boostNFTContractAddress",
+        "outputs": [
             {
-                indexed: true,
-                internalType: "enum Boosts.BoostType",
-                name: "boostType",
-                type: "uint8",
-            },
-            {
-                indexed: true,
-                internalType: "uint256",
-                name: "tokenId",
-                type: "uint256",
-            },
-            {
-                indexed: false,
-                internalType: "string",
-                name: "currency",
-                type: "string",
-            },
-            {
-                indexed: false,
-                internalType: "uint256",
-                name: "amount",
-                type: "uint256",
-            },
-            {
-                indexed: false,
-                internalType: "uint256",
-                name: "timePercent",
-                type: "uint256",
-            },
-            {
-                indexed: false,
-                internalType: "uint256",
-                name: "profitPercent",
-                type: "uint256",
-            },
-            {
-                indexed: false,
-                internalType: "uint256",
-                name: "timestamp",
-                type: "uint256",
-            },
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
         ],
-        name: "NewBoost",
-        type: "event",
+        "stateMutability": "view",
+        "type": "function"
     },
     {
-        anonymous: false,
-        inputs: [{
-                indexed: true,
-                internalType: "address",
-                name: "buyer",
-                type: "address",
-            },
+        "inputs": [
             {
-                indexed: true,
-                internalType: "uint8",
-                name: "leaderLevel",
-                type: "uint8",
-            },
-            {
-                indexed: false,
-                internalType: "uint256",
-                name: "timestamp",
-                type: "uint256",
-            },
+                "internalType": "uint8",
+                "name": "stakeIdx",
+                "type": "uint8"
+            }
         ],
-        name: "NewLeader",
-        type: "event",
+        "name": "claim",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
     },
     {
-        anonymous: false,
-        inputs: [{
-                indexed: true,
-                internalType: "address",
-                name: "referrer",
-                type: "address",
-            },
+        "inputs": [],
+        "name": "investorsCount",
+        "outputs": [
             {
-                indexed: true,
-                internalType: "address",
-                name: "referral",
-                type: "address",
-            },
-            {
-                indexed: true,
-                internalType: "uint256",
-                name: "level",
-                type: "uint256",
-            },
-            {
-                indexed: false,
-                internalType: "uint256",
-                name: "amount",
-                type: "uint256",
-            },
-            {
-                indexed: false,
-                internalType: "uint256",
-                name: "timestamp",
-                type: "uint256",
-            },
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
         ],
-        name: "ReferralBonusReceived",
-        type: "event",
+        "stateMutability": "view",
+        "type": "function"
     },
     {
-        anonymous: false,
-        inputs: [{
-                indexed: true,
-                internalType: "address",
-                name: "investor",
-                type: "address",
-            },
+        "inputs": [
             {
-                indexed: true,
-                internalType: "uint8",
-                name: "stakeTypeIdx",
-                type: "uint8",
-            },
-            {
-                indexed: true,
-                internalType: "uint256",
-                name: "stakeIdx",
-                type: "uint256",
-            },
-            {
-                indexed: false,
-                internalType: "uint256",
-                name: "tokenId",
-                type: "uint256",
-            },
-            {
-                indexed: false,
-                internalType: "uint256",
-                name: "amount",
-                type: "uint256",
-            },
-            {
-                indexed: false,
-                internalType: "uint256",
-                name: "timestamp",
-                type: "uint256",
-            },
+                "internalType": "address",
+                "name": "investorAddr_",
+                "type": "address"
+            }
         ],
-        name: "Staked",
-        type: "event",
+        "name": "isInvestor",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
     },
     {
-        anonymous: false,
-        inputs: [{
-                indexed: true,
-                internalType: "address",
-                name: "investor",
-                type: "address",
-            },
+        "inputs": [],
+        "name": "nftContractAddress",
+        "outputs": [
             {
-                indexed: true,
-                internalType: "uint8",
-                name: "stakeTypeIdx",
-                type: "uint8",
-            },
-            {
-                indexed: true,
-                internalType: "uint256",
-                name: "stakeIdx",
-                type: "uint256",
-            },
-            {
-                indexed: false,
-                internalType: "uint256",
-                name: "tokenId",
-                type: "uint256",
-            },
-            {
-                indexed: false,
-                internalType: "uint256",
-                name: "timestamp",
-                type: "uint256",
-            },
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
         ],
-        name: "Unstaked",
-        type: "event",
+        "stateMutability": "view",
+        "type": "function"
     },
     {
-        anonymous: false,
-        inputs: [{
-                indexed: true,
-                internalType: "address",
-                name: "investor",
-                type: "address",
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "operator",
+                "type": "address"
             },
             {
-                indexed: true,
-                internalType: "uint8",
-                name: "stakeTypeIdx",
-                type: "uint8",
+                "internalType": "address",
+                "name": "from",
+                "type": "address"
             },
             {
-                indexed: true,
-                internalType: "uint256",
-                name: "stakeIdx",
-                type: "uint256",
+                "internalType": "uint256",
+                "name": "tokenId",
+                "type": "uint256"
             },
             {
-                indexed: false,
-                internalType: "uint256",
-                name: "tokenId",
-                type: "uint256",
-            },
-            {
-                indexed: false,
-                internalType: "uint256",
-                name: "reward",
-                type: "uint256",
-            },
-            {
-                indexed: false,
-                internalType: "uint256",
-                name: "timestamp",
-                type: "uint256",
-            },
+                "internalType": "bytes",
+                "name": "data",
+                "type": "bytes"
+            }
         ],
-        name: "Withdrawn",
-        type: "event",
+        "name": "onERC721Received",
+        "outputs": [
+            {
+                "internalType": "bytes4",
+                "name": "",
+                "type": "bytes4"
+            }
+        ],
+        "stateMutability": "pure",
+        "type": "function"
     },
+    {
+        "inputs": [],
+        "name": "owner",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "renounceOwnership",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "tokenAddress",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+            }
+        ],
+        "name": "retrieveTokens",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "tokenId",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint8",
+                "name": "stakeTypeIdx",
+                "type": "uint8"
+            }
+        ],
+        "name": "stake",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "stake",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "stakeTypes",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "dailyPercent",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "term",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "stakes",
+        "outputs": [
+            {
+                "internalType": "uint8",
+                "name": "stakeTypeIdx",
+                "type": "uint8"
+            },
+            {
+                "internalType": "uint256",
+                "name": "startTime",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "tokenId",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint8",
+                "name": "boostsSize",
+                "type": "uint8"
+            },
+            {
+                "internalType": "uint256",
+                "name": "lastWithdrawalTime",
+                "type": "uint256"
+            },
+            {
+                "internalType": "bool",
+                "name": "isExpired",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "newOwner",
+                "type": "address"
+            }
+        ],
+        "name": "transferOwnership",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint8",
+                "name": "stakeIdx",
+                "type": "uint8"
+            }
+        ],
+        "name": "unstake",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "stateMutability": "payable",
+        "type": "receive"
+    }
 ];
 
 module.exports.stakeAbi = stakeAbi;

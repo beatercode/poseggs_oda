@@ -190,10 +190,10 @@
         },
         "MIN_NFT_PRICE": "0.01",
         "DEFAULT_GAS_PRICE_GWEI": "45",
-        "STAKE_CONTRACT": "0x5d39ffbf9a10d93e82017613a085f35a53211d1e",
+        "STAKE_CONTRACT": "0x880720c5AcaeEb7f3dA167859b884F7E52C49cd9",
         "ERC20_CONTRACT": "0xee712de8b6dc5afbd03f4a7cb6edef9a89fbc4e5",
         "BOOST_NFT_CONTRACT": "0x04746fcfee78ca138e73973fb6a7e6acb809bcec",
-        "NFT_CONTRACT": "0x7ab2cc564627457dd50078ea2345610997c8a04b",
+        "NFT_CONTRACT": "0x85E5d619Bc8A6E22459C69b3De156Ba1E57A0c67",
         "DEFAULT_REFERRER": "0x5e633caE917f2c8A8E59498011B7C906478C7888",
         "AIRDROP_CONTRACT": "0xeba513d7951e6fd9112bbb1512d2438fb4958b5c",
         "NODE": "https://bsc-dataseed1.binance.org/"
@@ -368,33 +368,54 @@
         ],
         "STAKING_PLANS": {
             "0": {
-                "days": 0,
-                "profitPerDay": 3.33
+                "days": 17,
+                "perc": 122.4,
+                "profitPerDay": 7.2
             },
             "1": {
-                "days": 17,
-                "perc": 120,
-                "profitPerDay": 7.0588
+                "days": 27,
+                "perc": 164.7,
+                "profitPerDay": 6.1
             },
             "2": {
-                "days": 27,
-                "perc": 140,
-                "profitPerDay": 5.1851
+                "days": 37,
+                "perc": 210.9,
+                "profitPerDay": 5.7
             },
             "3": {
                 "days": 47,
-                "perc": 220,
-                "profitPerDay": 4.6808
+                "perc": 258.5,
+                "profitPerDay": 5.5
+            },
+            "4": {
+                "days": 57,
+                "perc": 296.4,
+                "profitPerDay": 5.2
+            },
+            "5": {
+                "days": 67,
+                "perc": 335,
+                "profitPerDay": 5.0
+            },
+            "6": {
+                "days": 77,
+                "perc": 385,
+                "profitPerDay": 5.0
+            },
+            "7": {
+                "days": 87,
+                "perc": 461.1,
+                "profitPerDay": 5.3
             }
         },
         "MIN_NFT_PRICE": "0.01",
         "DEFAULT_GAS_PRICE_GWEI": "45",
-        "STAKE_CONTRACT": "0x5d39ffbf9a10d93e82017613a085f35a53211d1e",
-        "ERC20_CONTRACT": "0xED4BA9203d69e4Ca92DC24795a7D3F5b43b250AA",
-        "BOOST_NFT_CONTRACT": "0x04746fcfee78ca138e73973fb6a7e6acb809bcec",
-        "NFT_CONTRACT": "0x7ab2cc564627457dd50078ea2345610997c8a04b",
-        "DEFAULT_REFERRER": "0x5e633caE917f2c8A8E59498011B7C906478C7888",
-        "AIRDROP_CONTRACT": "0xeba513d7951e6fd9112bbb1512d2438fb4958b5c",
+        "STAKE_CONTRACT": "0x7fD1AE2E4733Bc0Cd22e9EaE03D8056148ac6aBd",
+        "ERC20_CONTRACT": "0x83AeAf3480D85bBdAF0cf15E19198e67D1a63269",
+        "BOOST_NFT_CONTRACT": "0x6Eb0B6aa5607972Cf5F2b09A78e22fE14c1922A0",
+        "NFT_CONTRACT": "0xc5499870B6628E7a59c0614AfCebdD319fbe2e94",
+        "DEFAULT_REFERRER": "0xDd5f7D3D52F97b94fCFed492730240e93d792e98",
+        "AIRDROP_CONTRACT": "0x0000000000000000000000000000000000000000",
         "NODE": "https://data-seed-prebsc-1-s1.binance.org:8545/"
     },
     "137": {
@@ -592,7 +613,8 @@
         "prices": [17, 47, 97, 197, 497, 997, 1997, 4997],
         "stats": [9, 19, 29, 39, 49, 59, 69, 79],
         "profits": [7.3, 6.8, 6.4, 6.1, 5.7, 5.4, 5.1, 4.4],
-        "periods": [35, 37, 39, 41, 43, 45, 47, 49]
+        "periods": [35, 37, 39, 41, 43, 45, 47, 49],
+        "name": ["Ground Egg", "Water Egg", "Wood Egg", "Dark Egg", "Ice Egg", "Electro Egg", "Forest Egg", "Fire Egg"]
     },
     "PRIMARY_BLOCKCHAIN": {
         "symbol": "bsc",
@@ -733,6 +755,7 @@
     },
     "SUPPORTED_BLOCKCHAINS": [
         97,
+        56,
         137
     ]
 }

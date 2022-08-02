@@ -148,7 +148,7 @@
                                     <div class="empty-title h7" v-if="currentBlockchain === 137">{{ translatesGet("YOUR_BOOSTS_0_DESCR_MATIC") }}</div>
                                 </div>
                                 <div v-else class="your-boosts">
-                                    <div class="your-boost-item" v-for="nft of nfts" :key="nft.attributes[3].value">
+                                    <div class="your-boost-item" v-for="nft of getNftBoost()">
                                         <div class="block-percent-img">
                                             <div
                                                 class="your-nft-img"
@@ -288,6 +288,7 @@
                 }
             },
             getClassImg(nft) {
+                console.log(nft)
                 return `img-boost-${nft.attributes[0].value.toLowerCase()}-${nft.level}`;
             },
             openTimerModal(e) {
@@ -301,7 +302,9 @@
 
                 this.showTimer = true;
             },
-
+            getNftBoost() {
+                return []
+            },
             getPercent(nft) {
                 if (nft.type === "PROFIT") {
                     return [nft.attributes[2].value];
@@ -328,9 +331,9 @@
                     this.currentAddress &&
                     this.currentAddress !== "0x0000000000000000000000000000000000000000"
                 ) {
-                    const arr = this.userNftsData[this.currentBlockchain][conf[this.currentBlockchain].BOOST_NFT_CONTRACT] || [];
-
-                    return arr.sort((a, b) => b.id - a.id);
+                    // const arr = this.userNftsData[this.currentBlockchain][conf[this.currentBlockchain].BOOST_NFT_CONTRACT] || [];
+                    // return arr.sort((a, b) => b.id - a.id);
+                    return this.userNftsData;
                 }
                 return null;
             },
