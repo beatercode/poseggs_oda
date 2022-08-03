@@ -7,9 +7,7 @@
                     <div class="card-header-icon earn-stake"></div>
                     <div>
                         <div class="h4">{{ translatesGet("STAKE") }}</div>
-                        <div class="h5">
-                            {{ translatesGet("STAKE_DESCR") }}
-                        </div>
+                        <div class="h5">{{ translatesGet("STAKE_DESCR") }}</div>
                     </div>
                 </div>
                 <button :disabled="showLoader" @click="$emit('close')" class="modal-btn-close">
@@ -37,7 +35,7 @@
                                         <div v-if="showLoader && tokenId === nft.tokenId" class="nft-load">
                                             <div class="nft-load-icon"></div>
                                         </div>
-                                        <img :src="getImageLink(nft.tokenId)" alt="nft-img" class="your-nft-img" />
+                                        <img :src="getImageLink(nft.plan)" alt="nft-img" class="your-nft-img" />
                                     </div>
                                     <div class="title">{{ translatesGet("EXPECTED_REWARD") }}:</div>
                                     <div class="stake-nft-value">
@@ -122,12 +120,11 @@
                 }
             },
             canNftStakeThere(nft, selectedPool) {
-                console.log((nft.tokenId - 1) + " - " + selectedPool);
                 return (nft.tokenId - 1) >= selectedPool;
             },
             getImageLink(index) {
                 var images = require.context("/src/assets/images/all/", false, /\.png$/);
-                return images("./nft-" + (index + 1) + ".png");
+                return images("./nft-" + index + ".png");
             },
             getExpectedReward(nft) {
 

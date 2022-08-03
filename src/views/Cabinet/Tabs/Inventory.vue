@@ -5,7 +5,7 @@
             @close="(showTransferModal = false), (selectedNft = null), (onlyData = false)"
             :nft="selectedNft"
             :onlyData="onlyData"
-            nftType="Posduck"
+            nftType="Posegg"
         />
 
         <div class="cab-page-name">
@@ -21,15 +21,15 @@
                             <div v-if="nfts && nfts.length" class="your-nfts-card your-nfts" :class="{ 'your-nfts-alone': nfts && nfts.length === 1 }">
                                 <li v-for="(nft, index) of nfts" class="li-our-nfts nft-list-buy li-nft-red">
                                     <div class="li-our-nft-wrap">
-                                        <img class="card-egg-image" :src="getImageLinkByPrice(nft.price)" 
+                                        <img class="card-egg-image" :src="getNftImage(nft.plan)" 
                                             @click="(onlyData = true), (showTransferModal = true), (selectedNft = nft)" />
                                         <div class="li-nft-footer" style="padding: 0px; background: #ffffff00;">
-                                            <router-link :to="{ name: 'Staking' }" class="btn btn-go-stake" style="margin-top: 0px; border-radius: 0px;">
-                                                {{ translatesGet("BTN_GO_STAKE") }}
-                                            </router-link>
-                                            <button :disabled="showLoader" @click="transfer(nft)" class="btn btn-transfer" style="margin-top: 0px; border-radius: 0px 0px 6px 6px;">
+                                            <button :disabled="showLoader" @click="transfer(nft)" class="btn btn-transfer">
                                                 {{ translatesGet("BTN_TRANSFER") }}
                                             </button>
+                                            <router-link :to="{ name: 'Staking' }" class="btn btn-go-stake">
+                                                {{ translatesGet("BTN_GO_STAKE") }}
+                                            </router-link>
                                         </div>
                                     </div>
                                 </li>
@@ -152,10 +152,9 @@
             },
             getNftImage(index) {
                 var images = require.context("/src/assets/images/all/", false, /\.png$/);
-                return images("./nft-" + (index + 1) + ".png");
+                return images("./nft-" + index + ".png");
             },
             getImageLinkByPrice(nftPrice) {
-                console.log(nftPrice);
                 let nftId = nftPrice == 17 ? 1 : nftPrice == 47 ? 2 : nftPrice == 97 ? 3 : nftPrice == 197 ? 4 : nftPrice == 497 ? 5 : nftPrice == 997 ? 6 : nftPrice == 1997 ?  7 : nftPrice == 4997 ? 8 : 9;
                 var images = require.context("/src/assets/images/all/", false, /\.png$/);
                 return images("./nft-" + nftId + ".png");
@@ -347,7 +346,7 @@
             ...mapState(["userCoinBalance", "userERC20Balance", "currentBlockchain", "userNftsData", "currentAddress", "currency"]),
             getImage() {
                 if (this.currentBlockchain === 56 || this.currentBlockchain === 97) {
-                    const duckNumber =
+                    const eggNumber =
                         Number(this.bnbAmount) < 0.1
                             ? "56" + "-1"
                             : Number(this.bnbAmount) < 1
@@ -363,9 +362,9 @@
                             : Number(this.bnbAmount) < 100
                             ? "56" + "-7"
                             : "56" + "-8";
-                    return `${duckNumber}`;
+                    return `${eggNumber}`;
                 } else if (this.currentBlockchain === 137) {
-                    const duckNumber =
+                    const eggNumber =
                         Number(this.bnbAmount) < 35
                             ? "137" + "-1"
                             : Number(this.bnbAmount) < 350
@@ -381,9 +380,9 @@
                             : Number(this.bnbAmount) < 35000
                             ? "137" + "-7"
                             : "137" + "-8";
-                    return `${duckNumber}`;
+                    return `${eggNumber}`;
                 } else if (!this.currentBlockchain) {
-                    const duckNumber =
+                    const eggNumber =
                         Number(this.bnbAmount) < 0.1
                             ? "56-1"
                             : Number(this.bnbAmount) < 1
@@ -399,11 +398,10 @@
                             : Number(this.bnbAmount) < 100
                             ? "56-7"
                             : "56-8";
-                    return `${duckNumber}`;
+                    return `${eggNumber}`;
                 }
             },
             nfts() {
-                console.log(this.userNftsData);
                 if (
                     this.userNftsData &&
                     this.currentBlockchain &&
@@ -412,7 +410,6 @@
                 ) {
                     // const arr = this.userNftsData[this.currentBlockchain][conf[this.currentBlockchain].NFT_CONTRACT] || [];
                     // return arr.sort((a, b) => b.id - a.id); 
-                    console.log(this.userNftsData);
                     return this.userNftsData;
                 }
                 return null;

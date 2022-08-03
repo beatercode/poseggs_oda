@@ -176,7 +176,7 @@
         [
             "OUR_NFTS",
             "",
-            "DuckNFTs"
+            "Egg NFTs"
         ],
         [
             "LAUNCH_APP",
@@ -348,7 +348,7 @@
         [
             "OUR_NFT",
             "",
-            "DuckNFTs"
+            "Egg NFTs"
         ],
         [
             "HOW_TO_EARN",
@@ -379,7 +379,7 @@
         [
             "TITLE_DESC",
             "",
-            "PoSDuck is a platform turning NFTs into stakeable assets. The PoS (Proof-of-Stake) mechanism is employed to reward participants."
+            "ROIEgg is a platform turning NFTs into stakeable assets. The ROI (Proof-of-Stake) mechanism is employed to reward participants."
         ],
         [
             "BUY",
@@ -444,17 +444,17 @@
         [
             "OUR_NFT_DESC",
             "",
-            "PoSDuck has its own quacky NFT collection launched on the BNB Chain net. There's 8 NFT types of the ERC-721 standard."
+            "ROIEgg has its own quacky NFT collection launched on the BNB Chain net. There's 8 NFT types of the ERC-721 standard."
         ],
         [
             "OUR_NFT_DESC_MATIC",
             "",
-            "PoSDuck has its own quacky NFT collection launched on the Polygon net. There's 8 NFT types of the ERC-721 standard."
+            "ROIEgg has its own quacky NFT collection launched on the Polygon net. There's 8 NFT types of the ERC-721 standard."
         ],
         [
             "QUACK_2",
             "",
-            "First you need to purchase a staking NFT. Pick your fave duck and follow my lead. It's been ducky for me ever since I started staking NFTs!"
+            "First you need to purchase a staking NFT. Pick your fave egg and follow my lead. It's been eggy for me ever since I started staking NFTs!"
         ],
         [
             "LIMITED_STAKING",
@@ -637,7 +637,7 @@
         [
             "HOW_TO_EARN_TITLE",
             "",
-            "How to Earn With PoSDuck"
+            "How to Earn With ROIEgg"
         ],
         [
             "HOW_TO_EARN_SUBTITLE",
@@ -652,7 +652,7 @@
         [
             "HOW_TO_EARN_LIST_DESC_1",
             "",
-            "Buy a DuckNFT, the most affordable one is just 0.01 BNB."
+            "Buy an EggNFT, the most affordable one is just 0.01 BNB."
         ],
         [
             "HOW_TO_EARN_LIST_TITLE_2",
@@ -672,7 +672,7 @@
         [
             "HOW_TO_EARN_LIST_DESC_3",
             "",
-            "Earn more rewards staking your DuckNFTs by applying special Boost NFTs."
+            "Earn more rewards staking your EggNFTs by applying special Boost NFTs."
         ],
         [
             "HOW_TO_EARN_LIST_TITLE_4",
@@ -682,7 +682,7 @@
         [
             "HOW_TO_EARN_LIST_DESC_4",
             "",
-            "Turn your DuckNFTs into powerful passive income generators."
+            "Turn your EggNFTs into powerful passive income generators."
         ],
         [
             "HOW_TO_EARN_LIST_TITLE_5",
@@ -692,7 +692,7 @@
         [
             "HOW_TO_EARN_LIST_DESC_5",
             "",
-            "The more people you refer to PoSDuck, the more BNB you're going to passively make."
+            "The more people you refer to ROIEgg, the more BNB you're going to passively make."
         ],
         [
             "HOW_TO_EARN_LIST_TITLE_1_MATIC",
@@ -702,7 +702,7 @@
         [
             "HOW_TO_EARN_LIST_DESC_1_MATIC",
             "",
-            "Buy a DuckNFT, the most affordable one is just 5 MATIC."
+            "Buy an EggNFT, the most affordable one is just 5 MATIC."
         ],
         [
             "HOW_TO_EARN_LIST_TITLE_2_MATIC",
@@ -722,7 +722,7 @@
         [
             "HOW_TO_EARN_LIST_DESC_3_MATIC",
             "",
-            "Earn more rewards staking your DuckNFTs by applying special Boost NFTs."
+            "Earn more rewards staking your EggNFTs by applying special Boost NFTs."
         ],
         [
             "HOW_TO_EARN_LIST_TITLE_4_MATIC",
@@ -732,7 +732,7 @@
         [
             "HOW_TO_EARN_LIST_DESC_4_MATIC",
             "",
-            "Turn your DuckNFTs into powerful passive income generators."
+            "Turn your EggNFTs into powerful passive income generators."
         ],
         [
             "HOW_TO_EARN_LIST_TITLE_5_MATIC",
@@ -742,7 +742,7 @@
         [
             "HOW_TO_EARN_LIST_DESC_5_MATIC",
             "",
-            "The more people you refer to PoSDuck, the more MATIC you're going to passively make."
+            "The more people you refer to ROIEgg, the more MATIC you're going to passively make."
         ],
         [
             "START_EARN",
@@ -752,7 +752,7 @@
         [
             "INCENTIVE_PROGRAM_DESC",
             "",
-            "Join PoSDuck's Incentive Programs to Earn Extra Rewards."
+            "Join ROIEgg's Incentive Programs to Earn Extra Rewards."
         ],
         [
             "LEADERSHIP",
@@ -772,7 +772,7 @@
         [
             "LEADERSHIP_PROGRAMM_DESC",
             "",
-            "Leader Program gives PoSDuck's most active users - leaders - the opportunity to secure Boosts for their team members as their structures reach higher levels."
+            "Leader Program gives ROIEgg's most active users - leaders - the opportunity to secure Boosts for their team members as their structures reach higher levels."
         ],
         [
             "QUACK_3",
@@ -886,7 +886,7 @@
         [
             "SUCCESS_REG",
             "",
-            "Congrats, you're on a team now! 🎉 Share your referral link to take your team to greener pastures and get closer to hopping into the leader position."
+            "Congrats, you're on a team now! 🎉 Share your referral link to take your team to greener pastures and get closer to hopping into the leader ROIition."
         ],
         [
             "MODAL_TIMER_DESCR",
@@ -917,7 +917,7 @@
         [
             "STAKING_DASH_DESCR",
             "",
-            "Monitor your staked DuckNFTs, your profits and rates. Apply special Boosts to your NFTs' pools to get more rewards and extend staking periods. Stake, unstake, claim your rewards from this tab."
+            "Monitor your staked EggNFTs, your profits and rates. Apply special Boosts to your NFTs' pools to get more rewards and extend staking periods. Stake, unstake, claim your rewards from this tab."
         ],
         [
             "BOOSTER_TIME",
@@ -957,17 +957,17 @@
         [
             "LEAD_PROG_DESCR",
             "",
-            "Leader Program gives PoSDuck's most active users - Leaders - the opportunity to secure Team Boosts for their teams as their structures reach higher levels."
+            "Leader Program gives ROIEgg's most active users - Leaders - the opportunity to secure Team Boosts for their teams as their structures reach higher levels."
         ],
         [
             "REF_PROG_DESCR",
             "",
-            "Referral Program enables its active users to earn passive BNB income. Expand your structure by referring more people to the platform to get 5-20% of each DuckNFT or Boost purchased by your structure members."
+            "Referral Program enables its active users to earn passive BNB income. Expand your structure by referring more people to the platform to get 5-20% of each EggNFT or Boost purchased by your structure members."
         ],
         [
             "REF_PROG_DESCR_POLYGON",
             "",
-            "Referral Program enables its active users to earn passive MATIC income. Expand your structure by referring more people to the platform to get 5-20% of each DuckNFT or Boost purchased by your structure members.",
+            "Referral Program enables its active users to earn passive MATIC income. Expand your structure by referring more people to the platform to get 5-20% of each EggNFT or Boost purchased by your structure members.",
             "Polygon"
         ],
         [
@@ -1015,7 +1015,7 @@
         [
             "YOUR_NFTS_DESCR",
             "",
-            "Choose the PoSEgg you want to mint. Each one have his own stats."
+            "Choose the ROIEgg you want to mint. Each one have his own stats."
         ],
         [
             "YOUR_LOOTBOX_DESCR",
@@ -1030,12 +1030,12 @@
         [
             "YOUR_NFTS_0_DESCR",
             "",
-            "Use BNB to buy some. You can also get DuckNFTs from other people."
+            "Use BNB to buy some. You can also get EggNFTs from other people."
         ],
         [
             "YOUR_NFTS_0_DESCR_MATIC",
             "",
-            "Use MATIC to buy some. You can also get DuckNFTs from other people."
+            "Use MATIC to buy some. You can also get EggNFTs from other people."
         ],
         [
             "YOUR_STAKE_0_TITLE",
@@ -1045,7 +1045,7 @@
         [
             "YOUR_STAKE_0_DESCR",
             "",
-            "Start staking your DuckNFTs to earn interest now!"
+            "Start staking your EggNFTs to earn interest now!"
         ],
         [
             "YOUR_STAKE_0_BTN",
@@ -1060,12 +1060,12 @@
         [
             "SWAP_0_DESCR",
             "",
-            "Перевірте чи виграли ви POSDuck Mystery BOX на сторінці кампанії."
+            "Перевірте чи виграли ви ROIEgg Mystery BOX на сторінці кампанії."
         ],
         [
             "SWAP_0_BTN",
             "",
-            "Get POSDuck Mystery Box"
+            "Get ROIEgg Mystery Box"
         ],
         [
             "BTN_STAKE",
@@ -1135,12 +1135,12 @@
         [
             "STAKE",
             "",
-            "Stake Your DuckNFTs"
+            "Stake Your EggNFTs"
         ],
         [
             "STAKE_DESCR",
             "",
-            "Please select a staking pool. There's Limited & Unlimited pools. DuckNFTs staked in the former get burned once the staking period's over, while the latter enables you to unstake anytime."
+            "Please select a staking pool. There's Limited & Unlimited pools. EggNFTs staked in the former get burned once the staking period's over, while the latter enables you to unstake anytime."
         ],
         [
             "SELECT",
@@ -1162,7 +1162,7 @@
         [
             "COPYRIGHT",
             "",
-            "© 2022 PoSDuck. All rights reserved."
+            "© 2022 ROIEgg. All rights reserved."
         ],
         [
             "ON_STAKE",
@@ -1429,7 +1429,7 @@
         [
             "REWARD_INACTIVE_DESCR",
             "",
-            "Wow, you can't go higher than that! Everything is just full-on ducky now!"
+            "Wow, you can't go higher than that! Everything is just full-on eggy now!"
         ],
         [
             "REWARD_LINK",
@@ -1664,7 +1664,7 @@
         [
             "CLAIM_TITLE_4",
             "",
-            "PoSDuck Airdrop Claiming Period Is Over"
+            "ROIEgg Airdrop Claiming Period Is Over"
         ],
         [
             "",
@@ -1685,12 +1685,12 @@
         [
             "CLAIM_DESCR_3",
             "",
-            "You missed out on the PoSDuck Airdrop. But keep your bill up, there are new PDT giveaways on their way. "
+            "You missed out on the ROIEgg Airdrop. But keep your bill up, there are new PDT giveaways on their way. "
         ],
         [
             "CLAIM_DESCR_4",
             "",
-            "Please hit the button below to contact a PoSDuck rep on Telegram if you performed all the Airdrop tasks and would like to claim your tokens. In your message, include your wallet address you entered in the Airdrop Bot."
+            "Please hit the button below to contact a ROIEgg rep on Telegram if you performed all the Airdrop tasks and would like to claim your tokens. In your message, include your wallet address you entered in the Airdrop Bot."
         ],
         [],
         [
@@ -1701,7 +1701,7 @@
         [
             "",
             "",
-            "Обміняйте Вашу NFT отриману з Містері Боксів на DuckNFT або NFT Boost для використання на платформі POSDuck"
+            "Обміняйте Вашу NFT отриману з Містері Боксів на EggNFT або NFT Boost для використання на платформі ROIEgg"
         ]
     ]
 }

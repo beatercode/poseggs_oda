@@ -201,6 +201,9 @@ export default new Vuex.Store({
         getLanguage(state) {
             return state.lang;
         },
+        getUserNftsData(state) {
+            return state.userNftsData;
+        },
         getInterfaceTranslations: (state) => {
             try {
                 let lang = state.lang;

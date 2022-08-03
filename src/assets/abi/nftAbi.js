@@ -166,6 +166,11 @@ const nftAbi = [
         "outputs": [
             {
                 "internalType": "uint256",
+                "name": "id",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
                 "name": "price",
                 "type": "uint256"
             },
@@ -207,6 +212,19 @@ const nftAbi = [
         "type": "function"
     },
     {
+        "inputs": [],
+        "name": "LAUNCHED",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
         "inputs": [
             {
                 "internalType": "uint256",
@@ -238,6 +256,30 @@ const nftAbi = [
             {
                 "internalType": "uint256",
                 "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "LOOTBOXES",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "id",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "price",
                 "type": "uint256"
             }
         ],
@@ -335,6 +377,19 @@ const nftAbi = [
                 "internalType": "address",
                 "name": "",
                 "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "_random",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
             }
         ],
         "stateMutability": "view",
@@ -695,6 +750,13 @@ const nftAbi = [
     },
     {
         "inputs": [],
+        "name": "launch",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
         "name": "mainContractAddress",
         "outputs": [
             {
@@ -704,6 +766,24 @@ const nftAbi = [
             }
         ],
         "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address[]",
+                "name": "referrerAddrs_",
+                "type": "address[]"
+            },
+            {
+                "internalType": "uint256",
+                "name": "index",
+                "type": "uint256"
+            }
+        ],
+        "name": "mintLootbox",
+        "outputs": [],
+        "stateMutability": "nonpayable",
         "type": "function"
     },
     {

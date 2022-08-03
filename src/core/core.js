@@ -100,7 +100,7 @@ export default class Core {
             for (let chainId of conf.SUPPORTED_BLOCKCHAINS) {
                 this[`provider_${chainId}`] = new ethers.providers.JsonRpcProvider(`${conf[chainId].NODE}`);
                 //TODO initialize ERC20? contract
-                this[`posduckNft_${chainId}`] = new ethers.Contract(conf[chainId].NFT_CONTRACT, nftAbi, this[`provider_${chainId}`]).connect(
+                this[`poseggNft_${chainId}`] = new ethers.Contract(conf[chainId].NFT_CONTRACT, nftAbi, this[`provider_${chainId}`]).connect(
                     this[`provider_${chainId}`]
                 );
                 this[`boostNft_${chainId}`] = new ethers.Contract(conf[chainId].BOOST_NFT_CONTRACT, boostAbi, this[`provider_${chainId}`]).connect(
@@ -122,14 +122,14 @@ export default class Core {
                     this.context.$store.commit("setChainId", chainId);
                     this.currentBlockchain = Number(blockchain);
                     //TODO initialize ERC20?contract
-                    this[`posduckNft_${chainId}`] = new ethers.Contract(conf[chainId].NFT_CONTRACT, nftAbi, this.provider).connect(this.signer);
+                    this[`poseggNft_${chainId}`] = new ethers.Contract(conf[chainId].NFT_CONTRACT, nftAbi, this.provider).connect(this.signer);
                     this[`boostNft_${chainId}`] = new ethers.Contract(conf[chainId].BOOST_NFT_CONTRACT, boostAbi, this.provider).connect(this.signer);
                     this[`stake_${chainId}`] = new ethers.Contract(conf[chainId].STAKE_CONTRACT, stakeAbi, this.provider).connect(this.signer);
                     this[`BUSD_${chainId}`] = new ethers.Contract(conf[chainId].ERC20_CONTRACT, erc20, this.provider).connect(this.signer);
                     this[`airdrop_${chainId}`] = new ethers.Contract(conf[chainId].AIRDROP_CONTRACT, airdrop, this.provider).connect(this.signer);
                 } else {
                     //TODO initialize ERC20? contract
-                    this[`posduckNft_${chainId}`].connect(this[`provider_${chainId}`]);
+                    this[`poseggNft_${chainId}`].connect(this[`provider_${chainId}`]);
                     this[`boostNft_${chainId}`].connect(this[`provider_${chainId}`]);
                     this[`stake_${chainId}`].connect(this[`provider_${chainId}`]);
                     this[`BUSD_${chainId}`].connect(this[`provider_${chainId}`]);
@@ -149,7 +149,7 @@ export default class Core {
                 /*
                 this[`provider_${chainId}`] = new ethers.providers.JsonRpcProvider(`${conf[chainId].NODE}`);
                 // TODO  Create ERC20? contract instance
-                this[`posduckNft_${chainId}`] = new ethers.Contract(conf[chainId].NFT_CONTRACT, nftAbi, this[`provider_${chainId}`]).connect(
+                this[`poseggNft_${chainId}`] = new ethers.Contract(conf[chainId].NFT_CONTRACT, nftAbi, this[`provider_${chainId}`]).connect(
                     this[`provider_${chainId}`]
                 );
                 this[`boostNft_${chainId}`] = new ethers.Contract(conf[chainId].BOOST_NFT_CONTRACT, boostAbi, this[`provider_${chainId}`]).connect(
@@ -167,7 +167,7 @@ export default class Core {
                 */
                 this[`provider_${chainId}`] = new ethers.providers.JsonRpcProvider(`${conf[chainId].NODE}`);
                 // TODO  Create ERC20? contract instance
-                this[`posduckNft_${chainId}`] = new ethers.Contract(conf[chainId].NFT_CONTRACT, nftAbi, this[`provider_${chainId}`]).connect(this[`provider_${chainId}`])
+                this[`poseggNft_${chainId}`] = new ethers.Contract(conf[chainId].NFT_CONTRACT, nftAbi, this[`provider_${chainId}`]).connect(this[`provider_${chainId}`])
                 this[`boostNft_${chainId}`] = null//new ethers.Contract(conf[chainId].BOOST_NFT_CONTRACT, boostAbi, this[`provider_${chainId}`]);
                 this[`stake_${chainId}`] = null//new ethers.Contract(conf[chainId].STAKE_CONTRACT, stakeAbi, this[`provider_${chainId}`]);
                 this[`BUSD_${chainId}`] = new ethers.Contract(conf[chainId].ERC20_CONTRACT, erc20, this[`provider_${chainId}`]);
@@ -180,15 +180,14 @@ export default class Core {
                     this.context.$store.commit("setCurrentBlockchain", Number(chainId));
                     this.currentBlockchain = Number(blockchain);
                     // TODO  Create ERC20? contract instance
-                    this[`posduckNft_${chainId}`] = new ethers.Contract(conf[chainId].NFT_CONTRACT, nftAbi, this.provider).connect(this.signer);
+                    this[`poseggNft_${chainId}`] = new ethers.Contract(conf[chainId].NFT_CONTRACT, nftAbi, this.provider).connect(this.signer);
                     this[`boostNft_${chainId}`] = new ethers.Contract(conf[chainId].BOOST_NFT_CONTRACT, boostAbi, this.provider).connect(this.signer);
                     this[`stake_${chainId}`] = new ethers.Contract(conf[chainId].STAKE_CONTRACT, stakeAbi, this.provider).connect(this.signer);
                     this[`BUSD_${chainId}`] = new ethers.Contract(conf[chainId].ERC20_CONTRACT, erc20, this.provider).connect(this.signer);
                     this[`airdrop_${chainId}`] = new ethers.Contract(conf[chainId].AIRDROP_CONTRACT, airdrop, this.provider).connect(this.signer);
                 } else {
                     // TODO  Create ERC20? contract instance
-                    this[`posduckNft_${chainId}`].connect(this[`provider_${chainId}`]);
-                    console.log(chainId)
+                    this[`poseggNft_${chainId}`].connect(this[`provider_${chainId}`]);
                     this[`boostNft_${chainId}`].connect(this[`provider_${chainId}`]);
                     this[`stake_${chainId}`].connect(this[`provider_${chainId}`]);
                     this[`BUSD_${chainId}`].connect(this[`provider_${chainId}`]);
@@ -202,7 +201,7 @@ export default class Core {
                 console.log(chainId);
                 this[`provider_${chainId}`] = new ethers.providers.JsonRpcProvider(`${conf[chainId].NODE}`);
                 //TODO initialize ERC20? contract
-                this[`posduckNft_${chainId}`] = new ethers.Contract(conf[chainId].NFT_CONTRACT, nftAbi, this[`provider_${chainId}`]).connect(
+                this[`poseggNft_${chainId}`] = new ethers.Contract(conf[chainId].NFT_CONTRACT, nftAbi, this[`provider_${chainId}`]).connect(
                     this[`provider_${chainId}`]
                 );
                 this[`boostNft_${chainId}`] = new ethers.Contract(conf[chainId].BOOST_NFT_CONTRACT, boostAbi, this[`provider_${chainId}`]).connect(
@@ -295,9 +294,12 @@ export default class Core {
                     userERC20Balance
                 } = await _this.getUserBalance(userAddress);
 
-                const totalRegisterd = await _this.getTotalRegistered(userAddress);
-                const res = await _this.isRegistered(userAddress);
-                const levelDuringRegistration = await _this.getLevelDuringRegistration(userAddress);
+                // TODO
+                const totalRegisterd = ""; // await _this.getTotalRegistered(userAddress);
+                // TODO
+                const res = {"isUnique":true,"referrer":""}; // await _this.isRegistered(userAddress);
+                // TODO
+                const levelDuringRegistration = ""; // await _this.getLevelDuringRegistration(userAddress);
                 const userNfts = await _this.getUserNftsInChain(userAddress, _this.currentBlockchain, [
                     conf[_this.currentBlockchain].NFT_CONTRACT,
                     conf[_this.currentBlockchain].BOOST_NFT_CONTRACT,
@@ -320,7 +322,8 @@ export default class Core {
                 const referrer = res.referrer;
 
                 if (_this.currentBlockchain === 56 || _this.currentBlockchain === 97) {
-                    const airdropData = await _this.isAmongRegistered(userAddress);
+                    // TODO
+                    const airdropData = "";//await _this.isAmongRegistered(userAddress);
                     _this.context.$store.commit("setAirdropData", airdropData);
                 }
                 _this.context.$store.commit("setTotalRegistered", totalRegisterd);
@@ -329,7 +332,17 @@ export default class Core {
 
                 _this.context.$store.commit("setUserCoinBalance", userCoinBalance);
                 _this.context.$store.commit("setUserERC20Balance", userERC20Balance);
-                _this.context.$store.commit("setUserNftsData", userNfts);
+                let A = userNfts;
+                let B = _this.context.$store.getters.getUserNftsData;
+                let areDiff = false;
+                if(A && B && A.length == B.length) {
+                    for(let i = 0; i < A.length && !areDiff; i++) {
+                        if (A[i].tokenId != B[i].tokenId) areDiff = true; 
+                    }
+                } else {
+                    areDiff = true;
+                }
+                if (areDiff) _this.context.$store.commit("setUserNftsData", userNfts);
 
                 _this.context.$store.commit("setUserStakes", userStakes);
                 _this.context.$store.commit("setUserRefData", userRefData);
@@ -513,7 +526,7 @@ export default class Core {
     async getReferrers(userFrom) {
         if (this.currentBlockchain === 97) return ["0x0000000000000000000000000000000000000000"];
         try {
-            const res = await this[`posduckNft_${this.currentBlockchain}`].getBuyerReferralsStats(userFrom);
+            const res = await this[`poseggNft_${this.currentBlockchain}`].getBuyerReferralsStats(userFrom);
 
             this.hasDeposit = Number(res[5].toString()) > 0 ? true : false;
 
@@ -553,10 +566,15 @@ export default class Core {
     }
 
     async buyNFT(refs, indexPlan) {
-        console.log(this[`posduckNft_${this.currentBlockchain}`])
-        const res = await this[`posduckNft_${this.currentBlockchain}`].mintNft(refs, indexPlan);
+        const res = await this[`poseggNft_${this.currentBlockchain}`].mintNft(refs, indexPlan);
         return res;
     }
+
+    async buyLOOTBOX(refs, indexPlan) {
+        const res = await this[`poseggNft_${this.currentBlockchain}`].mintLootbox(refs, indexPlan);
+        return res;
+    }
+
     async buyBoost(currency, purchaseAmount, type, level) {
         if (currency === "PDT") {
             const res = await this[`boostNft_${this.currentBlockchain}`].buyBoostForPDT(type, level);
@@ -581,12 +599,12 @@ export default class Core {
     // }
 
     async claimLeadership() {
-        const res = await this[`posduckNft_${this.currentBlockchain}`].claimLeadership();
+        const res = await this[`poseggNft_${this.currentBlockchain}`].claimLeadership();
         return res;
     }
 
     async claimLeaderBoost() {
-        return await this[`posduckNft_${this.currentBlockchain}`].claimBoost();
+        return await this[`poseggNft_${this.currentBlockchain}`].claimBoost();
     }
     async verifySignature(message, signature, address) {
         const signingAddress = ethers.utils.verifyMessage(message, signature);
@@ -597,8 +615,8 @@ export default class Core {
         if (type === "boost") {
             const res = await this[`boostNft_${this.currentBlockchain}`].transferFrom(from, recipient, id);
             return res;
-        } else if (type === "duck") {
-            const res = await this[`posduckNft_${this.currentBlockchain}`].transferFrom(from, recipient, id);
+        } else if (type === "egg") {
+            const res = await this[`poseggNft_${this.currentBlockchain}`].transferFrom(from, recipient, id);
             return res;
         }
     }
@@ -692,7 +710,7 @@ export default class Core {
 
     async getUserNftsInChain(address, chainId, nftAddresses) {
         if (chainId != 56 && chainId != 137 && chainId != 97) return;
-        const nftContract = this[`posduckNft_${this.currentBlockchain}`];
+        const nftContract = this[`poseggNft_${this.currentBlockchain}`];
         const buyersNftIds = await nftContract.tokensOfOwner(address);
         const buyersNftInfo = [];
         for(let ni of buyersNftIds) {
@@ -701,6 +719,7 @@ export default class Core {
             let eggInfo = await nftContract.EGGS(eggPlan);
             eggInfo = await this.arrayOfBNtoNumber(eggInfo);
             eggInfo.name = conf.EGG_DATA.name[eggPlanId - 1];
+            eggInfo.plan = eggPlan.toNumber();
             eggInfo.tokenId = ni.toNumber();
             eggInfo.collection = "POSEggs-NFT";
             eggInfo.description = "";
@@ -716,6 +735,17 @@ export default class Core {
         temp.base_healt = array["base_healt"].toNumber();
         temp.base_speed = array["base_speed"].toNumber();
         temp.base_magic = array["base_magic"].toNumber();
+        return temp;
+    }
+
+    async arrayOfStakesToNumber(array) {
+        let temp = {};
+        temp.boostsSize = array["boostsSize"];
+        temp.isExpired = array["isExpired"];
+        temp.lastWithdrawalTime = array["lastWithdrawalTime"].toNumber();
+        temp.stakeTypeIdx = array["stakeTypeIdx"];
+        temp.startTime = array["startTime"].toNumber();
+        temp.tokenId = array["tokenId"].toNumber();
         return temp;
     }
 
@@ -758,24 +788,34 @@ export default class Core {
     }
 
     async getUserStakes(address, chainId) {
-        if (chainId != 56 || chainId != 137) return;
-        try {
-            const res = await axios.get(`${conf.BASE_URL}/getUserStakes`, {
-                params: {
-                    address,
-                    chainId,
-                    stakeAddress: this[`stake_${chainId}`].address,
-                },
-            });
-            return res.data;
-        } catch (error) { }
+        if (chainId != 56 && chainId != 97 && chainId != 137) return;
+        const nftContract = this[`stake_${this.currentBlockchain}`];
+        let tempUserStakes = await nftContract.stakes(address, 0);
+        let userStakes = await this.arrayOfStakesToNumber(tempUserStakes);
+        console.log(userStakes);
+        return {"activeStakes":[userStakes],"inactiveStakes":[]};
+
+        const buyersNftInfo = [];
+        for(let ni of buyersNftIds) {
+            let eggPlan = await nftContract.MINTED_EGGS(ni.toNumber());
+            let eggPlanId = eggPlan.toNumber();
+            let eggInfo = await nftContract.EGGS(eggPlan);
+            eggInfo = await this.arrayOfBNtoNumber(eggInfo);
+            eggInfo.name = conf.EGG_DATA.name[eggPlanId - 1];
+            eggInfo.plan = eggPlan.toNumber();
+            eggInfo.tokenId = ni.toNumber();
+            eggInfo.collection = "POSEggs-NFT";
+            eggInfo.description = "";
+            buyersNftInfo.push(eggInfo);
+        }
+        return buyersNftInfo;
     }
 
     async getUserRefStats(address) {
         if (this.currentBlockchain === 97) return;
         try {
-            const res = await this[`posduckNft_${this.currentBlockchain}`].getBuyerReferralsStats(address);
-            const buyers = await this[`posduckNft_${this.currentBlockchain}`].buyers(address);
+            const res = await this[`poseggNft_${this.currentBlockchain}`].getBuyerReferralsStats(address);
+            const buyers = await this[`poseggNft_${this.currentBlockchain}`].buyers(address);
             let referralsNumber = 0;
             for (let i = 0; i < 5; i++) {
                 referralsNumber += Number(res[3][i].toString());
@@ -801,9 +841,9 @@ export default class Core {
     async getLeaderStats(address) {
         if (this.currentBlockchain === 97) return;
         try {
-            const leader = await this[`posduckNft_${this.currentBlockchain}`].findLeader(address);
+            const leader = await this[`poseggNft_${this.currentBlockchain}`].findLeader(address);
             if (leader.toLowerCase() === conf[this.currentBlockchain].DEFAULT_REFERRER.toLowerCase()) {
-                const res = await this[`posduckNft_${this.currentBlockchain}`].getBuyerReferralsStats(address);
+                const res = await this[`poseggNft_${this.currentBlockchain}`].getBuyerReferralsStats(address);
                 const latest_level = (await this.getLastClaimedLevelByLeader(address)) || 0;
                 let referralsNumber = 0;
                 for (let i = 0; i < 5; i++) {
@@ -869,7 +909,7 @@ export default class Core {
                         conf[this.currentBlockchain].LEAD_RULES.find((el) => el.level === Number(leaderObject?.level || 0) + 1)?.timePerc,
                 };
             } else {
-                const res = await this[`posduckNft_${this.currentBlockchain}`].getBuyerReferralsStats(leader);
+                const res = await this[`poseggNft_${this.currentBlockchain}`].getBuyerReferralsStats(leader);
                 const latest_level = (await this.getLastClaimedLevelByLeader(address)) || 0;
                 let referralsNumber = 0;
                 for (let i = 0; i < 5; i++) {
@@ -964,6 +1004,7 @@ export default class Core {
 
     async getUserBalance(address) {
         try {
+            console.log(this)
             const coinBalance = await this.provider.getBalance(address);
             let tokenBalance;
             if (this.currentBlockchain === 56 || this.currentBlockchain === 97) {
@@ -987,7 +1028,7 @@ export default class Core {
     /****************** WRITE METHODS ************************/
     async isApprovedForAll(userAddress, type) {
         if (type === "POSDUCK") {
-            return await this[`posduckNft_${this.currentBlockchain}`].isApprovedForAll(userAddress, this[`stake_${this.currentBlockchain}`].address);
+            return await this[`poseggNft_${this.currentBlockchain}`].isApprovedForAll(userAddress, this[`stake_${this.currentBlockchain}`].address);
         } else if (type === "BOOST") {
             return await this[`boostNft_${this.currentBlockchain}`].isApprovedForAll(userAddress, this[`stake_${this.currentBlockchain}`].address);
         }
@@ -996,10 +1037,10 @@ export default class Core {
         if (nftToken === "POSDUCK") {
             //sending approve each time approve function is called
             let res = await this.isApprovedForAll(userAddress, nftToken);
-            // await this[`posduckNft_${this.currentBlockchain}`].getApproved(id);
+            // await this[`poseggNft_${this.currentBlockchain}`].getApproved(id);
             // console.log(res);
             if (!res) {
-                res = await this[`posduckNft_${this.currentBlockchain}`].setApprovalForAll(this[`stake_${this.currentBlockchain}`].address, "true");
+                res = await this[`poseggNft_${this.currentBlockchain}`].setApprovalForAll(this[`stake_${this.currentBlockchain}`].address, "true");
 
                 return res;
             } else {
@@ -1098,7 +1139,7 @@ export default class Core {
             }
 
             let amount = ethers.utils.parseUnits(`${params.amount}`, params.decimals);
-            return await this[`posduckNft_${this.currentBlockchain}`].estimateGas[method](params.ref, {
+            return await this[`poseggNft_${this.currentBlockchain}`].estimateGas[method](params.ref, {
                 value: amount._hex
             });
         } else if (method === "claimReward") {

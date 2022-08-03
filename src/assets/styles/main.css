@@ -1193,7 +1193,7 @@ table {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    background: #191a26;
+    background-color: #ffffff00 !important;
     -webkit-backdrop-filter: blur(4px);
     backdrop-filter: blur(4px);
     border-radius: 0 0 8px 8px;

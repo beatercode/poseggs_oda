@@ -17,7 +17,7 @@
                     </div>
                     <div class="img-wrap">
                         <div v-if="
-                            showLoader && tokenId === fullStakeDetails.event_data.tokenId
+                            showLoader && tokenId === fullStakeDetails.tokenId
                         " class="nft-load">
                             <div class="nft-load-icon"></div>
                         </div>
@@ -27,7 +27,7 @@
                 </div>
                 <div class="container-btns">
                     <button v-if="
-                        fullStakeDetails.event_data.depositTypeIdx > 0 &&
+                        fullStakeDetails.stakeTypeIdx > 0 &&
                         getStakingPlanData(fullStakeDetails)[6] === false
                     " @click="showMore = !showMore" class="btn" :class="{ 'btn-dark': showMore, 'btn-light': !showMore }">
                         <div class="icon-wrap"><i class="icon-flash-fill"></i></div>
@@ -45,12 +45,12 @@
             <div class="your-stake-col your-stake-data">
                 <div class="stake-data-header">
                     <div class="stake-id">
-                        #{{ fullStakeDetails.event_data.depositIdx + 1 }}
+                        #{{ /* fullStakeDetails.event_data.depositIdx */ 0 + 1 }}
                     </div>
                     <div class="stake-boosts">
                         <template v-if="
-                            fullStakeDetails.event_data.depositTypeIdx > 0 &&
-                            fullStakeDetails.boostEvents.length <= 3
+                            fullStakeDetails.stakeTypeIdx > 0 &&
+                            /* fullStakeDetails.boostEvents.length */ fullStakeDetails.boostsSize <= 3
                         ">
                             <button :disabled="getStakingPlanData(fullStakeDetails)[6] === true"
                                 v-if="!isBoostApplied(1)" class="st-boost" @click="showMore = true">
@@ -224,7 +224,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="stake-info-block" v-if="fullStakeDetails.event_data.depositTypeIdx > 0">
+                    <div class="stake-info-block" v-if="fullStakeDetails.stakeTypeIdx > 0">
                         <div class="stake-pool-col-name">
                             {{ translatesGet("TOTAL_ST_PERCENT") }}
                         </div>
@@ -250,7 +250,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="stake-info-block" v-if="fullStakeDetails.event_data.depositTypeIdx > 0">
+                    <div class="stake-info-block" v-if="fullStakeDetails.stakeTypeIdx > 0">
                         <div class="stake-pool-col-name">
                             {{ translatesGet("EXPECTED_REWARD") }}
                         </div>
@@ -639,7 +639,7 @@ export default {
                 }
 
                 res = await this.$root.core.addBoost(
-                    this.nft.event_data.depositIdx,
+                    /* this.nft.depositIdx */ 0,
                     boostToApply.tokenId
                 );
                 this.$store.commit("push_notification", {
@@ -663,7 +663,6 @@ export default {
             }
         },
         getImageLink(nftId) {
-            console.log("AOOOOO");
             console.log(this.fullStakeDetails);
             console.log(nftId)
             var images = require.context("/src/assets/images/all/", false, /\.png$/);
@@ -671,7 +670,7 @@ export default {
         },
         getBoostImage(nft) {
             return this.$root.core
-                .getBoostMetadata(nft.event_data.boostTokenId)
+                .getBoostMetadata(/* nft.boostTokenId */ 0)
                 .then((res) => res.image);
         },
         getStakingPlanData(nft) {
@@ -714,7 +713,7 @@ export default {
                     );
                 }
             }
-            const stakeType = nft.event_data.depositTypeIdx;
+            const stakeType = nft.stakeTypeIdx;
 
             if (timeIncrease > 0) {
                 period = `${conf[this.currentBlockchain].STAKING_PLANS[stakeType].days > 0
@@ -844,7 +843,7 @@ export default {
                     );
                 }
             }
-            const stakeType = stake.event_data.depositTypeIdx;
+            const stakeType = stake.stakeTypeIdx;
 
             if (timeIncrease > 0) {
                 period = `${conf[this.currentBlockchain].STAKING_PLANS[stakeType].days > 0

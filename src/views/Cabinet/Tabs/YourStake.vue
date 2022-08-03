@@ -96,12 +96,12 @@
                     return this.lang.get(key);
                 }
             },
-            getImageLink(nftId) {
-                return `https://base.posduck.com/api/getImage?id=${nftId}&chainId=${this.currentBlockchain}&nftAddress=${conf[
-                    this.currentBlockchain
-                ].NFT_CONTRACT.toLowerCase()}`;
+            getNftImage(index) {
+                var images = require.context("/src/assets/images/all/", false, /\.png$/);
+                return images("./nft-" + index + ".png");
             },
             getEarnedReward(stake) {
+                return 0;
                 let timeIncrease = 0;
                 let profitIncrease = 0;
                 let dailyPerc = 0;
@@ -127,7 +127,7 @@
                         profitIncrease += Number(teamBoost.metadata.attributes[2].value.replace("%", ""));
                     }
                 }
-                const stakeType = stake.event_data.depositTypeIdx;
+                const stakeType = stake.stakeTypeIdx;
 
                 if (timeIncrease > 0) {
                     period = `${
@@ -194,7 +194,7 @@
                         profitIncrease += Number(teamBoost.metadata.attributes[2].value.replace("%", ""));
                     }
                 }
-                const stakeType = nft.event_data.depositTypeIdx;
+                const stakeType = nft.stakeTypeIdx;
 
                 if (timeIncrease > 0) {
                     period = `${
@@ -280,7 +280,9 @@
             stakedNfts() {
                 if (this.userStakes && this.currentBlockchain && this.currentAddress && this.currentAddress !== "0x0000000000000000000000000000000000000000") {
                     const arr = this.userStakes.activeStakes || [];
-                    return arr.sort((a, b) => b.timestamp - a.timestamp);
+                    // return arr.sort((a, b) => b.startTime - a.startTime);
+                    console.log(this.userStakes.activeStakes)
+                    return arr;
                 }
                 return null;
             },
@@ -328,16 +330,18 @@
                         if (!_this.stakedNfts) throw Error();
 
                         for (let nft of _this.stakedNfts) {
-                            for (let i = 0; i < nft.boostEvents.length; i++) {
-                                const res = await _this.$root.core.getBoostMetadata(nft.boostEvents[i].event_data.boostTokenId);
-                                nft.boostEvents[i]["metadata"] = res;
-                            }
-                            nft.boostEvents.sort((a, b) => {
-                                const aPriority = a.metadata.type === "TIME" ? 3 : a.type === "PROFIT" ? 2 : 1;
-                                const bPriority = b.metadata.type === "TIME" ? 3 : b.type === "PROFIT" ? 2 : 1;
+                            if (nft.boostsSize > 0) {
+                                for (let i = 0; i < nft.boostEvents.length; i++) {
+                                    const res = await _this.$root.core.getBoostMetadata(nft.boostEvents[i].event_data.boostTokenId);
+                                    nft.boostEvents[i]["metadata"] = res;
+                                }
+                                nft.boostEvents.sort((a, b) => {
+                                    const aPriority = a.metadata.type === "TIME" ? 3 : a.type === "PROFIT" ? 2 : 1;
+                                    const bPriority = b.metadata.type === "TIME" ? 3 : b.type === "PROFIT" ? 2 : 1;
 
-                                return bPriority - aPriority;
-                            });
+                                    return bPriority - aPriority;
+                                });
+                            }
                             newData.push(nft);
                         }
                         _this.fullStakeDetails = newData;
@@ -346,6 +350,7 @@
                         }
                         const timeout = setTimeout(fetch, 5000);
                         _this.timeOuts.push(timeout);
+                        console.log("aooo")
                     } else {
                         if (errorCount > 3) {
                             if (!_this.isBatchClaiming) {
@@ -357,6 +362,7 @@
                             throw Error();
                         }
                     }
+                    console.log(_this.fullStakeDetails)
                 } catch (error) {
                     // console.log(error);
                     for (let timeout of _this.timeOuts) {

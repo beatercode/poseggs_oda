@@ -5,7 +5,7 @@
             @close="(showTransferModal = false), (selectedNft = null), (onlyData = false)"
             :nft="selectedNft"
             :onlyData="onlyData"
-            nftType="Posduck"
+            nftType="Posegg"
         />
 
         <div class="cab-page-name">
@@ -57,80 +57,31 @@
                                                             }}</span>
                                                             <div class="icon logo-coin icon-card"></div>
                                                             <div>
-                                                                <div class="cab-row cab-row-stats">
-                                                                    <span
-                                                                        class="li-nft-footer-amount card-footer-stats">
-                                                                            {{ index == 2 ? "BONUS" : index != 3 ? ("TIER ".concat(index * 2 + 5)) : "&nbsp;" }}
-                                                                        </span>
-                                                                    <div class="li-nft-footer-amount-2 card-footer-stats"
-                                                                        style="text-align: left !important; display: flex; flex-direction: row; justify-content: flex-end;">
-                                                                        <!--div class="plus-minus-mint-button">-</div-->
-                                                                        <span>{{ index != 3 ? "0.03%" : "&nbsp;" }}</span>
-                                                                        <!--div class="plus-minus-mint-button">+</div-->
-                                                                    </div>
+                                                                <div class="stake-nft-value-main-stats stats-box-green" 
+                                                                    :class="{ 'stats-box-stealth' :isNumberEq(index, 3)}">
+                                                                    <span>{{ index == 2 ? "BONUS" : !isNumberEq(index, 3) ? ("TIER ".concat(index * 2 + 5)) : "&nbsp;" }}</span>
+                                                                    <span>{{ !isNumberEq(index, 3) ? "0.03%" : "&nbsp;" }}</span>
                                                                 </div>
-                                                                <div class="cab-row cab-row-stats">
-                                                                    <span
-                                                                        class="li-nft-footer-amount card-footer-stats">
-                                                                            {{ index != 3 ? ("TIER ".concat(index * 2 + 4)) : "&nbsp;" }}
-                                                                        </span>
-                                                                    <div class="li-nft-footer-amount-2 card-footer-stats"
-                                                                        style="text-align: left !important; display: flex; flex-direction: row; justify-content: flex-end;">
-                                                                        <!--div class="plus-minus-mint-button">-</div-->
-                                                                        <span>{{ index != 3 ? "0.3%" : "&nbsp;" }}</span>
-                                                                        <!--div class="plus-minus-mint-button">+</div-->
-                                                                    </div>
+                                                                <div class="stake-nft-value-main-stats stats-box-green" 
+                                                                    :class="{ 'stats-box-stealth' :isNumberEq(index, 3)}">
+                                                                    <span>{{ !isNumberEq(index, 3) ? ("TIER ".concat(index * 2 + 4)) : "&nbsp;" }}</span>
+                                                                    <span>{{ !isNumberEq(index, 3) ? "0.3%" : "&nbsp;" }}</span>
                                                                 </div>
-                                                                <div class="cab-row cab-row-stats">
-                                                                    <span
-                                                                        class="li-nft-footer-amount card-footer-stats">
-                                                                            {{ index == 3 ? "BONUS" : ("TIER ".concat(index * 2 + 3)) }}
-                                                                            </span>
-                                                                    <div class="li-nft-footer-amount-2 card-footer-stats"
-                                                                        style="text-align: left !important; display: flex; flex-direction: row; justify-content: flex-end;">
-                                                                        <!--div class="plus-minus-mint-button">-</div-->
-                                                                        <span>{{ "3%" }}</span>
-                                                                        <!--div class="plus-minus-mint-button">+</div-->
-                                                                    </div>
+                                                                <div class="stake-nft-value-main-stats stats-box-green">
+                                                                    <span>{{ index == 3 ? "BONUS" : ("TIER ".concat(index * 2 + 3)) }}</span>
+                                                                    <span>{{ "3%" }}</span>
                                                                 </div>
-                                                                <div class="cab-row cab-row-stats">
-                                                                    <span
-                                                                        class="li-nft-footer-amount card-footer-stats">
-                                                                            {{ "TIER ".concat(index * 2 + 2) }}
-                                                                        </span>
-                                                                    <div class="li-nft-footer-amount-2 card-footer-stats"
-                                                                        style="text-align: left !important; display: flex; flex-direction: row; justify-content: flex-end;">
-                                                                        <!--div class="plus-minus-mint-button">-</div-->
-                                                                        <span>{{ "20%" }}
-                                                                        </span>
-                                                                        <!--div class="plus-minus-mint-button">+</div-->
-                                                                    </div>
+                                                                <div class="stake-nft-value-main-stats stats-box-green">
+                                                                    <span>{{ "TIER ".concat(index * 2 + 2) }}</span>
+                                                                    <span>{{ "20%" }}</span>
                                                                 </div>
-                                                                <div class="cab-row cab-row-stats">
-                                                                    <span
-                                                                        class="li-nft-footer-amount card-footer-stats">
-                                                                            {{ "TIER ".concat(index * 2 + 1) }}
-                                                                        </span>
-                                                                    <div class="li-nft-footer-amount-2 card-footer-stats"
-                                                                        style="text-align: left !important; display: flex; flex-direction: row; justify-content: flex-end;">
-                                                                        <!--div class="plus-minus-mint-button">-</div-->
-                                                                        <span>{{ "56.697%" }}
-                                                                        </span>
-                                                                        <!--div class="plus-minus-mint-button">+</div-->
-                                                                    </div>
+                                                                <div class="stake-nft-value-main-stats stats-box-white">
+                                                                    <span>{{ "TIER ".concat(index * 2 + 1) }}</span>
+                                                                    <span>{{ "56.697%" }}</span>
                                                                 </div>
-                                                                <div class="cab-row cab-row-stats">
-                                                                    <span
-                                                                        class="li-nft-footer-amount card-footer-stats">
-                                                                            {{ "TIER ".concat(index * 2 + 0) }}
-                                                                        </span>
-                                                                    <div class="li-nft-footer-amount-2 card-footer-stats"
-                                                                        style="text-align: left !important; display: flex; flex-direction: row; justify-content: flex-end;">
-                                                                        <!--div class="plus-minus-mint-button">-</div-->
-                                                                        <span>{{ "20%" }}
-                                                                        </span>
-                                                                        <!--div class="plus-minus-mint-button">+</div-->
-                                                                    </div>
+                                                                <div class="stake-nft-value-main-stats stats-box-red">
+                                                                    <span>{{ "TIER ".concat(index * 2 + 0) }}</span>
+                                                                    <span>{{ "20%" }}</span>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -149,7 +100,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="mint-nft-block" style="margin-top: 0px;">
-                                                        <button :disabled="showLoader" @click="BuyNFT(index)"
+                                                        <button :disabled="showLoader" @click="BuyLOOTBOX(index)"
                                                             class="btn btn-mint">
                                                             {{ translatesGet("MINT") }}
                                                         </button>
@@ -200,80 +151,31 @@
                                                             }}</span>
                                                             <div class="icon logo-coin icon-card"></div>
                                                             <div>
-                                                                <div class="cab-row cab-row-stats">
-                                                                    <span
-                                                                        class="li-nft-footer-amount card-footer-stats">
-                                                                            {{ index == 2 ? "BONUS" : index != 3 ? ("TIER ".concat(index * 2 + 5)) : "&nbsp;" }}
-                                                                        </span>
-                                                                    <div class="li-nft-footer-amount-2 card-footer-stats"
-                                                                        style="text-align: left !important; display: flex; flex-direction: row; justify-content: flex-end;">
-                                                                        <!--div class="plus-minus-mint-button">-</div-->
-                                                                        <span>{{ index != 3 ? "0.03%" : "&nbsp;" }}</span>
-                                                                        <!--div class="plus-minus-mint-button">+</div-->
-                                                                    </div>
+                                                                <div class="stake-nft-value-main-stats stats-box-green" 
+                                                                    :class="{ 'stats-box-stealth' :isNumberEq(index, 3)}">
+                                                                    <span>{{ index == 2 ? "BONUS" : !isNumberEq(index, 3) ? ("TIER ".concat(index * 2 + 5)) : "&nbsp;" }}</span>
+                                                                    <span>{{ !isNumberEq(index, 3) ? "0.03%" : "&nbsp;" }}</span>
                                                                 </div>
-                                                                <div class="cab-row cab-row-stats">
-                                                                    <span
-                                                                        class="li-nft-footer-amount card-footer-stats">
-                                                                            {{ index != 3 ? ("TIER ".concat(index * 2 + 4)) : "&nbsp;" }}
-                                                                        </span>
-                                                                    <div class="li-nft-footer-amount-2 card-footer-stats"
-                                                                        style="text-align: left !important; display: flex; flex-direction: row; justify-content: flex-end;">
-                                                                        <!--div class="plus-minus-mint-button">-</div-->
-                                                                        <span>{{ index != 3 ? "0.3%" : "&nbsp;" }}</span>
-                                                                        <!--div class="plus-minus-mint-button">+</div-->
-                                                                    </div>
+                                                                <div class="stake-nft-value-main-stats stats-box-green" 
+                                                                    :class="{ 'stats-box-stealth' :isNumberEq(index, 3)}">
+                                                                    <span>{{ !isNumberEq(index, 3) ? ("TIER ".concat(index * 2 + 4)) : "&nbsp;" }}</span>
+                                                                    <span>{{ !isNumberEq(index, 3) ? "0.3%" : "&nbsp;" }}</span>
                                                                 </div>
-                                                                <div class="cab-row cab-row-stats">
-                                                                    <span
-                                                                        class="li-nft-footer-amount card-footer-stats">
-                                                                            {{ index == 3 ? "BONUS" : ("TIER ".concat(index * 2 + 3)) }}
-                                                                            </span>
-                                                                    <div class="li-nft-footer-amount-2 card-footer-stats"
-                                                                        style="text-align: left !important; display: flex; flex-direction: row; justify-content: flex-end;">
-                                                                        <!--div class="plus-minus-mint-button">-</div-->
-                                                                        <span>{{ "3%" }}</span>
-                                                                        <!--div class="plus-minus-mint-button">+</div-->
-                                                                    </div>
+                                                                <div class="stake-nft-value-main-stats stats-box-green">
+                                                                    <span>{{ index == 3 ? "BONUS" : ("TIER ".concat(index * 2 + 3)) }}</span>
+                                                                    <span>{{ "3%" }}</span>
                                                                 </div>
-                                                                <div class="cab-row cab-row-stats">
-                                                                    <span
-                                                                        class="li-nft-footer-amount card-footer-stats">
-                                                                            {{ "TIER ".concat(index * 2 + 2) }}
-                                                                        </span>
-                                                                    <div class="li-nft-footer-amount-2 card-footer-stats"
-                                                                        style="text-align: left !important; display: flex; flex-direction: row; justify-content: flex-end;">
-                                                                        <!--div class="plus-minus-mint-button">-</div-->
-                                                                        <span>{{ "20%" }}
-                                                                        </span>
-                                                                        <!--div class="plus-minus-mint-button">+</div-->
-                                                                    </div>
+                                                                <div class="stake-nft-value-main-stats stats-box-green">
+                                                                    <span>{{ "TIER ".concat(index * 2 + 2) }}</span>
+                                                                    <span>{{ "20%" }}</span>
                                                                 </div>
-                                                                <div class="cab-row cab-row-stats">
-                                                                    <span
-                                                                        class="li-nft-footer-amount card-footer-stats">
-                                                                            {{ "TIER ".concat(index * 2 + 1) }}
-                                                                        </span>
-                                                                    <div class="li-nft-footer-amount-2 card-footer-stats"
-                                                                        style="text-align: left !important; display: flex; flex-direction: row; justify-content: flex-end;">
-                                                                        <!--div class="plus-minus-mint-button">-</div-->
-                                                                        <span>{{ "56.697%" }}
-                                                                        </span>
-                                                                        <!--div class="plus-minus-mint-button">+</div-->
-                                                                    </div>
+                                                                <div class="stake-nft-value-main-stats stats-box-white">
+                                                                    <span>{{ "TIER ".concat(index * 2 + 1) }}</span>
+                                                                    <span>{{ "56.697%" }}</span>
                                                                 </div>
-                                                                <div class="cab-row cab-row-stats">
-                                                                    <span
-                                                                        class="li-nft-footer-amount card-footer-stats">
-                                                                            {{ "TIER ".concat(index * 2 + 0) }}
-                                                                        </span>
-                                                                    <div class="li-nft-footer-amount-2 card-footer-stats"
-                                                                        style="text-align: left !important; display: flex; flex-direction: row; justify-content: flex-end;">
-                                                                        <!--div class="plus-minus-mint-button">-</div-->
-                                                                        <span>{{ "20%" }}
-                                                                        </span>
-                                                                        <!--div class="plus-minus-mint-button">+</div-->
-                                                                    </div>
+                                                                <div class="stake-nft-value-main-stats stats-box-red">
+                                                                    <span>{{ "TIER ".concat(index * 2 + 0) }}</span>
+                                                                    <span>{{ "20%" }}</span>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -292,7 +194,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="mint-nft-block" style="margin-top: 0px;">
-                                                        <button :disabled="showLoader" @click="BuyNFT(index)"
+                                                        <button :disabled="showLoader" @click="BuyLOOTBOX(index)"
                                                             class="btn btn-mint">
                                                             {{ translatesGet("MINT") }}
                                                         </button>
@@ -409,6 +311,9 @@
             focusInputOut() {
                 return (this.inputActive = false);
             },
+            isNumberEq(el, check) {
+                return el == check
+            },
             setBnbAmountFixed(amount) {
                 this.bnbAmount = parseFloat(Number(this.$root.core.withoutRound(amount, 4)));
             },
@@ -427,7 +332,7 @@
                     Number(this.$root.core.withoutRound(amount, 4))
                 );
             },
-            async BuyNFT() {
+            async BuyLOOTBOX(index) {
                 if (!this.currentAddress || this.currentAddress === "0x0000000000000000000000000000000000000000") {
                     this.$emit("changeWallet");
                     return;
@@ -465,8 +370,7 @@
                     }
                     this.showLoader = true;
                     const refs = await this.$root.core.getReferrers(this.currentAddress);
-                    console.log("AM ["+this.bnbAmount.toString()+"] REF ["+refs+"]")
-                    const res = await this.$root.core.buyNFT(this.bnbAmount.toString(), refs);
+                    const res = await this.$root.core.buyLOOTBOX(refs, index);
 
                     this.$store.commit("push_notification", {
                         type: "warning",
@@ -610,7 +514,7 @@
             ...mapState(["userCoinBalance", "userERC20Balance", "currentBlockchain", "userNftsData", "currentAddress", "currency"]),
             getImage() {
                 if (this.currentBlockchain === 56 || this.currentBlockchain === 97) {
-                    const duckNumber =
+                    const eggNumber =
                         Number(this.bnbAmount) < 0.1
                             ? "56" + "-1"
                             : Number(this.bnbAmount) < 1
@@ -626,9 +530,9 @@
                             : Number(this.bnbAmount) < 100
                             ? "56" + "-7"
                             : "56" + "-8";
-                    return `${duckNumber}`;
+                    return `${eggNumber}`;
                 } else if (this.currentBlockchain === 137) {
-                    const duckNumber =
+                    const eggNumber =
                         Number(this.bnbAmount) < 35
                             ? "137" + "-1"
                             : Number(this.bnbAmount) < 350
@@ -644,9 +548,9 @@
                             : Number(this.bnbAmount) < 35000
                             ? "137" + "-7"
                             : "137" + "-8";
-                    return `${duckNumber}`;
+                    return `${eggNumber}`;
                 } else if (!this.currentBlockchain) {
-                    const duckNumber =
+                    const eggNumber =
                         Number(this.bnbAmount) < 0.1
                             ? "56-1"
                             : Number(this.bnbAmount) < 1
@@ -662,7 +566,7 @@
                             : Number(this.bnbAmount) < 100
                             ? "56-7"
                             : "56-8";
-                    return `${duckNumber}`;
+                    return `${eggNumber}`;
                 }
             },
             nfts() {

@@ -244,12 +244,7 @@
                 unavailBlock: true,
                 plans: {
                     56: [
-                        {
-                            BNB: 0.172,
-                            BUSD: 2000,
-                            BOOST_LEVEL_PERC: 2,
-                            id: 1,
-                        },
+                        { BNB: 0.172, BUSD: 2000, BOOST_LEVEL_PERC: 2, id: 1 },
                         { BNB: 0.515, BUSD: 6000, BOOST_LEVEL_PERC: 5, id: 2 },
                         { BNB: 1.718, BUSD: 20000, BOOST_LEVEL_PERC: 10, id: 3 },
                     ],

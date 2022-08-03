@@ -2,7 +2,7 @@
     <main class="main-boosts">
         <transfer-modal v-if="showTransferModal" @close="
             (showTransferModal = false), (selectedNft = null), (onlyData = false)
-        " :nft="selectedNft" :onlyData="onlyData" nftType="Posduck" />
+        " :nft="selectedNft" :onlyData="onlyData" nftType="Posegg" />
 
         <div class="cab-page-name">
             <div class="h2">{{ "Mint NFT" }}</div>
@@ -39,9 +39,11 @@
                                                 :style="[index == selectedIndex ? { 'opacity': '1' } : { 'opacity': '0.7' }]"
                                                 class="li-our-nfts nft-list-buy nft-list-buy-page li-nft-red">
                                                 <div class="li-our-nft-wrap" @click="showStats = showStats">
-                                                    <img class="card-egg-image"
-                                                        :class="{ hopping: index == selectedIndex }"
-                                                        :src="getNftImage(index)" />
+                                                    <div class="card-egg-image">
+                                                        <img class="card-egg-image-img"
+                                                            :class="{ hopping: index == selectedIndex }" 
+                                                            :src="getNftImage(index)" />
+                                                    </div>
                                                     <div class="li-nft-footer">
                                                         <div style="width: 100%">
                                                             <span class="li-nft-footer-title">{{
@@ -49,31 +51,14 @@
                                                             }}</span>
                                                             <div class="icon logo-coin icon-card"></div>
                                                             <div v-if="showStats">
-                                                                <div class="cab-row cab-row-stats stats-superiod">
-                                                                    <span
-                                                                        class="li-nft-footer-amount card-footer-stats">Daily</span>
-                                                                    <span
-                                                                        class="li-nft-footer-amount-2 card-footer-stats">{{
-                                                                                profits[index]
-                                                                        }}%</span>
+                                                                <div class="stake-nft-value-main-stats">
+                                                                    <span>Daily</span> <span>{{ profits[index] }}%</span>
                                                                 </div>
-                                                                <div class="cab-row cab-row-stats stats-superiod">
-                                                                    <span
-                                                                        class="li-nft-footer-amount card-footer-stats">Days</span>
-                                                                    <span
-                                                                        class="li-nft-footer-amount-2 card-footer-stats">{{
-                                                                                periods[index]
-                                                                        }}</span>
+                                                                <div class="stake-nft-value-main-stats">
+                                                                    <span>Days</span> <span>{{ periods[index] }}</span>
                                                                 </div>
-                                                                <div class="cab-row cab-row-stats stats-superiod">
-                                                                    <span
-                                                                        class="li-nft-footer-amount card-footer-stats">Total</span>
-                                                                    <span
-                                                                        class="li-nft-footer-amount-2 card-footer-stats">{{
-                                                                                parseFloat(
-                                                                                    profits[index] * periods[index]
-                                                                                ).toFixed(1)
-                                                                        }}%</span>
+                                                                <div class="stake-nft-value-main-stats">
+                                                                    <span>Total</span> <span>{{ parseFloat(profits[index] * periods[index]).toFixed(1) }}%</span>
                                                                 </div>
                                                                 <div class="cab-row cab-row-stats">
                                                                     <span
@@ -161,9 +146,11 @@
                                                     :style="[index == selectedIndex ? { 'opacity': '1' } : { 'opacity': '0.7' }]"
                                                     class="li-our-nfts nft-list-buy nft-list-buy-page li-nft-red">
                                                     <div class="li-our-nft-wrap" @click="showStats = showStats">
-                                                        <img class="card-egg-image"
-                                                            :class="{ hopping: index == selectedIndex }"
-                                                            :src="getNftImage(index)" />
+                                                        <div class="card-egg-image">
+                                                            <img class="card-egg-image-img"
+                                                                :class="{ hopping: index == selectedIndex }" 
+                                                                :src="getNftImage(index)" />
+                                                        </div>
                                                         <div class="li-nft-footer">
                                                             <div style="width: 100%">
                                                                 <span class="li-nft-footer-title">{{
@@ -171,31 +158,14 @@
                                                                 }}</span>
                                                                 <div class="icon logo-coin icon-card"></div>
                                                                 <div v-if="showStats">
-                                                                    <div class="cab-row cab-row-stats stats-superiod">
-                                                                        <span
-                                                                            class="li-nft-footer-amount card-footer-stats">Daily</span>
-                                                                        <span
-                                                                            class="li-nft-footer-amount-2 card-footer-stats">{{
-                                                                                    profits[index]
-                                                                            }}%</span>
+                                                                    <div class="stake-nft-value-main-stats">
+                                                                        <span>Daily</span> <span>{{ profits[index] }}%</span>
                                                                     </div>
-                                                                    <div class="cab-row cab-row-stats stats-superiod">
-                                                                        <span
-                                                                            class="li-nft-footer-amount card-footer-stats">Days</span>
-                                                                        <span
-                                                                            class="li-nft-footer-amount-2 card-footer-stats">{{
-                                                                                    periods[index]
-                                                                            }}</span>
+                                                                    <div class="stake-nft-value-main-stats">
+                                                                        <span>Days</span> <span>{{ periods[index] }}</span>
                                                                     </div>
-                                                                    <div class="cab-row cab-row-stats stats-superiod">
-                                                                        <span
-                                                                            class="li-nft-footer-amount card-footer-stats">Total</span>
-                                                                        <span
-                                                                            class="li-nft-footer-amount-2 card-footer-stats">{{
-                                                                                    parseFloat(
-                                                                                        profits[index] * periods[index]
-                                                                                    ).toFixed(1)
-                                                                            }}%</span>
+                                                                    <div class="stake-nft-value-main-stats">
+                                                                        <span>Total</span> <span>{{ parseFloat(profits[index] * periods[index]).toFixed(1) }}%</span>
                                                                     </div>
                                                                     <div class="cab-row cab-row-stats">
                                                                         <span
@@ -664,7 +634,7 @@ export default {
         ]),
         getImage() {
             if (this.currentBlockchain === 56 || this.currentBlockchain === 97) {
-                const duckNumber =
+                const eggNumber =
                     Number(this.busdAmount) < 0.1
                         ? "56" + "-1"
                         : Number(this.busdAmount) < 1
@@ -680,9 +650,9 @@ export default {
                                             : Number(this.busdAmount) < 100
                                                 ? "56" + "-7"
                                                 : "56" + "-8";
-                return `${duckNumber}`;
+                return `${eggNumber}`;
             } else if (this.currentBlockchain === 137) {
-                const duckNumber =
+                const eggNumber =
                     Number(this.busdAmount) < 35
                         ? "137" + "-1"
                         : Number(this.busdAmount) < 350
@@ -698,9 +668,9 @@ export default {
                                             : Number(this.busdAmount) < 35000
                                                 ? "137" + "-7"
                                                 : "137" + "-8";
-                return `${duckNumber}`;
+                return `${eggNumber}`;
             } else if (!this.currentBlockchain) {
-                const duckNumber =
+                const eggNumber =
                     Number(this.busdAmount) < 0.1
                         ? "56-1"
                         : Number(this.busdAmount) < 1
@@ -716,7 +686,7 @@ export default {
                                             : Number(this.busdAmount) < 100
                                                 ? "56-7"
                                                 : "56-8";
-                return `${duckNumber}`;
+                return `${eggNumber}`;
             }
         },
         nfts() {

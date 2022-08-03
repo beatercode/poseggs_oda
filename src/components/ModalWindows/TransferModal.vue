@@ -1,5 +1,5 @@
 <template>
-    <div v-if="nftType === 'Posduck'" class="modal modal-transfer">
+    <div v-if="nftType === 'Posegg'" class="modal modal-transfer">
         <div class="modal-full-close" @click="$emit('close')"></div>
         <div class="modal-wrap">
             <div class="modal-header">
@@ -345,8 +345,8 @@
                 }
                 try {
                     this.showLoader = true;
-                    // const type = this.nft.collection.includes("Boost") ? "boost" : "duck";
-                    const type = "duck";
+                    // const type = this.nft.collection.includes("Boost") ? "boost" : "egg";
+                    const type = "egg";
                     const res = await this.$root.core.transferNft(type, this.currentAddress, this.nft.tokenId, this.receiverAddress);
 
                     this.$store.commit("push_notification", {
@@ -398,7 +398,7 @@
                 return `${this.nft.price} ${currency}`;
             },
             getBackgroundColor() {
-                // return this.nftType === "Posduck" ? this.nft.attributes.find((el) => el.trait_type === "background_color")?.value : "#000000";
+                // return this.nftType === "Posegg" ? this.nft.attributes.find((el) => el.trait_type === "background_color")?.value : "#000000";
                 return "#000000";
             },
             getClassImg() {

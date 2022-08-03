@@ -15,25 +15,14 @@
                                     }}</span>
                                     <div class="icon logo-coin icon-card"></div>
                                     <div>
-                                        <div class="cab-row cab-row-stats stats-superiod">
-                                            <span class="li-nft-footer-amount card-footer-stats">Daily</span>
-                                            <span class="li-nft-footer-amount-2 card-footer-stats">{{
-                                                    profits[index]
-                                            }}%</span>
+                                        <div class="stake-nft-value-main-stats">
+                                            <span>Daily</span> <span>{{ profits[index] }}%</span>
                                         </div>
-                                        <div class="cab-row cab-row-stats stats-superiod">
-                                            <span class="li-nft-footer-amount card-footer-stats">Days</span>
-                                            <span class="li-nft-footer-amount-2 card-footer-stats">{{
-                                                    periods[index]
-                                            }}</span>
+                                        <div class="stake-nft-value-main-stats">
+                                            <span>Days</span> <span>{{ periods[index] }}</span>
                                         </div>
-                                        <div class="cab-row cab-row-stats stats-superiod">
-                                            <span class="li-nft-footer-amount card-footer-stats">Total</span>
-                                            <span class="li-nft-footer-amount-2 card-footer-stats">{{
-                                                    parseFloat(
-                                                        profits[index] * periods[index]
-                                                    ).toFixed(1)
-                                            }}%</span>
+                                        <div class="stake-nft-value-main-stats">
+                                            <span>Total</span> <span>{{ parseFloat(profits[index] * periods[index]).toFixed(1) }}%</span>
                                         </div>
                                         <div class="cab-row cab-row-stats">
                                             <span class="li-nft-footer-amount card-footer-stats">Strength</span>
