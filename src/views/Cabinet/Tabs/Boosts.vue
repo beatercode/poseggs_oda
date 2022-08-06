@@ -27,7 +27,7 @@
                                 <div class="boosts-card-content">
                                     <div class="blocks-percent-wrap">
                                         <boost-card v-for="(plan, index) of getPlans" :key="('time', plan.id)"
-                                            :id="index" :disableChildLoader="disableChildLoader" type="time"
+                                            :id="index" type="time" :disableChildLoader="disableChildLoader"
                                             :plan="plan" @changeWalletRequest="$emit('changeWallet')"
                                             @hideUnavailBlock="unavailBlock = false" />
                                     </div>

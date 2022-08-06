@@ -205,7 +205,7 @@ export default {
             return res > 0 ? res.toFixed(2) : 0;
         },
         getStakingPlanData(nft) {
-            
+
             let timeIncrease, profitIncrease, period, dailyPerc;
             if (nft.boostEvents && nft.boostEvents.length) {
                 const timeBoost = nft.boostEvents.find((el) => el?.metadata?.type === "TIME");
@@ -228,18 +228,18 @@ export default {
                     profitIncrease += Number(teamBoost.metadata.attributes[2].value.replace("%", ""));
                 }
             }
-            const stakePlan = nft.eggPlan;
+            const stakePlan = +nft.eggPlan - 1;
 
             if (timeIncrease > 0) {
                 period = `${conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days > 0
-                        ? Number(conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days) +
-                        (conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days * Number(timeIncrease)) / 100
-                        : "Unlimited"
+                    ? Number(conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days) +
+                    (conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days * Number(timeIncrease)) / 100
+                    : "Unlimited"
                     } days`;
             } else {
                 period = `${conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days > 0
-                        ? conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days
-                        : "Unlimited"
+                    ? conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days
+                    : "Unlimited"
                     } days`;
             }
 
@@ -253,17 +253,30 @@ export default {
 
             const totalProfit = (Number(period.replace("days", "")) * dailyPerc).toFixed(2);
             let expectedReward;
-            const size = stakePlan === 0 ? "XXS" : stakePlan === 1 ? "XS" : stakePlan === 2 ? "S" : stakePlan === 3 ? "M" : stakePlan === 4 
+            const size = stakePlan === 0 ? "XXS" : stakePlan === 1 ? "XS" : stakePlan === 2 ? "S" : stakePlan === 3 ? "M" : stakePlan === 4
                 ? "L" : stakePlan === 5 ? "XL" : stakePlan === 6 ? "XXL" : "XXL";
             let end;
             const start = Math.max(nft.timestamp, nft.lastWithdrawTimestamp);
             end = nft.timestamp + Number(period.replace("days", "")) * 24 * 3600;
 
-            expectedReward = (((Number(nft.event_data.amount) * (end - start)) / 3600) * dailyPerc) / 24 / 100;
+            expectedReward =
+                (
+                    (((Number(nft.event_data.amount) * (end - start)) / 3600) *
+                        dailyPerc) /
+                    24 /
+                    100
+                ).toFixed(2) > 0
+                    ? (
+                        (((Number(nft.event_data.amount) * (end - start)) / 3600) *
+                            dailyPerc) /
+                        24 /
+                        100
+                    ).toFixed(2)
+                    : "0.0000";
             end = new Date(end * 1000);
             return expectedReward > 0 ? Number(expectedReward).toFixed(2) : 0;
-            
-            return 0;
+
+            return totalProfit;
         },
         async batchClaim() {
             try {
@@ -321,7 +334,7 @@ export default {
             let totalWithdraw = 0;
             if (this.fullStakeDetails && this.fullStakeDetails.length) {
                 for (let i = 0; i < this.fullStakeDetails.length; i++) {
-                    totalWithdraw = totalWithdraw + (Number(this.fullStakeDetails[i].rewardReceived) || 0);
+                    totalWithdraw = totalWithdraw + (Number(this.fullStakeDetails[i].rewardReceived / 1e18) || 0);
                 }
                 return totalWithdraw.toFixed(2);
             }

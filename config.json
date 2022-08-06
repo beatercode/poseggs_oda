@@ -410,7 +410,7 @@
         },
         "MIN_NFT_PRICE": "0.01",
         "DEFAULT_GAS_PRICE_GWEI": "45",
-        "STAKE_CONTRACT": "0x35B5891c8c778afC8b0a7fe9C3054f58A9Ac8B7E",
+        "STAKE_CONTRACT": "0xA4007DF00057b07B4cCb4eeEa6C7F93951e23c80",
         "ERC20_CONTRACT": "0xED4BA9203d69e4Ca92DC24795a7D3F5b43b250AA",
         "BOOST_NFT_CONTRACT": "0x46d91a7478d0031978851d744aAfb547729F9214",
         "NFT_CONTRACT": "0x9A463a17A45ce4D3030cC878FeDC21A53dD74af6",
@@ -617,7 +617,7 @@
         "stats": [9, 19, 29, 39, 49, 59, 69, 79],
         "profits": [7.3, 6.8, 6.4, 6.1, 5.7, 5.4, 5.1, 4.4],
         "periods": [35, 37, 39, 41, 43, 45, 47, 49],
-        "name": ["Ground Egg", "Water Egg", "Wood Egg", "Dark Egg", "Ice Egg", "Electro Egg", "Forest Egg", "Fire Egg"]
+        "name": ["Ground Egg", "Water Egg", "Pink Egg", "Dark Egg", "Spider Egg", "Electro Egg", "Forest Egg", "Fire Egg"]
     },
     "PRIMARY_BLOCKCHAIN": {
         "symbol": "bsc-test",

@@ -25,14 +25,11 @@
                     </div>
                 </div>
                 <div class="container-btns">
-                    <button v-if="getStakingPlanData(fullStakeDetails)[6] === false
-                    " @click="showMore = !showMore" class="btn"
-                        :class="{ 'btn-dark': showMore, 'btn-light': !showMore }">
+                    <button v-if="getStakingPlanData(fullStakeDetails)[6] === false" @click="showMore = !showMore"
+                        class="btn" :class="{ 'btn-dark': showMore, 'btn-light': !showMore }">
                         <div class="icon-wrap"><i class="icon-flash-fill"></i></div>
                         <!-- <span>{{ !showMore ? "Boost my NFT" : "Hide" }}</span> -->
-                        <span>{{
-                                !showMore ? translatesGet("BOOST_MY_NFT") : translatesGet("HIDE")
-                        }}</span>
+                        <span>{{ !showMore ? translatesGet("BOOST_MY_NFT") : translatesGet("HIDE") }}</span>
                     </button>
 
                     <button :disabled="showLoader" v-if="unstakeAllowed" @click="Unstake(nft)" class="btn btn-light">
@@ -175,7 +172,7 @@
                                         d="M9.92666 2.30001H6.07332C5.80666 2.30001 5.59332 2.08668 5.59332 1.82001C5.59332 1.55334 5.80666 1.33334 6.07332 1.33334H9.92666C10.1933 1.33334 10.4067 1.54668 10.4067 1.81334C10.4067 2.08001 10.1933 2.30001 9.92666 2.30001Z">
                                     </path>
                                 </svg>
-                                {{ selectedTimeBoost && selectedTimeBoost.attributes[1].value }}
+                                {{ selectedTimeBoost && selectedTimeBoost.boostTimePercent }}
                             </div>
                             <div v-if="selectedTeamBoost" class="boost-data-item boost-data-item-main">
                                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
@@ -205,7 +202,7 @@
                                         d="M8.00016 1.33325C4.32016 1.33325 1.3335 4.31992 1.3335 7.99992C1.3335 11.6799 4.32016 14.6666 8.00016 14.6666C11.6802 14.6666 14.6668 11.6799 14.6668 7.99992C14.6668 4.31992 11.6802 1.33325 8.00016 1.33325ZM5.82016 5.10659C6.36016 5.10659 6.80683 5.54659 6.80683 6.09325C6.80683 6.63325 6.36683 7.07992 5.82016 7.07992C5.28016 7.07992 4.8335 6.63992 4.8335 6.09325C4.8335 5.54659 5.2735 5.10659 5.82016 5.10659ZM5.90016 10.5333C5.80016 10.6333 5.6735 10.6799 5.54683 10.6799C5.42016 10.6799 5.2935 10.6333 5.1935 10.5333C5.00016 10.3399 5.00016 10.0199 5.1935 9.82659L9.56016 5.45992C9.7535 5.26659 10.0735 5.26659 10.2668 5.45992C10.4602 5.65325 10.4602 5.97325 10.2668 6.16659L5.90016 10.5333ZM10.1802 10.8933C9.64016 10.8933 9.1935 10.4533 9.1935 9.90659C9.1935 9.36659 9.6335 8.91992 10.1802 8.91992C10.7202 8.91992 11.1668 9.35992 11.1668 9.90659C11.1668 10.4533 10.7268 10.8933 10.1802 10.8933Z" />
                                 </svg>
                                 {{
-                                        selectedProfitBoost && selectedProfitBoost.attributes[2].value
+                                        selectedProfitBoost && selectedProfitBoost.boostProfitPercent
                                 }}
                             </div>
                             <div v-if="selectedTeamBoost" class="boost-data-item boost-data-item-main">
@@ -216,7 +213,7 @@
                                     <path
                                         d="M9.92666 2.30001H6.07332C5.80666 2.30001 5.59332 2.08668 5.59332 1.82001C5.59332 1.55334 5.80666 1.33334 6.07332 1.33334H9.92666C10.1933 1.33334 10.4067 1.54668 10.4067 1.81334C10.4067 2.08001 10.1933 2.30001 9.92666 2.30001Z" />
                                 </svg>
-                                {{ selectedTeamBoost && selectedTeamBoost.attributes[2].value }}
+                                {{ selectedTeamBoost && selectedTeamBoost.boostProfitPercent }}
                             </div>
                         </div>
                     </div>
@@ -305,7 +302,7 @@
                             <div class="selected" v-if="showMore">
                                 <div class="select-boost-item">
                                     <div class="select-boost-img">
-                                        <img :src="selectedTimeBoost.image" alt="" />
+                                        <img :src="getBoostImg(selectedTimeBoost)" alt="" />
                                     </div>
                                     <div class="select-boost-data">
                                         <div class="select-boost-name">
@@ -320,7 +317,7 @@
                                                     <path
                                                         d="M9.92666 2.30001H6.07332C5.80666 2.30001 5.59332 2.08668 5.59332 1.82001C5.59332 1.55334 5.80666 1.33334 6.07332 1.33334H9.92666C10.1933 1.33334 10.4067 1.54668 10.4067 1.81334C10.4067 2.08001 10.1933 2.30001 9.92666 2.30001Z" />
                                                 </svg>
-                                                {{ selectedTimeBoost.attributes[1].value }}
+                                                {{ selectedTimeBoost.boostTimePercent }}
                                             </div>
                                         </div>
                                     </div>
@@ -338,7 +335,7 @@
                                 <li class="select-boost-item" v-for="boost of timeBoosts" :key="boost.tokenId"
                                     @click="selectedTimeBoost = boost">
                                     <div class="select-boost-img">
-                                        <img :src="boost.image" alt="" />
+                                        <img :src="getBoostImg(boost)" alt="" />
                                     </div>
                                     <div class="select-boost-data">
                                         <div class="select-boost-name">
@@ -353,7 +350,7 @@
                                                     <path
                                                         d="M9.92666 2.30001H6.07332C5.80666 2.30001 5.59332 2.08668 5.59332 1.82001C5.59332 1.55334 5.80666 1.33334 6.07332 1.33334H9.92666C10.1933 1.33334 10.4067 1.54668 10.4067 1.81334C10.4067 2.08001 10.1933 2.30001 9.92666 2.30001Z" />
                                                 </svg>
-                                                {{ boost.attributes[1].value }}
+                                                {{ boost.boostTimePercent }}
                                             </div>
                                         </div>
                                     </div>
@@ -393,7 +390,7 @@
                             <div class="selected" v-if="showMore">
                                 <div class="select-boost-item">
                                     <div class="select-boost-img">
-                                        <img :src="selectedProfitBoost.image" alt="" />
+                                        <img :src="getBoostImg(selectedProfitBoost)" alt="" />
                                     </div>
                                     <div class="select-boost-data">
                                         <div class="select-boost-name">
@@ -406,7 +403,7 @@
                                                     <path
                                                         d="M8.00016 1.33325C4.32016 1.33325 1.3335 4.31992 1.3335 7.99992C1.3335 11.6799 4.32016 14.6666 8.00016 14.6666C11.6802 14.6666 14.6668 11.6799 14.6668 7.99992C14.6668 4.31992 11.6802 1.33325 8.00016 1.33325ZM5.82016 5.10659C6.36016 5.10659 6.80683 5.54659 6.80683 6.09325C6.80683 6.63325 6.36683 7.07992 5.82016 7.07992C5.28016 7.07992 4.8335 6.63992 4.8335 6.09325C4.8335 5.54659 5.2735 5.10659 5.82016 5.10659ZM5.90016 10.5333C5.80016 10.6333 5.6735 10.6799 5.54683 10.6799C5.42016 10.6799 5.2935 10.6333 5.1935 10.5333C5.00016 10.3399 5.00016 10.0199 5.1935 9.82659L9.56016 5.45992C9.7535 5.26659 10.0735 5.26659 10.2668 5.45992C10.4602 5.65325 10.4602 5.97325 10.2668 6.16659L5.90016 10.5333ZM10.1802 10.8933C9.64016 10.8933 9.1935 10.4533 9.1935 9.90659C9.1935 9.36659 9.6335 8.91992 10.1802 8.91992C10.7202 8.91992 11.1668 9.35992 11.1668 9.90659C11.1668 10.4533 10.7268 10.8933 10.1802 10.8933Z" />
                                                 </svg>
-                                                {{ selectedProfitBoost.attributes[2].value }}
+                                                {{ selectedProfitBoost.boostProfitPercent }}
                                             </div>
                                         </div>
                                     </div>
@@ -424,7 +421,7 @@
                                 <li class="select-boost-item" v-for="boost of profitBoosts" :key="boost.tokenId"
                                     @click="selectedProfitBoost = boost">
                                     <div class="select-boost-img">
-                                        <img :src="boost.image" alt="" />
+                                        <img :src="getBoostImg(boost)" alt="" />
                                     </div>
                                     <div class="select-boost-data">
                                         <div class="select-boost-name">
@@ -437,7 +434,7 @@
                                                     <path
                                                         d="M8.00016 1.33325C4.32016 1.33325 1.3335 4.31992 1.3335 7.99992C1.3335 11.6799 4.32016 14.6666 8.00016 14.6666C11.6802 14.6666 14.6668 11.6799 14.6668 7.99992C14.6668 4.31992 11.6802 1.33325 8.00016 1.33325ZM5.82016 5.10659C6.36016 5.10659 6.80683 5.54659 6.80683 6.09325C6.80683 6.63325 6.36683 7.07992 5.82016 7.07992C5.28016 7.07992 4.8335 6.63992 4.8335 6.09325C4.8335 5.54659 5.2735 5.10659 5.82016 5.10659ZM5.90016 10.5333C5.80016 10.6333 5.6735 10.6799 5.54683 10.6799C5.42016 10.6799 5.2935 10.6333 5.1935 10.5333C5.00016 10.3399 5.00016 10.0199 5.1935 9.82659L9.56016 5.45992C9.7535 5.26659 10.0735 5.26659 10.2668 5.45992C10.4602 5.65325 10.4602 5.97325 10.2668 6.16659L5.90016 10.5333ZM10.1802 10.8933C9.64016 10.8933 9.1935 10.4533 9.1935 9.90659C9.1935 9.36659 9.6335 8.91992 10.1802 8.91992C10.7202 8.91992 11.1668 9.35992 11.1668 9.90659C11.1668 10.4533 10.7268 10.8933 10.1802 10.8933Z" />
                                                 </svg>
-                                                {{ boost.attributes[2].value }}
+                                                {{ boost.boostProfitPercent }}
                                             </div>
                                         </div>
                                     </div>
@@ -477,7 +474,7 @@
                             <div class="selected" v-if="showMore">
                                 <div class="select-boost-item">
                                     <div class="select-boost-img">
-                                        <img :src="selectedTeamBoost.image" alt="" />
+                                        <img :src="getBoostImg(selectedTeamBoost)" alt="" />
                                     </div>
                                     <div class="select-boost-data">
                                         <div class="select-boost-name">
@@ -490,7 +487,7 @@
                                                     <path
                                                         d="M8.00016 1.33325C4.32016 1.33325 1.3335 4.31992 1.3335 7.99992C1.3335 11.6799 4.32016 14.6666 8.00016 14.6666C11.6802 14.6666 14.6668 11.6799 14.6668 7.99992C14.6668 4.31992 11.6802 1.33325 8.00016 1.33325ZM5.82016 5.10659C6.36016 5.10659 6.80683 5.54659 6.80683 6.09325C6.80683 6.63325 6.36683 7.07992 5.82016 7.07992C5.28016 7.07992 4.8335 6.63992 4.8335 6.09325C4.8335 5.54659 5.2735 5.10659 5.82016 5.10659ZM5.90016 10.5333C5.80016 10.6333 5.6735 10.6799 5.54683 10.6799C5.42016 10.6799 5.2935 10.6333 5.1935 10.5333C5.00016 10.3399 5.00016 10.0199 5.1935 9.82659L9.56016 5.45992C9.7535 5.26659 10.0735 5.26659 10.2668 5.45992C10.4602 5.65325 10.4602 5.97325 10.2668 6.16659L5.90016 10.5333ZM10.1802 10.8933C9.64016 10.8933 9.1935 10.4533 9.1935 9.90659C9.1935 9.36659 9.6335 8.91992 10.1802 8.91992C10.7202 8.91992 11.1668 9.35992 11.1668 9.90659C11.1668 10.4533 10.7268 10.8933 10.1802 10.8933Z" />
                                                 </svg>
-                                                {{ selectedTeamBoost.attributes[2].value }}
+                                                {{ selectedTeamBoost.boostProfitPercent }}
                                             </div>
                                             <div class="boost-data-item boost-data-item-main">
                                                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
@@ -500,7 +497,7 @@
                                                     <path
                                                         d="M9.92666 2.30001H6.07332C5.80666 2.30001 5.59332 2.08668 5.59332 1.82001C5.59332 1.55334 5.80666 1.33334 6.07332 1.33334H9.92666C10.1933 1.33334 10.4067 1.54668 10.4067 1.81334C10.4067 2.08001 10.1933 2.30001 9.92666 2.30001Z" />
                                                 </svg>
-                                                {{ selectedTeamBoost.attributes[1].value }}
+                                                {{ selectedTeamBoost.boostTimePercent }}
                                             </div>
                                         </div>
                                     </div>
@@ -518,7 +515,7 @@
                                 <li class="select-boost-item" v-for="boost of teamBoosts" :key="boost.tokenId"
                                     @click="selectedTeamBoost = boost">
                                     <div class="select-boost-img">
-                                        <img :src="boost.image" alt="" />
+                                        <img :src="getBoostImg(boost)" alt="" />
                                     </div>
                                     <div class="select-boost-data">
                                         <div class="select-boost-name">
@@ -531,7 +528,7 @@
                                                     <path
                                                         d="M8.00016 1.33325C4.32016 1.33325 1.3335 4.31992 1.3335 7.99992C1.3335 11.6799 4.32016 14.6666 8.00016 14.6666C11.6802 14.6666 14.6668 11.6799 14.6668 7.99992C14.6668 4.31992 11.6802 1.33325 8.00016 1.33325ZM5.82016 5.10659C6.36016 5.10659 6.80683 5.54659 6.80683 6.09325C6.80683 6.63325 6.36683 7.07992 5.82016 7.07992C5.28016 7.07992 4.8335 6.63992 4.8335 6.09325C4.8335 5.54659 5.2735 5.10659 5.82016 5.10659ZM5.90016 10.5333C5.80016 10.6333 5.6735 10.6799 5.54683 10.6799C5.42016 10.6799 5.2935 10.6333 5.1935 10.5333C5.00016 10.3399 5.00016 10.0199 5.1935 9.82659L9.56016 5.45992C9.7535 5.26659 10.0735 5.26659 10.2668 5.45992C10.4602 5.65325 10.4602 5.97325 10.2668 6.16659L5.90016 10.5333ZM10.1802 10.8933C9.64016 10.8933 9.1935 10.4533 9.1935 9.90659C9.1935 9.36659 9.6335 8.91992 10.1802 8.91992C10.7202 8.91992 11.1668 9.35992 11.1668 9.90659C11.1668 10.4533 10.7268 10.8933 10.1802 10.8933Z" />
                                                 </svg>
-                                                {{ boost.attributes[2].value }}
+                                                {{ boost.boostTimePercent }}
                                             </div>
                                             <div class="boost-data-item boost-data-item-main">
                                                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
@@ -541,7 +538,7 @@
                                                     <path
                                                         d="M9.92666 2.30001H6.07332C5.80666 2.30001 5.59332 2.08668 5.59332 1.82001C5.59332 1.55334 5.80666 1.33334 6.07332 1.33334H9.92666C10.1933 1.33334 10.4067 1.54668 10.4067 1.81334C10.4067 2.08001 10.1933 2.30001 9.92666 2.30001Z" />
                                                 </svg>
-                                                {{ boost.attributes[1].value }}
+                                                {{ boost.boostProfitPercent }}
                                             </div>
                                         </div>
                                     </div>
@@ -616,6 +613,7 @@ export default {
                     });
                     return;
                 }
+                console.log(boostToApply);
                 this.showLoader = true;
                 this.isBoostApplying = true;
                 let res = await this.$root.core.approve("BOOST", this.currentAddress);
@@ -661,10 +659,10 @@ export default {
             var images = require.context("/src/assets/images/all/", false, /\.png$/);
             return images("./nft-" + nft.eggPlan + ".png");
         },
-        getBoostImage(nft) {
-            return this.$root.core
-                .getBoostMetadata(/* nft.boostTokenId */ 0)
-                .then((res) => res.image);
+        getBoostImg(nft) {
+            let nameFix = nft.boostType == 1 ? "time-" : "percent-";
+            var images = require.context("/src/assets/images/all/", false, /\.png$/);
+            return images("./boost-" + nameFix + (+nft.boostLevel + 1) + ".png");
         },
         getStakingPlanData(nft) {
             let timeIncrease = 0;
@@ -745,8 +743,8 @@ export default {
             ).toFixed(2);
             let expectedReward;
             const size =
-                stakePlan === 0 ? "XXS" : stakePlan === 1 ? "XS" : stakePlan === 2 ? "S" : stakePlan === 3 ? "M" : stakePlan === 4 
-                ? "L" : stakePlan === 5 ? "XL" : stakePlan === 6 ? "XXL" : "XXL";
+                stakePlan === 0 ? "XXS" : stakePlan === 1 ? "XS" : stakePlan === 2 ? "S" : stakePlan === 3 ? "M" : stakePlan === 4
+                    ? "L" : stakePlan === 5 ? "XL" : stakePlan === 6 ? "XXL" : "XXL";
             let end;
             const start = Math.max(nft.timestamp, nft.lastWithdrawTimestamp);
             end = nft.timestamp + Number(period.replace("days", "")) * 24 * 3600;
@@ -764,7 +762,7 @@ export default {
                         24 /
                         100
                     ).toFixed(2)
-                    : "0.0000";
+                    : "0.00";
 
             const now = Math.floor(new Date().getTime() / 1000);
 
@@ -786,8 +784,7 @@ export default {
             ];
         },
         getAlreadyWithdrawnReward(stake) {
-            console.log(stake);
-            return Number(stake.rewardReceived).toFixed(2);
+            return Number(stake.rewardReceived / 1e18).toFixed(2);
         },
         getEarnedReward(stake) {
             let timeIncrease = 0;
@@ -959,43 +956,30 @@ export default {
             "currentBlockchain",
             "currentAddress",
             "userNftsData",
+            "userNftsBoostsData",
             "currency",
         ]),
-
         timeBoosts() {
             if (
-                this.userNftsData &&
+                this.userNftsBoostsData &&
                 this.currentBlockchain &&
                 this.currentAddress &&
                 this.currentAddress !== "0x0000000000000000000000000000000000000000"
             ) {
-                if (!this.userNftsData[this.currentBlockchain]) return [];
-                const arr =
-                    this.userNftsData[this.currentBlockchain][
-                        conf[this.currentBlockchain].BOOST_NFT_CONTRACT
-                    ].filter((el) => el.type === "TIME") || [];
-                /*
-                arr.sort(
-                    (a, b) =>
-                        Number(b.attributes[1].value.replace("%", "")) -
-                        Number(a.attributes[1].value.replace("%", ""))
-                );
-                */
+                const arr = this.userNftsBoostsData.filter((el) => el.boostType === 1) || [];
                 return arr;
             }
             return null;
         },
         teamBoosts() {
             if (
-                this.userNftsData &&
+                this.userNftsBoostsData &&
                 this.currentBlockchain &&
                 this.currentAddress &&
                 this.currentAddress !== "0x0000000000000000000000000000000000000000"
             ) {
-                if (!this.userNftsData[this.currentBlockchain]) return [];
-                // const arr =this.userNftsData[this.currentBlockchain][conf[this.currentBlockchain].BOOST_NFT_CONTRACT].filter((el) => el.type === "TEAM") || [];
-                // return arr.sort((a, b) => b.id - a.id);
-                return this.userNftsData;
+                const arr = this.userNftsBoostsData.filter((el) => el.boostType === 2) || [];
+                return arr;
             }
             return null;
         },
@@ -1006,18 +990,7 @@ export default {
                 this.currentAddress &&
                 this.currentAddress !== "0x0000000000000000000000000000000000000000"
             ) {
-                if (!this.userNftsData[this.currentBlockchain]) return [];
-                const arr =
-                    this.userNftsData[this.currentBlockchain][
-                        conf[this.currentBlockchain].BOOST_NFT_CONTRACT
-                    ].filter((el) => el.type === "PROFIT") || [];
-                /*
-                arr.sort(
-                    (a, b) =>
-                        Number(b.attributes[2].value.replace("%", "")) -
-                        Number(a.attributes[2].value.replace("%", ""))
-                );
-                */
+                const arr = this.userNftsBoostsData.filter((el) => el.boostType === 0) || [];
                 return arr;
             }
             return null;
@@ -1049,6 +1022,9 @@ export default {
         },
     },
     mounted() {
+        //console.log(this.userNftsBoostsData);
+        //console.log(this.userNftsData);
+        console.log(this.userStakes);
         this.lang.init();
     },
     beforeDestroy() {
@@ -1076,18 +1052,10 @@ export default {
                     if (this.selectedTeamBoost) {
                         increasedDays =
                             increasedDays +
-                            (increasedDays *
-                                Number(
-                                    this.teamBoosts[0].attributes[1].value.replace("%", "")
-                                )) /
-                            100;
+                            (increasedDays * Number(this.teamBoosts[0].boostTimePercent));
                         increasedPercent =
                             increasedPercent +
-                            (increasedPercent *
-                                Number(
-                                    this.teamBoosts[0].attributes[2].value.replace("%", "")
-                                )) /
-                            100;
+                            (increasedPercent * Number(this.teamBoosts[0].boostProfitPercent));
                     }
                 }
                 if (!this.isProfitBoostApplied) {
@@ -1095,11 +1063,7 @@ export default {
                     if (this.selectedProfitBoost) {
                         increasedPercent =
                             increasedPercent +
-                            (increasedPercent *
-                                Number(
-                                    this.profitBoosts[0].attributes[2].value.replace("%", "")
-                                )) /
-                            100;
+                            (increasedPercent * Number(this.profitBoosts[0].boostProfitPercent));
                     }
                 }
                 if (!this.isTimeBoostApplied) {
@@ -1107,11 +1071,7 @@ export default {
                     if (this.selectedTimeBoost) {
                         increasedDays =
                             increasedDays +
-                            (increasedDays *
-                                Number(
-                                    this.timeBoosts[0].attributes[1].value.replace("%", "")
-                                )) /
-                            100;
+                            (increasedDays * Number(this.timeBoosts[0].boostTimePercent));
                     }
                 }
                 this.increasedPercent = (increasedPercent * increasedDays).toFixed(2);
@@ -1150,19 +1110,15 @@ export default {
         selectedProfitBoost: function (newVal) {
             if (newVal) {
                 const [days, daily] = this.getStakingPlanData(this.fullStakeDetails);
-                let increasedDays = Number(days.replace("days", ""));
-                let increasedPercent = Number(daily);
+                let increasedDays = parseFloat(days);
+                let increasedPercent = parseFloat(daily);
                 increasedPercent =
                     increasedPercent +
-                    (increasedPercent *
-                        Number(newVal.attributes[2].value.replace("%", ""))) /
-                    100;
+                    (increasedPercent / 100 * parseFloat(newVal.boostProfitPercent));
                 increasedDays =
                     increasedDays +
                     increasedDays *
-                    (Number(
-                        this.selectedTimeBoost?.attributes[1].value.replace("%", "")
-                    ) / 100 || 0);
+                    (Number(this.selectedTimeBoost?.boostTimePercent) || 0);
                 this.increasedPercent = (increasedPercent * increasedDays).toFixed(2);
                 this.increasedProfit = (
                     (Number(this.fullStakeDetails.event_data.amount) *
@@ -1174,19 +1130,14 @@ export default {
         selectedTeamBoost: function (newVal) {
             if (newVal) {
                 const [days, daily] = this.getStakingPlanData(this.fullStakeDetails);
-                let increasedDays = Number(days.replace("days", ""));
-                let increasedPercent = Number(daily);
+                let increasedDays = parseFloat(days);
+                let increasedPercent = parseFloat(daily);
                 increasedPercent =
                     increasedPercent +
-                    (increasedPercent *
-                        Number(newVal.attributes[2].value.replace("%", ""))) /
-                    100;
+                    (increasedPercent / 100 * Number(newVal.boostProfitPercent));
                 increasedDays =
                     increasedDays +
-                    increasedDays *
-                    (Number(
-                        newVal.attributes[1].value.replace("%", "").replace("-", "")
-                    ) / 100 || 0);
+                    (increasedDays / 100 * (parseFloat(newVal.boostTimePercent) || 0));
 
                 this.increasedPercent = (increasedPercent * increasedDays).toFixed(2);
                 this.increasedProfit = (
@@ -1199,19 +1150,14 @@ export default {
         selectedTimeBoost: function (newVal) {
             if (newVal) {
                 const [days, daily] = this.getStakingPlanData(this.fullStakeDetails);
-                let increasedDays = Number(days.replace("days", ""));
-                let increasedPercent = Number(daily);
+                let increasedDays = parseFloat(days);
+                let increasedPercent = parseFloat(daily);
                 increasedPercent =
                     increasedPercent +
-                    increasedPercent *
-                    (Number(
-                        this.selectedProfitBoost?.attributes[2].value.replace("%", "")
-                    ) / 100 || 0);
+                    (increasedPercent / 100 * (parseFloat(this.selectedProfitBoost?.boostProfitPercent) || 0));
                 increasedDays =
                     increasedDays +
-                    (increasedDays *
-                        Number(newVal.attributes[1].value.replace("%", ""))) /
-                    100;
+                    (increasedDays / 100 * parseFloat(newVal.boostTimePercent));
                 this.increasedPercent = (increasedPercent * increasedDays).toFixed(2);
                 this.increasedProfit = (
                     (Number(this.fullStakeDetails.event_data.amount) *

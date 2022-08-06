@@ -266,11 +266,11 @@
                                     </div>
                                     <div class="block-info-row">
                                         <div class="block-info-td block-info-name">{{ translatesGet("TIME") }}</div>
-                                        <div class="block-info-td block-info-value">{{ nft.boostTimePercent === 0 ? "-" : (nft.boostTimePercent / 100) + "%" }}</div>
+                                        <div class="block-info-td block-info-value">{{ nft.boostTimePercent === 0 ? "-" : nft.boostTimePercent + "%" }}</div>
                                     </div>
                                     <div class="block-info-row">
                                         <div class="block-info-td block-info-name">{{ translatesGet("PROFIT") }}</div>
-                                        <div class="block-info-td block-info-value">{{ nft.boostProfitPercent === 0 ? "-" : (nft.boostProfitPercent / 100) + "%" }}</div>
+                                        <div class="block-info-td block-info-value">{{ nft.boostProfitPercent === 0 ? "-" : nft.boostProfitPercent + "%" }}</div>
                                     </div>
                                 </div>
                             </div>

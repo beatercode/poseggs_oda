@@ -1556,7 +1556,6 @@ export default {
             return this.preselectedChain && this.preselectedChain === 137 ? "MATIC" : "BNB";
         },
         getPreselectedChain() {
-            console.log(this.preselectedChain);
             return this.preselectedChain === 56 || this.preselectedChain === 97
                 ? "binance"
                 : "polygon";

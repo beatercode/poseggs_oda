@@ -750,13 +750,13 @@ export default class Core {
             let atmMul = boostNft.boostType == 1 ? Number(boostNft.boostTimePercent) : Number(boostNft.boostProfitPercent);
             let boostFinal = {};
             boostFinal.boostType = Number(boostNft.boostType);
-            boostFinal.boostProfitPercent = Number(boostNft.boostProfitPercent);
-            boostFinal.boostTimePercent = Number(boostNft.boostTimePercent);
+            boostFinal.tokenId = Number(ni);
+            boostFinal.boostProfitPercent = Number(boostNft.boostProfitPercent) / 100;
+            boostFinal.boostTimePercent = Number(boostNft.boostTimePercent) / 100;
             boostFinal.boostLevel = atmMul == 200 ? 0 : atmMul == 500 ? 1 : 2;
             boostFinal.name = "Boost LVL " + (+boostFinal.boostLevel + 1);
             boostFinal.collection = "POSEggs-BOOST";
             boostFinal.description = "";
-            console.log(boostFinal);
 
             /*
             let eggPlanId = eggPlan.toNumber();
@@ -873,6 +873,9 @@ export default class Core {
         for (let i = 0; thersOthersStake; i++) {
             try {
                 let tempUserStake = await nftContract.stakes(address, i);
+                let tempUserStakeTest = await nftContract.getStake(address, i);
+                console.log("tempUserStakeTest");
+                console.log(tempUserStakeTest);
                 if (tempUserStake != null) {
                     let userStake = await this.stakeRefactorAndAddInfo(address, tempUserStake, i);
                     activeStakes.push(userStake);

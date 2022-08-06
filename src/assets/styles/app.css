@@ -797,6 +797,7 @@ table{
     40%  {transform: translate3d(0,0,0) scale3d(1,1.12,1);}
     100% {transform: translate3d(0,0,0) scale3d(1.03,1.03,1);}
 }
+
 /*
 .nft-wrap .nft-img-block.nft-56-1:before,.row-binance .general-card.reward .general-card-col:nth-child(2),.ul-our-nfts.ul-binance:first-child .li-our-nfts:first-child .li-nft-img:after{
     background-image:url(../images/all/nft-1.png)

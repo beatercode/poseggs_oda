@@ -2,6 +2,71 @@ const stakeAbi = [
 	{
 		"inputs": [
 			{
+				"internalType": "uint256",
+				"name": "stakeIdx",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "boostTokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "addBoost",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "batchUnstake",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "batchWithdraw",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint8",
+				"name": "stakeIdx",
+				"type": "uint8"
+			}
+		],
+		"name": "claim",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "renounceOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "transferOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
 				"internalType": "address",
 				"name": "nftContractAddress_",
 				"type": "address"
@@ -40,87 +105,39 @@ const stakeAbi = [
 		"type": "event"
 	},
 	{
-		"inputs": [],
-		"name": "BUSD_TOKEN_ADDRESS",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
 		"inputs": [
 			{
 				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "STAKE_TYPES_DAILY_PERCENTS",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "STAKE_TYPES_TERMS",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "stakeIdx",
+				"name": "tokenId",
 				"type": "uint256"
 			},
 			{
-				"internalType": "uint256",
-				"name": "boostTokenId",
-				"type": "uint256"
+				"internalType": "uint8",
+				"name": "stakePlan",
+				"type": "uint8"
 			}
 		],
-		"name": "addBoost",
+		"name": "stake",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
-		"inputs": [],
-		"name": "batchUnstake",
+		"inputs": [
+			{
+				"internalType": "uint8",
+				"name": "stakeIdx",
+				"type": "uint8"
+			}
+		],
+		"name": "unstake",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
-		"inputs": [],
-		"name": "batchWithdraw",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
+		"stateMutability": "payable",
+		"type": "receive"
 	},
 	{
 		"inputs": [],
@@ -136,16 +153,16 @@ const stakeAbi = [
 		"type": "function"
 	},
 	{
-		"inputs": [
+		"inputs": [],
+		"name": "BUSD_TOKEN_ADDRESS",
+		"outputs": [
 			{
-				"internalType": "uint8",
-				"name": "stakeIdx",
-				"type": "uint8"
+				"internalType": "address",
+				"name": "",
+				"type": "address"
 			}
 		],
-		"name": "claim",
-		"outputs": [],
-		"stateMutability": "nonpayable",
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -167,6 +184,97 @@ const stakeAbi = [
 				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "stakeIdx",
+				"type": "uint256"
+			}
+		],
+		"name": "getStake",
+		"outputs": [
+			{
+				"internalType": "uint8",
+				"name": "",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"components": [
+					{
+						"internalType": "enum Boosts.BoostType",
+						"name": "boostType",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint256",
+						"name": "boostTimePercent",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "boostProfitPercent",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct Boosts.Boost[]",
+				"name": "",
+				"type": "tuple[]"
+			},
+			{
+				"internalType": "uint8",
+				"name": "",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
 			}
 		],
 		"stateMutability": "view",
@@ -265,28 +373,22 @@ const stakeAbi = [
 		"type": "function"
 	},
 	{
-		"inputs": [],
-		"name": "renounceOwnership",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
 		"inputs": [
 			{
 				"internalType": "uint256",
-				"name": "tokenId",
+				"name": "",
 				"type": "uint256"
-			},
-			{
-				"internalType": "uint8",
-				"name": "stakePlan",
-				"type": "uint8"
 			}
 		],
-		"name": "stake",
-		"outputs": [],
-		"stateMutability": "nonpayable",
+		"name": "STAKE_TYPES_DAILY_PERCENTS",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -297,16 +399,11 @@ const stakeAbi = [
 				"type": "uint256"
 			}
 		],
-		"name": "stakeTypes",
+		"name": "STAKE_TYPES_TERMS",
 		"outputs": [
 			{
 				"internalType": "uint256",
-				"name": "dailyPercent",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "term",
+				"name": "",
 				"type": "uint256"
 			}
 		],
@@ -385,32 +482,26 @@ const stakeAbi = [
 	{
 		"inputs": [
 			{
-				"internalType": "address",
-				"name": "newOwner",
-				"type": "address"
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
 			}
 		],
-		"name": "transferOwnership",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
+		"name": "stakeTypes",
+		"outputs": [
 			{
-				"internalType": "uint8",
-				"name": "stakeIdx",
-				"type": "uint8"
+				"internalType": "uint256",
+				"name": "dailyPercent",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "term",
+				"type": "uint256"
 			}
 		],
-		"name": "unstake",
-		"outputs": [],
-		"stateMutability": "nonpayable",
+		"stateMutability": "view",
 		"type": "function"
-	},
-	{
-		"stateMutability": "payable",
-		"type": "receive"
 	}
 ];
 
