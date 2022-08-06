@@ -21,15 +21,13 @@
                         " class="nft-load">
                             <div class="nft-load-icon"></div>
                         </div>
-                        <img :src="getImageLink(fullStakeDetails)" class="your-nft-img"
-                            alt="main-img" />
+                        <img :src="getImageLink(fullStakeDetails)" class="your-nft-img" alt="main-img" />
                     </div>
                 </div>
                 <div class="container-btns">
-                    <button v-if="
-                        fullStakeDetails.stakeTypeIdx > 0 &&
-                        getStakingPlanData(fullStakeDetails)[6] === false
-                    " @click="showMore = !showMore" class="btn" :class="{ 'btn-dark': showMore, 'btn-light': !showMore }">
+                    <button v-if="getStakingPlanData(fullStakeDetails)[6] === false
+                    " @click="showMore = !showMore" class="btn"
+                        :class="{ 'btn-dark': showMore, 'btn-light': !showMore }">
                         <div class="icon-wrap"><i class="icon-flash-fill"></i></div>
                         <!-- <span>{{ !showMore ? "Boost my NFT" : "Hide" }}</span> -->
                         <span>{{
@@ -45,13 +43,10 @@
             <div class="your-stake-col your-stake-data">
                 <div class="stake-data-header">
                     <div class="stake-id">
-                        #{{ /* fullStakeDetails.event_data.depositIdx */ 0 + 1 }}
+                        #{{ fullStakeDetails.event_data.depositIdx + 1 }}
                     </div>
                     <div class="stake-boosts">
-                        <template v-if="
-                            fullStakeDetails.stakeTypeIdx > 0 &&
-                            /* fullStakeDetails.boostEvents.length */ fullStakeDetails.boostsSize <= 3
-                        ">
+                        <template v-if="/* fullStakeDetails.boostEvents.length */ fullStakeDetails.boostsSize <= 3">
                             <button :disabled="getStakingPlanData(fullStakeDetails)[6] === true"
                                 v-if="!isBoostApplied(1)" class="st-boost" @click="showMore = true">
                                 <i class="icon-plus"></i>
@@ -109,7 +104,8 @@
                                 }}
                             </div>
                         </div>
-                        <div class="stake-pool-col stake-time" v-if="getStakingPlanData(fullStakeDetails)[4] !== 'XL'">
+                        <!--div class="stake-pool-col stake-time" v-if="getStakingPlanData(fullStakeDetails)[4] !== 'XL'"-->
+                        <div class="stake-pool-col stake-time">
                             <div class="stake-pool-col-name">
                                 <div class="icon"></div>
                                 <span>{{ translatesGet("END_ST_POOL") }}</span>
@@ -135,7 +131,7 @@
                                 <span>{{ translatesGet("CLAIMED") }}</span>
                             </div>
                             <div class="stake-pool-col-value">
-                                {{ getAlreadyWithdrawnReward(fullStakeDetails) }} {{ currency }}
+                                {{ getAlreadyWithdrawnReward(fullStakeDetails) }} {{ "BUSD" /* currency */ }}
                             </div>
                         </div>
                         <div class="stake-pool-col stake-for-claim">
@@ -149,7 +145,7 @@
                                             ? getEarnedReward(fullStakeDetails)
                                             : "0.00"
                                 }}
-                                {{ currency }}
+                                {{ "BUSD" /* currency */ }}
                             </div>
                         </div>
                     </div>
@@ -224,7 +220,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="stake-info-block" v-if="fullStakeDetails.stakeTypeIdx > 0">
+                    <div class="stake-info-block">
                         <div class="stake-pool-col-name">
                             {{ translatesGet("TOTAL_ST_PERCENT") }}
                         </div>
@@ -250,7 +246,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="stake-info-block" v-if="fullStakeDetails.stakeTypeIdx > 0">
+                    <div class="stake-info-block">
                         <div class="stake-pool-col-name">
                             {{ translatesGet("EXPECTED_REWARD") }}
                         </div>
@@ -258,7 +254,7 @@
                             {{
                                     !getStakingPlanData(fullStakeDetails)[3]
                                         ? "Depends on days you staked"
-                                        : getStakingPlanData(fullStakeDetails)[3] + ` ${currency}`
+                                        : getStakingPlanData(fullStakeDetails)[3] + ` ${"BUSD" /* currency */}`
                             }}
                         </div>
                         <div class="select-boost-item-data-wrap" v-if="
@@ -272,7 +268,7 @@
                                         d="M13.667 6.99967C13.667 3.31967 10.6803 0.333008 7.00033 0.333008C3.32032 0.333007 0.333658 3.31967 0.333658 6.99967C0.333658 10.6797 3.32032 13.6663 7.00032 13.6663C10.6803 13.6663 13.667 10.6797 13.667 6.99967ZM6.50032 9.33301L6.50032 5.87301L5.35366 7.01967C5.16032 7.21301 4.84033 7.21301 4.64699 7.01967C4.54699 6.91967 4.50032 6.79301 4.50032 6.66634C4.50032 6.53967 4.54699 6.41301 4.64699 6.31301L6.64699 4.31301C6.84033 4.11967 7.16032 4.11967 7.35366 4.31301L9.35366 6.31301C9.54699 6.50634 9.54699 6.82634 9.35366 7.01967C9.16032 7.21301 8.84033 7.21301 8.64699 7.01967L7.50032 5.87301L7.50032 9.33301C7.50032 9.60634 7.27366 9.83301 7.00032 9.83301C6.72699 9.83301 6.50032 9.60634 6.50032 9.33301Z"
                                         fill="#77D15C" />
                                 </svg>
-                                {{ increasedProfit }} {{ currency }}
+                                {{ increasedProfit }} {{ "BUSD" /* currency */ }}
                             </div>
                         </div>
                     </div>
@@ -600,7 +596,6 @@ export default {
                 return this.lang.get(key);
             }
         },
-
         async activateBoost(type) {
             try {
                 const boostToApply =
@@ -662,11 +657,9 @@ export default {
                 return;
             }
         },
-        getImageLink(nftId) {
-            console.log(this.fullStakeDetails);
-            console.log(nftId)
+        getImageLink(nft) {
             var images = require.context("/src/assets/images/all/", false, /\.png$/);
-            return images("./nft-" + (index + 1) + ".png");
+            return images("./nft-" + nft.eggPlan + ".png");
         },
         getBoostImage(nft) {
             return this.$root.core
@@ -713,38 +706,38 @@ export default {
                     );
                 }
             }
-            const stakeType = nft.stakeTypeIdx;
+            const stakePlan = +nft.eggPlan - 1;
 
             if (timeIncrease > 0) {
-                period = `${conf[this.currentBlockchain].STAKING_PLANS[stakeType].days > 0
-                        ? (
-                            Number(
-                                conf[this.currentBlockchain].STAKING_PLANS[stakeType].days
-                            ) +
-                            (conf[this.currentBlockchain].STAKING_PLANS[stakeType].days *
-                                Number(timeIncrease)) /
-                            100
-                        ).toFixed(2)
-                        : "Unlimited"
+                period = `${conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days > 0
+                    ? (
+                        Number(
+                            conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days
+                        ) +
+                        (conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days *
+                            Number(timeIncrease)) /
+                        100
+                    ).toFixed(2)
+                    : "Unlimited"
                     } days`;
             } else {
-                period = `${conf[this.currentBlockchain].STAKING_PLANS[stakeType].days > 0
-                        ? conf[this.currentBlockchain].STAKING_PLANS[
-                            stakeType
-                        ].days.toFixed(2)
-                        : "Unlimited"
+                period = `${conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days > 0
+                    ? conf[this.currentBlockchain].STAKING_PLANS[
+                        stakePlan
+                    ].days.toFixed(2)
+                    : "Unlimited"
                     } days`;
             }
 
             if (profitIncrease > 0) {
                 dailyPerc =
-                    conf[this.currentBlockchain].STAKING_PLANS[stakeType].profitPerDay +
-                    (conf[this.currentBlockchain].STAKING_PLANS[stakeType].profitPerDay *
+                    conf[this.currentBlockchain].STAKING_PLANS[stakePlan].profitPerDay +
+                    (conf[this.currentBlockchain].STAKING_PLANS[stakePlan].profitPerDay *
                         Number(profitIncrease)) /
                     100;
             } else {
                 dailyPerc =
-                    conf[this.currentBlockchain].STAKING_PLANS[stakeType].profitPerDay;
+                    conf[this.currentBlockchain].STAKING_PLANS[stakePlan].profitPerDay;
             }
 
             const totalProfit = (
@@ -752,41 +745,33 @@ export default {
             ).toFixed(2);
             let expectedReward;
             const size =
-                stakeType === 0
-                    ? "XL"
-                    : stakeType === 1
-                        ? "S"
-                        : stakeType === 2
-                            ? "M"
-                            : "L";
+                stakePlan === 0 ? "XXS" : stakePlan === 1 ? "XS" : stakePlan === 2 ? "S" : stakePlan === 3 ? "M" : stakePlan === 4 
+                ? "L" : stakePlan === 5 ? "XL" : stakePlan === 6 ? "XXL" : "XXL";
             let end;
-            if (stakeType > 0) {
-                const start = Math.max(nft.timestamp, nft.lastWithdrawTimestamp);
-                end = nft.timestamp + Number(period.replace("days", "")) * 24 * 3600;
+            const start = Math.max(nft.timestamp, nft.lastWithdrawTimestamp);
+            end = nft.timestamp + Number(period.replace("days", "")) * 24 * 3600;
 
-                expectedReward =
-                    (
+            expectedReward =
+                (
+                    (((Number(nft.event_data.amount) * (end - start)) / 3600) *
+                        dailyPerc) /
+                    24 /
+                    100
+                ).toFixed(2) > 0
+                    ? (
                         (((Number(nft.event_data.amount) * (end - start)) / 3600) *
                             dailyPerc) /
                         24 /
                         100
-                    ).toFixed(4) > 0
-                        ? (
-                            (((Number(nft.event_data.amount) * (end - start)) / 3600) *
-                                dailyPerc) /
-                            24 /
-                            100
-                        ).toFixed(4)
-                        : "0.0000";
-            } else {
-                //imposible to know as it depends on how  many days user staked
-                expectedReward = "";
-            }
+                    ).toFixed(2)
+                    : "0.0000";
+
             const now = Math.floor(new Date().getTime() / 1000);
 
             const isStakeExpired = Boolean(end < now);
 
-            this.unstakeAllowed = stakeType === 0 ? true : false;
+            // this.unstakeAllowed = stakeType === 0 ? true : false;
+            this.unstakeAllowed = false;
             end = new Date(end * 1000);
 
             return [
@@ -801,7 +786,8 @@ export default {
             ];
         },
         getAlreadyWithdrawnReward(stake) {
-            return Number(stake.rewardReceived).toFixed(4);
+            console.log(stake);
+            return Number(stake.rewardReceived).toFixed(2);
         },
         getEarnedReward(stake) {
             let timeIncrease = 0;
@@ -843,44 +829,44 @@ export default {
                     );
                 }
             }
-            const stakeType = stake.stakeTypeIdx;
+            const stakePlan = +stake.eggPlan - 1;
 
             if (timeIncrease > 0) {
-                period = `${conf[this.currentBlockchain].STAKING_PLANS[stakeType].days > 0
-                        ? (
-                            Number(
-                                conf[this.currentBlockchain].STAKING_PLANS[stakeType].days
-                            ) +
-                            (conf[this.currentBlockchain].STAKING_PLANS[stakeType].days *
-                                Number(timeIncrease)) /
-                            100
-                        ).toFixed(2)
-                        : "Unlimited"
+                period = `${conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days > 0
+                    ? (
+                        Number(
+                            conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days
+                        ) +
+                        (conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days *
+                            Number(timeIncrease)) /
+                        100
+                    ).toFixed(2)
+                    : "Unlimited"
                     } days`;
             } else {
-                period = `${conf[this.currentBlockchain].STAKING_PLANS[stakeType].days > 0
-                        ? conf[this.currentBlockchain].STAKING_PLANS[
-                            stakeType
-                        ].days.toFixed(2)
-                        : "Unlimited"
+                period = `${conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days > 0
+                    ? conf[this.currentBlockchain].STAKING_PLANS[
+                        stakePlan
+                    ].days.toFixed(2)
+                    : "Unlimited"
                     } days`;
             }
 
             if (profitIncrease > 0) {
                 dailyPerc =
-                    conf[this.currentBlockchain].STAKING_PLANS[stakeType].profitPerDay +
-                    (conf[this.currentBlockchain].STAKING_PLANS[stakeType].profitPerDay *
+                    conf[this.currentBlockchain].STAKING_PLANS[stakePlan].profitPerDay +
+                    (conf[this.currentBlockchain].STAKING_PLANS[stakePlan].profitPerDay *
                         Number(profitIncrease)) /
                     100;
             } else {
                 dailyPerc =
-                    conf[this.currentBlockchain].STAKING_PLANS[stakeType].profitPerDay;
+                    conf[this.currentBlockchain].STAKING_PLANS[stakePlan].profitPerDay;
             }
 
             const { lastWithdrawTimestamp, event_data } = stake;
             const { amount, timestamp } = event_data;
             let end;
-            if (stakeType > 0) {
+            if (stakePlan > 0) {
                 end = Math.min(
                     new Date().getTime() / 1000,
                     timestamp + Number(period.replace("days", "")) * 24 * 3600
@@ -897,9 +883,8 @@ export default {
             let res =
                 (Number(amount) * ((dailyPerc / 24) * hoursPassedSinceStart)) / 100;
 
-            return res > 0 ? res.toFixed(4) : 0;
+            return res > 0 ? res.toFixed(2) : 0;
         },
-
         async Claim(nft) {
             try {
                 this.tokenId = nft.event_data.tokenId;
@@ -926,7 +911,6 @@ export default {
                 return;
             }
         },
-
         async Unstake(nft) {
             try {
                 this.isUnstaking = true;
@@ -985,15 +969,18 @@ export default {
                 this.currentAddress &&
                 this.currentAddress !== "0x0000000000000000000000000000000000000000"
             ) {
+                if (!this.userNftsData[this.currentBlockchain]) return [];
                 const arr =
                     this.userNftsData[this.currentBlockchain][
                         conf[this.currentBlockchain].BOOST_NFT_CONTRACT
                     ].filter((el) => el.type === "TIME") || [];
+                /*
                 arr.sort(
                     (a, b) =>
                         Number(b.attributes[1].value.replace("%", "")) -
                         Number(a.attributes[1].value.replace("%", ""))
                 );
+                */
                 return arr;
             }
             return null;
@@ -1005,6 +992,7 @@ export default {
                 this.currentAddress &&
                 this.currentAddress !== "0x0000000000000000000000000000000000000000"
             ) {
+                if (!this.userNftsData[this.currentBlockchain]) return [];
                 // const arr =this.userNftsData[this.currentBlockchain][conf[this.currentBlockchain].BOOST_NFT_CONTRACT].filter((el) => el.type === "TEAM") || [];
                 // return arr.sort((a, b) => b.id - a.id);
                 return this.userNftsData;
@@ -1018,16 +1006,18 @@ export default {
                 this.currentAddress &&
                 this.currentAddress !== "0x0000000000000000000000000000000000000000"
             ) {
+                if (!this.userNftsData[this.currentBlockchain]) return [];
                 const arr =
                     this.userNftsData[this.currentBlockchain][
                         conf[this.currentBlockchain].BOOST_NFT_CONTRACT
                     ].filter((el) => el.type === "PROFIT") || [];
-
+                /*
                 arr.sort(
                     (a, b) =>
                         Number(b.attributes[2].value.replace("%", "")) -
                         Number(a.attributes[2].value.replace("%", ""))
                 );
+                */
                 return arr;
             }
             return null;
@@ -1047,7 +1037,7 @@ export default {
                 this.boostsApplied.find((el) => el.metadata.type === "TEAM")
             );
         },
-        getLastWithdrawalTime() {
+        getlastWithdrawTimestamp() {
             if (this.fullStakeDetails) {
                 return this.fullStakeDetails.lastWithdrawTimestamp;
             } else {
@@ -1129,7 +1119,7 @@ export default {
                     (Number(this.fullStakeDetails.event_data.amount) *
                         this.increasedPercent) /
                     100
-                ).toFixed(4);
+                ).toFixed(2);
             } else {
                 this.selectedProfitBoost = null;
                 this.selectedTimeBoost = null;
@@ -1178,7 +1168,7 @@ export default {
                     (Number(this.fullStakeDetails.event_data.amount) *
                         this.increasedPercent) /
                     100
-                ).toFixed(4);
+                ).toFixed(2);
             }
         },
         selectedTeamBoost: function (newVal) {
@@ -1203,7 +1193,7 @@ export default {
                     (Number(this.fullStakeDetails.event_data.amount) *
                         this.increasedPercent) /
                     100
-                ).toFixed(4);
+                ).toFixed(2);
             }
         },
         selectedTimeBoost: function (newVal) {
@@ -1227,10 +1217,10 @@ export default {
                     (Number(this.fullStakeDetails.event_data.amount) *
                         this.increasedPercent) /
                     100
-                ).toFixed(4);
+                ).toFixed(2);
             }
         },
-        getLastWithdrawalTime: function (newVal, oldVal) {
+        getlastWithdrawTimestamp: function (newVal, oldVal) {
             if (
                 newVal > oldVal &&
                 oldVal !== null &&

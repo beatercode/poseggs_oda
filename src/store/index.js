@@ -52,6 +52,7 @@ export default new Vuex.Store({
         levelDuringRegistration: 0,
         leaderLevel: 0,
         userNftsData: null,
+        userNftsBoostsData: null,
         userStakes: null,
         fullStakeDetails: null,
         userRefData: null,
@@ -80,6 +81,9 @@ export default new Vuex.Store({
         },
         setUserNftsData(state, data) {
             state.userNftsData = data;
+        },
+        setUserNftsBoostsData(state, data) {
+            state.userNftsBoostsData = data;
         },
         setLeaderLevel(state, data) {
             state.leaderLevel = data;
@@ -203,6 +207,9 @@ export default new Vuex.Store({
         },
         getUserNftsData(state) {
             return state.userNftsData;
+        },
+        getUserNftsBoostsData(state) {
+            return state.userNftsBoostsData;
         },
         getInterfaceTranslations: (state) => {
             try {

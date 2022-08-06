@@ -68,7 +68,7 @@
         [
             "AIRDROP",
             "",
-            "Airdrop PDT"
+            "Airdrop BUSD"
         ],
         [
             "MAIN",
@@ -891,7 +891,7 @@
         [
             "MODAL_TIMER_DESCR",
             "",
-            "You haven't got any applicable Boosts yet. Come buy some with PDT, BNB or get them from other platform users."
+            "You haven't got any applicable Boosts yet. Come buy some with BUSD, BNB or get them from other platform users."
         ],
         [
             "MODAL_TIMER_DESCR_POLYGON",
@@ -1000,7 +1000,7 @@
         [
             "YOUR_BOOSTS_0_DESCR_BNB",
             "",
-            "Use PDT or BNB to buy some. You can also get Boosts from other people."
+            "Use BUSD or BNB to buy some. You can also get Boosts from other people."
         ],
         [
             "YOUR_BOOSTS_0_DESCR_MATIC",
@@ -1629,7 +1629,7 @@
         [
             "BTN_CLAIM",
             "",
-            "Claim PDT"
+            "Claim BUSD"
         ],
         [
             "BUY_BOOST_AIRDROP",
@@ -1644,7 +1644,7 @@
         [
             "BTN_CLAIM_METAMASK",
             "",
-            "Add PDT to MetaMask"
+            "Add BUSD to MetaMask"
         ],
         [
             "CLAIM_TITLE_1",
@@ -1669,23 +1669,23 @@
         [
             "",
             "",
-            "You have sussessfully claimed your Airdrop PDT tokens. The tokens should now appear in your crypto wallet."
+            "You have sussessfully claimed your Airdrop BUSD tokens. The tokens should now appear in your crypto wallet."
         ],
         [],
         [
             "CLAIM_DESCR",
             "",
-            "Congrats on finishing off all the Airdrop tasks! Here's your fair share of PDT rewards.Treat yourself, you deserved it!"
+            "Congrats on finishing off all the Airdrop tasks! Here's your fair share of BUSD rewards.Treat yourself, you deserved it!"
         ],
         [
             "CLAIM_DESCR_2",
             "",
-            "You have successfully claimed your Airdrop PDT tokens. Stick around for more PDT giveaways!"
+            "You have successfully claimed your Airdrop BUSD tokens. Stick around for more BUSD giveaways!"
         ],
         [
             "CLAIM_DESCR_3",
             "",
-            "You missed out on the ROIEgg Airdrop. But keep your bill up, there are new PDT giveaways on their way. "
+            "You missed out on the ROIEgg Airdrop. But keep your bill up, there are new BUSD giveaways on their way. "
         ],
         [
             "CLAIM_DESCR_4",

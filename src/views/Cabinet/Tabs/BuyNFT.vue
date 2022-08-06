@@ -41,7 +41,7 @@
                                                 <div class="li-our-nft-wrap" @click="showStats = showStats">
                                                     <div class="card-egg-image">
                                                         <img class="card-egg-image-img"
-                                                            :class="{ hopping: index == selectedIndex }" 
+                                                            :class="{ hopping: index == selectedIndex }"
                                                             :src="getNftImage(index)" />
                                                     </div>
                                                     <div class="li-nft-footer">
@@ -52,13 +52,17 @@
                                                             <div class="icon logo-coin icon-card"></div>
                                                             <div v-if="showStats">
                                                                 <div class="stake-nft-value-main-stats">
-                                                                    <span>Daily</span> <span>{{ profits[index] }}%</span>
+                                                                    <span>Daily</span> <span>{{ profits[index]
+                                                                    }}%</span>
                                                                 </div>
                                                                 <div class="stake-nft-value-main-stats">
                                                                     <span>Days</span> <span>{{ periods[index] }}</span>
                                                                 </div>
                                                                 <div class="stake-nft-value-main-stats">
-                                                                    <span>Total</span> <span>{{ parseFloat(profits[index] * periods[index]).toFixed(1) }}%</span>
+                                                                    <span>Total</span> <span>{{
+                                                                            parseFloat(profits[index] *
+                                                                                periods[index]).toFixed(1)
+                                                                    }}%</span>
                                                                 </div>
                                                                 <div class="cab-row cab-row-stats">
                                                                     <span
@@ -109,9 +113,13 @@
                                                         </div>
                                                     </div>
                                                     <div class="mint-nft-block" style="margin-top: 0px;">
-                                                        <button :disabled="showLoader" @click="BuyNFT(index)"
-                                                            class="btn btn-mint">
+                                                        <button v-if="isApproved(index)" :disabled="showLoader"
+                                                            @click="BuyNFT(index)" class="btn btn-mint">
                                                             {{ translatesGet("MINT") }}
+                                                        </button>
+                                                        <button v-if="!isApproved(index)" :disabled="showLoader"
+                                                            @click="approve(index)" class="btn btn-mint">
+                                                            {{ translatesGet("APPROVE") }}
                                                         </button>
                                                     </div>
                                                 </div>
@@ -148,7 +156,7 @@
                                                     <div class="li-our-nft-wrap" @click="showStats = showStats">
                                                         <div class="card-egg-image">
                                                             <img class="card-egg-image-img"
-                                                                :class="{ hopping: index == selectedIndex }" 
+                                                                :class="{ hopping: index == selectedIndex }"
                                                                 :src="getNftImage(index)" />
                                                         </div>
                                                         <div class="li-nft-footer">
@@ -159,13 +167,18 @@
                                                                 <div class="icon logo-coin icon-card"></div>
                                                                 <div v-if="showStats">
                                                                     <div class="stake-nft-value-main-stats">
-                                                                        <span>Daily</span> <span>{{ profits[index] }}%</span>
+                                                                        <span>Daily</span> <span>{{ profits[index]
+                                                                        }}%</span>
                                                                     </div>
                                                                     <div class="stake-nft-value-main-stats">
-                                                                        <span>Days</span> <span>{{ periods[index] }}</span>
+                                                                        <span>Days</span> <span>{{ periods[index]
+                                                                        }}</span>
                                                                     </div>
                                                                     <div class="stake-nft-value-main-stats">
-                                                                        <span>Total</span> <span>{{ parseFloat(profits[index] * periods[index]).toFixed(1) }}%</span>
+                                                                        <span>Total</span> <span>{{
+                                                                                parseFloat(profits[index] *
+                                                                                    periods[index]).toFixed(1)
+                                                                        }}%</span>
                                                                     </div>
                                                                     <div class="cab-row cab-row-stats">
                                                                         <span
@@ -240,9 +253,13 @@
                                                             </div>
                                                         </div>
                                                         <div class="mint-nft-block" style="margin-top: 0px;">
-                                                            <button :disabled="showLoader" @click="BuyNFT(index)"
-                                                                class="btn btn-mint">
+                                                            <button v-if="isApproved(index)" :disabled="showLoader"
+                                                                @click="BuyNFT(index)" class="btn btn-mint">
                                                                 {{ translatesGet("MINT") }}
+                                                            </button>
+                                                            <button v-if="!isApproved(index)" :disabled="showLoader"
+                                                                @click="approve(index)" class="btn btn-mint">
+                                                                {{ translatesGet("APPROVE") }}
                                                             </button>
                                                         </div>
                                                     </div>
@@ -266,6 +283,7 @@ import "vue-slider-component/theme/default.css";
 import TransferModal from "../../../components/ModalWindows/TransferModal.vue";
 import { mapState } from "vuex";
 import conf from "../../../../config.json";
+import { ethers } from "ethers";
 
 export default {
     name: "BuyNFT",
@@ -284,6 +302,7 @@ export default {
             amount2: false,
             amount3: false,
             amount4: false,
+            busdApprovedAmount: 0,
             showLoader: false,
             showInputError: false,
             inputErrorText: "",
@@ -343,6 +362,16 @@ export default {
     },
 
     methods: {
+        async checkBusdAllowance() {
+            let nftContract_Address = this.$root.core[`poseggNft_${this.currentBlockchain}`].address;
+            let busdContract = this.$root.core[`BUSD_${this.currentBlockchain}`]
+            let res = await busdContract.allowance(this.currentAddress, nftContract_Address);
+            this.busdApprovedAmount = Number(res);
+        },
+        isApproved(nft) {
+            let needed = conf["EGG_DATA"]["prices"][(nft)];
+            return this.busdApprovedAmount >= needed * 1e18;
+        },
         translatesGet(key) {
             try {
                 const translations = JSON.parse(
@@ -382,6 +411,35 @@ export default {
             this.busdAmount = parseFloat(
                 Number(this.$root.core.withoutRound(amount, 4))
             );
+        },
+        async approve(nft) {
+            try {
+                this.showLoader = true;
+                let stakeContract_Address = this.$root.core[`poseggNft_${this.currentBlockchain}`].address;
+                let toApprove = BigInt((conf["EGG_DATA"]["prices"][(nft)]) * 1e18);
+                let busdContract = this.$root.core[`BUSD_${this.currentBlockchain}`]
+                let res = await busdContract.approve(stakeContract_Address, toApprove);
+                if (res.wait) {
+                    this.$store.commit("push_notification", {
+                        type: "warning",
+                        typeClass: "warning",
+                        message: `Your transaction has successfully entered the blockchain! Waiting for enough confirmations...`,
+                    });
+                    this.checkBusdAllowance();
+                    await res.wait();
+                    this.$store.commit("push_notification", {
+                        type: "success",
+                        typeClass: "success",
+                        message: `Transaction was confirmed! You may now stake your NFT.`,
+                    });
+                }
+                this.showLoader = false;
+            } catch (error) {
+                console.log(error);
+                this.showLoader = false;
+                this.$root.core.handleError(error);
+                return;
+            }
         },
         async BuyNFT(index) {
             if (
@@ -499,6 +557,14 @@ export default {
     mounted() {
         let _this = this;
         let counter = 0;
+
+        var i = setInterval(function() {
+            if (_this.currentBlockchain) {
+                clearInterval(i);
+                _this.checkBusdAllowance()
+            }
+        }, 1000);
+
         if (Number(_this?.$router?.currentRoute?.params?.chosenPrice) > 0) {
             setTimeout(async function init() {
                 try {
@@ -726,7 +792,6 @@ export default {
                 },
             ];
         },
-
         marks() {
             return this.points.map((point) => point.value);
         },

@@ -10,6 +10,11 @@ const stakeAbi = [
 				"internalType": "address",
 				"name": "boostNFTContractAddress_",
 				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "tokenAddress",
+				"type": "address"
 			}
 		],
 		"stateMutability": "nonpayable",
@@ -33,6 +38,19 @@ const stakeAbi = [
 		],
 		"name": "OwnershipTransferred",
 		"type": "event"
+	},
+	{
+		"inputs": [],
+		"name": "BUSD_TOKEN_ADDRESS",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
 	},
 	{
 		"inputs": [
@@ -128,6 +146,30 @@ const stakeAbi = [
 		"name": "claim",
 		"outputs": [],
 		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "investorAddr_",
+				"type": "address"
+			},
+			{
+				"internalType": "uint8",
+				"name": "stakeIdx_",
+				"type": "uint8"
+			}
+		],
+		"name": "getClaimable",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -232,31 +274,13 @@ const stakeAbi = [
 	{
 		"inputs": [
 			{
-				"internalType": "address",
-				"name": "tokenAddress",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "amount",
-				"type": "uint256"
-			}
-		],
-		"name": "retrieveTokens",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
 				"internalType": "uint256",
 				"name": "tokenId",
 				"type": "uint256"
 			},
 			{
 				"internalType": "uint8",
-				"name": "stakeTypeIdx",
+				"name": "stakePlan",
 				"type": "uint8"
 			}
 		],
@@ -317,6 +341,26 @@ const stakeAbi = [
 			{
 				"internalType": "uint256",
 				"name": "tokenId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "stakePlan",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "eggPlan",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "eggPrice",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "claimed",
 				"type": "uint256"
 			},
 			{

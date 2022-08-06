@@ -2579,7 +2579,6 @@ table {
 
 .general-card .h4 {
     padding-top: 5px;
-    margin-top: auto;
     font-weight: 600;
     font-size: 24px;
     line-height: 32px
@@ -2597,14 +2596,14 @@ table {
     padding: 10% 30px
 }
 
-.general-card .general-card-col:nth-child(2) {
+.general-card .general-card-col {
     background-size: contain;
     background-position: bottom;
     background-repeat: no-repeat;
     height: 100%
 }
 
-.general-card .general-card-col:nth-child(2) .btn {
+.general-card .general-card-col .btn {
     margin-left: auto;
     margin-top: auto
 }
@@ -10872,7 +10871,7 @@ i[class^=i-] {
 }
 
 @media (min-width:1440px) {
-    .general-card .general-card-col:nth-child(2) {
+    .general-card .general-card-col {
         padding: 10% 30px;
         margin-left: -20px;
         margin-right: 10px
@@ -10941,8 +10940,8 @@ i[class^=i-] {
         width: calc(50% - 10px)
     }
     .general-card:not(.claim) .general-card-col:not(:first-child) {
-        margin: -30px 0 -30px -60px;
-        height: calc(100% + 60px)
+        /* margin: -30px 0 -30px -60px; */
+        /* height: calc(100% + 60px) */
     }
     .cab-row-card.section-wrap-blocks {
         flex-direction: column;

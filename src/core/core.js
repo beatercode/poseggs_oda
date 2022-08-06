@@ -1,6 +1,4 @@
-import {
-    ethers
-} from "ethers";
+import { ethers, utils, BigNumber } from "ethers";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import axios from "axios";
 import conf from "../../config.json";
@@ -136,7 +134,6 @@ export default class Core {
                     this[`airdrop_${chainId}`].connect(this[`provider_${chainId}`]);
                 }
             }
-            console.log(this);
 
             return true;
         } else if (window.localStorage.getItem("selectedWallet") === "metamask") {
@@ -145,7 +142,6 @@ export default class Core {
             this.primaryPovider = new ethers.providers.Web3Provider(window.ethereum, "any");
 
             for (let chainId of conf.SUPPORTED_BLOCKCHAINS) {
-                if (chainId != 97) return;
                 /*
                 this[`provider_${chainId}`] = new ethers.providers.JsonRpcProvider(`${conf[chainId].NODE}`);
                 // TODO  Create ERC20? contract instance
@@ -173,7 +169,6 @@ export default class Core {
                 this[`BUSD_${chainId}`] = new ethers.Contract(conf[chainId].ERC20_CONTRACT, erc20, this[`provider_${chainId}`]);
                 this[`airdrop_${chainId}`] = null//new ethers.Contract(conf[chainId].AIRDROP_CONTRACT, airdrop, this[`provider_${chainId}`]);
 
-
                 if (blockchain === Number(chainId)) {
                     this.provider = this.primaryPovider;
                     this.signer = this.provider.getSigner();
@@ -187,18 +182,17 @@ export default class Core {
                     this[`airdrop_${chainId}`] = new ethers.Contract(conf[chainId].AIRDROP_CONTRACT, airdrop, this.provider).connect(this.signer);
                 } else {
                     // TODO  Create ERC20? contract instance
-                    this[`poseggNft_${chainId}`].connect(this[`provider_${chainId}`]);
-                    this[`boostNft_${chainId}`].connect(this[`provider_${chainId}`]);
-                    this[`stake_${chainId}`].connect(this[`provider_${chainId}`]);
-                    this[`BUSD_${chainId}`].connect(this[`provider_${chainId}`]);
-                    this[`airdrop_${chainId}`].connect(this[`provider_${chainId}`]);
+                    if (this[`poseggNft_${chainId}`]) this[`poseggNft_${chainId}`].connect(this[`provider_${chainId}`]);
+                    if (this[`boostNft_${chainId}`]) this[`boostNft_${chainId}`].connect(this[`provider_${chainId}`]);
+                    if (this[`stake_${chainId}`]) this[`stake_${chainId}`].connect(this[`provider_${chainId}`]);
+                    if (this[`BUSD_${chainId}`]) this[`BUSD_${chainId}`].connect(this[`provider_${chainId}`]);
+                    if (this[`airdrop_${chainId}`]) this[`airdrop_${chainId}`].connect(this[`provider_${chainId}`]);
                 }
             }
 
             return true;
         } else if (!window.localStorage.getItem("selectedWallet")) {
             for (let chainId of conf.SUPPORTED_BLOCKCHAINS) {
-                console.log(chainId);
                 this[`provider_${chainId}`] = new ethers.providers.JsonRpcProvider(`${conf[chainId].NODE}`);
                 //TODO initialize ERC20? contract
                 this[`poseggNft_${chainId}`] = new ethers.Contract(conf[chainId].NFT_CONTRACT, nftAbi, this[`provider_${chainId}`]).connect(
@@ -287,6 +281,7 @@ export default class Core {
     getUserStatsLoop(userAddress, period = 10000) {
         let _this = this;
 
+        let errorCounter = 0;
         setTimeout(async function tick() {
             try {
                 const {
@@ -297,10 +292,14 @@ export default class Core {
                 // TODO
                 const totalRegisterd = ""; // await _this.getTotalRegistered(userAddress);
                 // TODO
-                const res = {"isUnique":true,"referrer":""}; // await _this.isRegistered(userAddress);
+                const res = { "isUnique": true, "referrer": "" }; // await _this.isRegistered(userAddress);
                 // TODO
                 const levelDuringRegistration = ""; // await _this.getLevelDuringRegistration(userAddress);
                 const userNfts = await _this.getUserNftsInChain(userAddress, _this.currentBlockchain, [
+                    conf[_this.currentBlockchain].NFT_CONTRACT,
+                    conf[_this.currentBlockchain].BOOST_NFT_CONTRACT,
+                ]);
+                const userNftsBoosts = await _this.getUserNftsBoostsInChain(userAddress, _this.currentBlockchain, [
                     conf[_this.currentBlockchain].NFT_CONTRACT,
                     conf[_this.currentBlockchain].BOOST_NFT_CONTRACT,
                 ]);
@@ -335,14 +334,25 @@ export default class Core {
                 let A = userNfts;
                 let B = _this.context.$store.getters.getUserNftsData;
                 let areDiff = false;
-                if(A && B && A.length == B.length) {
-                    for(let i = 0; i < A.length && !areDiff; i++) {
-                        if (A[i].tokenId != B[i].tokenId) areDiff = true; 
+                if (A && B && A.length == B.length) {
+                    for (let i = 0; i < A.length && !areDiff; i++) {
+                        if (A[i].tokenId != B[i].tokenId) areDiff = true;
                     }
                 } else {
                     areDiff = true;
                 }
                 if (areDiff) _this.context.$store.commit("setUserNftsData", userNfts);
+                A = userNftsBoosts;
+                B = _this.context.$store.getters.getUserNftsBoostsData;
+                areDiff = false;
+                if (A && B && A.length == B.length) {
+                    for (let i = 0; i < A.length && !areDiff; i++) {
+                        if (A[i].tokenId != B[i].tokenId) areDiff = true;
+                    }
+                } else {
+                    areDiff = true;
+                }
+                if (areDiff) _this.context.$store.commit("setUserNftsBoostsData", userNftsBoosts);
 
                 _this.context.$store.commit("setUserStakes", userStakes);
                 _this.context.$store.commit("setUserRefData", userRefData);
@@ -352,6 +362,10 @@ export default class Core {
             } catch (error) {
                 console.log(error);
                 setTimeout(tick, 300);
+                errorCounter = errorCounter + 1;
+                if (errorCounter > 3) {
+                    setTimeout(tick, 30000);
+                }
             }
         }, 300);
     }
@@ -425,7 +439,6 @@ export default class Core {
             chainId: networkObject.params.chainId
         }];
 
-        console.log(switchParams);
         if (selectedWallet && selectedWallet === "metamask") {
             if (window.ethereum) {
                 try {
@@ -440,7 +453,6 @@ export default class Core {
                     //         window.clearInterval(i);
                     //     }
                     // }, 0);
-                    console.log("chain changed");
                 } catch (switchError) {
                     // This error code indicates that the chain has not been added to MetaMask.
                     if (switchError.code === 4902 || switchError?.code?.toString() === "-32603") {
@@ -510,14 +522,12 @@ export default class Core {
 
     async signMessage(message) {
         const address = await this.signer.getAddress();
-        console.log(address);
         let signature;
         if (window.localStorage.getItem("selectedWallet") === "walletconnect") {
             signature = await this.provider.send("personal_sign", [ethers.utils.hexlify(ethers.utils.toUtf8Bytes(message)), address.toLowerCase()]);
             return signature;
         } else {
             signature = await this.signer.signMessage(message);
-            console.log(signature);
 
             return signature;
         }
@@ -575,16 +585,9 @@ export default class Core {
         return res;
     }
 
-    async buyBoost(currency, purchaseAmount, type, level) {
-        if (currency === "PDT") {
-            const res = await this[`boostNft_${this.currentBlockchain}`].buyBoostForPDT(type, level);
-            return res;
-        } else {
-            const res = await this[`boostNft_${this.currentBlockchain}`].buyBoost(type, level, {
-                value: ethers.utils.parseEther(purchaseAmount.toString())
-            });
-            return res;
-        }
+    async buyBoost(type, level) {
+        const res = await this[`boostNft_${this.currentBlockchain}`].buyBoost(type, level);
+        return res;
     }
 
     async addBoost(depositIdx, boostTokenId) {
@@ -629,7 +632,6 @@ export default class Core {
                 message: message,
                 referrer: referrer,
             });
-            console.log(res.data);
         } catch (error) {
             console.log(error);
         }
@@ -704,16 +706,21 @@ export default class Core {
             });
             return res.data.latest_level || 0;
         } catch (error) {
-            console.log(error);
+            //console.log(error);
         }
     }
 
-    async getUserNftsInChain(address, chainId, nftAddresses) {
+    async getUserNftsInChain(address, chainId) {
         if (chainId != 56 && chainId != 137 && chainId != 97) return;
         const nftContract = this[`poseggNft_${this.currentBlockchain}`];
-        const buyersNftIds = await nftContract.tokensOfOwner(address);
+        let buyersNftIds = [];
+        try {
+            try {
+                buyersNftIds = await nftContract.tokensOfOwner(address);
+            } catch (err) { console.log(err); }
+        } catch (err) { }
         const buyersNftInfo = [];
-        for(let ni of buyersNftIds) {
+        for (let ni of buyersNftIds) {
             let eggPlan = await nftContract.MINTED_EGGS(ni.toNumber());
             let eggPlanId = eggPlan.toNumber();
             let eggInfo = await nftContract.EGGS(eggPlan);
@@ -728,24 +735,93 @@ export default class Core {
         return buyersNftInfo;
     }
 
+    async getUserNftsBoostsInChain(address, chainId) {
+        if (chainId != 56 && chainId != 137 && chainId != 97) return;
+        const nftContract = this[`boostNft_${this.currentBlockchain}`];
+        let buyersNftIds = [];
+        try {
+            try {
+                buyersNftIds = await nftContract.tokensOfOwner(address);
+            } catch (err) { console.log(err); }
+        } catch (err) { }
+        const buyersNftInfo = [];
+        for (let ni of buyersNftIds) {
+            let boostNft = await nftContract.boosts(ni.toNumber());
+            let atmMul = boostNft.boostType == 1 ? Number(boostNft.boostTimePercent) : Number(boostNft.boostProfitPercent);
+            let boostFinal = {};
+            boostFinal.boostType = Number(boostNft.boostType);
+            boostFinal.boostProfitPercent = Number(boostNft.boostProfitPercent);
+            boostFinal.boostTimePercent = Number(boostNft.boostTimePercent);
+            boostFinal.boostLevel = atmMul == 200 ? 0 : atmMul == 500 ? 1 : 2;
+            boostFinal.name = "Boost LVL " + (+boostFinal.boostLevel + 1);
+            boostFinal.collection = "POSEggs-BOOST";
+            boostFinal.description = "";
+            console.log(boostFinal);
+
+            /*
+            let eggPlanId = eggPlan.toNumber();
+            let eggInfo = await nftContract.EGGS(eggPlan);
+            eggInfo = await this.arrayOfBNtoNumber(eggInfo);
+            eggInfo.name = conf.EGG_DATA.name[eggPlanId - 1];
+            eggInfo.plan = eggPlan.toNumber();
+            eggInfo.tokenId = ni.toNumber();
+            eggInfo.collection = "POSEggs-NFT";
+            eggInfo.description = "";
+            */
+            buyersNftInfo.push(boostFinal);
+        }
+        return buyersNftInfo;
+    }
+
     async arrayOfBNtoNumber(array) {
         let temp = {};
-        temp.price = array["price"].toNumber();
-        temp.base_strength = array["base_strength"].toNumber();
-        temp.base_healt = array["base_healt"].toNumber();
-        temp.base_speed = array["base_speed"].toNumber();
-        temp.base_magic = array["base_magic"].toNumber();
+        temp.price = parseFloat(utils.formatEther(array["price"]));
+        temp.base_strength = Number(array["base_strength"]);
+        temp.base_healt = Number((array["base_healt"]));
+        temp.base_speed = Number((array["base_speed"]));
+        temp.base_magic = Number((array["base_magic"]));
         return temp;
     }
 
-    async arrayOfStakesToNumber(array) {
+    async tokenIdToPlan(id) {
+        const nftContract = this[`poseggNft_${this.currentBlockchain}`];
+        const buyersNftIds = await nftContract.MINTED_EGGS(id);
+        return buyersNftIds.toNumber();
+    }
+
+    async stakeRefactorAndAddInfo(address, stake, idx) {
         let temp = {};
-        temp.boostsSize = array["boostsSize"];
-        temp.isExpired = array["isExpired"];
-        temp.lastWithdrawalTime = array["lastWithdrawalTime"].toNumber();
-        temp.stakeTypeIdx = array["stakeTypeIdx"];
-        temp.startTime = array["startTime"].toNumber();
-        temp.tokenId = array["tokenId"].toNumber();
+
+        try {
+            temp.id = (+1000 + idx);
+            temp.user = address;
+            temp.event_name = "Staked";
+            temp.tokenId = stake["tokenId"].toNumber();
+
+            temp.event_data = {};
+            temp.event_data.tokenId = stake["tokenId"].toNumber();
+            let eggPlan = await this.tokenIdToPlan(temp.event_data.tokenId);
+            temp.event_data.amount = conf["EGG_DATA"].prices[(eggPlan - 1)];
+            temp.event_data.investor = address;
+            temp.event_data.eventName = "Staked";
+            temp.event_data.timestamp = stake["startTime"].toNumber();
+            temp.event_data.depositIdx = idx;
+            temp.event_data.depositTypeIdx = stake["stakeTypeIdx"];
+            temp.event_data.transaction_id = "";
+
+            temp.eggPlan = eggPlan;
+            temp.timestamp = stake["startTime"].toNumber();
+            temp.boostEvents = [];
+
+            temp.boostsSize = stake["boostsSize"];
+            temp.isExpired = stake["isExpired"];
+
+            temp.rewardReceived = stake["claimed"];
+            temp.lastWithdrawTimestamp = stake["lastWithdrawalTime"].toNumber();
+        } catch (err) {
+            console.log(err)
+        }
+
         return temp;
     }
 
@@ -790,25 +866,23 @@ export default class Core {
     async getUserStakes(address, chainId) {
         if (chainId != 56 && chainId != 97 && chainId != 137) return;
         const nftContract = this[`stake_${this.currentBlockchain}`];
-        let tempUserStakes = await nftContract.stakes(address, 0);
-        let userStakes = await this.arrayOfStakesToNumber(tempUserStakes);
-        console.log(userStakes);
-        return {"activeStakes":[userStakes],"inactiveStakes":[]};
+        let activeStakes = [];
+        let inactiveStakes = [];
 
-        const buyersNftInfo = [];
-        for(let ni of buyersNftIds) {
-            let eggPlan = await nftContract.MINTED_EGGS(ni.toNumber());
-            let eggPlanId = eggPlan.toNumber();
-            let eggInfo = await nftContract.EGGS(eggPlan);
-            eggInfo = await this.arrayOfBNtoNumber(eggInfo);
-            eggInfo.name = conf.EGG_DATA.name[eggPlanId - 1];
-            eggInfo.plan = eggPlan.toNumber();
-            eggInfo.tokenId = ni.toNumber();
-            eggInfo.collection = "POSEggs-NFT";
-            eggInfo.description = "";
-            buyersNftInfo.push(eggInfo);
+        let thersOthersStake = true;
+        for (let i = 0; thersOthersStake; i++) {
+            try {
+                let tempUserStake = await nftContract.stakes(address, i);
+                if (tempUserStake != null) {
+                    let userStake = await this.stakeRefactorAndAddInfo(address, tempUserStake, i);
+                    activeStakes.push(userStake);
+                } else thersOthersStake = false;
+            } catch (err) {
+                thersOthersStake = false
+            }
         }
-        return buyersNftInfo;
+
+        return { "activeStakes": activeStakes, "inactiveStakes": inactiveStakes };
     }
 
     async getUserRefStats(address) {
@@ -839,7 +913,7 @@ export default class Core {
     }
 
     async getLeaderStats(address) {
-        if (this.currentBlockchain === 97) return;
+        if (this.currentBlockchain === 56) return;
         try {
             const leader = await this[`poseggNft_${this.currentBlockchain}`].findLeader(address);
             if (leader.toLowerCase() === conf[this.currentBlockchain].DEFAULT_REFERRER.toLowerCase()) {
@@ -1004,7 +1078,6 @@ export default class Core {
 
     async getUserBalance(address) {
         try {
-            console.log(this)
             const coinBalance = await this.provider.getBalance(address);
             let tokenBalance;
             if (this.currentBlockchain === 56 || this.currentBlockchain === 97) {
@@ -1069,7 +1142,6 @@ export default class Core {
         const res = await this[`stake_${this.currentBlockchain}`].claim(depositId);
         return res;
     }
-
     async batchClaim() {
         return await this[`stake_${this.currentBlockchain}`].batchWithdraw();
     }

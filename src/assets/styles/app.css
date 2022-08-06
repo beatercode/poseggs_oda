@@ -213,16 +213,36 @@ table{
     overflow:hidden
 }
 .section-active .section-half-programs .program-item:first-child{
-    -webkit-animation:earn .5s linear .25s 1 forwards;
-    animation:earn .5s linear .25s 1 forwards
+    -webkit-animation:earn .5s linear .15s 1 forwards;
+    animation:earn .5s linear .15s 1 forwards
 }
 .section-active .section-half-programs .program-item:nth-child(2){
-    -webkit-animation:earn .5s linear .5s 1 forwards;
-    animation:earn .5s linear .5s 1 forwards
+    -webkit-animation:earn .5s linear .3s 1 forwards;
+    animation:earn .5s linear .3s 1 forwards
 }
 .section-active .section-half-programs .program-item:nth-child(3){
+    -webkit-animation:earn .5s linear .45s 1 forwards;
+    animation:earn .5s linear .45s 1 forwards
+}
+.section-active .section-half-programs .program-item:nth-child(4){
+    -webkit-animation:earn .5s linear .6s 1 forwards;
+    animation:earn .5s linear .6s 1 forwards
+}
+.section-active .section-half-programs .program-item:nth-child(5){
     -webkit-animation:earn .5s linear .75s 1 forwards;
     animation:earn .5s linear .75s 1 forwards
+}
+.section-active .section-half-programs .program-item:nth-child(6){
+    -webkit-animation:earn .5s linear .9s 1 forwards;
+    animation:earn .5s linear .9s 1 forwards
+}
+.section-active .section-half-programs .program-item:nth-child(7){
+    -webkit-animation:earn .5s linear 1.05s 1 forwards;
+    animation:earn .5s linear 1.05s 1 forwards
+}
+.section-active .section-half-programs .program-item:nth-child(8){
+    -webkit-animation:earn .5s linear 1.2s 1 forwards;
+    animation:earn .5s linear 1.2s 1 forwards
 }
 .section-our-nft.section-active .chat-row .comment{
     overflow:hidden;
@@ -728,16 +748,16 @@ table{
     cursor:pointer;
 }
 .nft-list-buy {
-    max-width: unset !important;
     min-width: calc(25% - 16px);
     margin: 8px;
-    width: calc(25% - 39px);
+    width: calc(25% - 16px);
+    flex-grow: unset !important;
+    padding: 10px !important;
 }
 .card-header-nft-image-buy {
     width: 100%;
     padding-top: 0 !important;
     padding-left: 0 !important;
-    max-width: 1000px;
 }
 .li-nft-img,.li-our-nft-wrap{
     position:relative;
@@ -1043,7 +1063,7 @@ table{
 }
 .program-item{
     border-radius:8px;
-    padding:15px;
+    padding:1px;
     display:flex;
     justify-content:space-between;
     align-items:flex-start;
@@ -1057,7 +1077,7 @@ table{
     margin-bottom:20px
 }
 .program-item .program-col{
-    padding:15px
+    padding:10px
 }
 .select-pool-wrap .container-btn,.select-pool-wrap .program-item,.select-pool-wrap .program-item .program-col{
     padding:10px
@@ -1105,7 +1125,7 @@ table{
     color:#1f212f
 }
 .program-item.egg-1 {
-    background: linear-gradient(180deg, #cd8a56, #734827);
+    background: linear-gradient(180deg, #8E5625, #6d3a0e);
     color: #1f212f
 }
 .program-item.egg-2 {
@@ -1113,7 +1133,7 @@ table{
     color: #1f212f
 }
 .program-item.egg-3 {
-    background: linear-gradient(180deg, #d56916, #7f4c21);
+    background: linear-gradient(180deg, #B791AC, #AC477E);
     color: #1f212f
 }
 .program-item.egg-4 {
@@ -1121,8 +1141,8 @@ table{
     color: #1f212f
 }
 .program-item.egg-5 {
-    background: linear-gradient(180deg, #a2d6de, #7dd3e1);
-    color: #1f212f
+    background: linear-gradient(180deg, #48404F, #4B4B50);
+    color: #ffffff
 }
 .program-item.egg-6 {
     background: linear-gradient(180deg, #edeb68, #eae603);
@@ -1894,7 +1914,8 @@ table{
     margin-left:-10px;
     margin-right:-10px;
     display:flex;
-    flex-direction:row
+    flex-direction:row;
+    max-width: 1000px;
 }
 .cab-row-stats {
     width: 100%; 
@@ -2016,7 +2037,7 @@ table{
     min-height:113px;
     background-position:50%;
     background-repeat:no-repeat;
-    background-size:100% 100%
+    background-size:100% 100%;
 }
 .general-info-card.general-info-card-program .general-card{
     width:calc(25% - 10px);
@@ -2030,7 +2051,6 @@ table{
 }
 .general-card .h4{
     padding-top:5px;
-    margin-top:auto;
     font-weight:600;
     font-size:24px;
     line-height:32px
@@ -2040,18 +2060,28 @@ table{
     flex-direction:column;
     justify-content:stretch;
     padding:8.5% 30px;
-    flex-grow:1
+    flex-grow:1;
+    width: 50%;
+}
+.general-card-col > img{
+    margin: auto;
+}
+.stake-inner-img {
+    position: relative;
+    height: 6em;
+    left: 20px;
+    bottom: 25px;
 }
 .general-info-card.general-info-card-program .general-card .general-card-col{
     padding:10% 30px
 }
-.general-card .general-card-col:nth-child(2){
+.general-card .general-card-col{
     background-size:contain;
     background-position:bottom;
     background-repeat:no-repeat;
     height:100%
 }
-.general-card .general-card-col:nth-child(2) .btn{
+.general-card .general-card-col .btn{
     margin-left:auto;
     margin-top:auto
 }
@@ -2632,7 +2662,8 @@ input.transfer-input+.btn{
 }
 .blocks-percent-wrap{
     display:flex;
-    justify-content:flex-start;
+    justify-content: flex-end;
+    flex-direction: row-reverse;
     flex-wrap:wrap;
     width:100%
 }
@@ -2642,7 +2673,7 @@ input.transfer-input+.btn{
     justify-content:stretch;
     background:#1f212f;
     border-radius:8px;
-    width:calc(33.33333% - 20px);
+    width:calc(25% - 20px);
     min-width:200px;
     padding:20px;
     margin-right:20px;
@@ -2711,7 +2742,7 @@ input.transfer-input+.btn{
     background:#1f212f;
     border-radius:8px;
     padding:10px;
-    width:calc(50% - 10px);
+    width:calc(25% - 10px);
     margin-right:10px
 }
 .your-boost-item .block-percent-head{
@@ -2797,7 +2828,7 @@ input.transfer-input+.btn{
     margin-top:10px
 }
 .your-nfts.your-nfts-alone{
-    max-width:264px
+    max-width: 100%;
 }
 .pool-program,.program-conditions{
     display:flex;
@@ -8453,7 +8484,7 @@ i[class*=" i-"],i[class^=i-]{
     }
 }
 @media (min-width:1440px){
-    .general-card .general-card-col:nth-child(2){
+    .general-card .general-card-col{
         padding:10% 30px;
         margin-left:-20px;
         margin-right:10px
@@ -8504,7 +8535,7 @@ i[class*=" i-"],i[class^=i-]{
         margin-top:20px
     }
     .block-percent,.boosts-card .boosts-item{
-        width:calc(50% - 20px)
+        width:calc(25% - 20px)
     }
     .general-card-col,.general-info-card.general-info-card-program .general-card .general-card-col{
         padding:0
@@ -8517,8 +8548,8 @@ i[class*=" i-"],i[class^=i-]{
         width:calc(50% - 10px)
     }
     .general-card:not(.claim) .general-card-col:not(:first-child){
-        margin:-30px 0 -30px -60px;
-        height:calc(100% + 60px)
+        /* margin:-30px 0 -30px -60px; */
+        /* height:calc(100% + 60px) */
     }
     .cab-row-card.section-wrap-blocks{
         flex-direction:column;
@@ -8720,7 +8751,7 @@ i[class*=" i-"],i[class^=i-]{
         margin-top:0
     }
     .your-boost-item{
-        width:calc(100% - 10px)
+        width:calc(25% - 10px)
     }
     .block-percent,.boosts-card .boosts-item{
         min-width:auto
@@ -9901,7 +9932,7 @@ i[class*=" i-"],i[class^=i-]{
         min-width:60px
     }
     .block-percent{
-        width:calc(50% - 10px)
+        width:calc(25% - 10px)
     }
     .push{
         left:0
@@ -10000,7 +10031,7 @@ i[class*=" i-"],i[class^=i-]{
         margin-right:20px
     }
     .your-boost-item{
-        width:calc(33.33333% - 10px)
+        width:calc(25% - 10px)
     }
     .your-boost-item .block-percent-img{
         min-height:calc(33.33333vw - 40.66667px)
@@ -10372,7 +10403,7 @@ i[class*=" i-"],i[class^=i-]{
         padding-top:72px
     }
     .your-boost-item{
-        width:calc(50% - 10px)
+        width:calc(25% - 10px)
     }
     .your-boost-item .block-percent-img{
         min-height:calc(50vw - 46px)

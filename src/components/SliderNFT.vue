@@ -6,8 +6,7 @@
                     <li v-for="(price, index) of prices" @click="redirect(8)"
                         class="li-our-nfts nft-list-buy li-nft-red">
                         <div class="li-our-nft-wrap" @click="showStats = showStats">
-                            <img class="card-egg-image"
-                                :src="getNftImage(index)" />
+                            <img class="card-egg-image" :src="getNftImage(index)" />
                             <div class="li-nft-footer">
                                 <div style="width: 100%">
                                     <span class="li-nft-footer-title">{{
@@ -22,7 +21,9 @@
                                             <span>Days</span> <span>{{ periods[index] }}</span>
                                         </div>
                                         <div class="stake-nft-value-main-stats">
-                                            <span>Total</span> <span>{{ parseFloat(profits[index] * periods[index]).toFixed(1) }}%</span>
+                                            <span>Total</span> <span>{{ parseFloat(profits[index] *
+                                                    periods[index]).toFixed(1)
+                                            }}%</span>
                                         </div>
                                         <div class="cab-row cab-row-stats">
                                             <span class="li-nft-footer-amount card-footer-stats">Strength</span>
@@ -50,8 +51,12 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="mint-nft-block" style="width: 100% !important; display: flex; flex-direction: row;">
-                                    <div class="input-title" style="width: 50%; line-height: unset; margin-top: 10px; font-size: 16px;">{{ "Price" }}</div>
+                                <div class="mint-nft-block"
+                                    style="width: 100% !important; display: flex; flex-direction: row;">
+                                    <div class="input-title"
+                                        style="width: 50%; line-height: unset; margin-top: 10px; font-size: 16px;">{{
+                                                "Price"
+                                        }}</div>
                                     <div class="price-card-wrap" style="width: 50%; text-align: right;">
                                         <span type="number" @input="disablePercWatcher = true"> {{ price }} </span>
                                         <span class="coin">BUSD</span>
@@ -138,11 +143,9 @@ export default {
         ...mapState(["preselectedChain"]),
         getPreselectedChain() {
             // return this.preselectedChain === 56 ? "ul-binance" : this.preselectedChain === 137 ? "ul-polygon" : "ul-binance";
-            return this.preselectedChain === 56
-                ? (this.currentChain = "binance")
-                : this.preselectedChain === 137
-                    ? (this.currentChain = "polygon")
-                    : (this.currentChain = "binance");
+            return this.preselectedChain === 56 || this.preselectedChain === 97
+                ? "ul-binance"
+                : "ul-polygon";
         },
         currency() {
             return this.preselectedChain && this.preselectedChain === 137 ? "MATIC" : "BNB";

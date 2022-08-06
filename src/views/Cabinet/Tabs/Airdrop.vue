@@ -101,9 +101,9 @@
             async addTokenToMetaMask() {
                 const token = {
                     address: conf[this.currentBlockchain].ERC20_CONTRACT,
-                    tag: "PDT",
+                    tag: "BUSD",
                     decimals: 18,
-                    image: "https//posduck.com/ERC20.png",
+                    image: "https://assets.coingecko.com/coins/images/9576/small/BUSD.png",
                 };
                 if (window.ethereum && localStorage.getItem("selectedWallet") === "metamask") {
                     try {
@@ -116,7 +116,7 @@
                                     address: token.address,
                                     symbol: token.tag,
                                     decimals: token.decimals || 18, // The number of decimals in the token
-                                    image: `${conf.REF_BASE}ERC20.png`, // A string url of the token logo
+                                    image: `https://assets.coingecko.com/coins/images/9576/small/BUSD.png`, // A string url of the token logo
                                 },
                             },
                         });
@@ -133,7 +133,7 @@
                                     address: token.address,
                                     symbol: token.tag,
                                     decimals: token.decimals || 18, // The number of decimals in the token
-                                    image: `${conf.REF_BASE}ERC20.png`, // A string url of the token logo
+                                    image: `https://assets.coingecko.com/coins/images/9576/small/BUSD.png`, // A string url of the token logo
                                 },
                             },
                         });

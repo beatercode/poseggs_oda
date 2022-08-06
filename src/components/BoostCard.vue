@@ -35,7 +35,8 @@
                     </div>
                 </div>
             </div>
-            <button class="btn btn-radio-submit" type="submit" @click.prevent="buyBoost()">{{ translatesGet("BUY") }}</button>
+            <button v-if="isApproved" class="btn btn-radio-submit" type="submit" @click.prevent="buyBoost()">{{ translatesGet("BUY") }}</button>
+            <button v-if="!isApproved" class="btn btn-radio-submit" type="submit" @click.prevent="approve()">{{ translatesGet("APPROVE") }}</button>
         </div>
     </div>
     <div v-else-if="type === 'time'" class="block-percent">
@@ -77,7 +78,8 @@
                     </div>
                 </div>
             </div>
-            <button class="btn btn-radio-submit" type="submit" @click.prevent="buyBoost()">{{ translatesGet("BUY") }}</button>
+            <button v-if="isApproved" class="btn btn-radio-submit" type="submit" @click.prevent="buyBoost()">{{ translatesGet("BUY") }}</button>
+            <button v-if="!isApproved" class="btn btn-radio-submit" type="submit" @click.prevent="approve()">{{ translatesGet("APPROVE") }}</button>
         </div>
     </div>
     <div v-else-if="type === 'team' && !isClaimed" class="block-percent">
@@ -131,11 +133,24 @@
             return {
                 lang: new MultiLang(this),
                 selectedCurrency: "BNB",
+                isApproved: false,
                 showLoader: false,
             };
         },
         props: ["id", "type", "plan", "disableChildLoader"],
         methods: {
+            checkApproved() {
+                if (this.plan) {
+                    let needed = this.plan["BUSD"];
+                    return this.busdApprovedAmount >= needed * 1e18;
+                }
+            },
+            async checkBusdAllowance() {
+                let nftContract_Address = this.$root.core[`boostNft_${this.currentBlockchain}`].address;
+                let busdContract = this.$root.core[`BUSD_${this.currentBlockchain}`]
+                let res = await busdContract.allowance(this.currentAddress, nftContract_Address);
+                this.busdApprovedAmount = Number(res);
+            },
             translatesGet(key) {
                 try {
                     const translations = JSON.parse(window.localStorage.getItem("interfaceTranslations"));
@@ -149,44 +164,53 @@
             changeCurrency(event) {
                 console.log(event.target);
             },
+            async approve() {
+                try {
+                    this.showLoader = true;
+                    let stakeContract_Address = this.$root.core[`boostNft_${this.currentBlockchain}`].address;
+                    let toApprove = BigInt(this.plan["BUSD"] * 1e18);
+                    let busdContract = this.$root.core[`BUSD_${this.currentBlockchain}`]
+                    let res = await busdContract.approve(stakeContract_Address, toApprove);
+                    if (res.wait) {
+                        this.$store.commit("push_notification", {
+                            type: "warning",
+                            typeClass: "warning",
+                            message: `Your transaction has successfully entered the blockchain! Waiting for enough confirmations...`,
+                        });
+                        this.checkBusdAllowance();
+                        await res.wait();
+                        this.$store.commit("push_notification", {
+                            type: "success",
+                            typeClass: "success",
+                            message: `Transaction was confirmed! You may now stake your NFT.`,
+                        });
+                    }
+                    this.showLoader = false;
+                } catch (error) {
+                    console.log(error);
+                    this.showLoader = false;
+                    this.$root.core.handleError(error);
+                    return;
+                }
+            },
             async buyBoost() {
                 try {
                     if (!this.currentAddress || this.currentAddress === "0x0000000000000000000000000000000000000000") {
                         this.$emit("changeWalletRequest");
                         return;
                     }
-                    if (this.selectedCurrency === "BNB") {
-                        if (this.userCoinBalance < this.plan[this.selectedCurrency]) {
-                            this.$store.commit("push_notification", {
-                                type: "error",
-                                typeClass: "error",
-                                message: `Ope, you have insufficient funds. Top up your balance and try again.`,
-                            });
-                            return;
-                        }
-                    } else if (this.selectedCurrency === "MATIC") {
-                        if (this.userCoinBalance < this.plan[this.selectedCurrency]) {
-                            this.$store.commit("push_notification", {
-                                type: "error",
-                                typeClass: "error",
-                                message: `Ope, you have insufficient funds. Top up your balance and try again.`,
-                            });
-                            return;
-                        }
-                    } else {
-                        if (this.userERC20Balance < this.plan[this.selectedCurrency]) {
-                            this.$store.commit("push_notification", {
-                                type: "error",
-                                typeClass: "error",
-                                message: `Ope, you have insufficient funds. Top up your balance and try again.`,
-                            });
-                            return;
-                        }
+                    if (Number(this.userERC20Balance) < this.plan["BUSD"]) {
+                        this.$store.commit("push_notification", {
+                            type: "error",
+                            typeClass: "error",
+                            message: `Ope, you have insufficient funds. Top up your balance and try again.`,
+                        });
+                        return;
                     }
                     if (this.type === "profit") {
                         const type = 0;
                         this.showLoader = true;
-                        const res = await this.$root.core.buyBoost(this.selectedCurrency, this.plan[this.selectedCurrency], type, this.id);
+                        const res = await this.$root.core.buyBoost(type, this.id);
                         this.$store.commit("push_notification", {
                             type: "warning",
                             typeClass: "warning",
@@ -202,7 +226,7 @@
                     } else if (this.type === "time") {
                         const type = 1;
                         this.showLoader = true;
-                        const res = await this.$root.core.buyBoost(this.selectedCurrency, this.plan[this.selectedCurrency], type, this.id);
+                        const res = await this.$root.core.buyBoost(type, this.id);
                         this.$store.commit("push_notification", {
                             type: "warning",
                             typeClass: "warning",
@@ -320,6 +344,23 @@
             },
         },
         mounted() {
+            let _this = this;
+
+            let i2cd = 200;
+            let i2 = setInterval(function() {
+                if (_this.currentBlockchain) {
+                    _this.isApproved = _this.checkApproved();
+                    i2cd = 10000;
+                }
+            }, i2cd);
+
+            let i = setInterval(function() {
+                if (_this.currentBlockchain) {
+                    clearInterval(i);
+                    _this.checkBusdAllowance()
+                }
+            }, 1000);
+
             this.lang.init();
             setTimeout(() => {
                 if (this.currency) {
@@ -338,7 +379,6 @@
                     this.selectedCurrency = "BNB";
                 } else if (newVal === 137) {
                     this.selectedCurrency = "MATIC";
-                    console.log(this.selectedCurrency);
                 }
             },
         },

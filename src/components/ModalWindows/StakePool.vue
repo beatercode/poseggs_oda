@@ -94,7 +94,7 @@
                 receiverAddress: "",
                 conf: conf,
                 showDetails: false,
-                selectedPool: this.selectedPlan,
+                selectedPool: (+this.selectedPlan - 1),
                 approvedNfts: JSON.parse(window.localStorage.getItem("approvedNftsId")) || [],
             };
         },
@@ -120,14 +120,13 @@
                 }
             },
             canNftStakeThere(nft, selectedPool) {
-                return (nft.tokenId - 1) >= selectedPool;
+                return (nft.plan - 1) >= selectedPool;
             },
             getImageLink(index) {
                 var images = require.context("/src/assets/images/all/", false, /\.png$/);
                 return images("./nft-" + index + ".png");
             },
             getExpectedReward(nft) {
-
                 const totalProfit = parseFloat((nft.price * conf[this.currentBlockchain].STAKING_PLANS[this.selectedPool].perc) / 100).toFixed(2);
                 return `${totalProfit} BUSD`;
             },
@@ -151,7 +150,6 @@
                     this.showLoader = true;
                     this.tokenId = nft.tokenId;
                     let res = await this.$root.core.approve("POSDUCK", this.currentAddress);
-                    console.log(res);
                     if (res.wait) {
                         this.$store.commit("push_notification", {
                             type: "warning",
@@ -186,7 +184,7 @@
                         return;
                     }
                     this.showLoader = true;
-
+                    
                     let res = await this.$root.core.stake(nft.tokenId, this.selectedPool);
                     this.$store.commit("push_notification", {
                         type: "warning",

@@ -55,10 +55,14 @@
                             <i class="icon-network icon-bsc"></i>
                             <span>BNB Chain</span>
                         </div>
-                        <div @click="changeNetwork('poly')" class="network-item" :class="{ active: getBlockchainName[0] === 'Polygon' }">
+                        <div @click="changeNetwork('bsctest')" class="network-item" :class="{ active: getBlockchainName[0] === 'BNB Chain Testnet' }">
+                            <i class="icon-network icon-bsc"></i>
+                            <span>BNB Test</span>
+                        </div>
+                        <!--div @click="changeNetwork('poly')" class="network-item" :class="{ active: getBlockchainName[0] === 'Polygon' }">
                             <i class="icon-network icon-matic"></i>
                             <span>Polygon</span>
-                        </div>
+                        </div-->
                     </div>
                 </div>
             </div>
@@ -73,7 +77,7 @@
                     <div class="btn-balance-wrap">
                         <div class="balance-title">{{ translatesGet("BALANCE") }}</div>
                         <div :class="{ active: !hideBalance }" class="balance">
-                            <div v-if="currentBlockchain && currentBlockchain === 56 || currentBlockchain === 97">{{ userERC20Balance }} BUSD</div>
+                            <div v-if="currentBlockchain && currentBlockchain === 56 || currentBlockchain === 97">{{ Number(userERC20Balance).toFixed(2) }} BUSD</div>
                             <div>{{ Number(userCoinBalance).toFixed(3) }} {{ currency }}</div>
                         </div>
                         <div :class="{ active: hideBalance }" class="balance">
@@ -131,7 +135,7 @@
                         <div @click="hideBalance = !hideBalance" class="btn-balance-wrap">
                             <div class="balance-title">{{ translatesGet("BALANCE") }}</div>
                             <button :class="{ active: !hideBalance }" class="balance">
-                                <div v-if="currentBlockchain && currentBlockchain === 56 || currentBlockchain === 97">{{ Number(userERC20Balance) }} BUSD</div>
+                                <div v-if="currentBlockchain && currentBlockchain === 56 || currentBlockchain === 97">{{ Number(userERC20Balance).toFixed(2) }} BUSD</div>
                                 <div>{{ Number(userCoinBalance).toFixed(3) }} {{ currency }}</div>
                                 <div class="balance-icon icon-wrap">
                                     <i class="icon-eye-slash"></i>
@@ -170,13 +174,21 @@
                                     <span>BNB Chain</span>
                                 </div>
                                 <div
+                                    @click="changeNetwork('bsctest'), (showProfile = false), (hideBalance = false)"
+                                    class="network-item"
+                                    :class="{ active: getBlockchainName[0] === 'BNB Chain Testnet' }"
+                                >
+                                    <i class="icon-network icon-bsc"></i>
+                                    <span>BNB Chain Test</span>
+                                </div>
+                                <!--div
                                     @click="changeNetwork('poly'), (showProfile = false), (hideBalance = false)"
                                     class="network-item"
                                     :class="{ active: getBlockchainName[0] === 'Polygon' }"
                                 >
                                     <i class="icon-network icon-matic"></i>
                                     <span>Polygon</span>
-                                </div>
+                                </div-->
                             </div>
                         </div>
                     </div>
@@ -270,11 +282,10 @@
                             ? "icon-harmony"
                             : "";
                     const name =
-                        Number(window?.ethereum?.chainId) === 56 ? "BNB Chain" : Number(window?.ethereum?.chainId) === 137 ? "Polygon" : Number(window?.ethereum?.chainId) === 97 ? "Scam Test" : "Wrong Network";
+                        Number(window?.ethereum?.chainId) === 56 ? "BNB Chain" : Number(window?.ethereum?.chainId) === 137 ? "Polygon" : Number(window?.ethereum?.chainId) === 97 ? "BNB Chain Testnet" : "Wrong Network";
                     return [name, iconName];
                 } else if (selectedWallet === "walletconnect") {
                     const WC_Obj = JSON.parse(window.localStorage.getItem("walletconnect"));
-                    console.log(WC_Obj);
                     let iconName =
                         Number(WC_Obj?.chainId) === 56 || Number(WC_Obj?.chainId) === 97
                             ? "icon-bsc"
@@ -287,8 +298,7 @@
                             : Number(WC_Obj?.chainId) === 1666700000 || Number(WC_Obj?.chainId) === 1666600000
                             ? "icon-harmony"
                             : "";
-                    console.log(iconName);
-                    const name = WC_Obj?.chainId === 56 ? "BNB Chain" : Number(window?.ethereum?.chainId) === 137 ? "Polygon" : "Wrong Network";
+                    const name = WC_Obj?.chainId === 56 ? "BNB Chain" : Number(window?.ethereum?.chainId) === 137 ? "Polygon" : WC_Obj?.chainId === 97 ? "BNB Chain Testnet" : "Wrong Network";
                     return [name, iconName];
                 }
                 return [conf.BLOCKCHAINS[56], "icon-bsc"];
@@ -307,6 +317,17 @@
                     } else {
                         await this.$root.core.changeNetwork("poly");
                     }
+                } else if (symbol === "bsctest") {
+                    if (this.currentBlockchain === 97) {
+                        this.$store.commit("push_notification", {
+                            type: "success",
+                            typeClass: "success",
+                            message: "BSC Testnet already selected",
+                        });
+                        return;
+                    } else {
+                        await this.$root.core.changeNetwork("bsctest");
+                    }
                 } else if (symbol === "bsc") {
                     if (this.currentBlockchain === 56) {
                         this.$store.commit("push_notification", {
@@ -324,9 +345,9 @@
             async addTokenToMetaMask() {
                 const token = {
                     address: conf[this.currentBlockchain].ERC20_CONTRACT,
-                    tag: "PDT",
+                    tag: "BUSD",
                     decimals: 18,
-                    image: "https//posduck.com/ERC20.png",
+                    image: "https://assets.coingecko.com/coins/images/9576/small/BUSD.png",
                 };
                 if (window.ethereum && localStorage.getItem("selectedWallet") === "metamask") {
                     try {
@@ -339,7 +360,7 @@
                                     address: token.address,
                                     symbol: token.tag,
                                     decimals: token.decimals || 18, // The number of decimals in the token
-                                    image: `${conf.REF_BASE}ERC20.png`, // A string url of the token logo
+                                    image: `https://assets.coingecko.com/coins/images/9576/small/BUSD.png`, // A string url of the token logo
                                 },
                             },
                         });
@@ -356,7 +377,7 @@
                                     address: token.address,
                                     symbol: token.tag,
                                     decimals: token.decimals || 18, // The number of decimals in the token
-                                    image: `${conf.REF_BASE}ERC20.png`, // A string url of the token logo
+                                    image: `https://assets.coingecko.com/coins/images/9576/small/BUSD.png`, // A string url of the token logo
                                 },
                             },
                         });

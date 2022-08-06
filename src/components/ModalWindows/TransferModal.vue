@@ -118,19 +118,19 @@
                                     </div>
                                     <div class="block-info-row">
                                         <div class="block-info-td block-info-name">{{ "STRENGHT" }}</div>
-                                        <div class="block-info-td block-info-value">{{ this.nft.base_strength }}</div>
+                                        <div class="block-info-td block-info-value">{{ Number(this.nft.base_strength) }}</div>
                                     </div>
                                     <div class="block-info-row">
                                         <div class="block-info-td block-info-name">{{ "HEALT" }}</div>
-                                        <div class="block-info-td block-info-value">{{ this.nft.base_healt }}</div>
+                                        <div class="block-info-td block-info-value">{{ Number(this.nft.base_healt) }}</div>
                                     </div>
                                     <div class="block-info-row">
                                         <div class="block-info-td block-info-name">{{ "SPEED" }}</div>
-                                        <div class="block-info-td block-info-value">{{ this.nft.base_speed }}</div>
+                                        <div class="block-info-td block-info-value">{{ Number(this.nft.base_speed) }}</div>
                                     </div>
                                     <div class="block-info-row">
                                         <div class="block-info-td block-info-name">{{ "MAGIC" }}</div>
-                                        <div class="block-info-td block-info-value">{{ this.nft.base_magic }}</div>
+                                        <div class="block-info-td block-info-value">{{ Number(this.nft.base_magic) }}</div>
                                     </div>
                                 </div>
                             </div>
@@ -157,7 +157,9 @@
                             <div v-if="showLoader" class="nft-load">
                                 <div class="nft-load-icon"></div>
                             </div>
-                            <div class="your-nft-img" :class="getClassImg"></div>
+                            <div class="your-nft-img">
+                                <img :src="getClassImg" />
+                            </div>
                         </div>
 
                         <template v-if="!onlyData">
@@ -202,7 +204,7 @@
                                     <span>{{ nft.collection }} </span>
                                 </div>
                             </div>
-                            <div class="nft-details-describe">{{ nft.description }}!</div>
+                            <div class="nft-details-describe">{{ nft.description }}</div>
                         </div>
 
                         <div class="container-mobile-btns">
@@ -232,7 +234,7 @@
                                         <div class="block-info-td block-info-name">{{ translatesGet("CONTRACT") }}</div>
                                         <div class="block-info-td block-info-value">
                                             <a :href="nftExplorerLink" target="_blank" rel="noopener noreferrer">
-                                                <div class="block-info-link">{{ addressShort(getNftContract, 7, 5) }}</div></a
+                                                <div class="block-info-link">{{ addressShort(getBoostContract, 7, 5) }}</div></a
                                             >
                                         </div>
                                     </div>
@@ -260,15 +262,15 @@
                                 <div class="block-info-table">
                                     <div class="block-info-row">
                                         <div class="block-info-td block-info-name">{{ translatesGet("TYPE") }}</div>
-                                        <div class="block-info-td block-info-value">{{ nft.attributes[0].value }}</div>
+                                        <div class="block-info-td block-info-value">{{ nft.boostType == 1 ? "Time Boost" : "Profit Boost" }}</div>
                                     </div>
                                     <div class="block-info-row">
                                         <div class="block-info-td block-info-name">{{ translatesGet("TIME") }}</div>
-                                        <div class="block-info-td block-info-value">{{ nft.attributes[1].value === "0%" ? "-" : nft.attributes[1].value }}</div>
+                                        <div class="block-info-td block-info-value">{{ nft.boostTimePercent === 0 ? "-" : (nft.boostTimePercent / 100) + "%" }}</div>
                                     </div>
                                     <div class="block-info-row">
                                         <div class="block-info-td block-info-name">{{ translatesGet("PROFIT") }}</div>
-                                        <div class="block-info-td block-info-value">{{ nft.attributes[2].value === "0%" ? "-" : nft.attributes[2].value }}</div>
+                                        <div class="block-info-td block-info-value">{{ nft.boostProfitPercent === 0 ? "-" : (nft.boostProfitPercent / 100) + "%" }}</div>
                                     </div>
                                 </div>
                             </div>
@@ -385,12 +387,19 @@
                 return addr.slice(0, upToBegin) + "..." + addr.slice(addr.length - upToLast, addr.length);
             },
         },
-        created() {},
+        created() {
+            console.log(this.nft);
+            console.log(this.nftType);
+        },
         computed: {
             ...mapState(["currentBlockchain", "currentAddress", "userNftsData"]),
             getNftContract() {
                 // return config[this.currentBlockchain][`${this.nft.collection.includes("Boost") ? "BOOST_NFT_CONTRACT" : "NFT_CONTRACT"}`];
                 return config[this.currentBlockchain]["NFT_CONTRACT"];
+            },
+            getBoostContract() {
+                // return config[this.currentBlockchain][`${this.nft.collection.includes("Boost") ? "BOOST_NFT_CONTRACT" : "NFT_CONTRACT"}`];
+                return config[this.currentBlockchain]["BOOST_NFT_CONTRACT"];
             },
             getPurchaseValue() {
                 // const currency = this.nft.image.includes("chainId=97") ? "BNB" : "MATIC";
@@ -402,7 +411,9 @@
                 return "#000000";
             },
             getClassImg() {
-                return this.nftType === "Boost" ? `img-boost-${this.nft.attributes[0].value?.toLowerCase()}-${this.nft.level}` : "";
+                let nameFix = this.nft.boostType == 1 ? "time-" : "percent-";
+                var images = require.context("/src/assets/images/all/", false, /\.png$/);
+                return images("./boost-" + nameFix + (+this.nft.boostLevel + 1) + ".png");
             },
             nfts() {
                 if (

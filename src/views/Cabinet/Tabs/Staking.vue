@@ -27,7 +27,7 @@
                         </div>
                         <div class="select-pool-wrap" v-if="this.conf && this.conf[this.currentBlockchain] && this.conf[this.currentBlockchain].STAKING_PLANS">
                             <div v-for="(stPlan, index) of this.conf[this.currentBlockchain].STAKING_PLANS"
-                                class="pool-program program-item" :class="getStakeBgColor(index)" @click="selectedItem = index">
+                                class="pool-program program-item" :class="getStakeBgColor(index)" @click="selectedItem = (+index + 1)">
                                 <div class="program-conditions">
                                     <div class="program-col">
                                         <span class="program-col-title">{{ translatesGet("POOL") }}-{{ getPoolTag(index) }}</span>

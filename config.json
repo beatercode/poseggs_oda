@@ -191,7 +191,7 @@
         "MIN_NFT_PRICE": "0.01",
         "DEFAULT_GAS_PRICE_GWEI": "45",
         "STAKE_CONTRACT": "0x880720c5AcaeEb7f3dA167859b884F7E52C49cd9",
-        "ERC20_CONTRACT": "0xee712de8b6dc5afbd03f4a7cb6edef9a89fbc4e5",
+        "ERC20_CONTRACT": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
         "BOOST_NFT_CONTRACT": "0x04746fcfee78ca138e73973fb6a7e6acb809bcec",
         "NFT_CONTRACT": "0x85E5d619Bc8A6E22459C69b3De156Ba1E57A0c67",
         "DEFAULT_REFERRER": "0x5e633caE917f2c8A8E59498011B7C906478C7888",
@@ -410,10 +410,10 @@
         },
         "MIN_NFT_PRICE": "0.01",
         "DEFAULT_GAS_PRICE_GWEI": "45",
-        "STAKE_CONTRACT": "0xDDFe099ED46429A41Adc3606F49990642BdB4207",
+        "STAKE_CONTRACT": "0x35B5891c8c778afC8b0a7fe9C3054f58A9Ac8B7E",
         "ERC20_CONTRACT": "0xED4BA9203d69e4Ca92DC24795a7D3F5b43b250AA",
-        "BOOST_NFT_CONTRACT": "0x38920aCBc2f209D87bCd250a4368af25124f2750",
-        "NFT_CONTRACT": "0x8e89080917B52d4F98b4CE9537009D7B5c3117Bc",
+        "BOOST_NFT_CONTRACT": "0x46d91a7478d0031978851d744aAfb547729F9214",
+        "NFT_CONTRACT": "0x9A463a17A45ce4D3030cC878FeDC21A53dD74af6",
         "DEFAULT_REFERRER": "0xDd5f7D3D52F97b94fCFed492730240e93d792e98",
         "AIRDROP_CONTRACT": "0x0000000000000000000000000000000000000000",
         "NODE": "https://data-seed-prebsc-1-s1.binance.org:8545/"
@@ -580,10 +580,10 @@
         ],
         "MIN_NFT_PRICE": "5",
         "DEFAULT_GAS_PRICE_GWEI": "45",
-        "STAKE_CONTRACT": "0x5d39ffbf9a10d93e82017613a085f35a53211d1e",
+        "STAKE_CONTRACT": "0x0985E2beF5e241B2ea3Fba99B6f69DCdB9226e44",
         "ERC20_CONTRACT": "0x0000000000000000000000000000000000000000",
-        "BOOST_NFT_CONTRACT": "0x04746fcfee78ca138e73973fb6a7e6acb809bcec",
-        "NFT_CONTRACT": "0x7ab2cc564627457dd50078ea2345610997c8a04b",
+        "BOOST_NFT_CONTRACT": "0xedd059fdc2dF0a8c1e0e3eF41942ac2421d7262A",
+        "NFT_CONTRACT": "0xE64D29fdEb188c2450e2eDdc9956CF180e6D2cAD",
         "DEFAULT_REFERRER": "0x5e633caE917f2c8A8E59498011B7C906478C7888",
         "AIRDROP_CONTRACT": "0x0000000000000000000000000000000000000000",
         "STAKING_PLANS": {
@@ -609,6 +609,9 @@
         },
         "NODE": "https://polygon-rpc.com/"
     },
+    "LOOTBOX_DATA": {
+        "prices": [17, 97, 497, 1997]
+    },
     "EGG_DATA": {
         "prices": [17, 47, 97, 197, 497, 997, 1997, 4997],
         "stats": [9, 19, 29, 39, 49, 59, 69, 79],
@@ -617,7 +620,7 @@
         "name": ["Ground Egg", "Water Egg", "Wood Egg", "Dark Egg", "Ice Egg", "Electro Egg", "Forest Egg", "Fire Egg"]
     },
     "PRIMARY_BLOCKCHAIN": {
-        "symbol": "bsc",
+        "symbol": "bsc-test",
         "chainid": "97",
         "name": "BNB Chain"
     },
@@ -679,8 +682,8 @@
             }
         },
         {
-            "name": "BNB Chain",
-            "symbol": "bsc",
+            "name": "BNB Chain Testnet",
+            "symbol": "bsctest",
             "chainId": "0x61",
             "params": {
                 "chainId": "0x61",
@@ -755,7 +758,6 @@
     },
     "SUPPORTED_BLOCKCHAINS": [
         97,
-        56,
-        137
+        56
     ]
 }
