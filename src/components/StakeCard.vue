@@ -641,9 +641,9 @@ export default {
                         message: `Transaction was confirmed! You may now stake your NFT.`,
                     });
                 }
-
+                
                 res = await this.$root.core.addBoost(
-                    /* this.nft.depositIdx */ 0,
+                    this.fullStakeDetails.event_data.depositIdx,
                     boostToApply.tokenId
                 );
                 this.$store.commit("push_notification", {
@@ -718,7 +718,7 @@ export default {
                 dailyPerc =
                     conf[this.currentBlockchain].STAKING_PLANS[stakePlan].profitPerDay;
             }
-            
+
             const totalProfit = (parseFloat(period) * dailyPerc).toFixed(2);
             let expectedReward;
             const size =

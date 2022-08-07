@@ -1152,7 +1152,9 @@ export default class Core {
         return res;
     }
     async batchClaim() {
-        return await this[`stake_${this.currentBlockchain}`].batchWithdraw();
+        return await this[`stake_${this.currentBlockchain}`].batchWithdraw({
+            gasLimit: 500000
+        });
     }
 
     /****************** CONTRACT READ METHODS ************************/

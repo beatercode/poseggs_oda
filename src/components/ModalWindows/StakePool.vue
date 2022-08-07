@@ -127,7 +127,7 @@
                 return images("./nft-" + index + ".png");
             },
             getExpectedReward(nft) {
-                const totalProfit = parseFloat((nft.price * conf[this.currentBlockchain].STAKING_PLANS[this.selectedPool].perc) / 100).toFixed(2);
+                const totalProfit = parseFloat((nft.price * conf[this.currentBlockchain].STAKING_PLANS[+this.selectedPool - 1].perc) / 100).toFixed(2);
                 return `${totalProfit} BUSD`;
             },
             getEarnedReward(stake) {
