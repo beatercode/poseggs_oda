@@ -5,6 +5,9 @@
             getEarnedReward(fullStakeDetails) === 0 &&
             getStakingPlanData(fullStakeDetails)[6],
     }">
+        <transfer-modal v-if="showTransferModal"
+            @close="(showTransferModal = false), (selectedNft = null), (onlyData = false)" :nft="selectedNft"
+            :onlyData="onlyData" :nftType="nftType" />
         <div class="your-stake-row">
             <div class="your-stake-col your-stake-nft">
                 <div class="your-stake-nft-wrap">
@@ -43,27 +46,31 @@
                         #{{ fullStakeDetails.event_data.depositIdx + 1 }}
                     </div>
                     <div class="stake-boosts">
-                        <template v-if="/* fullStakeDetails.boostEvents.length */ fullStakeDetails.boostsSize <= 3">
-                            <button :disabled="getStakingPlanData(fullStakeDetails)[6] === true"
-                                v-if="!isBoostApplied(1)" class="st-boost" @click="showMore = true">
-                                <i class="icon-plus"></i>
-                            </button>
-                            <button v-else-if="isBoostApplied(1)" class="st-boost" @click.stop="showMore = showMore">
-                                <img :src="getImageForBoost('TIME')" alt="" class="" />
-                            </button>
+                        <!--template v-if="fullStakeDetails.boostEvents.length"-->
+                        <template>
                             <button :disabled="getStakingPlanData(fullStakeDetails)[6] === true"
                                 v-if="!isBoostApplied(2)" class="st-boost" @click="showMore = true">
                                 <i class="icon-plus"></i>
                             </button>
-                            <button v-else-if="isBoostApplied(2)" class="st-boost" @click.stop="showMore = showMore">
-                                <img :src="getImageForBoost('PROFIT')" alt=" class=" />
+                            <button v-if="isBoostApplied(2)" class="st-boost" @click.stop="showMore = showMore" @click="(nftType = 'Boost'), (showTransferModal = true), (onlyData = true),
+                            (selectedNft = fullStakeDetails.boostEvents.find((el) => el.boostType === 1))">
+                                <img :src="getImageForBoost(fullStakeDetails, 1)" alt="" class="" />
+                            </button>
+                            <button :disabled="getStakingPlanData(fullStakeDetails)[6] === true"
+                                v-if="!isBoostApplied(1)" class="st-boost" @click="showMore = true">
+                                <i class="icon-plus"></i>
+                            </button>
+                            <button v-if="isBoostApplied(1)" class="st-boost" @click.stop="showMore = showMore" @click="(nftType = 'Boost'), (showTransferModal = true), (onlyData = true),
+                            (selectedNft = fullStakeDetails.boostEvents.find((el) => el.boostType === 0))">
+                                <img :src="getImageForBoost(fullStakeDetails, 0)" alt="" class="" />
                             </button>
                             <button :disabled="getStakingPlanData(fullStakeDetails)[6] === true"
                                 v-if="!isBoostApplied(3)" class="st-boost" @click="showMore = true">
                                 <i class="icon-plus"></i>
                             </button>
-                            <button v-else-if="isBoostApplied(3)" class="st-boost" @click.stop="showMore = showMore">
-                                <img :src="getImageForBoost('TEAM')" alt="" class="" />
+                            <button v-if="isBoostApplied(3)" class="st-boost" @click.stop="showMore = showMore" @click="(nftType = 'Boost'), (showTransferModal = true), (onlyData = true),
+                            (selectedNft = fullStakeDetails.boostEvents.find((el) => el.boostType === 2))">
+                                <img :src="getImageForBoost(fullStakeDetails, 2)" alt="" class="" />
                             </button>
                         </template>
                     </div>
@@ -357,7 +364,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <button :disabled="showLoader" class="btn btn-submit-select" @click="activateBoost('time')">
+                        <button :disabled="showLoader" class="btn btn-submit-select" @click="activateBoost(1)">
                             {{ translatesGet("ACTIVE") }}
                         </button>
                     </div>
@@ -441,7 +448,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <button :disabled="showLoader" class="btn btn-submit-select" @click="activateBoost('profit')">
+                        <button :disabled="showLoader" class="btn btn-submit-select" @click="activateBoost(0)">
                             {{ translatesGet("ACTIVE") }}
                         </button>
                     </div>
@@ -545,7 +552,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <button :disabled="showLoader" class="btn btn-submit-select" @click="activateBoost('team')">
+                        <button :disabled="showLoader" class="btn btn-submit-select" @click="activateBoost(2)">
                             {{ translatesGet("ACTIVE") }}
                         </button>
                     </div>
@@ -558,6 +565,7 @@
 <script>
 import MultiLang from "@/core/multilang";
 import { mapState } from "vuex";
+import TransferModal from "./ModalWindows/TransferModal.vue";
 import conf from "../../config.json";
 export default {
     name: "StakeCard",
@@ -570,6 +578,8 @@ export default {
             selectList1: false,
             selectList2: false,
             selectList3: false,
+            selectedNft: null,
+            showTransferModal: false,
             selectedTimeBoost: null,
             selectedTeamBoost: null,
             selectedProfitBoost: null,
@@ -579,6 +589,9 @@ export default {
             tokenId: 0,
             isBoostApplying: false,
         };
+    },
+    components: {
+        TransferModal,
     },
     methods: {
         translatesGet(key) {
@@ -596,24 +609,22 @@ export default {
         async activateBoost(type) {
             try {
                 const boostToApply =
-                    type === "profit"
+                    type === 0
                         ? this.selectedProfitBoost
-                        : type === "time"
+                        : type === 1
                             ? this.selectedTimeBoost
                             : this.selectedTeamBoost;
-                if (
-                    this.boostsApplied.find(
-                        (el) => el.metadata.type.toLowerCase() === type.toLowerCase()
-                    )
-                ) {
+                let tpyeName = type === 0 ? "profit" : type === 1 ? "time" : "team";
+
+                if (this.boostsApplied.find((el) => el.boostType === type)) {
                     this.$store.commit("push_notification", {
                         type: "error",
                         typeClass: "error",
-                        message: `You can apply ${type} boost only once!`,
+                        message: `You can apply ${tpyeName} boost only once!`,
                     });
                     return;
                 }
-                console.log(boostToApply);
+
                 this.showLoader = true;
                 this.isBoostApplying = true;
                 let res = await this.$root.core.approve("BOOST", this.currentAddress);
@@ -659,70 +670,42 @@ export default {
             var images = require.context("/src/assets/images/all/", false, /\.png$/);
             return images("./nft-" + nft.eggPlan + ".png");
         },
-        getBoostImg(nft) {
-            let nameFix = nft.boostType == 1 ? "time-" : "percent-";
-            var images = require.context("/src/assets/images/all/", false, /\.png$/);
-            return images("./boost-" + nameFix + (+nft.boostLevel + 1) + ".png");
-        },
         getStakingPlanData(nft) {
             let timeIncrease = 0;
             let profitIncrease = 0;
             let period;
             let dailyPerc = 0;
+
             if (nft.boostEvents && nft.boostEvents.length) {
-                const timeBoost = nft.boostEvents.find(
-                    (el) => el?.metadata?.type === "TIME"
-                );
-                const profitBoost = nft.boostEvents.find(
-                    (el) => el?.metadata?.type === "PROFIT"
-                );
-                const teamBoost = nft.boostEvents.find(
-                    (el) => el?.metadata?.type === "TEAM"
-                );
+                for (let i = 0; i < nft.boostEvents.length; i++) {
+                    const profitBoost = nft.boostEvents[i].boostType == 0 ? nft.boostEvents[i] : null;
+                    const timeBoost = nft.boostEvents[i].boostType == 1 ? nft.boostEvents[i] : null;
+                    const teamBoost = nft.boostEvents[i].boostType == 2 ? nft.boostEvents[i] : null;
 
-                if (timeBoost) {
-                    //removing % sign to get digit value
-
-                    timeIncrease = Number(
-                        timeBoost.metadata.attributes[1].value.replace("%", "")
-                    );
-                }
-                if (profitBoost) {
-                    //removing % sign to get digit value
-
-                    profitIncrease = Number(
-                        profitBoost.metadata.attributes[2].value.replace("%", "")
-                    );
-                }
-
-                if (teamBoost) {
-                    timeIncrease += Number(
-                        teamBoost.metadata.attributes[1].value.replace("%", "")
-                    );
-                    profitIncrease += Number(
-                        teamBoost.metadata.attributes[2].value.replace("%", "")
-                    );
+                    if (timeBoost) {
+                        timeIncrease = Number(timeBoost.boostTimePercent);
+                    }
+                    if (profitBoost) {
+                        profitIncrease = Number(profitBoost.boostProfitPercent);
+                    }
+                    if (teamBoost) {
+                        timeIncrease = Number(timeBoost.boostTimePercent);
+                        profitIncrease = Number(profitBoost.boostProfitPercent);
+                    }
                 }
             }
+
             const stakePlan = +nft.eggPlan - 1;
 
             if (timeIncrease > 0) {
                 period = `${conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days > 0
-                    ? (
-                        Number(
-                            conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days
-                        ) +
-                        (conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days *
-                            Number(timeIncrease)) /
-                        100
-                    ).toFixed(2)
+                    ? (Number(conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days)
+                        + (conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days / 100 * (Number(timeIncrease) / 100))).toFixed(2)
                     : "Unlimited"
                     } days`;
             } else {
                 period = `${conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days > 0
-                    ? conf[this.currentBlockchain].STAKING_PLANS[
-                        stakePlan
-                    ].days.toFixed(2)
+                    ? conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days.toFixed(2)
                     : "Unlimited"
                     } days`;
             }
@@ -730,17 +713,13 @@ export default {
             if (profitIncrease > 0) {
                 dailyPerc =
                     conf[this.currentBlockchain].STAKING_PLANS[stakePlan].profitPerDay +
-                    (conf[this.currentBlockchain].STAKING_PLANS[stakePlan].profitPerDay *
-                        Number(profitIncrease)) /
-                    100;
+                    (conf[this.currentBlockchain].STAKING_PLANS[stakePlan].profitPerDay / 100 * (Number(profitIncrease) / 100));
             } else {
                 dailyPerc =
                     conf[this.currentBlockchain].STAKING_PLANS[stakePlan].profitPerDay;
             }
-
-            const totalProfit = (
-                Number(period.replace("days", "")) * dailyPerc
-            ).toFixed(2);
+            
+            const totalProfit = (parseFloat(period) * dailyPerc).toFixed(2);
             let expectedReward;
             const size =
                 stakePlan === 0 ? "XXS" : stakePlan === 1 ? "XS" : stakePlan === 2 ? "S" : stakePlan === 3 ? "M" : stakePlan === 4
@@ -791,60 +770,40 @@ export default {
             let profitIncrease = 0;
             let dailyPerc = 0;
             let period;
-            if (stake.boostEvents && stake.boostEvents.length) {
-                const timeBoost = stake.boostEvents.find(
-                    (el) => el?.metadata?.type === "TIME"
-                );
-                const profitBoost = stake.boostEvents.find(
-                    (el) => el?.metadata?.type === "PROFIT"
-                );
-                const teamBoost = stake.boostEvents.find(
-                    (el) => el?.metadata?.type === "TEAM"
-                );
 
-                if (timeBoost) {
-                    //removing % sign to get digit value
+            let nft = stake;
+            if (nft.boostEvents && nft.boostEvents.length) {
+                for (let i = 0; i < nft.boostEvents.length; i++) {
+                    const profitBoost = nft.boostEvents[i].boostType == 0 ? nft.boostEvents[i] : null;
+                    const timeBoost = nft.boostEvents[i].boostType == 1 ? nft.boostEvents[i] : null;
+                    const teamBoost = nft.boostEvents[i].boostType == 2 ? nft.boostEvents[i] : null;
 
-                    timeIncrease = Number(
-                        timeBoost.metadata.attributes[1].value.replace("%", "")
-                    );
-                }
-                if (profitBoost) {
-                    //removing % sign to get digit value
-
-                    profitIncrease = Number(
-                        profitBoost.metadata.attributes[2].value.replace("%", "")
-                    );
-                }
-
-                if (teamBoost) {
-                    timeIncrease += Number(
-                        teamBoost.metadata.attributes[1].value.replace("%", "")
-                    );
-                    profitIncrease += Number(
-                        teamBoost.metadata.attributes[2].value.replace("%", "")
-                    );
+                    if (timeBoost) {
+                        timeIncrease = Number(timeBoost.boostTimePercent);
+                    }
+                    if (profitBoost) {
+                        profitIncrease = Number(profitBoost.boostProfitPercent);
+                    }
+                    if (teamBoost) {
+                        timeIncrease = Number(timeBoost.boostTimePercent);
+                        profitIncrease = Number(profitBoost.boostProfitPercent);
+                    }
                 }
             }
+
             const stakePlan = +stake.eggPlan - 1;
 
             if (timeIncrease > 0) {
                 period = `${conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days > 0
                     ? (
-                        Number(
-                            conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days
-                        ) +
-                        (conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days *
-                            Number(timeIncrease)) /
-                        100
+                        Number(conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days)
+                        + (conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days * Number(timeIncrease)) / 100
                     ).toFixed(2)
                     : "Unlimited"
                     } days`;
             } else {
                 period = `${conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days > 0
-                    ? conf[this.currentBlockchain].STAKING_PLANS[
-                        stakePlan
-                    ].days.toFixed(2)
+                    ? conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days.toFixed(2)
                     : "Unlimited"
                     } days`;
             }
@@ -852,12 +811,9 @@ export default {
             if (profitIncrease > 0) {
                 dailyPerc =
                     conf[this.currentBlockchain].STAKING_PLANS[stakePlan].profitPerDay +
-                    (conf[this.currentBlockchain].STAKING_PLANS[stakePlan].profitPerDay *
-                        Number(profitIncrease)) /
-                    100;
+                    (conf[this.currentBlockchain].STAKING_PLANS[stakePlan].profitPerDay * Number(profitIncrease)) / 100;
             } else {
-                dailyPerc =
-                    conf[this.currentBlockchain].STAKING_PLANS[stakePlan].profitPerDay;
+                dailyPerc = conf[this.currentBlockchain].STAKING_PLANS[stakePlan].profitPerDay;
             }
 
             const { lastWithdrawTimestamp, event_data } = stake;
@@ -936,18 +892,36 @@ export default {
             }
         },
         isBoostApplied(boost) {
-            if (boost === 2) {
+            if (boost === 1) {
                 return this.isProfitBoostApplied;
-            } else if (boost === 1) {
+            } else if (boost === 2) {
                 return this.isTimeBoostApplied;
             } else {
                 return this.isTeamBoostApplied;
             }
         },
-        getImageForBoost(type) {
-            return this.fullStakeDetails.boostEvents.find(
-                (el) => el.metadata.type === type
-            )?.metadata.image;
+        getBoostImg(nft) {
+            let nameFix = nft.boostType == 1 ? "time-" : "percent-";
+            var images = require.context("/src/assets/images/all/", false, /\.png$/);
+            return images("./boost-" + nameFix + (+nft.boostLevel + 1) + ".png");
+        },
+        getBoostImgWithLvl(nft, lvl) {
+            let nameFix = nft.boostType == 1 ? "time-" : "percent-";
+            var images = require.context("/src/assets/images/all/", false, /\.png$/);
+            return images("./boost-" + nameFix + lvl + ".png");
+        },
+        getImageForBoost(nft, id) {
+            let boostEvents = nft.boostEvents;
+            for (let i = 0; i < boostEvents.length; i++) {
+                if (boostEvents[i].boostType == id) {
+                    let avg = id == 0 ? Number(boostEvents[i].boostProfitPercent) / 100
+                        : id == 1 ? Number(boostEvents[i].boostTimePercent) / 100
+                            : Number(boostEvents[i].boostTeamPercent) / 100;
+                    let lvl = avg == 2 ? 1 : avg == 5 ? 2 : 3;
+                    return this.getBoostImgWithLvl(boostEvents[i], lvl);
+                }
+            }
+            return null;
         },
     },
     computed: {
@@ -996,19 +970,31 @@ export default {
             return null;
         },
         isProfitBoostApplied() {
-            return Boolean(
-                this.boostsApplied.find((el) => el.metadata.type === "PROFIT")
-            );
+            let applied = false;
+            for (let i = 0; i < this.boostsApplied.length; i++) {
+                if (this.boostsApplied[i].boostType == 0) {
+                    applied = true;
+                }
+            }
+            return applied;
         },
         isTimeBoostApplied() {
-            return Boolean(
-                this.boostsApplied.find((el) => el.metadata.type === "TIME")
-            );
+            let applied = false;
+            for (let i = 0; i < this.boostsApplied.length; i++) {
+                if (this.boostsApplied[i].boostType == 1) {
+                    applied = true;
+                }
+            }
+            return applied;
         },
         isTeamBoostApplied() {
-            return Boolean(
-                this.boostsApplied.find((el) => el.metadata.type === "TEAM")
-            );
+            let applied = false;
+            for (let i = 0; i < this.boostsApplied.length; i++) {
+                if (this.boostsApplied[i].boostType == 2) {
+                    applied = true;
+                }
+            }
+            return applied;
         },
         getlastWithdrawTimestamp() {
             if (this.fullStakeDetails) {
@@ -1022,9 +1008,6 @@ export default {
         },
     },
     mounted() {
-        //console.log(this.userNftsBoostsData);
-        //console.log(this.userNftsData);
-        console.log(this.userStakes);
         this.lang.init();
     },
     beforeDestroy() {
@@ -1117,8 +1100,7 @@ export default {
                     (increasedPercent / 100 * parseFloat(newVal.boostProfitPercent));
                 increasedDays =
                     increasedDays +
-                    increasedDays *
-                    (Number(this.selectedTimeBoost?.boostTimePercent) || 0);
+                    increasedDays / 100 * (Number(this.selectedTimeBoost?.boostTimePercent) || 0);
                 this.increasedPercent = (increasedPercent * increasedDays).toFixed(2);
                 this.increasedProfit = (
                     (Number(this.fullStakeDetails.event_data.amount) *

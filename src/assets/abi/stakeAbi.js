@@ -206,37 +206,37 @@ const stakeAbi = [
 		"outputs": [
 			{
 				"internalType": "uint8",
-				"name": "",
+				"name": "stakeTypeIdx",
 				"type": "uint8"
 			},
 			{
 				"internalType": "uint256",
-				"name": "",
+				"name": "startTime",
 				"type": "uint256"
 			},
 			{
 				"internalType": "uint256",
-				"name": "",
+				"name": "tokenId",
 				"type": "uint256"
 			},
 			{
 				"internalType": "uint256",
-				"name": "",
+				"name": "stakePlan",
 				"type": "uint256"
 			},
 			{
 				"internalType": "uint256",
-				"name": "",
+				"name": "eggPlan",
 				"type": "uint256"
 			},
 			{
 				"internalType": "uint256",
-				"name": "",
+				"name": "eggPrice",
 				"type": "uint256"
 			},
 			{
 				"internalType": "uint256",
-				"name": "",
+				"name": "claimed",
 				"type": "uint256"
 			},
 			{
@@ -258,23 +258,52 @@ const stakeAbi = [
 					}
 				],
 				"internalType": "struct Boosts.Boost[]",
-				"name": "",
+				"name": "boosts_data",
 				"type": "tuple[]"
 			},
 			{
 				"internalType": "uint8",
-				"name": "",
+				"name": "boostsSize",
 				"type": "uint8"
 			},
 			{
 				"internalType": "uint256",
-				"name": "",
+				"name": "lastWithdrawalTime",
 				"type": "uint256"
 			},
 			{
 				"internalType": "bool",
-				"name": "",
+				"name": "isExpired",
 				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "stakeOwner",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "stakeIdx",
+				"type": "uint256"
+			}
+		],
+		"name": "getTotalBoostsPercents",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "boostTimePercent",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "boostProfitPercent",
+				"type": "uint256"
 			}
 		],
 		"stateMutability": "view",

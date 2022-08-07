@@ -581,7 +581,9 @@ export default class Core {
     }
 
     async buyLOOTBOX(refs, indexPlan) {
-        const res = await this[`poseggNft_${this.currentBlockchain}`].mintLootbox(refs, indexPlan);
+        const res = await this[`poseggNft_${this.currentBlockchain}`].mintLootbox(refs, indexPlan, {
+            gasLimit: 400000
+        });
         return res;
     }
 
@@ -811,11 +813,17 @@ export default class Core {
 
             temp.eggPlan = eggPlan;
             temp.timestamp = stake["startTime"].toNumber();
+
             temp.boostEvents = [];
+            for (let s of stake.boosts_data) {
+                if (Number(s.boostProfitPercent) > 0 || Number(s.boostTimePercent) > 0) {
+                    temp.boostEvents.push(s);
+                }
+            }
 
             temp.boostsSize = stake["boostsSize"];
             temp.isExpired = stake["isExpired"];
-
+            
             temp.rewardReceived = stake["claimed"];
             temp.lastWithdrawTimestamp = stake["lastWithdrawalTime"].toNumber();
         } catch (err) {
@@ -872,10 +880,8 @@ export default class Core {
         let thersOthersStake = true;
         for (let i = 0; thersOthersStake; i++) {
             try {
-                let tempUserStake = await nftContract.stakes(address, i);
-                let tempUserStakeTest = await nftContract.getStake(address, i);
-                console.log("tempUserStakeTest");
-                console.log(tempUserStakeTest);
+                // let tempUserStake = await nftContract.stakes(address, i);
+                let tempUserStake = await nftContract.getStake(address, i);
                 if (tempUserStake != null) {
                     let userStake = await this.stakeRefactorAndAddInfo(address, tempUserStake, i);
                     activeStakes.push(userStake);

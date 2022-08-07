@@ -345,8 +345,7 @@
         },
         mounted() {
             let _this = this;
-
-            console.log(this.type)
+            
             let i2cd = 200;
             let i2 = setInterval(function() {
                 if (_this.currentBlockchain) {

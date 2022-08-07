@@ -266,11 +266,11 @@
                                     </div>
                                     <div class="block-info-row">
                                         <div class="block-info-td block-info-name">{{ translatesGet("TIME") }}</div>
-                                        <div class="block-info-td block-info-value">{{ nft.boostTimePercent === 0 ? "-" : nft.boostTimePercent + "%" }}</div>
+                                        <div class="block-info-td block-info-value">{{ Number(nft.boostTimePercent) === 0 ? "-" : Number(nft.boostTimePercent) / 100 + "%" }}</div>
                                     </div>
                                     <div class="block-info-row">
                                         <div class="block-info-td block-info-name">{{ translatesGet("PROFIT") }}</div>
-                                        <div class="block-info-td block-info-value">{{ nft.boostProfitPercent === 0 ? "-" : nft.boostProfitPercent + "%" }}</div>
+                                        <div class="block-info-td block-info-value">{{ Number(nft.boostProfitPercent) === 0 ? "-" : Number(nft.boostProfitPercent) / 100 + "%" }}</div>
                                     </div>
                                 </div>
                             </div>
@@ -388,8 +388,6 @@
             },
         },
         created() {
-            console.log(this.nft);
-            console.log(this.nftType);
         },
         computed: {
             ...mapState(["currentBlockchain", "currentAddress", "userNftsData"]),
@@ -411,9 +409,11 @@
                 return "#000000";
             },
             getClassImg() {
+                let boostPercent = (Number(this.nft.boostTimePercent) != 0 ? Number(this.nft.boostTimePercent) : Number(this.nft.boostProfitPercent)) / 100;
+                let lvl = boostPercent == 2 ? 1 : boostPercent == 5 ? 2 : 3;
                 let nameFix = this.nft.boostType == 1 ? "time-" : "percent-";
                 var images = require.context("/src/assets/images/all/", false, /\.png$/);
-                return images("./boost-" + nameFix + (+this.nft.boostLevel + 1) + ".png");
+                return images("./boost-" + nameFix + lvl + ".png");
             },
             nfts() {
                 if (

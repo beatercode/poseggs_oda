@@ -19,7 +19,7 @@
                     <div class="h4">{{ translatesGet("YOUR_ST_POOL") }}:</div>
                     <div class="modal-select-pool-wrap">
                         <button v-for="(stPlan, index) of this.conf[this.currentBlockchain].STAKING_PLANS" class="select-pool-block"
-                            @click="selectedPool = index" :class="{ active: selectedPool == index }">
+                            @click="selectedPool = (+index + 1)" :class="{ active: selectedPool == (+index + 1) }">
                             <div class="title">{{ stPlan.days }} {{ translatesGet("DAYS") }}</div>
                             <div class="value">{{ stPlan.perc }}% {{ translatesGet("PROFIT") }}</div>
                         </button>
@@ -120,7 +120,7 @@
                 }
             },
             canNftStakeThere(nft, selectedPool) {
-                return (nft.plan - 1) >= selectedPool;
+                return nft.plan >= selectedPool;
             },
             getImageLink(index) {
                 var images = require.context("/src/assets/images/all/", false, /\.png$/);
@@ -185,6 +185,7 @@
                     }
                     this.showLoader = true;
                     
+                    console.log(this.selectedPool);
                     let res = await this.$root.core.stake(nft.tokenId, this.selectedPool);
                     this.$store.commit("push_notification", {
                         type: "warning",

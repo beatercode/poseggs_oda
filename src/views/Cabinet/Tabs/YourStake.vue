@@ -113,60 +113,40 @@ export default {
             let profitIncrease = 0;
             let dailyPerc = 0;
             let period;
-            if (stake.boostEvents && stake.boostEvents.length) {
-                const timeBoost = stake.boostEvents.find(
-                    (el) => el?.metadata?.type === "TIME"
-                );
-                const profitBoost = stake.boostEvents.find(
-                    (el) => el?.metadata?.type === "PROFIT"
-                );
-                const teamBoost = stake.boostEvents.find(
-                    (el) => el?.metadata?.type === "TEAM"
-                );
 
-                if (timeBoost) {
-                    //removing % sign to get digit value
+            let nft = stake;
+            if (nft.boostEvents && nft.boostEvents.length) {
+                for (let i = 0; i < nft.boostEvents.length; i++) {
+                    const profitBoost = nft.boostEvents[i].boostType == 0 ? nft.boostEvents[i] : null;
+                    const timeBoost = nft.boostEvents[i].boostType == 1 ? nft.boostEvents[i] : null;
+                    const teamBoost = nft.boostEvents[i].boostType == 2 ? nft.boostEvents[i] : null;
 
-                    timeIncrease = Number(
-                        timeBoost.metadata.attributes[1].value.replace("%", "")
-                    );
-                }
-                if (profitBoost) {
-                    //removing % sign to get digit value
-
-                    profitIncrease = Number(
-                        profitBoost.metadata.attributes[2].value.replace("%", "")
-                    );
-                }
-
-                if (teamBoost) {
-                    timeIncrease += Number(
-                        teamBoost.metadata.attributes[1].value.replace("%", "")
-                    );
-                    profitIncrease += Number(
-                        teamBoost.metadata.attributes[2].value.replace("%", "")
-                    );
+                    if (timeBoost) {
+                        timeIncrease = Number(timeBoost.boostTimePercent);
+                    }
+                    if (profitBoost) {
+                        profitIncrease = Number(profitBoost.boostProfitPercent);
+                    }
+                    if (teamBoost) {
+                        timeIncrease = Number(timeBoost.boostTimePercent);
+                        profitIncrease = Number(profitBoost.boostProfitPercent);
+                    }
                 }
             }
+
             const stakePlan = +stake.eggPlan - 1;
 
             if (timeIncrease > 0) {
                 period = `${conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days > 0
                     ? (
-                        Number(
-                            conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days
-                        ) +
-                        (conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days *
-                            Number(timeIncrease)) /
-                        100
+                        Number(conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days)
+                        + (conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days * Number(timeIncrease)) / 100
                     ).toFixed(2)
                     : "Unlimited"
                     } days`;
             } else {
                 period = `${conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days > 0
-                    ? conf[this.currentBlockchain].STAKING_PLANS[
-                        stakePlan
-                    ].days.toFixed(2)
+                    ? conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days.toFixed(2)
                     : "Unlimited"
                     } days`;
             }
@@ -174,12 +154,9 @@ export default {
             if (profitIncrease > 0) {
                 dailyPerc =
                     conf[this.currentBlockchain].STAKING_PLANS[stakePlan].profitPerDay +
-                    (conf[this.currentBlockchain].STAKING_PLANS[stakePlan].profitPerDay *
-                        Number(profitIncrease)) /
-                    100;
+                    (conf[this.currentBlockchain].STAKING_PLANS[stakePlan].profitPerDay * Number(profitIncrease)) / 100;
             } else {
-                dailyPerc =
-                    conf[this.currentBlockchain].STAKING_PLANS[stakePlan].profitPerDay;
+                dailyPerc = conf[this.currentBlockchain].STAKING_PLANS[stakePlan].profitPerDay;
             }
 
             const { lastWithdrawTimestamp, event_data } = stake;
@@ -208,37 +185,35 @@ export default {
 
             let timeIncrease, profitIncrease, period, dailyPerc;
             if (nft.boostEvents && nft.boostEvents.length) {
-                const timeBoost = nft.boostEvents.find((el) => el?.metadata?.type === "TIME");
-                const profitBoost = nft.boostEvents.find((el) => el?.metadata?.type === "PROFIT");
-                const teamBoost = nft.boostEvents.find((el) => el?.metadata?.type === "TEAM");
+                for (let i = 0; i < nft.boostEvents.length; i++) {
+                    const profitBoost = nft.boostEvents[i].boostType == 0 ? nft.boostEvents[i] : null;
+                    const timeBoost = nft.boostEvents[i].boostType == 1 ? nft.boostEvents[i] : null;
+                    const teamBoost = nft.boostEvents[i].boostType == 2 ? nft.boostEvents[i] : null;
 
-                if (timeBoost) {
-                    //removing % sign to get digit value
-
-                    timeIncrease = Number(timeBoost.metadata.attributes[1].value.replace("%", ""));
-                }
-                if (profitBoost) {
-                    //removing % sign to get digit value
-
-                    profitIncrease = Number(profitBoost.metadata.attributes[2].value.replace("%", ""));
-                }
-
-                if (teamBoost) {
-                    timeIncrease += Number(teamBoost.metadata.attributes[1].value.replace("%", ""));
-                    profitIncrease += Number(teamBoost.metadata.attributes[2].value.replace("%", ""));
+                    if (timeBoost) {
+                        timeIncrease = Number(timeBoost.boostTimePercent);
+                    }
+                    if (profitBoost) {
+                        profitIncrease = Number(profitBoost.boostProfitPercent);
+                    }
+                    if (teamBoost) {
+                        timeIncrease = Number(timeBoost.boostTimePercent);
+                        profitIncrease = Number(profitBoost.boostProfitPercent);
+                    }
                 }
             }
+
             const stakePlan = +nft.eggPlan - 1;
 
             if (timeIncrease > 0) {
                 period = `${conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days > 0
-                    ? Number(conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days) +
-                    (conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days * Number(timeIncrease)) / 100
+                    ? (Number(conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days)
+                        + (conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days / 100 * (Number(timeIncrease) / 100))).toFixed(2)
                     : "Unlimited"
                     } days`;
             } else {
                 period = `${conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days > 0
-                    ? conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days
+                    ? conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days.toFixed(2)
                     : "Unlimited"
                     } days`;
             }
@@ -246,12 +221,13 @@ export default {
             if (profitIncrease > 0) {
                 dailyPerc =
                     conf[this.currentBlockchain].STAKING_PLANS[stakePlan].profitPerDay +
-                    (conf[this.currentBlockchain].STAKING_PLANS[stakePlan].profitPerDay * Number(profitIncrease)) / 100;
+                    (conf[this.currentBlockchain].STAKING_PLANS[stakePlan].profitPerDay / 100 * (Number(profitIncrease) / 100));
             } else {
-                dailyPerc = conf[this.currentBlockchain].STAKING_PLANS[stakePlan].profitPerDay;
+                dailyPerc =
+                    conf[this.currentBlockchain].STAKING_PLANS[stakePlan].profitPerDay;
             }
 
-            const totalProfit = (Number(period.replace("days", "")) * dailyPerc).toFixed(2);
+            const totalProfit = (parseFloat(period) * dailyPerc).toFixed(2);
             let expectedReward;
             const size = stakePlan === 0 ? "XXS" : stakePlan === 1 ? "XS" : stakePlan === 2 ? "S" : stakePlan === 3 ? "M" : stakePlan === 4
                 ? "L" : stakePlan === 5 ? "XL" : stakePlan === 6 ? "XXL" : "XXL";
@@ -375,6 +351,8 @@ export default {
 
                     for (let nft of _this.stakedNfts) {
                         if (nft.boostsSize > 0) {
+                            // TO DO
+                            /*
                             for (let i = 0; i < nft.boostEvents.length; i++) {
                                 const res = await _this.$root.core.getBoostMetadata(nft.boostEvents[i].event_data.boostTokenId);
                                 nft.boostEvents[i]["metadata"] = res;
@@ -385,6 +363,7 @@ export default {
 
                                 return bPriority - aPriority;
                             });
+                            */
                         }
                         newData.push(nft);
                     }
