@@ -19,7 +19,7 @@
                     <div class="h4">{{ translatesGet("YOUR_ST_POOL") }}:</div>
                     <div class="modal-select-pool-wrap">
                         <button v-for="(stPlan, index) of this.conf[this.currentBlockchain].STAKING_PLANS" class="select-pool-block"
-                            @click="selectedPool = (+index + 1)" :class="{ active: selectedPool == (+index + 1) }">
+                            @click="selectedPool = index" :class="{ active: selectedPool == index }">
                             <div class="title">{{ stPlan.days }} {{ translatesGet("DAYS") }}</div>
                             <div class="value">{{ stPlan.perc }}% {{ translatesGet("PROFIT") }}</div>
                         </button>
@@ -94,7 +94,7 @@
                 receiverAddress: "",
                 conf: conf,
                 showDetails: false,
-                selectedPool: (+this.selectedPlan - 1),
+                selectedPool: +this.selectedPlan - 1,
                 approvedNfts: JSON.parse(window.localStorage.getItem("approvedNftsId")) || [],
             };
         },
@@ -120,14 +120,16 @@
                 }
             },
             canNftStakeThere(nft, selectedPool) {
-                return nft.plan >= selectedPool;
+                let currPlan = nft.plan;
+                return currPlan >= selectedPool;
             },
             getImageLink(index) {
                 var images = require.context("/src/assets/images/all/", false, /\.png$/);
                 return images("./nft-" + index + ".png");
             },
             getExpectedReward(nft) {
-                const totalProfit = parseFloat((nft.price * conf[this.currentBlockchain].STAKING_PLANS[+this.selectedPool - 1].perc) / 100).toFixed(2);
+                let price = nft.price == 0 ? 7 : nft.price;
+                const totalProfit = parseFloat((price * conf[this.currentBlockchain].STAKING_PLANS[this.selectedPool].perc) / 100).toFixed(2);
                 return `${totalProfit} BUSD`;
             },
             getEarnedReward(stake) {
@@ -185,7 +187,7 @@
                     }
                     this.showLoader = true;
                     
-                    console.log(this.selectedPool);
+                    //this.selectedPool = this.selectedPool == -1 ? 0 : this.selectedPool;
                     let res = await this.$root.core.stake(nft.tokenId, this.selectedPool);
                     this.$store.commit("push_notification", {
                         type: "warning",
@@ -214,6 +216,7 @@
         },
 
         created() {
+            console.log("this.selectedPlan [" + this.selectedPlan + "]")
             if (!this.currentAddress || this.currentAddress === "0x0000000000000000000000000000000000000000") {
                 this.$emit("close");
                 this.$emit("changeWalletRequest");

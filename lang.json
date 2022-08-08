@@ -1118,9 +1118,24 @@
             "Mint"
         ],
         [
+            "OUT_OF_STOCK",
+            "",
+            "Out of stock"
+        ],
+        [
             "MINT_NFT",
             "",
             "Mint NFT"
+        ],
+        [
+            "MINT_FREE_NFT",
+            "",
+            "Mint Free Egg!"
+        ],
+        [
+            "FREE_EGG_BUY_DESCR",
+            "",
+            "This special Egg can be minted once per wallet. Team will release around 5 eggs around every 24 hours."
         ],
         [
             "MINT_LOOTBOX",

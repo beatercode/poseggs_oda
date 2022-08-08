@@ -2137,7 +2137,7 @@ table{
     margin-left:auto
 }
 .buy-nft-card .mint-nft-img{
-    max-width:330px
+    max-width: unset !important;
 }
 .buy-nft-card .cab-row:first-child{
     margin-top:0
@@ -8509,7 +8509,7 @@ i[class*=" i-"],i[class^=i-]{
         transform:scale(1.4) translate(-5%,-10%)
     }
     .buy-nft-card .mint-nft-img{
-        max-width:264px
+        max-width: unset !important;
     }
     .section-main .img-comment{
         right:50%;

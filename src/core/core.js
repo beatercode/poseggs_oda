@@ -545,12 +545,15 @@ export default class Core {
             } else {
                 let levelToAddressObj = {};
                 if (this.currentBlockchain === 56) {
+                    /*
                     const res = await axios.get(`${conf.BASE_URL}/getStructureFor10Levels`, {
                         params: {
                             userFrom: userFrom.toLowerCase(),
                         },
                     });
                     levelToAddressObj = res.data;
+                    */
+                    levelToAddressObj = {};
                 }
 
                 let resultArray = [];
@@ -576,6 +579,7 @@ export default class Core {
     }
 
     async buyNFT(refs, indexPlan) {
+        console.log("REF [" + refs + "] PLAN [" + indexPlan + "]")
         const res = await this[`poseggNft_${this.currentBlockchain}`].mintNft(refs, indexPlan);
         return res;
     }
@@ -628,12 +632,14 @@ export default class Core {
 
     async saveToDB(address, message, signature, referrer) {
         try {
+            /*
             const res = await axios.post(`${conf.BASE_URL}/register`, {
                 sig: signature,
                 address: address,
                 message: message,
                 referrer: referrer,
             });
+            */
         } catch (error) {
             console.log(error);
         }
@@ -642,11 +648,14 @@ export default class Core {
     async isAmongRegistered(address) {
         try {
             try {
+                /*
                 const res = await axios.get(`${conf.BASE_URL}/isAmongRegistered`, {
                     params: {
                         user: address.toLowerCase(),
                     },
                 });
+                */
+                res.data = false;
                 return res.data === false ?
                     {
                         isRegistered: false,
@@ -667,18 +676,24 @@ export default class Core {
     }
 
     async updateAirdropStatus(userAddress) {
+        /*
         const res = await axios.post(`${conf.BASE_URL}/updateAirdropStatus`, {
             address: userAddress,
             //amount: amount,
         });
         return res.data;
+        */
+        return {};
     }
     async signAmount(userAddress) {
+        /*
         const res = await axios.post(`${conf.BASE_URL}/signAmount`, {
             address: userAddress,
             //amount: amount,
         });
         return res.data;
+        */
+        return {};
     }
 
     async claimTokens(sig, amount) {
@@ -688,24 +703,30 @@ export default class Core {
 
     async isRegistered(address) {
         try {
+            /*
             const res = await axios.get(`${conf.BASE_URL}/checkUser`, {
                 params: {
                     user: address.toLowerCase(),
                 },
             });
             return res.data;
+            */
+            return {};
         } catch (error) {
             console.log(error);
         }
     }
     async getLastClaimedLevelByLeader(address) {
         try {
+            /*
             const res = await axios.get(`${conf.BASE_URL}/getLeaderLastAcceptedLevel`, {
                 params: {
                     leader: address.toLowerCase(),
                     chainId: this.currentBlockchain,
                 },
             });
+            */
+            return 0;
             return res.data.latest_level || 0;
         } catch (error) {
             //console.log(error);
@@ -719,7 +740,7 @@ export default class Core {
         try {
             try {
                 buyersNftIds = await nftContract.tokensOfOwner(address);
-            } catch (err) { console.log(err); }
+            } catch (err) { }
         } catch (err) { }
         const buyersNftInfo = [];
         for (let ni of buyersNftIds) {
@@ -727,8 +748,8 @@ export default class Core {
             let eggPlanId = eggPlan.toNumber();
             let eggInfo = await nftContract.EGGS(eggPlan);
             eggInfo = await this.arrayOfBNtoNumber(eggInfo);
-            eggInfo.name = conf.EGG_DATA.name[eggPlanId - 1];
             eggInfo.plan = eggPlan.toNumber();
+            eggInfo.name = eggInfo.plan == 0 ? conf.FREE_EGG_DATA.name : conf.EGG_DATA.name[eggPlanId - 1];
             eggInfo.tokenId = ni.toNumber();
             eggInfo.collection = "POSEggs-NFT";
             eggInfo.description = "";
@@ -744,7 +765,7 @@ export default class Core {
         try {
             try {
                 buyersNftIds = await nftContract.tokensOfOwner(address);
-            } catch (err) { console.log(err); }
+            } catch (err) { }
         } catch (err) { }
         const buyersNftInfo = [];
         for (let ni of buyersNftIds) {
@@ -823,7 +844,7 @@ export default class Core {
 
             temp.boostsSize = stake["boostsSize"];
             temp.isExpired = stake["isExpired"];
-            
+
             temp.rewardReceived = stake["claimed"];
             temp.lastWithdrawTimestamp = stake["lastWithdrawalTime"].toNumber();
         } catch (err) {
@@ -847,25 +868,30 @@ export default class Core {
     }
     async checkReferrer(address) {
         try {
+            /*
             const res = await axios.get(`${conf.BASE_URL}/checkReferrer`, {
                 params: {
                     referrer: address.toLowerCase(),
                 },
             });
             return res.data;
+            */
+           return {};
         } catch (error) {
             console.log(error);
         }
     }
     async getTotalRegistered(address) {
         try {
+            /*
             const res = await axios.get(`${conf.BASE_URL}/getTotalRegistered`, {
                 params: {
                     referrer: address.toLowerCase(),
                 },
             });
-
             return res.data.referrals_num || 0;
+            */ 
+            return 0;
         } catch (error) {
             console.log(error);
         }
@@ -1036,26 +1062,31 @@ export default class Core {
     }
     async getLevelDuringRegistration(address) {
         try {
+            /*
             const res = await axios.get(`${conf.BASE_URL}/getLevelDuringRegistration`, {
                 params: {
                     user: address.toLowerCase(),
                 },
             });
-
             return res.data.start_level;
+            */
+            return 0;
         } catch (error) {
             console.log(error);
         }
     }
     async getLeaderLevel(address) {
         try {
-            if (Number(this.currentBlockchain) === 56) {
+            if (Number(this.currentBlockchain) === 56 || Number(this.currentBlockchain) === 97) {
+                /*
                 const res = await axios.get(`${conf.BASE_URL}/getLeader`, {
                     params: {
                         userFrom: address.toLowerCase(),
                     },
                 });
                 const resObj = res.data;
+                */
+                const resObj = {};
                 if (Object.keys(resObj).length === 0) {
                     return {
                         address: "0x0000000000000000000000000000000000000000",
@@ -1148,12 +1179,14 @@ export default class Core {
         return res;
     }
     async Claim(depositId) {
-        const res = await this[`stake_${this.currentBlockchain}`].claim(depositId);
+        const res = await this[`stake_${this.currentBlockchain}`].claim(depositId, {
+            gasLimit: 6000000
+        });
         return res;
     }
     async batchClaim() {
         return await this[`stake_${this.currentBlockchain}`].batchWithdraw({
-            gasLimit: 500000
+            gasLimit: 6000000
         });
     }
 

@@ -269,6 +269,120 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="cab-row" style="margin-top: 20px;">
+                                <div class="cab-row-card">
+                                    <div class="card-header">
+                                        <div class="card-header-icon earn-buy"></div>
+                                        <div>
+                                            <div class="h4">{{ translatesGet("MINT_FREE_NFT") }}</div>
+                                            <div class="h5">
+                                                {{ translatesGet("FREE_EGG_BUY_DESCR") }}
+                                            </div>
+                                        </div>
+                                        <a class="link link-learn-more" target="_blank" rel="nofollow"
+                                            href="https://posduck.gitbook.io/posduck-dock/nft-purchase-on-the-posduck-platform">
+                                            {{ translatesGet("LEARN_MORE") }}
+                                            <i class="i-arrow-right-3"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="cab-row">
+                                <div class="cab-row-card mint-nft-img">
+                                    <div class="card-header card-header-nft-image-buy">
+                                        <div class="slider-nft-wrap">
+                                            <ul class="ul-our-nfts" :class="'ul-binance'">
+                                                <li
+                                                    @click="setSelectedEgg(freeEggData.price, 8)"
+                                                    :style="[8 == selectedIndex ? { 'opacity': '1' } : { 'opacity': '0.7' }]"
+                                                    class="li-our-nfts nft-list-buy nft-list-buy-page li-nft-red">
+                                                    <div class="li-our-nft-wrap" @click="showStats = showStats">
+                                                        <div class="card-egg-image">
+                                                            <img class="card-egg-image-img"
+                                                                :class="{ hopping: 8 == selectedIndex }"
+                                                                :src="getNftImage(-1)" />
+                                                        </div>
+                                                        <div class="li-nft-footer">
+                                                            <div style="width: 100%">
+                                                                <span class="li-nft-footer-title">{{
+                                                                        "Stats"
+                                                                }}</span>
+                                                                <div class="icon logo-coin icon-card"></div>
+                                                                <div v-if="showStats">
+                                                                    <div class="stake-nft-value-main-stats">
+                                                                        <span>Daily</span> <span>{{ freeEggData.profit
+                                                                        }}%</span>
+                                                                    </div>
+                                                                    <div class="stake-nft-value-main-stats">
+                                                                        <span>Days</span> <span>{{ freeEggData.period
+                                                                        }}</span>
+                                                                    </div>
+                                                                    <div class="stake-nft-value-main-stats">
+                                                                        <span>Total</span> <span>{{
+                                                                                parseFloat(freeEggData.profit * freeEggData.period).toFixed(1)
+                                                                        }}%</span>
+                                                                    </div>
+                                                                    <div class="cab-row cab-row-stats">
+                                                                        <span
+                                                                            class="li-nft-footer-amount card-footer-stats">Strength</span>
+                                                                        <div class="li-nft-footer-amount-2 card-footer-stats"
+                                                                            style="text-align: left !important; display: flex; flex-direction: row; justify-content: flex-end;">
+                                                                            <!--div class="plus-minus-mint-button">-</div-->
+                                                                            <span>{{ freeEggData.stats }}</span>
+                                                                            <!--div class="plus-minus-mint-button">+</div-->
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="cab-row cab-row-stats">
+                                                                        <span
+                                                                            class="li-nft-footer-amount card-footer-stats">Healt</span>
+                                                                        <div class="li-nft-footer-amount-2 card-footer-stats"
+                                                                            style="text-align: left !important; display: flex; flex-direction: row; justify-content: flex-end;">
+                                                                            <!--div class="plus-minus-mint-button">-</div-->
+                                                                            <span>{{ freeEggData.stats }}</span>
+                                                                            <!--div class="plus-minus-mint-button">+</div-->
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="cab-row cab-row-stats">
+                                                                        <span
+                                                                            class="li-nft-footer-amount card-footer-stats">Agility</span>
+                                                                        <div class="li-nft-footer-amount-2 card-footer-stats"
+                                                                            style="text-align: left !important; display: flex; flex-direction: row; justify-content: flex-end;">
+                                                                            <!--div class="plus-minus-mint-button">-</div-->
+                                                                            <span>{{ freeEggData.stats }}</span>
+                                                                            <!--div class="plus-minus-mint-button">+</div-->
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="cab-row cab-row-stats">
+                                                                        <span
+                                                                            class="li-nft-footer-amount card-footer-stats">Magic</span>
+                                                                        <div class="li-nft-footer-amount-2 card-footer-stats"
+                                                                            style="text-align: left !important; display: flex; flex-direction: row; justify-content: flex-end;">
+                                                                            <!--div class="plus-minus-mint-button">-</div-->
+                                                                            <span>{{ freeEggData.stats }}</span>
+                                                                            <!--div class="plus-minus-mint-button">+</div-->
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mint-nft-block" style="margin-top: 0px;">
+                                                            <button v-if="freeEggSypply > 0" :disabled="showLoader"
+                                                                @click="BuyNFT(-1)" class="btn btn-mint">
+                                                                {{ translatesGet("CLAIM") }}
+                                                            </button>
+                                                            <button v-if="freeEggSypply == 0" :disabled="showLoader" disabled="true" class="btn btn-mint not-enabled">
+                                                                {{ translatesGet("OUT_OF_STOCK") }}
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -298,10 +412,12 @@ export default {
             stats: conf.EGG_DATA.stats,
             profits: conf.EGG_DATA.profits,
             periods: conf.EGG_DATA.periods,
+            freeEggData: conf.FREE_EGG_DATA,
             amount1: false,
             amount2: false,
             amount3: false,
             amount4: false,
+            freeEggSypply: 0,
             busdApprovedAmount: 0,
             showLoader: false,
             showInputError: false,
@@ -362,6 +478,16 @@ export default {
     },
 
     methods: {
+        async checkFreeEggSupply() {
+            try {
+                let nftContract =  this.$root.core[`poseggNft_${this.currentBlockchain}`];
+                let res = await nftContract.freeEggSupply();
+                this.freeEggSypply = Number(res);
+            } catch (err) {
+                // err
+            }
+
+        },
         async checkBusdAllowance() {
             let nftContract_Address = this.$root.core[`poseggNft_${this.currentBlockchain}`].address;
             let busdContract = this.$root.core[`BUSD_${this.currentBlockchain}`]
@@ -558,12 +684,14 @@ export default {
         let _this = this;
         let counter = 0;
 
-        var i = setInterval(function() {
+        let refreshRate = 100;
+        var i = setInterval(function () {
             if (_this.currentBlockchain) {
-                clearInterval(i);
-                _this.checkBusdAllowance()
+                _this.checkBusdAllowance();
+                _this.checkFreeEggSupply();
+                refreshRate = 10000;
             }
-        }, 1000);
+        }, refreshRate);
 
         if (Number(_this?.$router?.currentRoute?.params?.chosenPrice) > 0) {
             setTimeout(async function init() {

@@ -410,10 +410,10 @@
         },
         "MIN_NFT_PRICE": "0.01",
         "DEFAULT_GAS_PRICE_GWEI": "45",
-        "STAKE_CONTRACT": "0x39aac8727e38C2251B54cdfAB828cE07e1f10D32",
+        "STAKE_CONTRACT": "0x3cB8DDd51008D32E322966ffd713BCB6D9Edd0eb",
         "ERC20_CONTRACT": "0xED4BA9203d69e4Ca92DC24795a7D3F5b43b250AA",
-        "BOOST_NFT_CONTRACT": "0x46d91a7478d0031978851d744aAfb547729F9214",
-        "NFT_CONTRACT": "0x9A463a17A45ce4D3030cC878FeDC21A53dD74af6",
+        "BOOST_NFT_CONTRACT": "0xa4cAaD4F85C7480b6444EB9e3d5ee2068D6F5f3D",
+        "NFT_CONTRACT": "0x9fE0061233BaBF16403ae15DeBD4091E90e3eBC8",
         "DEFAULT_REFERRER": "0xDd5f7D3D52F97b94fCFed492730240e93d792e98",
         "AIRDROP_CONTRACT": "0x0000000000000000000000000000000000000000",
         "NODE": "https://data-seed-prebsc-1-s1.binance.org:8545/"
@@ -611,6 +611,13 @@
     },
     "LOOTBOX_DATA": {
         "prices": [17, 97, 497, 1997]
+    },
+    "FREE_EGG_DATA": {
+        "price": 0,
+        "stats": 4,
+        "profit": 7.3,
+        "period": 35,
+        "name": "Free Egg"
     },
     "EGG_DATA": {
         "prices": [17, 47, 97, 197, 497, 997, 1997, 4997],
