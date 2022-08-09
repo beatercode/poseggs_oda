@@ -44,11 +44,10 @@
                                     <div class="slider-nft-wrap">
                                         <ul class="ul-our-nfts" :class="'ul-binance'">
                                             <li v-for="(price, index) of pricesLootbox" @click="setSelectedLoot(price, index)"
-                                                :style="[index == selectedIndex ? { 'opacity': '1' } : { 'opacity': '0.7' }]"
+                                                :style="[index == selectedIndex ? { 'opacity': '1' } : { 'opacity': '1' }]"
                                                 class="li-our-nfts nft-list-buy li-nft-red">
                                                 <div class="li-our-nft-wrap">
                                                     <img class="card-egg-image"
-                                                        :class="{ hopping: index == selectedIndex }"
                                                         :src="getNftImage(index)" />
                                                     <div class="li-nft-footer">
                                                         <div style="width: 100%">
@@ -142,11 +141,10 @@
                                         <div class="slider-nft-wrap">
                                         <ul class="ul-our-nfts" :class="'ul-binance'">
                                             <li v-for="(price, index) of pricesLootbox" @click="setSelectedLoot(price, index)"
-                                                :style="[index == selectedIndex ? { 'opacity': '1' } : { 'opacity': '0.7' }]"
+                                                :style="[index == selectedIndex ? { 'opacity': '1' } : { 'opacity': '1' }]"
                                                 class="li-our-nfts nft-list-buy li-nft-red">
                                                 <div class="li-our-nft-wrap">
                                                     <img class="card-egg-image"
-                                                        :class="{ hopping: index == selectedIndex }"
                                                         :src="getNftImage(index)" />
                                                     <div class="li-nft-footer">
                                                         <div style="width: 100%">

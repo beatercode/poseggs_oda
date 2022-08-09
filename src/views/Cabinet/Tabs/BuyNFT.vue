@@ -36,12 +36,11 @@
                                     <div class="slider-nft-wrap">
                                         <ul class="ul-our-nfts" :class="'ul-binance'">
                                             <li v-for="(price, index) of prices" @click="setSelectedEgg(price, index)"
-                                                :style="[index == selectedIndex ? { 'opacity': '1' } : { 'opacity': '0.7' }]"
+                                                :style="[index == selectedIndex ? { 'opacity': '1' } : { 'opacity': '1' }]"
                                                 class="li-our-nfts nft-list-buy nft-list-buy-page li-nft-red">
                                                 <div class="li-our-nft-wrap" @click="showStats = showStats">
                                                     <div class="card-egg-image">
                                                         <img class="card-egg-image-img"
-                                                            :class="{ hopping: index == selectedIndex }"
                                                             :src="getNftImage(index)" />
                                                     </div>
                                                     <div class="li-nft-footer">
@@ -151,12 +150,11 @@
                                             <ul class="ul-our-nfts" :class="'ul-binance'">
                                                 <li v-for="(price, index) of prices"
                                                     @click="setSelectedEgg(price, index)"
-                                                    :style="[index == selectedIndex ? { 'opacity': '1' } : { 'opacity': '0.7' }]"
+                                                    :style="[index == selectedIndex ? { 'opacity': '1' } : { 'opacity': '1' }]"
                                                     class="li-our-nfts nft-list-buy nft-list-buy-page li-nft-red">
                                                     <div class="li-our-nft-wrap" @click="showStats = showStats">
                                                         <div class="card-egg-image">
                                                             <img class="card-egg-image-img"
-                                                                :class="{ hopping: index == selectedIndex }"
                                                                 :src="getNftImage(index)" />
                                                         </div>
                                                         <div class="li-nft-footer">
@@ -296,7 +294,7 @@
                                             <ul class="ul-our-nfts" :class="'ul-binance'">
                                                 <li
                                                     @click="setSelectedEgg(freeEggData.price, 8)"
-                                                    :style="[8 == selectedIndex ? { 'opacity': '1' } : { 'opacity': '0.7' }]"
+                                                    :style="[8 == selectedIndex ? { 'opacity': '1' } : { 'opacity': '1' }]"
                                                     class="li-our-nfts nft-list-buy nft-list-buy-page li-nft-red">
                                                     <div class="li-our-nft-wrap" @click="showStats = showStats">
                                                         <div class="card-egg-image">
