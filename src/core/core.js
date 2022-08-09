@@ -98,21 +98,11 @@ export default class Core {
             for (let chainId of conf.SUPPORTED_BLOCKCHAINS) {
                 this[`provider_${chainId}`] = new ethers.providers.JsonRpcProvider(`${conf[chainId].NODE}`);
                 //TODO initialize ERC20? contract
-                this[`poseggNft_${chainId}`] = new ethers.Contract(conf[chainId].NFT_CONTRACT, nftAbi, this[`provider_${chainId}`]).connect(
-                    this[`provider_${chainId}`]
-                );
-                this[`boostNft_${chainId}`] = new ethers.Contract(conf[chainId].BOOST_NFT_CONTRACT, boostAbi, this[`provider_${chainId}`]).connect(
-                    this[`provider_${chainId}`]
-                );
-                this[`stake_${chainId}`] = new ethers.Contract(conf[chainId].STAKE_CONTRACT, stakeAbi, this[`provider_${chainId}`]).connect(
-                    this[`provider_${chainId}`]
-                );
-                this[`BUSD_${chainId}`] = new ethers.Contract(conf[chainId].ERC20_CONTRACT, erc20, this[`provider_${chainId}`]).connect(
-                    this[`provider_${chainId}`]
-                );
-                this[`airdrop_${chainId}`] = new ethers.Contract(conf[chainId].AIRDROP_CONTRACT, airdrop, this[`provider_${chainId}`]).connect(
-                    this[`provider_${chainId}`]
-                );
+                this[`poseggNft_${chainId}`] = new ethers.Contract(conf[chainId].NFT_CONTRACT, nftAbi, this[`provider_${chainId}`]).connect(this[`provider_${chainId}`]);
+                this[`boostNft_${chainId}`] = new ethers.Contract(conf[chainId].BOOST_NFT_CONTRACT, boostAbi, this[`provider_${chainId}`]).connect(this[`provider_${chainId}`]);
+                this[`stake_${chainId}`] = new ethers.Contract(conf[chainId].STAKE_CONTRACT, stakeAbi, this[`provider_${chainId}`]).connect(this[`provider_${chainId}`]);
+                this[`BUSD_${chainId}`] = new ethers.Contract(conf[chainId].ERC20_CONTRACT, erc20, this[`provider_${chainId}`]).connect(this[`provider_${chainId}`]);
+                // this[`airdrop_${chainId}`] = new ethers.Contract(conf[chainId].AIRDROP_CONTRACT, airdrop, this[`provider_${chainId}`]).connect(this[`provider_${chainId}`]);
 
                 if (blockchain === Number(chainId)) {
                     this.provider = this.primaryPovider;
@@ -124,14 +114,14 @@ export default class Core {
                     this[`boostNft_${chainId}`] = new ethers.Contract(conf[chainId].BOOST_NFT_CONTRACT, boostAbi, this.provider).connect(this.signer);
                     this[`stake_${chainId}`] = new ethers.Contract(conf[chainId].STAKE_CONTRACT, stakeAbi, this.provider).connect(this.signer);
                     this[`BUSD_${chainId}`] = new ethers.Contract(conf[chainId].ERC20_CONTRACT, erc20, this.provider).connect(this.signer);
-                    this[`airdrop_${chainId}`] = new ethers.Contract(conf[chainId].AIRDROP_CONTRACT, airdrop, this.provider).connect(this.signer);
+                    // this[`airdrop_${chainId}`] = new ethers.Contract(conf[chainId].AIRDROP_CONTRACT, airdrop, this.provider).connect(this.signer);
                 } else {
                     //TODO initialize ERC20? contract
                     this[`poseggNft_${chainId}`].connect(this[`provider_${chainId}`]);
                     this[`boostNft_${chainId}`].connect(this[`provider_${chainId}`]);
                     this[`stake_${chainId}`].connect(this[`provider_${chainId}`]);
                     this[`BUSD_${chainId}`].connect(this[`provider_${chainId}`]);
-                    this[`airdrop_${chainId}`].connect(this[`provider_${chainId}`]);
+                    // this[`airdrop_${chainId}`].connect(this[`provider_${chainId}`]);
                 }
             }
 
@@ -167,7 +157,7 @@ export default class Core {
                 this[`boostNft_${chainId}`] = null//new ethers.Contract(conf[chainId].BOOST_NFT_CONTRACT, boostAbi, this[`provider_${chainId}`]);
                 this[`stake_${chainId}`] = null//new ethers.Contract(conf[chainId].STAKE_CONTRACT, stakeAbi, this[`provider_${chainId}`]);
                 this[`BUSD_${chainId}`] = new ethers.Contract(conf[chainId].ERC20_CONTRACT, erc20, this[`provider_${chainId}`]);
-                this[`airdrop_${chainId}`] = null//new ethers.Contract(conf[chainId].AIRDROP_CONTRACT, airdrop, this[`provider_${chainId}`]);
+                // this[`airdrop_${chainId}`] = null//new ethers.Contract(conf[chainId].AIRDROP_CONTRACT, airdrop, this[`provider_${chainId}`]);
 
                 if (blockchain === Number(chainId)) {
                     this.provider = this.primaryPovider;
@@ -179,14 +169,14 @@ export default class Core {
                     this[`boostNft_${chainId}`] = new ethers.Contract(conf[chainId].BOOST_NFT_CONTRACT, boostAbi, this.provider).connect(this.signer);
                     this[`stake_${chainId}`] = new ethers.Contract(conf[chainId].STAKE_CONTRACT, stakeAbi, this.provider).connect(this.signer);
                     this[`BUSD_${chainId}`] = new ethers.Contract(conf[chainId].ERC20_CONTRACT, erc20, this.provider).connect(this.signer);
-                    this[`airdrop_${chainId}`] = new ethers.Contract(conf[chainId].AIRDROP_CONTRACT, airdrop, this.provider).connect(this.signer);
+                    // this[`airdrop_${chainId}`] = new ethers.Contract(conf[chainId].AIRDROP_CONTRACT, airdrop, this.provider).connect(this.signer);
                 } else {
                     // TODO  Create ERC20? contract instance
                     if (this[`poseggNft_${chainId}`]) this[`poseggNft_${chainId}`].connect(this[`provider_${chainId}`]);
                     if (this[`boostNft_${chainId}`]) this[`boostNft_${chainId}`].connect(this[`provider_${chainId}`]);
                     if (this[`stake_${chainId}`]) this[`stake_${chainId}`].connect(this[`provider_${chainId}`]);
                     if (this[`BUSD_${chainId}`]) this[`BUSD_${chainId}`].connect(this[`provider_${chainId}`]);
-                    if (this[`airdrop_${chainId}`]) this[`airdrop_${chainId}`].connect(this[`provider_${chainId}`]);
+                    // if (this[`airdrop_${chainId}`]) this[`airdrop_${chainId}`].connect(this[`provider_${chainId}`]);
                 }
             }
 
@@ -579,15 +569,12 @@ export default class Core {
     }
 
     async buyNFT(refs, indexPlan) {
-        console.log("REF [" + refs + "] PLAN [" + indexPlan + "]")
         const res = await this[`poseggNft_${this.currentBlockchain}`].mintNft(refs, indexPlan);
         return res;
     }
 
     async buyLOOTBOX(refs, indexPlan) {
-        const res = await this[`poseggNft_${this.currentBlockchain}`].mintLootbox(refs, indexPlan, {
-            gasLimit: 400000
-        });
+        const res = await this[`poseggNft_${this.currentBlockchain}`].mintLootbox(refs, indexPlan);
         return res;
     }
 
@@ -824,7 +811,7 @@ export default class Core {
             temp.event_data = {};
             temp.event_data.tokenId = stake["tokenId"].toNumber();
             let eggPlan = await this.tokenIdToPlan(temp.event_data.tokenId);
-            temp.event_data.amount = conf["EGG_DATA"].prices[(eggPlan - 1)];
+            temp.event_data.amount = (eggPlan - 1) < 0 ? conf["FREE_EGG_DATA"].value : conf["EGG_DATA"].prices[(eggPlan - 1)];
             temp.event_data.investor = address;
             temp.event_data.eventName = "Staked";
             temp.event_data.timestamp = stake["startTime"].toNumber();
@@ -948,9 +935,11 @@ export default class Core {
     }
 
     async getLeaderStats(address) {
-        if (this.currentBlockchain === 56) return;
         try {
-            const leader = await this[`poseggNft_${this.currentBlockchain}`].findLeader(address);
+            let leader = null;
+            try {
+                leader = await this[`poseggNft_${this.currentBlockchain}`].findLeader(address);
+            } catch (err) { leader = "0x0000000000000000000000000000000000000000"; }
             if (leader.toLowerCase() === conf[this.currentBlockchain].DEFAULT_REFERRER.toLowerCase()) {
                 const res = await this[`poseggNft_${this.currentBlockchain}`].getBuyerReferralsStats(address);
                 const latest_level = (await this.getLastClaimedLevelByLeader(address)) || 0;
@@ -1127,6 +1116,7 @@ export default class Core {
                     userERC20Balance: ethers.utils.formatEther(tokenBalance),
                 };
             } else {
+                console.log("QUI 3");
                 return {
                     userCoinBalance: ethers.utils.formatEther(coinBalance),
                     userERC20Balance: "0",
@@ -1179,15 +1169,11 @@ export default class Core {
         return res;
     }
     async Claim(depositId) {
-        const res = await this[`stake_${this.currentBlockchain}`].claim(depositId, {
-            gasLimit: 6000000
-        });
+        const res = await this[`stake_${this.currentBlockchain}`].claim(depositId);
         return res;
     }
     async batchClaim() {
-        return await this[`stake_${this.currentBlockchain}`].batchWithdraw({
-            gasLimit: 6000000
-        });
+        return await this[`stake_${this.currentBlockchain}`].batchWithdraw();
     }
 
     /****************** CONTRACT READ METHODS ************************/

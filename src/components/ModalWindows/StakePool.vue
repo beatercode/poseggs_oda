@@ -14,8 +14,8 @@
                     <i class="icon-close"></i>
                 </button>
             </div>
-            <div class="modal-content">
-                <div class="modal-section">
+            <div class="modal-content modal-content-stake-pool">
+                <div class="modal-section modal-section-stake-pool">
                     <div class="h4">{{ translatesGet("YOUR_ST_POOL") }}:</div>
                     <div class="modal-select-pool-wrap">
                         <button v-for="(stPlan, index) of this.conf[this.currentBlockchain].STAKING_PLANS" class="select-pool-block"
@@ -25,7 +25,7 @@
                         </button>
                     </div>
                 </div>
-                <div class="modal-section">
+                <div class="modal-section modal-section-stake-pool">
                     <div class="h4">{{ translatesGet("NFT_FOR_ST") }}:</div>
                     <div v-if="nfts && nfts.length > 0">
                         <div class="stake-nft-container">
@@ -120,7 +120,7 @@
                 }
             },
             canNftStakeThere(nft, selectedPool) {
-                let currPlan = nft.plan;
+                let currPlan = nft.plan == 0 ? nft.plan : (nft.plan - 1);
                 return currPlan >= selectedPool;
             },
             getImageLink(index) {
@@ -216,7 +216,6 @@
         },
 
         created() {
-            console.log("this.selectedPlan [" + this.selectedPlan + "]")
             if (!this.currentAddress || this.currentAddress === "0x0000000000000000000000000000000000000000") {
                 this.$emit("close");
                 this.$emit("changeWalletRequest");

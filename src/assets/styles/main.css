@@ -2574,7 +2574,6 @@ table {
 }
 
 .general-card-stake .your-stake-col:not(:first-child) {
-    margin-top: 20px
 }
 
 .general-card .h4 {
@@ -5617,7 +5616,7 @@ header {
 }
 
 .modal-transfer .modal-wrap {
-    width: 760px;
+    width: 860px;
     background-image: url(../images/all/modal-transfer.679ba184.png);
     background-position: top;
     background-size: 100% 100%;
@@ -5626,7 +5625,7 @@ header {
 
 .modal-leader .modal-wrap,
 .modal-stake .modal-wrap {
-    width: 760px
+    width: 860px
 }
 
 .modal-transfer.modal-transfer-boost .modal-wrap {

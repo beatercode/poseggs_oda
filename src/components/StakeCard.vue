@@ -229,11 +229,7 @@
                             {{ translatesGet("TOTAL_ST_PERCENT") }}
                         </div>
                         <div class="stake-pool-col-value">
-                            {{
-                                    getStakingPlanData(fullStakeDetails)[2] > 0
-                                        ? getStakingPlanData(fullStakeDetails)[2] + "%"
-                                        : "Days staked * daily percent"
-                            }}
+                            {{ getStakingPlanData(fullStakeDetails)[2] + "%" }}
                         </div>
                         <div class="select-boost-item-data-wrap" v-if="
                             showMore &&
@@ -255,11 +251,7 @@
                             {{ translatesGet("EXPECTED_REWARD") }}
                         </div>
                         <div class="stake-pool-col-value">
-                            {{
-                                    !getStakingPlanData(fullStakeDetails)[3]
-                                        ? "Depends on days you staked"
-                                        : getStakingPlanData(fullStakeDetails)[3] + ` ${"BUSD" /* currency */}`
-                            }}
+                            {{ getStakingPlanData(fullStakeDetails)[3] + ` ${"BUSD" /* currency */}` }}
                         </div>
                         <div class="select-boost-item-data-wrap" v-if="
                             showMore &&
@@ -695,7 +687,7 @@ export default {
                 }
             }
 
-            const stakePlan = +nft.eggPlan - 1;
+            const stakePlan = (+nft.eggPlan - 1) < 0 ? 0 : (+nft.eggPlan - 1);
 
             if (timeIncrease > 0) {
                 period = `${conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days > 0
@@ -718,7 +710,7 @@ export default {
                 dailyPerc =
                     conf[this.currentBlockchain].STAKING_PLANS[stakePlan].profitPerDay;
             }
-
+            
             const totalProfit = (parseFloat(period) * dailyPerc).toFixed(2);
             let expectedReward;
             const size =
@@ -791,7 +783,7 @@ export default {
                 }
             }
 
-            const stakePlan = +stake.eggPlan - 1;
+            const stakePlan = (+stake.eggPlan - 1) < 0 ? 0 : (+stake.eggPlan - 1);
 
             if (timeIncrease > 0) {
                 period = `${conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days > 0
@@ -817,7 +809,8 @@ export default {
             }
 
             const { lastWithdrawTimestamp, event_data } = stake;
-            const { amount, timestamp } = event_data;
+            let { amount, timestamp } = event_data;
+            if (!amount) { amount = 7; }
             let end;
             if (stakePlan > 0) {
                 end = Math.min(
@@ -833,6 +826,7 @@ export default {
             } else {
                 hoursPassedSinceStart = (end - timestamp) / 3600;
             }
+            
             let res =
                 (Number(amount) * ((dailyPerc / 24) * hoursPassedSinceStart)) / 100;
 

@@ -452,7 +452,9 @@
             var i = setInterval(function() {
                 if (_this.currentBlockchain) {
                     clearInterval(i);
-                    _this.checkBusdAllowance()
+                    try {
+                        _this.checkBusdAllowance();
+                    } catch (err) {}
                 }
             }, 1000);
 

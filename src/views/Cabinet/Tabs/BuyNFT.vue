@@ -687,8 +687,10 @@ export default {
         let refreshRate = 100;
         var i = setInterval(function () {
             if (_this.currentBlockchain) {
-                _this.checkBusdAllowance();
-                _this.checkFreeEggSupply();
+                try {
+                    _this.checkBusdAllowance();
+                    _this.checkFreeEggSupply();
+                } catch (err) {}
                 refreshRate = 10000;
             }
         }, refreshRate);

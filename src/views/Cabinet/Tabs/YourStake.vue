@@ -134,7 +134,7 @@ export default {
                 }
             }
 
-            const stakePlan = +stake.eggPlan - 1;
+            const stakePlan = (+stake.eggPlan - 1) < 0 ? 0 : +stake.eggPlan - 1;
 
             if (timeIncrease > 0) {
                 period = `${conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days > 0
@@ -203,7 +203,7 @@ export default {
                 }
             }
 
-            const stakePlan = +nft.eggPlan - 1;
+            const stakePlan = (+nft.eggPlan - 1) < 0 ? 0 : +nft.eggPlan - 1;
 
             if (timeIncrease > 0) {
                 period = `${conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days > 0
@@ -301,6 +301,8 @@ export default {
         stakedNfts() {
             if (this.userStakes && this.currentBlockchain && this.currentAddress && this.currentAddress !== "0x0000000000000000000000000000000000000000") {
                 const arr = this.userStakes.activeStakes || [];
+
+                return arr.sort((a, b) => b.timestamp - a.timestamp);
                 // return arr.sort((a, b) => b.startTime - a.startTime);
                 return arr;
             }
@@ -350,23 +352,9 @@ export default {
                     if (!_this.stakedNfts) throw Error();
 
                     for (let nft of _this.stakedNfts) {
-                        if (nft.boostsSize > 0) {
-                            // TO DO
-                            /*
-                            for (let i = 0; i < nft.boostEvents.length; i++) {
-                                const res = await _this.$root.core.getBoostMetadata(nft.boostEvents[i].event_data.boostTokenId);
-                                nft.boostEvents[i]["metadata"] = res;
-                            }
-                            nft.boostEvents.sort((a, b) => {
-                                const aPriority = a.metadata.type === "TIME" ? 3 : a.type === "PROFIT" ? 2 : 1;
-                                const bPriority = b.metadata.type === "TIME" ? 3 : b.type === "PROFIT" ? 2 : 1;
-
-                                return bPriority - aPriority;
-                            });
-                            */
-                        }
                         newData.push(nft);
                     }
+
                     _this.fullStakeDetails = newData;
                     if (!_this.isBatchClaiming) {
                         _this.showLoader = false;

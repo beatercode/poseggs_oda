@@ -150,15 +150,16 @@ export default new Vuex.Store({
         }, type) {
             try {
                 let arrayOfNews = [];
-                let response = await axios.get(`https://sheets.googleapis.com/v4/spreadsheets/${SPREDSHEET_ID}/values/news/?key=${API_KEY}`);
-                for (let news of response.data.values) {
+                // let response = await axios.get(`https://sheets.googleapis.com/v4/spreadsheets/${SPREDSHEET_ID}/values/news/?key=${API_KEY}`);
+                let response = conf["NEWS_DATA"];
+                for (let news of response) {
                     const newsObj = {
-                        id: news[0],
-                        date: news[1],
-                        title: news[2],
-                        desc: news[3],
-                        link: news[4],
-                        important: news[5],
+                        id: news.id,
+                        date: news.date,
+                        title: news.title,
+                        desc: news.desc,
+                        link: news.link,
+                        important: news.important,
                         seen: false,
                     };
 

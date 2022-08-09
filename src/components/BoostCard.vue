@@ -357,16 +357,13 @@
             let i = setInterval(function() {
                 if (_this.currentBlockchain) {
                     clearInterval(i);
-                    _this.checkBusdAllowance()
+                    try {
+                        _this.checkBusdAllowance();
+                    } catch (err) {}
                 }
             }, 1000);
 
             this.lang.init();
-            setTimeout(() => {
-                if (this.currency) {
-                    this.selectedCurrency = this.currency;
-                }
-            }, 500);
         },
         watch: {
             disableChildLoader: function (newVal) {

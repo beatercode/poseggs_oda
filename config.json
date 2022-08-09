@@ -410,10 +410,10 @@
         },
         "MIN_NFT_PRICE": "0.01",
         "DEFAULT_GAS_PRICE_GWEI": "45",
-        "STAKE_CONTRACT": "0x3cB8DDd51008D32E322966ffd713BCB6D9Edd0eb",
+        "STAKE_CONTRACT": "0x3D297fdcEA35508A155Cc3975AA01a0cEd013100",
         "ERC20_CONTRACT": "0xED4BA9203d69e4Ca92DC24795a7D3F5b43b250AA",
-        "BOOST_NFT_CONTRACT": "0xa4cAaD4F85C7480b6444EB9e3d5ee2068D6F5f3D",
-        "NFT_CONTRACT": "0x9fE0061233BaBF16403ae15DeBD4091E90e3eBC8",
+        "BOOST_NFT_CONTRACT": "0x753b29045A577602357908a80835b39BA8291dE6",
+        "NFT_CONTRACT": "0xC42042D46f37BFfA7cAEa93B3aAdc5Bbd0753bd6",
         "DEFAULT_REFERRER": "0xDd5f7D3D52F97b94fCFed492730240e93d792e98",
         "AIRDROP_CONTRACT": "0x0000000000000000000000000000000000000000",
         "NODE": "https://data-seed-prebsc-1-s1.binance.org:8545/"
@@ -614,6 +614,7 @@
     },
     "FREE_EGG_DATA": {
         "price": 0,
+        "value": 7,
         "stats": 4,
         "profit": 7.3,
         "period": 35,
@@ -766,5 +767,15 @@
     "SUPPORTED_BLOCKCHAINS": [
         97,
         56
+    ],
+    "NEWS_DATA": [
+        {
+            "id": "102",
+            "date": "07.08.2022",
+            "title": "✅ Non scammeremo mai, fidati❗️ Welcome test test test 🎯",
+            "desc": "You knwo brah",
+            "link": "https://www.google.com/",
+            "important": "TRUE"
+        }
     ]
 }

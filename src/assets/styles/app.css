@@ -4,7 +4,8 @@
     box-sizing:border-box
 }
 :not(i,img,video){
-    font-family:Sora,sans-serif;
+    /* font-family:Sora,sans-serif; */
+    font-family: 'Kumbh Sans', sans-serif;
     font-style:normal
 }
 html{
@@ -2048,7 +2049,6 @@ table{
     margin-top:30px
 }
 .general-card-stake .your-stake-col:not(:first-child){
-    margin-top:20px
 }
 .general-card .h4{
     padding-top:5px;
@@ -2138,6 +2138,19 @@ table{
 }
 .buy-nft-card .mint-nft-img{
     max-width: unset !important;
+}
+.modal-content-stake-pool {
+    display: flex !important;
+    flex-direction: row !important;
+}
+.modal-section-stake-pool:nth-child(1) {
+    width: 30%;
+    max-width: 30%;
+    margin-right: 5%;
+}
+.modal-section-stake-pool:nth-child(2) {
+    width: 65%;
+    max-width: 65%;
 }
 .buy-nft-card .cab-row:first-child{
     margin-top:0
@@ -2957,7 +2970,7 @@ input.transfer-input+.btn{
     margin-left:10px;
     margin-right:10px;
     margin-top:20px;
-    width:calc(33.33333% - 20px);
+    width:calc(50% - 20px);
     max-width:-webkit-fit-content;
     max-width:-moz-fit-content;
     max-width:fit-content
@@ -3140,9 +3153,9 @@ input.transfer-input+.btn{
     align-items:flex-start;
     align-content:stretch;
     flex-grow:1;
-    margin:-20px;
-    width:calc(100% + 40px);
-    flex-wrap:wrap
+    width: 100%;
+    flex-wrap:wrap;
+    margin: 0px;
 }
 .container-pool-info+.container-pool-btn,.your-stake-data+.container-pool-btn{
     margin-left:20px
@@ -3167,8 +3180,8 @@ input.transfer-input+.btn{
     flex-direction:column;
     background-color:#2a2b3d;
     border-radius:4px;
-    margin:5px;
-    padding:20px
+    margin: 5px;
+    padding: 10px 20px
 }
 .stake-info-block{
     max-height:127px;
@@ -3188,8 +3201,12 @@ input.transfer-input+.btn{
     color:#fff
 }
 .container-pool-info .stake-pool-col{
-    padding:20px;
-    margin-right:auto
+    flex-grow: 1;
+    max-width: 33.333% !important;
+    min-width: 33.333% !important;
+    width: 33.333% !important;
+    margin: 0 !important;
+    padding: 15px 10px 15px 0px;
 }
 .stake-pool-col-name{
     font-weight:400;
@@ -3405,7 +3422,7 @@ input.transfer-input+.btn{
 .select-pool-block{
     background:#2a2b3d;
     border-radius:4px;
-    width:calc(25% - 5px);
+    width:calc(50% - 5px);
     margin-right:5px;
     margin-top:5px;
     padding:18px;
@@ -4539,14 +4556,14 @@ header .btn{
     position:relative
 }
 .modal-transfer .modal-wrap{
-    width:760px;
+    width:860px;
     background-image:url(../images/all/modal-transfer.679ba184.png);
     background-position:top;
     background-size:100% 100%;
     background-repeat:no-repeat
 }
 .modal-leader .modal-wrap,.modal-stake .modal-wrap{
-    width:760px
+    width:860px
 }
 .modal-transfer.modal-transfer-boost .modal-wrap{
     background-image:url(../images/all/modal-transfer-boost.f50053b4.png)
@@ -8939,6 +8956,9 @@ i[class*=" i-"],i[class^=i-]{
     }
 }
 @media (max-width:991.5px){
+    .select-pool-block{
+        width: calc(100% - 5px);
+    }
     .cab-card-wrap.cab-card-airdrop:after{
         transform:scale(1.5) translate(-7%,-14%)
     }
@@ -9252,7 +9272,6 @@ i[class*=" i-"],i[class^=i-]{
 }
 @media (max-width:1260.5px){
     .stake-nft-card{
-        width:calc(33.33333% - 20px)
     }
     .pool-program.program-item{
         width:calc(50% - 20px);
@@ -9350,6 +9369,30 @@ i[class*=" i-"],i[class^=i-]{
 @media (max-width:991.5px){
     .stake-nft-card{
         width:calc(50% - 20px)
+    }
+}
+@media (max-width: 768.5px) {
+    .modal-section-stake-pool:nth-child(1) {
+        min-width: 100%;
+    }
+    .modal-section-stake-pool:nth-child(2) {
+        min-width: 100%;
+    }
+    .modal-select-pool-wrap {
+        width: 100%;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: stretch;
+        flex-direction: row;
+        overflow: scroll;
+    }
+    .select-pool-block {
+        min-width: calc(25% - 5px);
+    }
+}
+@media (max-width: 420px) {
+    .select-pool-block {
+        min-width: calc(33.333% - 5px);
     }
 }
 @media (max-width:768.5px){
@@ -9688,6 +9731,7 @@ i[class*=" i-"],i[class^=i-]{
         padding:16px
     }
     .modal-wrap .modal-content:not(.modal-choose-wallet){
+        flex-direction: column !important;
         padding-right:16px;
         width:calc(100% + 16px);
         margin-right:-16px;
@@ -9856,9 +9900,6 @@ i[class*=" i-"],i[class^=i-]{
         z-index:20;
         top:68px;
         max-height:calc(100vh - 68px)
-    }
-    .select-pool-block{
-        width:calc(50% - 5px)
     }
     .profile-wrap .networks{
         max-height:-webkit-fit-content;

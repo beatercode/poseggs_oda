@@ -51,7 +51,7 @@
                     }
                     return element;
                 });
-
+                
                 window.localStorage.setItem("savedNews", JSON.stringify(savedNews));
                 this.newsToShow = savedNews;
                 this.selectedArticle = null;
@@ -70,7 +70,6 @@
                         let savedNews = JSON.parse(window.localStorage.getItem("savedNews")) || [];
 
                         if (!savedNews.length) {
-                            // console.log("!savedNews.length");
                             window.localStorage.setItem("savedNews", JSON.stringify(_this.news));
                             _this.newsToShow = _this.news;
 
@@ -142,6 +141,7 @@
                                 (acc, cur) => (_this.news.findIndex((el) => Number(el.id) === Number(cur.id)) >= 0 ? [...acc, cur] : [...acc]),
                                 []
                             );
+
                             window.localStorage.setItem("savedNews", JSON.stringify(newSavedNews));
                             _this.newsToShow = newSavedNews;
                             return;

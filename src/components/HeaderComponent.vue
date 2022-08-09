@@ -429,7 +429,6 @@
                     //replacing the anchor element with just a text inside andcore tag
                     text = text.replace(tag, linkWord);
                 }
-
                 return text.slice(0, symbols) + "...";
             },
         },

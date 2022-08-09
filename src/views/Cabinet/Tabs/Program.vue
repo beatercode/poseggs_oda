@@ -905,14 +905,14 @@
                 return "";
             },
             isClaimed(level) {
-                if (this.userNftsData) {
+                if (this.userNftsData && this.userNftsData.length > 0) {
                     const index = this.userNftsData[this.currentBlockchain].claimedBoosts.findIndex((el) => el.leader_level === level);
                     return index < 0 ? "" : "img-done";
                 }
                 return "";
             },
             avalableBoost(level) {
-                if (this.currentBlockchain && this.userLeaderData) {
+                if (this.currentBlockchain && this.userLeaderData && this.userNftsData && this.userNftsData.length > 0) {
                     const claimeBoostIndex = this.userNftsData[this.currentBlockchain].claimedBoosts.findIndex((el) => el.leader_level === level);
                     if (level > this.userLeaderData.leaderLevel) {
                         return false;
@@ -939,7 +939,8 @@
                 return "";
             },
             hasReceivedBoost(level) {
-                if (this.userNftsData && this.currentAddress && this.currentBlockchain) {
+                if (this.userNftsData && this.currentAddress && this.currentBlockchain && this.userNftsData.length > 0
+                    && this.userNftsData[this.currentBlockchain] && this.userNftsData[this.currentBlockchain].claimedBoosts) {
                     const index = this.userNftsData[this.currentBlockchain].claimedBoosts.findIndex((el) => el.leader_level === level);
                     return index >= 0 ? "finished" : "";
                 }
@@ -972,6 +973,7 @@
 
         mounted() {
             this.lang.init();
+            console.log(this.userNftsData);
         },
         computed: {
             ...mapState([
@@ -985,13 +987,15 @@
                 "currency",
             ]),
             availableForClaim() {
-                if (this.userRefData && this.userLeaderData && this.userNftsData && this.currentAddress && this.currentBlockchain) {
+                if (this.userRefData && this.userLeaderData && this.userNftsData && this.currentAddress && this.currentBlockchain && this.userNftsData.length > 0) {
                     if (this.userRefData.isLeader === false && this.userLeaderData.isDefRef === true) {
                         return false;
                     }
-                    const index = this.userNftsData[this.currentBlockchain].claimedBoosts.findIndex(
-                        (el) => el.leader_level === this.userLeaderData.leaderLevel
-                    );
+                    if (this.userNftsData[this.currentBlockchain] && this.userNftsData[this.currentBlockchain].claimedBoosts) {
+                        const index = this.userNftsData[this.currentBlockchain].claimedBoosts.findIndex(
+                            (el) => el.leader_level === this.userLeaderData.leaderLevel
+                        );
+                    }
 
                     return index < 0 ? true : false;
                 }
