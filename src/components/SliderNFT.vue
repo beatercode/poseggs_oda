@@ -12,7 +12,7 @@
                                     <span class="li-nft-footer-title">{{
                                             "Stats"
                                     }}</span>
-                                    <div class="icon logo-coin icon-card"></div>
+                                    <!--div class="icon logo-coin icon-card"></div-->
                                     <div>
                                         <div class="stake-nft-value-main-stats">
                                             <span>Daily</span> <span>{{ profits[index] }}%</span>
@@ -55,7 +55,7 @@
                                     style="width: 100% !important; display: flex; flex-direction: row;">
                                     <div class="input-title"
                                         style="width: 50%; line-height: unset; margin-top: 10px; font-size: 16px;">{{
-                                                "Price"
+                                                "Value"
                                         }}</div>
                                     <div class="price-card-wrap" style="width: 50%; text-align: right;">
                                         <span type="number" @input="disablePercWatcher = true"> {{ price }} </span>
@@ -114,13 +114,13 @@ export default {
             if (this.preselectedChain === 56) {
                 const price = prices[this.preselectedChain][image - 1];
                 this.$router.push({
-                    name: "BuyNFT",
+                    name: "MintNFT",
                     params: { chosenPrice: price, chosenBlockchain: this.preselectedChain },
                 });
             } else if (this.preselectedChain === 137) {
                 const price = prices[this.preselectedChain][image - 1];
                 this.$router.push({
-                    name: "BuyNFT",
+                    name: "MintNFT",
                     params: { chosenPrice: price, chosenBlockchain: this.preselectedChain },
                 });
             }

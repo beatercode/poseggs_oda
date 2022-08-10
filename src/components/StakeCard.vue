@@ -27,21 +27,7 @@
                         <img :src="getImageLink(fullStakeDetails)" class="your-nft-img" alt="main-img" />
                     </div>
                 </div>
-                <div class="container-btns">
-                    <button v-if="getStakingPlanData(fullStakeDetails)[6] === false" @click="showMore = !showMore"
-                        class="btn" :class="{ 'btn-dark': showMore, 'btn-light': !showMore }">
-                        <div class="icon-wrap"><i class="icon-flash-fill"></i></div>
-                        <!-- <span>{{ !showMore ? "Boost my NFT" : "Hide" }}</span> -->
-                        <span>{{ !showMore ? translatesGet("BOOST_MY_NFT") : translatesGet("HIDE") }}</span>
-                    </button>
-
-                    <button :disabled="showLoader" v-if="unstakeAllowed" @click="Unstake(nft)" class="btn btn-light">
-                        <span>{{ translatesGet("BTN_UNSTAKE") }}</span>
-                    </button>
-                </div>
-            </div>
-            <div class="your-stake-col your-stake-data">
-                <div class="stake-data-header">
+                <div class="stake-data-header" style="margin-bottom: 20px;">
                     <div class="stake-id">
                         #{{ fullStakeDetails.event_data.depositIdx + 1 }}
                     </div>
@@ -75,6 +61,52 @@
                         </template>
                     </div>
                 </div>
+                <div class="container-btns">
+                    <button v-if="getStakingPlanData(fullStakeDetails)[6] === false" @click="showMore = !showMore"
+                        class="btn" :class="{ 'btn-dark': showMore, 'btn-light': !showMore }">
+                        <div class="icon-wrap"><i class="icon-flash-fill"></i></div>
+                        <!-- <span>{{ !showMore ? "Boost my NFT" : "Hide" }}</span> -->
+                        <span>{{ !showMore ? translatesGet("BOOST_MY_NFT") : translatesGet("HIDE") }}</span>
+                    </button>
+                    <button :disabled="showLoader" v-if="unstakeAllowed" @click="Unstake(nft)" class="btn btn-light">
+                        <span>{{ translatesGet("BTN_UNSTAKE") }}</span>
+                    </button>
+                </div>
+            </div>
+            <div class="your-stake-col your-stake-data">
+                <!--div class="stake-data-header">
+                    <div class="stake-id">
+                        #{{ fullStakeDetails.event_data.depositIdx + 1 }}
+                    </div>
+                    <div class="stake-boosts">
+                        <template>
+                            <button :disabled="getStakingPlanData(fullStakeDetails)[6] === true"
+                                v-if="!isBoostApplied(2)" class="st-boost" @click="showMore = true">
+                                <i class="icon-plus"></i>
+                            </button>
+                            <button v-if="isBoostApplied(2)" class="st-boost" @click.stop="showMore = showMore" @click="(nftType = 'Boost'), (showTransferModal = true), (onlyData = true),
+                            (selectedNft = fullStakeDetails.boostEvents.find((el) => el.boostType === 1))">
+                                <img :src="getImageForBoost(fullStakeDetails, 1)" alt="" class="" />
+                            </button>
+                            <button :disabled="getStakingPlanData(fullStakeDetails)[6] === true"
+                                v-if="!isBoostApplied(1)" class="st-boost" @click="showMore = true">
+                                <i class="icon-plus"></i>
+                            </button>
+                            <button v-if="isBoostApplied(1)" class="st-boost" @click.stop="showMore = showMore" @click="(nftType = 'Boost'), (showTransferModal = true), (onlyData = true),
+                            (selectedNft = fullStakeDetails.boostEvents.find((el) => el.boostType === 0))">
+                                <img :src="getImageForBoost(fullStakeDetails, 0)" alt="" class="" />
+                            </button>
+                            <button :disabled="getStakingPlanData(fullStakeDetails)[6] === true"
+                                v-if="!isBoostApplied(3)" class="st-boost" @click="showMore = true">
+                                <i class="icon-plus"></i>
+                            </button>
+                            <button v-if="isBoostApplied(3)" class="st-boost" @click.stop="showMore = showMore" @click="(nftType = 'Boost'), (showTransferModal = true), (onlyData = true),
+                            (selectedNft = fullStakeDetails.boostEvents.find((el) => el.boostType === 2))">
+                                <img :src="getImageForBoost(fullStakeDetails, 2)" alt="" class="" />
+                            </button>
+                        </template>
+                    </div>
+                </div-->
                 <div class="stake-pool-info">
                     <div class="container-pool-info">
                         <div class="stake-pool-col stake-pool">
@@ -152,11 +184,13 @@
                                 {{ "BUSD" /* currency */ }}
                             </div>
                         </div>
-                    </div>
-                    <div v-if="getEarnedReward(fullStakeDetails) > 0" class="container-pool-btn">
-                        <button :disabled="showLoader" @click="Claim(nft)" class="btn btn-claim">
-                            {{ translatesGet("CLAIM") }}
-                        </button>
+                        <div class="stake-pool-col stake-for-claim">
+                            <div v-if="getEarnedReward(fullStakeDetails) > 0" class="container-pool-btn">
+                                <button :disabled="showLoader" @click="Claim(nft)" class="btn btn-claim">
+                                    {{ translatesGet("CLAIM") }}
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="stake-info-blocks-wrap">
@@ -273,7 +307,8 @@
         </div>
         <div class="your-stake-row your-stake-more" :class="{ active: showMore }">
             <div class="your-stake-boosts">
-                <div v-if="isTimeBoostApplied" class="your-stake-boost-wrap your-stake-boost-wrap-inactive">
+                <div v-if="isTimeBoostApplied"
+                    class="your-stake-boost-wrap wrap-col-boost your-stake-boost-wrap-inactive">
                     <div class="stake-boost-header">
                         <div class="stake-boost-header-icon boost-time"></div>
                         <div class="title">{{ translatesGet("BOOSTER_TIME") }}</div>
@@ -283,7 +318,7 @@
                     </div>
                 </div>
                 <template v-else>
-                    <div class="your-stake-boost-wrap" v-if="!timeBoosts || timeBoosts.length === 0">
+                    <div class="your-stake-boost-wrap wrap-col-boost" v-if="!timeBoosts || timeBoosts.length === 0">
                         <div class="stake-boost-header">
                             <div class="stake-boost-header-icon boost-time"></div>
                             <div class="title">{{ translatesGet("BOOSTER_TIME") }}</div>
@@ -295,10 +330,10 @@
                             {{ translatesGet("NO_TIME_BOOST") }}
                         </div>
                     </div>
-                    <div class="your-stake-boost-wrap" v-else>
+                    <div class="your-stake-boost-wrap wrap-col-boost" v-else>
                         <div class="select-boost" :class="{ 'select-boost-active': selectList1 }"
                             @mouseover="selectList1 = true" @mouseout="selectList1 = false">
-                            <div class="selected" v-if="showMore">
+                            <div class="selected" v-if="showMore" :class="{ lowOpacity :selectList1 }">
                                 <div class="select-boost-item">
                                     <div class="select-boost-img">
                                         <img :src="getBoostImg(selectedTimeBoost)" alt="" />
@@ -361,7 +396,8 @@
                         </button>
                     </div>
                 </template>
-                <div v-if="isProfitBoostApplied" class="your-stake-boost-wrap your-stake-boost-wrap-inactive">
+                <div v-if="isProfitBoostApplied"
+                    class="your-stake-boost-wrap wrap-col-boost your-stake-boost-wrap-inactive">
                     <div class="stake-boost-header">
                         <div class="stake-boost-header-icon boost-percent"></div>
                         <div class="title">{{ translatesGet("BOOSTER_PROFIT") }}</div>
@@ -371,7 +407,7 @@
                     </div>
                 </div>
                 <template v-else>
-                    <div class="your-stake-boost-wrap" v-if="!profitBoosts || profitBoosts.length === 0">
+                    <div class="your-stake-boost-wrap wrap-col-boost" v-if="!profitBoosts || profitBoosts.length === 0">
                         <div class="stake-boost-header">
                             <div class="stake-boost-header-icon boost-percent"></div>
                             <div class="title">{{ translatesGet("BOOSTER_PROFIT") }}</div>
@@ -383,10 +419,10 @@
                             {{ translatesGet("NO_PROFIT_BOOST") }}
                         </div>
                     </div>
-                    <div class="your-stake-boost-wrap" v-else>
+                    <div class="your-stake-boost-wrap wrap-col-boost" v-else>
                         <div class="select-boost" :class="{ 'select-boost-active': selectList2 }"
                             @mouseover="selectList2 = true" @mouseout="selectList2 = false">
-                            <div class="selected" v-if="showMore">
+                            <div class="selected" v-if="showMore" :class="{ lowOpacity :selectList2 }">
                                 <div class="select-boost-item">
                                     <div class="select-boost-img">
                                         <img :src="getBoostImg(selectedProfitBoost)" alt="" />
@@ -445,7 +481,8 @@
                         </button>
                     </div>
                 </template>
-                <div v-if="isTeamBoostApplied" class="your-stake-boost-wrap your-stake-boost-wrap-inactive">
+                <div v-if="isTeamBoostApplied"
+                    class="your-stake-boost-wrap wrap-col-boost your-stake-boost-wrap-inactive">
                     <div class="stake-boost-header">
                         <div class="stake-boost-header-icon boost-team"></div>
                         <div class="title">{{ translatesGet("BOOSTER_TEAM") }}</div>
@@ -455,7 +492,7 @@
                     </div>
                 </div>
                 <template v-else>
-                    <div class="your-stake-boost-wrap" v-if="!teamBoosts || teamBoosts.length === 0">
+                    <div class="your-stake-boost-wrap wrap-col-boost" v-if="!teamBoosts || teamBoosts.length === 0">
                         <div class="stake-boost-header">
                             <div class="stake-boost-header-icon boost-team"></div>
                             <div class="title">{{ translatesGet("BOOSTER_TEAM") }}</div>
@@ -470,7 +507,7 @@
                     <div class="your-stake-boost-wrap" v-else>
                         <div class="select-boost" :class="{ 'select-boost-active': selectList3 }"
                             @mouseover="selectList3 = true" @mouseout="selectList3 = false">
-                            <div class="selected" v-if="showMore">
+                            <div class="selected" v-if="showMore" :class="{ lowOpacity :selectList3 }">
                                 <div class="select-boost-item">
                                     <div class="select-boost-img">
                                         <img :src="getBoostImg(selectedTeamBoost)" alt="" />
@@ -633,7 +670,7 @@ export default {
                         message: `Transaction was confirmed! You may now stake your NFT.`,
                     });
                 }
-                
+
                 res = await this.$root.core.addBoost(
                     this.fullStakeDetails.event_data.depositIdx,
                     boostToApply.tokenId
@@ -692,14 +729,14 @@ export default {
             if (timeIncrease > 0) {
                 period = `${conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days > 0
                     ? (Number(conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days)
-                        + (conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days / 100 * (Number(timeIncrease) / 100))).toFixed(2)
+                        + Number(timeIncrease) / 100).toFixed(0)
                     : "Unlimited"
-                    } days`;
+                    } DAYS`;
             } else {
                 period = `${conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days > 0
-                    ? conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days.toFixed(2)
+                    ? conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days
                     : "Unlimited"
-                    } days`;
+                    } DAYS`;
             }
 
             if (profitIncrease > 0) {
@@ -710,7 +747,7 @@ export default {
                 dailyPerc =
                     conf[this.currentBlockchain].STAKING_PLANS[stakePlan].profitPerDay;
             }
-            
+
             const totalProfit = (parseFloat(period) * dailyPerc).toFixed(2);
             let expectedReward;
             const size =
@@ -718,7 +755,7 @@ export default {
                     ? "L" : stakePlan === 5 ? "XL" : stakePlan === 6 ? "XXL" : "XXL";
             let end;
             const start = Math.max(nft.timestamp, nft.lastWithdrawTimestamp);
-            end = nft.timestamp + Number(period.replace("days", "")) * 24 * 3600;
+            end = nft.timestamp + Number(period.replace("DAYS", "")) * 24 * 3600;
 
             expectedReward =
                 (
@@ -792,12 +829,12 @@ export default {
                         + (conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days * Number(timeIncrease)) / 100
                     ).toFixed(2)
                     : "Unlimited"
-                    } days`;
+                    } DAYS`;
             } else {
                 period = `${conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days > 0
                     ? conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days.toFixed(2)
                     : "Unlimited"
-                    } days`;
+                    } DAYS`;
             }
 
             if (profitIncrease > 0) {
@@ -815,7 +852,7 @@ export default {
             if (stakePlan > 0) {
                 end = Math.min(
                     new Date().getTime() / 1000,
-                    timestamp + Number(period.replace("days", "")) * 24 * 3600
+                    timestamp + Number(period.replace("DAYS", "")) * 24 * 3600
                 );
             } else {
                 end = Math.floor(new Date().getTime() / 1000);
@@ -826,7 +863,7 @@ export default {
             } else {
                 hoursPassedSinceStart = (end - timestamp) / 3600;
             }
-            
+
             let res =
                 (Number(amount) * ((dailyPerc / 24) * hoursPassedSinceStart)) / 100;
 
@@ -1002,6 +1039,7 @@ export default {
         },
     },
     mounted() {
+        console.log(this.nft);
         this.lang.init();
     },
     beforeDestroy() {
@@ -1022,7 +1060,7 @@ export default {
         showMore: function (newVal) {
             if (newVal) {
                 const [days, daily] = this.getStakingPlanData(this.fullStakeDetails);
-                let increasedDays = Number(days.replace("days", ""));
+                let increasedDays = Number(days.replace("DAYS", ""));
                 let increasedPercent = Number(daily);
                 if (!this.isTeamBoostApplied) {
                     this.selectedTeamBoost = this.teamBoosts[0] || null;

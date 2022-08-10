@@ -12,13 +12,13 @@
                     </router-link>
                 </li>
                 <li>
-                    <router-link active-class="active" :to="{ name: 'BuyNFT' }">
+                    <router-link active-class="active" :to="{ name: 'MintNFT' }">
                         <span class="icon-wrap"> <i class="icon icon-monitor"> </i></span>
                         <span class="link-name">{{ "Mint NFT" }}</span>
                     </router-link>
                 </li>
                 <li>
-                    <router-link active-class="active" :to="{ name: 'BuyLootbox' }">
+                    <router-link active-class="active" :to="{ name: 'MintLootbox' }">
                         <span class="icon-wrap"> <i class="icon icon-monitor"> </i></span>
                         <span class="link-name">{{ "Mint Lootbox" }}</span>
                         <span class="icon-wrap icon-new"> <i class="icon icon-newtag"> </i></span>

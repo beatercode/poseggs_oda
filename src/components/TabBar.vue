@@ -11,7 +11,7 @@
                 <li class="tab-item" @click="showMoreShop = !showMoreShop, showMore = false">
                     <button class="tab-more">
                         <span class="icon-wrap"> <i class="icon icon-more"> </i></span>
-                        <span class="link-name">{{ "Shop" }}</span>
+                        <span class="link-name">{{ "Mint" }}</span>
                     </button>
                 </li>
                 <li class="tab-item" @click="showMore = false, showMoreShop = false">
@@ -43,13 +43,13 @@
         <div class="close-tabbar-more" v-if="showMoreShop" @click="showMoreShop = false"></div>
         <nav class="tabbar-more tabbar-more-shop" v-if="showMoreShop">
             <li class="tab-item" @click="showMoreShop = !showMoreShop">
-                <router-link active-class="active" :to="{ name: 'BuyNFT' }">
+                <router-link active-class="active" :to="{ name: 'MintNFT' }">
                     <span class="icon-wrap"> <i class="icon icon-monitor"> </i></span>
                     <span class="link-name">{{ "NFT" }}</span>
                 </router-link>
             </li>
             <li class="tab-item" @click="showMoreShop = !showMoreShop">
-                <router-link active-class="active" :to="{ name: 'BuyLootbox' }">
+                <router-link active-class="active" :to="{ name: 'MintLootbox' }">
                     <span class="icon-wrap"> <i class="icon icon-monitor"> </i></span>
                     <span class="link-name">{{ "Lootbox" }}</span>
                     <span class="icon-wrap icon-new"> <i class="icon icon-newtag"> </i></span>

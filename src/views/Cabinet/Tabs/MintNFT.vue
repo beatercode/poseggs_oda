@@ -45,10 +45,11 @@
                                                     </div>
                                                     <div class="li-nft-footer">
                                                         <div style="width: 100%">
-                                                            <span class="li-nft-footer-title">{{
-                                                                    "Stats"
-                                                            }}</span>
-                                                            <div class="icon logo-coin icon-card"></div>
+                                                            <div class="stake-nft-value-tier">
+                                                                <span class="li-nft-footer-title" :class="getClassOnTier(+index + 1)">{{ "TIER " + (index + 1) }}</span>
+                                                                <span class="li-nft-footer-title">{{ getTierName(index) }}</span>
+                                                            </div>
+                                                            <!--div class="icon logo-coin icon-card"></div-->
                                                             <div v-if="showStats">
                                                                 <div class="stake-nft-value-main-stats">
                                                                     <span>Daily</span> <span>{{ profits[index]
@@ -98,10 +99,11 @@
                                                             </div>
                                                         </div>
                                                         <div class="mint-nft-block"
-                                                            style="width: 100% !important; display: flex; flex-direction: row; margin-top: 3px;">
+                                                            style="width: 100% !important; display: flex; flex-direction: row; margin-top: 3px;
+                                                            padding-left: 4px; padding-right: 4px; font-size: 12px;">
                                                             <div class="input-title"
-                                                                style="width: auto; line-height: unset; margin-top: 10px; font-size: 16px;">
-                                                                {{ "Price" }}</div>
+                                                                style="width: auto; line-height: unset; margin-top: 10px;">
+                                                                {{ "Value" }}</div>
                                                             <div class="price-card-wrap"
                                                                 style="width: 100%; text-align: right; position: relative; right: 0;">
                                                                 <span type="number" @input="disablePercWatcher = true">
@@ -113,7 +115,7 @@
                                                     </div>
                                                     <div class="mint-nft-block" style="margin-top: 0px;">
                                                         <button v-if="isApproved(index)" :disabled="showLoader"
-                                                            @click="BuyNFT(index)" class="btn btn-mint">
+                                                            @click="MintNFT(index)" class="btn btn-mint">
                                                             {{ translatesGet("MINT") }}
                                                         </button>
                                                         <button v-if="!isApproved(index)" :disabled="showLoader"
@@ -162,7 +164,11 @@
                                                                 <span class="li-nft-footer-title">{{
                                                                         "Stats"
                                                                 }}</span>
-                                                                <div class="icon logo-coin icon-card"></div>
+                                                                <!--div class="icon logo-coin icon-card"></div-->
+                                                                <div class="stake-nft-value-tier">
+                                                                    <span class="li-nft-footer-title" :class="getClassOnTier(+index + 1)">{{ "TIER " + (index + 1) }}</span>
+                                                                    <span class="li-nft-footer-title">{{ getTierName(index) }}</span>
+                                                                </div>
                                                                 <div v-if="showStats">
                                                                     <div class="stake-nft-value-main-stats">
                                                                         <span>Daily</span> <span>{{ profits[index]
@@ -237,10 +243,11 @@
                                                                 </div>
                                                             </div>
                                                             <div class="mint-nft-block"
-                                                                style="width: 100% !important; display: flex; flex-direction: row; margin-top: 3px;">
+                                                                style="width: 100% !important; display: flex; flex-direction: row; margin-top: 3px;
+                                                                padding-left: 4px; padding-right: 4px; font-size: 12px;">
                                                                 <div class="input-title"
-                                                                    style="width: auto; line-height: unset; margin-top: 10px; font-size: 16px;">
-                                                                    {{ "Price" }}</div>
+                                                                    style="width: auto; line-height: unset; margin-top: 10px;">
+                                                                    {{ "Value" }}</div>
                                                                 <div class="price-card-wrap"
                                                                     style="width: 100%; text-align: right; position: relative; right: 0;">
                                                                     <span type="number"
@@ -252,7 +259,7 @@
                                                         </div>
                                                         <div class="mint-nft-block" style="margin-top: 0px;">
                                                             <button v-if="isApproved(index)" :disabled="showLoader"
-                                                                @click="BuyNFT(index)" class="btn btn-mint">
+                                                                @click="MintNFT(index)" class="btn btn-mint">
                                                                 {{ translatesGet("MINT") }}
                                                             </button>
                                                             <button v-if="!isApproved(index)" :disabled="showLoader"
@@ -299,7 +306,6 @@
                                                     <div class="li-our-nft-wrap" @click="showStats = showStats">
                                                         <div class="card-egg-image">
                                                             <img class="card-egg-image-img"
-                                                                :class="{ hopping: 8 == selectedIndex }"
                                                                 :src="getNftImage(-1)" />
                                                         </div>
                                                         <div class="li-nft-footer">
@@ -307,7 +313,7 @@
                                                                 <span class="li-nft-footer-title">{{
                                                                         "Stats"
                                                                 }}</span>
-                                                                <div class="icon logo-coin icon-card"></div>
+                                                                <!--div class="icon logo-coin icon-card"></div-->
                                                                 <div v-if="showStats">
                                                                     <div class="stake-nft-value-main-stats">
                                                                         <span>Daily</span> <span>{{ freeEggData.profit
@@ -367,7 +373,90 @@
                                                         </div>
                                                         <div class="mint-nft-block" style="margin-top: 0px;">
                                                             <button v-if="freeEggSypply > 0" :disabled="showLoader"
-                                                                @click="BuyNFT(-1)" class="btn btn-mint">
+                                                                @click="MintNFT(-1)" class="btn btn-mint">
+                                                                {{ translatesGet("CLAIM") }}
+                                                            </button>
+                                                            <button v-if="freeEggSypply == 0" :disabled="showLoader" disabled="true" class="btn btn-mint not-enabled">
+                                                                {{ translatesGet("OUT_OF_STOCK") }}
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li
+                                                    @click="setSelectedEgg(bonusEggData.price, 8)"
+                                                    :style="[8 == selectedIndex ? { 'opacity': '1' } : { 'opacity': '1' }]"
+                                                    class="li-our-nfts nft-list-buy nft-list-buy-page li-nft-red">
+                                                    <div class="li-our-nft-wrap" @click="showStats = showStats">
+                                                        <div class="card-egg-image">
+                                                            <img class="card-egg-image-img"
+                                                                :src="getNftImage(8)" />
+                                                        </div>
+                                                        <div class="li-nft-footer">
+                                                            <div style="width: 100%">
+                                                                <span class="li-nft-footer-title">{{
+                                                                        
+                                                                }}</span>
+                                                                <!--div class="icon logo-coin icon-card"></div-->
+                                                                <div v-if="showStats">
+                                                                    <div class="stake-nft-value-main-stats">
+                                                                        <span>Daily</span> <span>{{ bonusEggData.profit
+                                                                        }}%</span>
+                                                                    </div>
+                                                                    <div class="stake-nft-value-main-stats">
+                                                                        <span>Days</span> <span>{{ bonusEggData.period
+                                                                        }}</span>
+                                                                    </div>
+                                                                    <div class="stake-nft-value-main-stats">
+                                                                        <span>Total</span> <span>{{
+                                                                                parseFloat(bonusEggData.profit * bonusEggData.period).toFixed(1)
+                                                                        }}%</span>
+                                                                    </div>
+                                                                    <div class="cab-row cab-row-stats">
+                                                                        <span
+                                                                            class="li-nft-footer-amount card-footer-stats">Strength</span>
+                                                                        <div class="li-nft-footer-amount-2 card-footer-stats"
+                                                                            style="text-align: left !important; display: flex; flex-direction: row; justify-content: flex-end;">
+                                                                            <!--div class="plus-minus-mint-button">-</div-->
+                                                                            <span>{{ bonusEggData.stats }}</span>
+                                                                            <!--div class="plus-minus-mint-button">+</div-->
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="cab-row cab-row-stats">
+                                                                        <span
+                                                                            class="li-nft-footer-amount card-footer-stats">Healt</span>
+                                                                        <div class="li-nft-footer-amount-2 card-footer-stats"
+                                                                            style="text-align: left !important; display: flex; flex-direction: row; justify-content: flex-end;">
+                                                                            <!--div class="plus-minus-mint-button">-</div-->
+                                                                            <span>{{ bonusEggData.stats }}</span>
+                                                                            <!--div class="plus-minus-mint-button">+</div-->
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="cab-row cab-row-stats">
+                                                                        <span
+                                                                            class="li-nft-footer-amount card-footer-stats">Agility</span>
+                                                                        <div class="li-nft-footer-amount-2 card-footer-stats"
+                                                                            style="text-align: left !important; display: flex; flex-direction: row; justify-content: flex-end;">
+                                                                            <!--div class="plus-minus-mint-button">-</div-->
+                                                                            <span>{{ bonusEggData.stats }}</span>
+                                                                            <!--div class="plus-minus-mint-button">+</div-->
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="cab-row cab-row-stats">
+                                                                        <span
+                                                                            class="li-nft-footer-amount card-footer-stats">Magic</span>
+                                                                        <div class="li-nft-footer-amount-2 card-footer-stats"
+                                                                            style="text-align: left !important; display: flex; flex-direction: row; justify-content: flex-end;">
+                                                                            <!--div class="plus-minus-mint-button">-</div-->
+                                                                            <span>{{ bonusEggData.stats }}</span>
+                                                                            <!--div class="plus-minus-mint-button">+</div-->
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mint-nft-block" style="margin-top: 0px;">
+                                                            <button v-if="freeEggSypply > 0" :disabled="showLoader"
+                                                                @click="MintNFT(-1)" class="btn btn-mint">
                                                                 {{ translatesGet("CLAIM") }}
                                                             </button>
                                                             <button v-if="freeEggSypply == 0" :disabled="showLoader" disabled="true" class="btn btn-mint not-enabled">
@@ -398,7 +487,7 @@ import conf from "../../../../config.json";
 import { ethers } from "ethers";
 
 export default {
-    name: "BuyNFT",
+    name: "MintNFT",
 
     data() {
         return {
@@ -411,6 +500,7 @@ export default {
             profits: conf.EGG_DATA.profits,
             periods: conf.EGG_DATA.periods,
             freeEggData: conf.FREE_EGG_DATA,
+            bonusEggData: conf.BONUS_EGG_DATA,
             amount1: false,
             amount2: false,
             amount3: false,
@@ -522,6 +612,12 @@ export default {
             var images = require.context("/src/assets/images/all/", false, /\.png$/);
             return images("./nft-" + (index + 1) + ".png");
         },
+        getClassOnTier(tier) {
+            return "label-tier-" + tier;
+        },
+        getTierName(tier) {
+            return String(conf["EGG_DATA"].name[tier]).toUpperCase();
+        },
         setSelectedEgg(amount, _selectedIndex) {
             if (this.selectedIndex == _selectedIndex) return;
             this.selectedIndex = _selectedIndex;
@@ -565,7 +661,7 @@ export default {
                 return;
             }
         },
-        async BuyNFT(index) {
+        async MintNFT(index) {
             if (
                 !this.currentAddress ||
                 this.currentAddress === "0x0000000000000000000000000000000000000000"

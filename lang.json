@@ -510,7 +510,7 @@
         [
             "PROFIT_PER_PERIOD",
             "",
-            "Profit per Period"
+            "Total Profit"
         ],
         [
             "PROFIT_PER_DAY",
@@ -1105,7 +1105,7 @@
         [
             "SLIDER_VALUE",
             "",
-            "Price"
+            "Value"
         ],
         [
             "AMOUNT",
@@ -1130,12 +1130,12 @@
         [
             "MINT_FREE_NFT",
             "",
-            "Mint Free Egg!"
+            "Special Egg!"
         ],
         [
             "FREE_EGG_BUY_DESCR",
             "",
-            "This special Egg can be minted once per wallet. Team will release around 5 eggs around every 24 hours."
+            "Those special Egg can be minted once per wallet. Team will release around 5 Free eggs around every 24 hours. Bonus eggs can be aquired only thourght lootbox"
         ],
         [
             "MINT_LOOTBOX",
@@ -1238,7 +1238,7 @@
         [
             "TOTAL_ST_PERCENT",
             "",
-            "Profit per Period"
+            "Total Profit"
         ],
         [
             "NO_TEAM_BOOST",

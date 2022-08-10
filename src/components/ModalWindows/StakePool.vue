@@ -25,7 +25,7 @@
                         </button>
                     </div>
                 </div>
-                <div class="modal-section modal-section-stake-pool">
+                <div class="modal-section modal-section-stake-pool overflow-vertical">
                     <div class="h4">{{ translatesGet("NFT_FOR_ST") }}:</div>
                     <div v-if="nfts && nfts.length > 0">
                         <div class="stake-nft-container">
@@ -71,7 +71,7 @@
                                 {{ translatesGet("YOUR_NFTS_0_DESCR_MATIC") }}
                             </div>
 
-                            <router-link :to="{ name: 'BuyNFT' }" class="btn btn-buy-nft">{{ translatesGet("BUY_NFT") }}</router-link>
+                            <router-link :to="{ name: 'MintNFT' }" class="btn btn-buy-nft">{{ translatesGet("BUY_NFT") }}</router-link>
                         </div>
                     </div>
                 </div>

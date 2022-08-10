@@ -47,48 +47,55 @@
                                                 :style="[index == selectedIndex ? { 'opacity': '1' } : { 'opacity': '1' }]"
                                                 class="li-our-nfts nft-list-buy li-nft-red">
                                                 <div class="li-our-nft-wrap">
-                                                    <img class="card-egg-image"
+                                                    <img class="card-egg-image-img"
                                                         :src="getNftImage(index)" />
+                                                    <div class="li-nft-footer" style="width: 100%; display: flex; flex-direction: row; justify-content: space-between;">
+                                                        <span class="lootbox-main-stat-col">Egg</span>
+                                                        <span class="lootbox-main-stat-col">$</span>
+                                                        <span class="lootbox-main-stat-col">Chance</span>
+                                                    </div>
                                                     <div class="li-nft-footer">
                                                         <div style="width: 100%">
-                                                            <span class="li-nft-footer-title">{{
-                                                                    "Stats"
-                                                            }}</span>
-                                                            <div class="icon logo-coin icon-card"></div>
+                                                            <!--div class="icon logo-coin icon-card"></div-->
                                                             <div>
-                                                                <div class="stake-nft-value-main-stats stats-box-green" 
-                                                                    :class="{ 'stats-box-stealth' :isNumberEq(index, 3)}">
-                                                                    <span>{{ index == 2 ? "BONUS" : !isNumberEq(index, 3) ? ("TIER ".concat(index * 2 + 5)) : "&nbsp;" }}</span>
-                                                                    <span>{{ !isNumberEq(index, 3) ? "0.03%" : "&nbsp;" }}</span>
+                                                                <div class="stake-nft-value-main-stats-loot">
+                                                                    <span class="lootbox-main-stat-col" :class="getClassOnTier(+index*2 + 5)">{{ index == 2 ? "BONUS" : !isNumberEq(index, 3) ? ("TIER ".concat(index * 2 + 5)) : "Soon" }}</span>
+                                                                    <span class="lootbox-main-stat-col">{{ getEggValue(+index*2 + 5) }}</span>
+                                                                    <span class="lootbox-main-stat-col">{{ !isNumberEq(index, 3) ? "0.03%" : "-" }}</span>
                                                                 </div>
-                                                                <div class="stake-nft-value-main-stats stats-box-green" 
-                                                                    :class="{ 'stats-box-stealth' :isNumberEq(index, 3)}">
-                                                                    <span>{{ !isNumberEq(index, 3) ? ("TIER ".concat(index * 2 + 4)) : "&nbsp;" }}</span>
-                                                                    <span>{{ !isNumberEq(index, 3) ? "0.3%" : "&nbsp;" }}</span>
+                                                                <div class="stake-nft-value-main-stats-loot">
+                                                                    <span class="lootbox-main-stat-col" :class="getClassOnTier(+index*2 + 4)">{{ !isNumberEq(index, 3) ? ("TIER ".concat(index * 2 + 4)) : "Soon" }}</span>
+                                                                    <span class="lootbox-main-stat-col">{{ getEggValue(+index*2 + 4) }}</span>
+                                                                    <span class="lootbox-main-stat-col">{{ !isNumberEq(index, 3) ? "0.3%" : "-" }}</span>
                                                                 </div>
-                                                                <div class="stake-nft-value-main-stats stats-box-green">
-                                                                    <span>{{ index == 3 ? "BONUS" : ("TIER ".concat(index * 2 + 3)) }}</span>
-                                                                    <span>{{ "3%" }}</span>
+                                                                <div class="stake-nft-value-main-stats-loot">
+                                                                    <span class="lootbox-main-stat-col" :class="getClassOnTier(+index*2 + 3)">{{ index == 3 ? "BONUS" : ("TIER ".concat(index * 2 + 3)) }}</span>
+                                                                    <span class="lootbox-main-stat-col">{{ getEggValue(+index*2 + 3) }}</span>
+                                                                    <span class="lootbox-main-stat-col">{{ "3%" }}</span>
                                                                 </div>
-                                                                <div class="stake-nft-value-main-stats stats-box-green">
-                                                                    <span>{{ "TIER ".concat(index * 2 + 2) }}</span>
-                                                                    <span>{{ "20%" }}</span>
+                                                                <div class="stake-nft-value-main-stats-loot">
+                                                                    <span class="lootbox-main-stat-col" :class="getClassOnTier(+index*2 + 2)">{{ "TIER ".concat(index * 2 + 2) }}</span>
+                                                                    <span class="lootbox-main-stat-col">{{ getEggValue(+index*2 + 2) }}</span>
+                                                                    <span class="lootbox-main-stat-col">{{ "20%" }}</span>
                                                                 </div>
-                                                                <div class="stake-nft-value-main-stats stats-box-white">
-                                                                    <span>{{ "TIER ".concat(index * 2 + 1) }}</span>
-                                                                    <span>{{ "56.697%" }}</span>
+                                                                <div class="stake-nft-value-main-stats-loot">
+                                                                    <span class="lootbox-main-stat-col" :class="getClassOnTier(+index*2 + 1)">{{ "TIER ".concat(index * 2 + 1) }}</span>
+                                                                    <span class="lootbox-main-stat-col">{{ getEggValue(+index*2 + 1) }}</span>
+                                                                    <span class="lootbox-main-stat-col">{{ "56.7%" }}</span>
                                                                 </div>
-                                                                <div class="stake-nft-value-main-stats stats-box-red">
-                                                                    <span>{{ "TIER ".concat(index * 2 + 0) }}</span>
-                                                                    <span>{{ "20%" }}</span>
+                                                                <div class="stake-nft-value-main-stats-loot">
+                                                                    <span class="lootbox-main-stat-col" :class="getClassOnTier(index)">{{ "TIER ".concat(index * 2 + 0) }}</span>
+                                                                    <span class="lootbox-main-stat-col">{{ getEggValue(+index*2 + 0) }}</span>
+                                                                    <span class="lootbox-main-stat-col">{{ "20%" }}</span>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="mint-nft-block"
-                                                            style="width: 100% !important; display: flex; flex-direction: row; margin-top: 3px;">
+                                                            style="width: 100% !important; display: flex; flex-direction: row; 
+                                                            margin-top: 3px; padding-right: 4px; padding-left: 4px;">
                                                             <div class="input-title"
                                                                 style="width: auto; line-height: unset; margin-top: 10px; font-size: 16px;">
-                                                                {{ "Price" }}</div>
+                                                                {{ "Value" }}</div>
                                                             <div class="price-card-wrap"
                                                                 style="width: 100%; text-align: right; position: relative; right: 0;">
                                                                 <span type="number" @input="disablePercWatcher = true">
@@ -144,48 +151,55 @@
                                                 :style="[index == selectedIndex ? { 'opacity': '1' } : { 'opacity': '1' }]"
                                                 class="li-our-nfts nft-list-buy li-nft-red">
                                                 <div class="li-our-nft-wrap">
-                                                    <img class="card-egg-image"
+                                                    <img class="card-egg-image-img"
                                                         :src="getNftImage(index)" />
+                                                    <div class="li-nft-footer" style="width: 100%; display: flex; flex-direction: row; justify-content: space-between;">
+                                                        <span class="lootbox-main-stat-col-mob">Egg</span>
+                                                        <!--span class="lootbox-main-stat-col">$</span-->
+                                                        <span class="lootbox-main-stat-col-mob">Chance</span>
+                                                    </div>
                                                     <div class="li-nft-footer">
                                                         <div style="width: 100%">
-                                                            <span class="li-nft-footer-title">{{
-                                                                    "Stats"
-                                                            }}</span>
-                                                            <div class="icon logo-coin icon-card"></div>
+                                                            <!--div class="icon logo-coin icon-card"></div-->
                                                             <div>
-                                                                <div class="stake-nft-value-main-stats stats-box-green" 
-                                                                    :class="{ 'stats-box-stealth' :isNumberEq(index, 3)}">
-                                                                    <span>{{ index == 2 ? "BONUS" : !isNumberEq(index, 3) ? ("TIER ".concat(index * 2 + 5)) : "&nbsp;" }}</span>
-                                                                    <span>{{ !isNumberEq(index, 3) ? "0.03%" : "&nbsp;" }}</span>
+                                                                <div class="stake-nft-value-main-stats-loot">
+                                                                    <span class="lootbox-main-stat-col-mob" :class="getClassOnTier(+index*2 + 5)">{{ index == 2 ? "BONUS" : !isNumberEq(index, 3) ? ("TIER ".concat(index * 2 + 5)) : "Soon" }}</span>
+                                                                    <!--span class="lootbox-main-stat-col">{{ getEggValue(+index*2 + 5) }}</span-->
+                                                                    <span class="lootbox-main-stat-col-mob">{{ !isNumberEq(index, 3) ? "0.03%" : "-" }}</span>
                                                                 </div>
-                                                                <div class="stake-nft-value-main-stats stats-box-green" 
-                                                                    :class="{ 'stats-box-stealth' :isNumberEq(index, 3)}">
-                                                                    <span>{{ !isNumberEq(index, 3) ? ("TIER ".concat(index * 2 + 4)) : "&nbsp;" }}</span>
-                                                                    <span>{{ !isNumberEq(index, 3) ? "0.3%" : "&nbsp;" }}</span>
+                                                                <div class="stake-nft-value-main-stats-loot">
+                                                                    <span class="lootbox-main-stat-col-mob" :class="getClassOnTier(+index*2 + 4)">{{ !isNumberEq(index, 3) ? ("TIER ".concat(index * 2 + 4)) : "Soon" }}</span>
+                                                                    <!--span class="lootbox-main-stat-col">{{ getEggValue(+index*2 + 4) }}</span-->
+                                                                    <span class="lootbox-main-stat-col-mob">{{ !isNumberEq(index, 3) ? "0.3%" : "-" }}</span>
                                                                 </div>
-                                                                <div class="stake-nft-value-main-stats stats-box-green">
-                                                                    <span>{{ index == 3 ? "BONUS" : ("TIER ".concat(index * 2 + 3)) }}</span>
-                                                                    <span>{{ "3%" }}</span>
+                                                                <div class="stake-nft-value-main-stats-loot">
+                                                                    <span class="lootbox-main-stat-col-mob" :class="getClassOnTier(+index*2 + 3)">{{ index == 3 ? "BONUS" : ("TIER ".concat(index * 2 + 3)) }}</span>
+                                                                    <!--span class="lootbox-main-stat-col">{{ getEggValue(+index*2 + 3) }}</span-->
+                                                                    <span class="lootbox-main-stat-col-mob">{{ "3%" }}</span>
                                                                 </div>
-                                                                <div class="stake-nft-value-main-stats stats-box-green">
-                                                                    <span>{{ "TIER ".concat(index * 2 + 2) }}</span>
-                                                                    <span>{{ "20%" }}</span>
+                                                                <div class="stake-nft-value-main-stats-loot">
+                                                                    <span class="lootbox-main-stat-col-mob" :class="getClassOnTier(+index*2 + 2)">{{ "TIER ".concat(index * 2 + 2) }}</span>
+                                                                    <!--span class="lootbox-main-stat-col">{{ getEggValue(+index*2 + 2) }}</span-->
+                                                                    <span class="lootbox-main-stat-col-mob">{{ "20%" }}</span>
                                                                 </div>
-                                                                <div class="stake-nft-value-main-stats stats-box-white">
-                                                                    <span>{{ "TIER ".concat(index * 2 + 1) }}</span>
-                                                                    <span>{{ "56.697%" }}</span>
+                                                                <div class="stake-nft-value-main-stats-loot">
+                                                                    <span class="lootbox-main-stat-col-mob" :class="getClassOnTier(+index*2 + 1)">{{ "TIER ".concat(index * 2 + 1) }}</span>
+                                                                    <!--span class="lootbox-main-stat-col">{{ getEggValue(+index*2 + 1) }}</span-->
+                                                                    <span class="lootbox-main-stat-col-mob">{{ "56.7%" }}</span>
                                                                 </div>
-                                                                <div class="stake-nft-value-main-stats stats-box-red">
-                                                                    <span>{{ "TIER ".concat(index * 2 + 0) }}</span>
-                                                                    <span>{{ "20%" }}</span>
+                                                                <div class="stake-nft-value-main-stats-loot">
+                                                                    <span class="lootbox-main-stat-col-mob" :class="getClassOnTier(index)">{{ "TIER ".concat(index * 2 + 0) }}</span>
+                                                                    <!--span class="lootbox-main-stat-col">{{ getEggValue(+index*2 + 0) }}</span-->
+                                                                    <span class="lootbox-main-stat-col-mob">{{ "20%" }}</span>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="mint-nft-block"
-                                                            style="width: 100% !important; display: flex; flex-direction: row; margin-top: 3px;">
+                                                            style="width: 100% !important; display: flex; flex-direction: row; 
+                                                            margin-top: 3px; padding-right: 4px; padding-left: 4px; font-size: 14px;">
                                                             <div class="input-title"
-                                                                style="width: auto; line-height: unset; margin-top: 10px; font-size: 16px;">
-                                                                {{ "Price" }}</div>
+                                                                style="width: auto; line-height: unset; margin-top: 10px;">
+                                                                {{ "Value" }}</div>
                                                             <div class="price-card-wrap"
                                                                 style="width: 100%; text-align: right; position: relative; right: 0;">
                                                                 <span type="number" @input="disablePercWatcher = true">
@@ -229,7 +243,7 @@
     import conf from "../../../../config.json";
 
     export default {
-        name: "BuyLootbox",
+        name: "MintLootbox",
 
         data() {
             return {
@@ -302,6 +316,9 @@
         },
 
         methods: {
+            getClassOnTier(tier) {
+                return tier > 9 ? "label-tier-stealth" : "label-tier-" + tier;
+            },
             async checkBusdAllowance() {
                 let nftContract_Address = this.$root.core[`poseggNft_${this.currentBlockchain}`].address;
                 let busdContract = this.$root.core[`BUSD_${this.currentBlockchain}`]
@@ -330,6 +347,9 @@
             },
             isNumberEq(el, check) {
                 return el == check
+            },
+            getEggValue(index) {
+                return (+index - 1) == 8 ? 9997 : (+index - 1) == -1 ? 7 : conf["EGG_DATA"].prices[+index - 1];
             },
             setBnbAmountFixed(amount) {
                 this.bnbAmount = parseFloat(Number(this.$root.core.withoutRound(amount, 4)));

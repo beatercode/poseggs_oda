@@ -3714,8 +3714,8 @@ input.transfer-input+.btn {
 .stake-nft-card.unstake-card .card-container-data .nft-label,
 .your-stake-nft-wrap .nft-label {
     position: absolute;
-    top: 7%;
-    right: 10%;
+    top: 5%;
+    right: 5%;
     padding: 2%;
     z-index: 1
 }

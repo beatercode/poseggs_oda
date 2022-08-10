@@ -75,7 +75,7 @@
                             </button-->
                         </div>
                         <div>
-                            <button class="btn btn-connect" @click="$router.push('/dashboard/buynft')">{{
+                            <button class="btn btn-connect" @click="$router.push('/dashboard/mintnft')">{{
                                     translatesGet("LAUNCH_APP")
                             }}</button>
                         </div>
@@ -109,7 +109,7 @@
             </div>
             <div class="container">
                 <div class="mobile-section mobile-section-btn">
-                    <button class="btn btn-connect" @click="$router.push('/dashboard/buynft')">{{
+                    <button class="btn btn-connect" @click="$router.push('/dashboard/mintnft')">{{
                             translatesGet("LAUNCH_APP")
                     }}</button>
                 </div>
@@ -129,7 +129,7 @@
                                 {{ translatesGet("TITLE_DESC") }}
                             </div>
                             <div class="btn-wrap">
-                                <!-- <router-link class="btn btn-buy-nft" to="/dashboard/buynft">{{ translatesGet("BUY_NFT") }} </router-link> -->
+                                <!-- <router-link class="btn btn-buy-nft" to="/dashboard/mintnft">{{ translatesGet("BUY_NFT") }} </router-link> -->
                                 <a href="#section-our-nft" class="btn btn-buy-nft">{{ translatesGet("BUY_NFT") }} </a>
                             </div>
                             <div class="half-img section-mobile">
@@ -586,7 +586,7 @@
                                     <span class="h7">{{ translatesGet("HOW_TO_EARN_LIST_DESC_5_MATIC") }}</span>
                                 </li>
                             </ul>
-                            <router-link class="btn btn-start-earn" to="/dashboard/buynft">{{
+                            <router-link class="btn btn-start-earn" to="/dashboard/mintnft">{{
                                     translatesGet("START_EARN")
                             }}</router-link>
                         </div>
@@ -1440,7 +1440,7 @@
                                 <a href="#section-our-nft">{{ translatesGet("COLLECTION") }}</a>
                             </li>
                             <li>
-                                <router-link to="/dashboard/buynft">{{ translatesGet("BUY_NFT") }}</router-link>
+                                <router-link to="/dashboard/mintnft">{{ translatesGet("BUY_NFT") }}</router-link>
                             </li>
                         </ul>
                     </nav>

@@ -30,7 +30,7 @@ const routes = [{
             next();
             // ...
         },
-        redirect: "/dashboard/buynft",
+        redirect: "/dashboard/mintnft",
         children: [{
             path: "/",
             name: "Index",
@@ -45,10 +45,10 @@ const routes = [{
                 // ...
             },
             children: [{
-                    path: "buynft",
-                    name: "BuyNFT",
+                    path: "mintnft",
+                    name: "MintNFT",
                     component: () =>
-                        import ("../views/Cabinet/Tabs/BuyNFT.vue"),
+                        import ("../views/Cabinet/Tabs/MintNFT.vue"),
                     beforeEnter(to, from, next) {
                         window.scrollTo({
                             top: 0,
@@ -59,10 +59,10 @@ const routes = [{
                     },
                 },
                 {
-                    path: "buylootbox",
-                    name: "BuyLootbox",
+                    path: "mintlootbox",
+                    name: "MintLootbox",
                     component: () =>
-                        import ("../views/Cabinet/Tabs/BuyLootbox.vue"),
+                        import ("../views/Cabinet/Tabs/MintLootbox.vue"),
                     beforeEnter(to, from, next) {
                         window.scrollTo({
                             top: 0,

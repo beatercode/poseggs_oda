@@ -143,12 +143,12 @@ export default {
                         + (conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days * Number(timeIncrease)) / 100
                     ).toFixed(2)
                     : "Unlimited"
-                    } days`;
+                    } DAYS`;
             } else {
                 period = `${conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days > 0
                     ? conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days.toFixed(2)
                     : "Unlimited"
-                    } days`;
+                    } DAYS`;
             }
 
             if (profitIncrease > 0) {
@@ -165,7 +165,7 @@ export default {
             if (stakePlan > 0) {
                 end = Math.min(
                     new Date().getTime() / 1000,
-                    timestamp + Number(period.replace("days", "")) * 24 * 3600
+                    timestamp + Number(period.replace("DAYS", "")) * 24 * 3600
                 );
             } else {
                 end = Math.floor(new Date().getTime() / 1000);
@@ -207,15 +207,14 @@ export default {
 
             if (timeIncrease > 0) {
                 period = `${conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days > 0
-                    ? (Number(conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days)
-                        + (conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days / 100 * (Number(timeIncrease) / 100))).toFixed(2)
+                    ? (Number(conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days) + (Number(timeIncrease) / 100))
                     : "Unlimited"
-                    } days`;
+                    } DAYS`;
             } else {
                 period = `${conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days > 0
                     ? conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days.toFixed(2)
                     : "Unlimited"
-                    } days`;
+                    } DAYS`;
             }
 
             if (profitIncrease > 0) {
@@ -233,7 +232,7 @@ export default {
                 ? "L" : stakePlan === 5 ? "XL" : stakePlan === 6 ? "XXL" : "XXL";
             let end;
             const start = Math.max(nft.timestamp, nft.lastWithdrawTimestamp);
-            end = nft.timestamp + Number(period.replace("days", "")) * 24 * 3600;
+            end = nft.timestamp + Number(period.replace("DAYS", "")) * 24 * 3600;
 
             expectedReward =
                 (
