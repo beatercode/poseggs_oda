@@ -209,7 +209,7 @@
                                     {{ translatesGet("OUR_NFT_DESC") }}
                                 </div>
                                 <div v-if="getPreselectedChain == 'polygon'" class="h5">
-                                    {{ translatesGet("OUR_NFT_DESC_MATIC") }}
+                                    {{ translatesGet("OUR_NFT_DESC_BUSD") }}
                                 </div>
                             </div>
                             <div class="section-half">
@@ -256,7 +256,7 @@
                                         <span v-if="getPreselectedChain == 'polygon'"> {{
                                                 translatesGet("LIMITED_STAKING_DESC_3")
                                         }}</span>
-                                        <span v-else> {{ translatesGet("LIMITED_STAKING_DESC_3_MATIC") }}</span>
+                                        <span v-else> {{ translatesGet("LIMITED_STAKING_DESC_3_BUSD") }}</span>
                                     </li>
                                     <li class="home-list-item">
                                         <div class="list-item-icon icon-wrap"><i class="icon-check"></i></div>
@@ -398,7 +398,7 @@
                         </div>
                     </div>
                 </section>
-                <section class="section-unlimited-staking" id="section-un-staking">
+                <!--section class="section-unlimited-staking" id="section-un-staking">
                     <div class="container">
                         <div class="section-wrap">
                             <div class="section-half section-half-content">
@@ -413,7 +413,7 @@
                                         <span v-if="getPreselectedChain == 'polygon'"> {{
                                                 translatesGet("UNLIMITED_STAKING_DESC_1")
                                         }}</span>
-                                        <span v-else> {{ translatesGet("UNLIMITED_STAKING_DESC_1_MATIC") }}</span>
+                                        <span v-else> {{ translatesGet("UNLIMITED_STAKING_DESC_1_BUSD") }}</span>
                                     </li>
                                     <li class="home-list-item">
                                         <div class="list-item-icon icon-wrap"><i class="icon-check"></i></div>
@@ -470,7 +470,7 @@
                             </div>
                         </div>
                     </div>
-                </section>
+                </section-->
                 <section class="section-boosts" id="section-boosts">
                     <div class="container">
                         <div class="section-wrap">
@@ -496,7 +496,7 @@
                                     {{ translatesGet("BOOSTS_DESC_BNB") }}
                                 </div>
                                 <div v-else class="h5">
-                                    {{ translatesGet("BOOSTS_DESC_MATIC") }}
+                                    {{ translatesGet("BOOSTS_DESC_BUSD") }}
                                 </div>
                                 <div class="types-boosts">
                                     <div class="h6">{{ translatesGet("BOOSTS_TYPES") }}</div>
@@ -562,28 +562,28 @@
                             <ul class="earn-list" v-if="getPreselectedChain == 'polygon'">
                                 <li>
                                     <span class="earn-icon earn-buy"></span>
-                                    <span class="h4">{{ translatesGet("HOW_TO_EARN_LIST_TITLE_1_MATIC") }}</span>
-                                    <span class="h7">{{ translatesGet("HOW_TO_EARN_LIST_DESC_1_MATIC") }}</span>
+                                    <span class="h4">{{ translatesGet("HOW_TO_EARN_LIST_TITLE_1_BUSD") }}</span>
+                                    <span class="h7">{{ translatesGet("HOW_TO_EARN_LIST_DESC_1_BUSD") }}</span>
                                 </li>
                                 <li>
                                     <span class="earn-icon earn-stake"></span>
-                                    <span class="h4">{{ translatesGet("HOW_TO_EARN_LIST_TITLE_2_MATIC") }}</span>
-                                    <span class="h7">{{ translatesGet("HOW_TO_EARN_LIST_DESC_2_MATIC") }}</span>
+                                    <span class="h4">{{ translatesGet("HOW_TO_EARN_LIST_TITLE_2_BUSD") }}</span>
+                                    <span class="h7">{{ translatesGet("HOW_TO_EARN_LIST_DESC_2_BUSD") }}</span>
                                 </li>
                                 <li>
                                     <span class="earn-icon earn-boost"></span>
-                                    <span class="h4">{{ translatesGet("HOW_TO_EARN_LIST_TITLE_3_MATIC") }}</span>
-                                    <span class="h7">{{ translatesGet("HOW_TO_EARN_LIST_DESC_3_MATIC") }}</span>
+                                    <span class="h4">{{ translatesGet("HOW_TO_EARN_LIST_TITLE_3_BUSD") }}</span>
+                                    <span class="h7">{{ translatesGet("HOW_TO_EARN_LIST_DESC_3_BUSD") }}</span>
                                 </li>
                                 <li>
                                     <span class="earn-icon earn-token"></span>
-                                    <span class="h4">{{ translatesGet("HOW_TO_EARN_LIST_TITLE_4_MATIC") }}</span>
-                                    <span class="h7">{{ translatesGet("HOW_TO_EARN_LIST_DESC_4_MATIC") }}</span>
+                                    <span class="h4">{{ translatesGet("HOW_TO_EARN_LIST_TITLE_4_BUSD") }}</span>
+                                    <span class="h7">{{ translatesGet("HOW_TO_EARN_LIST_DESC_4_BUSD") }}</span>
                                 </li>
                                 <li>
                                     <span class="earn-icon earn-referral"></span>
-                                    <span class="h4">{{ translatesGet("HOW_TO_EARN_LIST_TITLE_5_MATIC") }}</span>
-                                    <span class="h7">{{ translatesGet("HOW_TO_EARN_LIST_DESC_5_MATIC") }}</span>
+                                    <span class="h4">{{ translatesGet("HOW_TO_EARN_LIST_TITLE_5_BUSD") }}</span>
+                                    <span class="h7">{{ translatesGet("HOW_TO_EARN_LIST_DESC_5_BUSD") }}</span>
                                 </li>
                             </ul>
                             <router-link class="btn btn-start-earn" to="/dashboard/mintnft">{{
@@ -1151,7 +1151,7 @@
                                         translatesGet("REFERRAL_PROGRAM_DESC")
                                 }}</div>
                                 <div class="h5" v-if="getPreselectedChain == 'polygon'">{{
-                                        translatesGet("REFERRAL_PROGRAM_DESC_MATIC")
+                                        translatesGet("REFERRAL_PROGRAM_DESC_BUSD")
                                 }}</div>
                             </div>
                             <div class="custom-table">
@@ -1393,7 +1393,7 @@
                                                 translatesGet("REFERRAL_PROGRAM_ITEM_4")
                                         }}</span>
                                         <span v-if="getPreselectedChain == 'polygon'">{{
-                                                translatesGet("REFERRAL_PROGRAM_ITEM_4_MATIC")
+                                                translatesGet("REFERRAL_PROGRAM_ITEM_4_BUSD")
                                         }}</span>
                                     </li>
                                 </ul>
@@ -1454,11 +1454,11 @@
                                     {{ translatesGet("LIMITED_STAKING") }}
                                 </a>
                             </li>
-                            <li>
+                            <!--li>
                                 <a href="#section-un-staking">
                                     {{ translatesGet("UNLIMITED_STAKING") }}
                                 </a>
-                            </li>
+                            </li-->
                         </ul>
                     </nav>
                     <nav class="footer-block">

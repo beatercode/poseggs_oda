@@ -452,7 +452,7 @@
             "ROIEgg has its own quacky NFT collection launched on the BNB Chain net. There's 8 NFT types of the ERC-721 standard."
         ],
         [
-            "OUR_NFT_DESC_MATIC",
+            "OUR_NFT_DESC_BUSD",
             "",
             "ROIEgg has its own quacky NFT collection launched on the Polygon net. There's 8 NFT types of the ERC-721 standard."
         ],
@@ -487,9 +487,9 @@
             "Instant BUSD Payouts"
         ],
         [
-            "LIMITED_STAKING_DESC_3_MATIC",
+            "LIMITED_STAKING_DESC_3_BUSD",
             "",
-            "Instant MATIC Payouts",
+            "Instant BUSD Payouts",
             "Polygon"
         ],
         [
@@ -539,9 +539,9 @@
             "Polygon"
         ],
         [
-            "UNLIMITED_STAKING_DESC_1_MATIC",
+            "UNLIMITED_STAKING_DESC_1_BUSD",
             "",
-            "Instant MATIC Payouts"
+            "Instant BUSD Payouts"
         ],
         [
             "UNLIMITED_STAKING_DESC_2",
@@ -594,7 +594,7 @@
             "Boosts are BNB Chain ERC-1155 NFTs that increase your staking rewards in different ways once applied."
         ],
         [
-            "BOOSTS_DESC_MATIC",
+            "BOOSTS_DESC_BUSD",
             "",
             "Boosts are Polygon ERC-1155 NFTs that increase your staking rewards in different ways once applied.",
             "Polygon"
@@ -700,54 +700,54 @@
             "The more people you refer to ROIEgg, the more BUSD you're going to passively make."
         ],
         [
-            "HOW_TO_EARN_LIST_TITLE_1_MATIC",
+            "HOW_TO_EARN_LIST_TITLE_1_BUSD",
             "",
             "Buy NFT"
         ],
         [
-            "HOW_TO_EARN_LIST_DESC_1_MATIC",
+            "HOW_TO_EARN_LIST_DESC_1_BUSD",
             "",
-            "Buy an EggNFT, the most affordable one is just 5 MATIC."
+            "Buy an EggNFT, the most affordable one is just 5 BUSD."
         ],
         [
-            "HOW_TO_EARN_LIST_TITLE_2_MATIC",
+            "HOW_TO_EARN_LIST_TITLE_2_BUSD",
             "",
             "Stake"
         ],
         [
-            "HOW_TO_EARN_LIST_DESC_2_MATIC",
+            "HOW_TO_EARN_LIST_DESC_2_BUSD",
             "",
             "Select an staking pool that suits your goals better."
         ],
         [
-            "HOW_TO_EARN_LIST_TITLE_3_MATIC",
+            "HOW_TO_EARN_LIST_TITLE_3_BUSD",
             "",
             "Boost Your NFTs"
         ],
         [
-            "HOW_TO_EARN_LIST_DESC_3_MATIC",
+            "HOW_TO_EARN_LIST_DESC_3_BUSD",
             "",
             "Earn more rewards staking your EggNFTs by applying special Boost NFTs."
         ],
         [
-            "HOW_TO_EARN_LIST_TITLE_4_MATIC",
+            "HOW_TO_EARN_LIST_TITLE_4_BUSD",
             "",
-            "Earn MATIC Rewards"
+            "Earn BUSD Rewards"
         ],
         [
-            "HOW_TO_EARN_LIST_DESC_4_MATIC",
+            "HOW_TO_EARN_LIST_DESC_4_BUSD",
             "",
             "Turn your EggNFTs into powerful passive income generators."
         ],
         [
-            "HOW_TO_EARN_LIST_TITLE_5_MATIC",
+            "HOW_TO_EARN_LIST_TITLE_5_BUSD",
             "",
             "Referral Program"
         ],
         [
-            "HOW_TO_EARN_LIST_DESC_5_MATIC",
+            "HOW_TO_EARN_LIST_DESC_5_BUSD",
             "",
-            "The more people you refer to ROIEgg, the more MATIC you're going to passively make."
+            "The more people you refer to ROIEgg, the more BUSD you're going to passively make."
         ],
         [
             "START_EARN",
@@ -856,9 +856,9 @@
             "Referral Program enables its active users to earn passive BUSD income. Expand your structure by referring more people to the platform to get from 5 to 20 percent of each user transaction in your structure."
         ],
         [
-            "REFERRAL_PROGRAM_DESC_MATIC",
+            "REFERRAL_PROGRAM_DESC_BUSD",
             "",
-            "Referral Program enables its active users to earn passive MATIC income. Expand your structure by referring more people to the platform to get from 5 to 20 percent of each user transaction in your structure.",
+            "Referral Program enables its active users to earn passive BUSD income. Expand your structure by referring more people to the platform to get from 5 to 20 percent of each user transaction in your structure.",
             "Polygon"
         ],
         [
@@ -883,9 +883,9 @@
             "Your referrer level depends on your structure's BUSD turnover."
         ],
         [
-            "REFERRAL_PROGRAM_ITEM_4_MATIC",
+            "REFERRAL_PROGRAM_ITEM_4_BUSD",
             "",
-            "Your referrer level depends on your structure's MATIC turnover.",
+            "Your referrer level depends on your structure's BUSD turnover.",
             "Polygon"
         ],
         [
@@ -901,7 +901,7 @@
         [
             "MODAL_TIMER_DESCR_POLYGON",
             "",
-            "You haven't got any applicable Boosts yet. Come buy some with MATIC or get them from other platform users.",
+            "You haven't got any applicable Boosts yet. Come buy some with BUSD or get them from other platform users.",
             "Polygon"
         ],
         [
@@ -982,7 +982,7 @@
         [
             "REF_PROG_DESCR_POLYGON",
             "",
-            "Referral Program enables its active users to earn passive MATIC income. Expand your structure by referring more people to the platform to get 5-20% of each EggNFT or Boost purchased by your structure members.",
+            "Referral Program enables its active users to earn passive BUSD income. Expand your structure by referring more people to the platform to get 5-20% of each EggNFT or Boost purchased by your structure members.",
             "Polygon"
         ],
         [
@@ -1018,9 +1018,9 @@
             "Use BUSD or BUSD to buy some. You can also get Boosts from other people."
         ],
         [
-            "YOUR_BOOSTS_0_DESCR_MATIC",
+            "YOUR_BOOSTS_0_DESCR_BUSD",
             "",
-            "Use MATIC to buy some. You can also get Boosts from other people."
+            "Use BUSD to buy some. You can also get Boosts from other people."
         ],
         [
             "YOUR_NFTS",
@@ -1048,9 +1048,9 @@
             "Use BUSD to buy some. You can also get EggNFTs from other people."
         ],
         [
-            "YOUR_NFTS_0_DESCR_MATIC",
+            "YOUR_NFTS_0_DESCR_BUSD",
             "",
-            "Use MATIC to buy some. You can also get EggNFTs from other people."
+            "Use BUSD to buy some. You can also get EggNFTs from other people."
         ],
         [
             "YOUR_STAKE_0_TITLE",
@@ -1495,7 +1495,7 @@
         [
             "PROGRESS_REF_DESCRIBE_1_POLYGON",
             "",
-            "Check how your referrals are faring with their MATIC turnover to see if you upgraded to a new referral reward rate.",
+            "Check how your referrals are faring with their BUSD turnover to see if you upgraded to a new referral reward rate.",
             "Polygon"
         ],
         [

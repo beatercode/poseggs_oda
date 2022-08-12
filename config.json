@@ -425,56 +425,56 @@
                 "referrals": 0,
                 "turnover": 5,
                 "perc": 5,
-                "toolTip": "The structure’s turnover is 5 MATIC."
+                "toolTip": "The structure’s turnover is 5 BUSD."
             },
             {
                 "level": 2,
                 "referrals": 15,
                 "turnover": 10500,
                 "perc": 7,
-                "toolTip": "The structure’s turnover is 10 500 MATIC."
+                "toolTip": "The structure’s turnover is 10 500 BUSD."
             },
             {
                 "level": 3,
                 "referrals": 25,
                 "turnover": 35000,
                 "perc": 9,
-                "toolTip": "The structure’s turnover is 35 000 MATIC."
+                "toolTip": "The structure’s turnover is 35 000 BUSD."
             },
             {
                 "level": 4,
                 "referrals": 50,
                 "turnover": 105000,
                 "perc": 11,
-                "toolTip": "The structure’s turnover is 105 000 MATIC."
+                "toolTip": "The structure’s turnover is 105 000 BUSD."
             },
             {
                 "level": 5,
                 "referrals": 100,
                 "turnover": 175000,
                 "perc": 14,
-                "toolTip": "The structure’s turnover is 175 000 MATIC."
+                "toolTip": "The structure’s turnover is 175 000 BUSD."
             },
             {
                 "level": 6,
                 "referrals": 150,
                 "turnover": 350000,
                 "perc": 16,
-                "toolTip": "The structure’s turnover is 350 000 MATIC."
+                "toolTip": "The structure’s turnover is 350 000 BUSD."
             },
             {
                 "level": 7,
                 "referrals": 300,
                 "turnover": 1050000,
                 "perc": 18,
-                "toolTip": "The structure’s turnover is 1 050 000 MATIC."
+                "toolTip": "The structure’s turnover is 1 050 000 BUSD."
             },
             {
                 "level": 8,
                 "referrals": 500,
                 "turnover": 3500000,
                 "perc": 20,
-                "toolTip": "The structure’s turnover is 3 500 000 MATIC."
+                "toolTip": "The structure’s turnover is 3 500 000 BUSD."
             }
         ],
         "LEAD_RULES": [
@@ -485,7 +485,7 @@
                 "perc": 0,
                 "timePerc": "",
                 "profitPerc": "",
-                "toolTip": "Leadership Level 1 will become available when your net's turnover of 5 MATIC and 10 people in it."
+                "toolTip": "Leadership Level 1 will become available when your net's turnover of 5 BUSD and 10 people in it."
             },
             {
                 "level": 1,
@@ -494,7 +494,7 @@
                 "perc": 5,
                 "timePerc": "0",
                 "profitPerc": "1",
-                "toolTip": "With your net's turnover of 5+ MATIC and 10+ people in it."
+                "toolTip": "With your net's turnover of 5+ BUSD and 10+ people in it."
             },
             {
                 "level": 2,
@@ -503,7 +503,7 @@
                 "perc": 7,
                 "timePerc": "1",
                 "profitPerc": "1.5",
-                "toolTip": "With your net's turnover of 10 500+ MATIC and 15+ people in it."
+                "toolTip": "With your net's turnover of 10 500+ BUSD and 15+ people in it."
             },
             {
                 "level": 3,
@@ -512,7 +512,7 @@
                 "perc": 9,
                 "timePerc": "1.5",
                 "profitPerc": "2",
-                "toolTip": "With your net's turnover of 35 000+ MATIC and 25+ people in it."
+                "toolTip": "With your net's turnover of 35 000+ BUSD and 25+ people in it."
             },
             {
                 "level": 4,
@@ -521,7 +521,7 @@
                 "perc": 11,
                 "timePerc": "2",
                 "profitPerc": "2.5",
-                "toolTip": "With your net's turnover of 105 000+ MATIC and 50+ people in it."
+                "toolTip": "With your net's turnover of 105 000+ BUSD and 50+ people in it."
             },
             {
                 "level": 5,
@@ -530,7 +530,7 @@
                 "perc": 14,
                 "timePerc": "2.5",
                 "profitPerc": "3",
-                "toolTip": "With your net's turnover of 175 000+ MATIC and 100+ people in it."
+                "toolTip": "With your net's turnover of 175 000+ BUSD and 100+ people in it."
             },
             {
                 "level": 6,
@@ -539,7 +539,7 @@
                 "perc": 16,
                 "timePerc": "3",
                 "profitPerc": "3.5",
-                "toolTip": "With your net's turnover of 1 350 000+ MATIC and 150+ people in it.."
+                "toolTip": "With your net's turnover of 1 350 000+ BUSD and 150+ people in it.."
             },
             {
                 "level": 7,
@@ -548,7 +548,7 @@
                 "perc": 18,
                 "timePerc": "3.5",
                 "profitPerc": "4",
-                "toolTip": "With your net's turnover of 1 050 000+ MATIC and 300+ people in it."
+                "toolTip": "With your net's turnover of 1 050 000+ BUSD and 300+ people in it."
             },
             {
                 "level": 8,
@@ -557,7 +557,7 @@
                 "perc": 20,
                 "timePerc": "4",
                 "profitPerc": "4.5",
-                "toolTip": "With your net's turnover of 3 500 000+ MATIC and 500+ people in it."
+                "toolTip": "With your net's turnover of 3 500 000+ BUSD and 500+ people in it."
             },
             {
                 "level": 9,
@@ -566,7 +566,7 @@
                 "perc": 20,
                 "timePerc": "4.5",
                 "profitPerc": "5",
-                "toolTip": "With your net's turnover of 7 000 000+ MATIC and 1 000+ people in it."
+                "toolTip": "With your net's turnover of 7 000 000+ BUSD and 1 000+ people in it."
             },
             {
                 "level": 10,
@@ -575,7 +575,7 @@
                 "perc": 20,
                 "timePerc": "5",
                 "profitPerc": "5.5",
-                "toolTip": "With your net's turnover of 17 000 000+ MATIC and 2 500+ people in it."
+                "toolTip": "With your net's turnover of 17 000 000+ BUSD and 2 500+ people in it."
             }
         ],
         "MIN_NFT_PRICE": "5",

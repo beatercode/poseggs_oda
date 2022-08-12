@@ -4,7 +4,7 @@
             <div class="slider-nft-wrap">
                 <ul class="ul-our-nfts" :class="'ul-binance'">
                     <li v-for="(price, index) of prices" @click="redirect(8)"
-                        class="li-our-nfts nft-list-buy li-nft-red">
+                        class="li-our-nfts nft-list-buy li-nft-red" style="margin: 4px; !important">
                         <div class="li-our-nft-wrap" @click="showStats = showStats">
                             <img class="card-egg-image" :src="getNftImage(index)" />
                             <div class="li-nft-footer">
@@ -57,7 +57,7 @@
                                         style="width: 50%; line-height: unset; margin-top: 10px; font-size: 16px;">{{
                                                 "Value"
                                         }}</div>
-                                    <div class="price-card-wrap" style="width: 50%; text-align: right;">
+                                    <div class="price-card-wrap" style="width: 50%; text-align: right; white-space: nowrap;">
                                         <span type="number" @input="disablePercWatcher = true"> {{ price }} </span>
                                         <span class="coin">BUSD</span>
                                     </div>

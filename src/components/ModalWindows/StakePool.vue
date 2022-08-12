@@ -68,7 +68,7 @@
                                 {{ translatesGet("YOUR_NFTS_0_DESCR") }}
                             </div>
                             <div class="empty-title h7" v-if="currentBlockchain === 137">
-                                {{ translatesGet("YOUR_NFTS_0_DESCR_MATIC") }}
+                                {{ translatesGet("YOUR_NFTS_0_DESCR_BUSD") }}
                             </div>
 
                             <router-link :to="{ name: 'MintNFT' }" class="btn btn-buy-nft">{{ translatesGet("BUY_NFT") }}</router-link>

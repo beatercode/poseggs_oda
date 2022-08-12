@@ -71,7 +71,7 @@
                                     {{ translatesGet("YOUR_NFTS_0_DESCR") }}
                                 </div>
                                 <div class="empty-title h7" v-if="currentBlockchain === 137">
-                                    {{ translatesGet("YOUR_NFTS_0_DESCR_MATIC") }}
+                                    {{ translatesGet("YOUR_NFTS_0_DESCR_BUSD") }}
                                 </div>
                             </div>
                         </div>
@@ -93,7 +93,7 @@
                                 {{ translatesGet("YOUR_BOOSTS_0_DESCR_BNB") }}
                             </div>
                             <div class="empty-title h7" v-if="currentBlockchain === 137">{{
-                                    translatesGet("YOUR_BOOSTS_0_DESCR_MATIC")
+                                    translatesGet("YOUR_BOOSTS_0_DESCR_BUSD")
                             }}</div>
                         </div>
                         <div v-else class="your-boosts">
