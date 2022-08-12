@@ -19,33 +19,28 @@
                             <div class="general-card profit">
                                 <div class="general-card-col">
                                     <span class="card-data-title">{{ translatesGet("TOTAL_PROFIT") }}</span>
-                                    <span class="h4">{{ getTotalWithdrawn }} {{ "BUSD" /* currency */ }}</span>
-                                </div>
-                                <div class="general-card-col">
-                                    <!--img class="stake-inner-img" :src="getStakePlaceHolderById(0)" /-->
-                                </div>
-                            </div>
-                            <div class="general-card claim">
-                                <div class="general-card-col">
-                                    <span class="card-data-title">{{ translatesGet("AVAILABLE_CLAIM") }}</span>
-                                    <span class="h4">{{ getAvaliableForClaim }} {{ "BUSD" /* currency */ }}</span>
-                                </div>
-                                <div class="general-card-col">
-                                    <!--img class="stake-inner-img" :src="getStakePlaceHolderById(1)" /-->
-                                </div>
-                                <div v-if="getAvaliableForClaim > 0" class="general-card-col">
-                                    <button :disabled="showLoader" @click="batchClaim()" class="btn btn-claim">{{
-                                            translatesGet("CLAIM_ALL")
-                                    }}</button>
+                                    <span class="h4" style="white-space: nowrap;">{{ getTotalWithdrawn }} {{ "BUSD" /*
+                                    currency */ }}</span>
                                 </div>
                             </div>
                             <div class="general-card reward">
                                 <div class="general-card-col">
                                     <span class="card-data-title">{{ translatesGet("EXPECTED_REWARD") }}</span>
-                                    <span class="h4">{{ getExpectedReward }} {{ "BUSD" /* currency */ }}</span>
+                                    <span class="h4" style="white-space: nowrap;">{{ getExpectedReward }} {{ "BUSD" /*
+                                    currency */ }}</span>
                                 </div>
+                            </div>
+                            <div class="general-card claim">
                                 <div class="general-card-col">
-                                    <!--img class="stake-inner-img" :src="getStakePlaceHolderById(2)" /-->
+                                    <span class="card-data-title">{{ translatesGet("AVAILABLE_CLAIM") }}</span>
+                                    <span class="h4" style="white-space: nowrap;">{{ getAvaliableForClaim }} {{ "BUSD"
+                                        /* currency */
+                                    }}</span>
+                                </div>
+                                <div v-if="getAvaliableForClaim > 0" class="general-card-col" style="padding-right: 0px !important;">
+                                    <button :disabled="showLoader" @click="batchClaim()" class="btn btn-claim">{{
+                                            translatesGet("CLAIM_ALL")
+                                    }}</button>
                                 </div>
                             </div>
                         </div>
@@ -85,6 +80,7 @@
 <script>
 import MultiLang from "@/core/multilang";
 import { mapState } from "vuex";
+import Web3 from "web3";
 import conf from "../../../../config.json";
 import StakeCard from "../../../components/StakeCard.vue";
 
@@ -109,12 +105,10 @@ export default {
             return images("./nft-" + index + ".png");
         },
         getEarnedReward(stake) {
+            let nft = stake;
             let timeIncrease = 0;
             let profitIncrease = 0;
-            let dailyPerc = 0;
-            let period;
 
-            let nft = stake;
             if (nft.boostEvents && nft.boostEvents.length) {
                 for (let i = 0; i < nft.boostEvents.length; i++) {
                     const profitBoost = nft.boostEvents[i].boostType == 0 ? nft.boostEvents[i] : null;
@@ -136,50 +130,37 @@ export default {
 
             const stakePlan = (+stake.eggPlan - 1) < 0 ? 0 : +stake.eggPlan - 1;
 
-            if (timeIncrease > 0) {
-                period = `${conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days > 0
-                    ? (
-                        Number(conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days)
-                        + (conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days * Number(timeIncrease)) / 100
-                    ).toFixed(2)
-                    : "Unlimited"
-                    } DAYS`;
-            } else {
-                period = `${conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days > 0
-                    ? conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days.toFixed(2)
-                    : "Unlimited"
-                    } DAYS`;
-            }
+            let stakeType = conf[this.currentBlockchain].STAKING_PLANS[stakePlan];
+            let dayInSec = 86400;
+            let number1e4 = 10000;
 
-            if (profitIncrease > 0) {
-                dailyPerc =
-                    conf[this.currentBlockchain].STAKING_PLANS[stakePlan].profitPerDay +
-                    (conf[this.currentBlockchain].STAKING_PLANS[stakePlan].profitPerDay * Number(profitIncrease)) / 100;
-            } else {
-                dailyPerc = conf[this.currentBlockchain].STAKING_PLANS[stakePlan].profitPerDay;
-            }
+            let profitPerDay = Math.round(stakeType.profitPerDay * 100);
+            let termInSeconds = stakeType.days * dayInSec;
+            let time = Date.now() / 1000
+            let boostTimeSeconds = (timeIncrease / 100) * dayInSec;
+            let endTime = stake.timestamp + termInSeconds + boostTimeSeconds;
+            endTime = Math.round(time > endTime ? endTime : time);
+            let eggPriceInWei = Web3.utils.toWei(String(stake.event_data.amount), 'ether');
 
-            const { lastWithdrawTimestamp, event_data } = stake;
-            const { amount, timestamp } = event_data;
-            let end;
-            if (stakePlan > 0) {
-                end = Math.min(
-                    new Date().getTime() / 1000,
-                    timestamp + Number(period.replace("DAYS", "")) * 24 * 3600
-                );
-            } else {
-                end = Math.floor(new Date().getTime() / 1000);
-            }
-            let hoursPassedSinceStart;
-            if (lastWithdrawTimestamp > 0) {
-                hoursPassedSinceStart = (end - lastWithdrawTimestamp) / 3600;
-            } else {
-                hoursPassedSinceStart = (end - timestamp) / 3600;
-            }
-            let res =
-                (Number(amount) * ((dailyPerc / 24) * hoursPassedSinceStart)) / 100;
+            let reward = stake.isExpired ? 0 : eggPriceInWei * profitPerDay
+                * (number1e4 + profitIncrease)
+                * (endTime - stake.lastWithdrawTimestamp)
+                / number1e4
+                / number1e4
+                / dayInSec;
 
-            return res > 0 ? res.toFixed(2) : 0;
+            reward = Number(Web3.utils.fromWei(Web3.utils.toBN(reward), 'ether')).toFixed(2);
+            return reward;
+        },
+        logClaimableInfo(claimableInfo) {
+            console.log("Claimable Info [BCHAIN] --> \neggPrice["
+                + String(claimableInfo.eggPrice) + "] \ndailyPercent["
+                + Number(claimableInfo.dailyPercent) + "] \nboostTime["
+                + claimableInfo.boostTime + "] \nboostProfit["
+                + Number(claimableInfo.boostProfit) + "] \nisExpired["
+                + claimableInfo.isExpired + "] \nendTimeClaim["
+                + Number(claimableInfo.endTimeClaim) + "] \nlastWithdrawalTime["
+                + Number(claimableInfo.lastWithdrawalTime) + "]");
         },
         getStakingPlanData(nft) {
 

@@ -176,12 +176,7 @@
                                 <span>{{ translatesGet("AVAILABLE_CLAIM") }}</span>
                             </div>
                             <div class="stake-pool-col-value">
-                                {{
-                                        getEarnedReward(fullStakeDetails) > 0
-                                            ? getEarnedReward(fullStakeDetails)
-                                            : "0.00"
-                                }}
-                                {{ "BUSD" /* currency */ }}
+                                {{ getEarnedReward(fullStakeDetails) }} {{ "BUSD" }}
                             </div>
                         </div>
                         <div class="stake-pool-col stake-for-claim">
@@ -333,7 +328,7 @@
                     <div class="your-stake-boost-wrap wrap-col-boost" v-else>
                         <div class="select-boost" :class="{ 'select-boost-active': selectList1 }"
                             @mouseover="selectList1 = true" @mouseout="selectList1 = false">
-                            <div class="selected" v-if="showMore" :class="{ lowOpacity :selectList1 }">
+                            <div class="selected" v-if="showMore" :class="{ lowOpacity: selectList1 }">
                                 <div class="select-boost-item">
                                     <div class="select-boost-img">
                                         <img :src="getBoostImg(selectedTimeBoost)" alt="" />
@@ -422,7 +417,7 @@
                     <div class="your-stake-boost-wrap wrap-col-boost" v-else>
                         <div class="select-boost" :class="{ 'select-boost-active': selectList2 }"
                             @mouseover="selectList2 = true" @mouseout="selectList2 = false">
-                            <div class="selected" v-if="showMore" :class="{ lowOpacity :selectList2 }">
+                            <div class="selected" v-if="showMore" :class="{ lowOpacity: selectList2 }">
                                 <div class="select-boost-item">
                                     <div class="select-boost-img">
                                         <img :src="getBoostImg(selectedProfitBoost)" alt="" />
@@ -507,7 +502,7 @@
                     <div class="your-stake-boost-wrap" v-else>
                         <div class="select-boost" :class="{ 'select-boost-active': selectList3 }"
                             @mouseover="selectList3 = true" @mouseout="selectList3 = false">
-                            <div class="selected" v-if="showMore" :class="{ lowOpacity :selectList3 }">
+                            <div class="selected" v-if="showMore" :class="{ lowOpacity: selectList3 }">
                                 <div class="select-boost-item">
                                     <div class="select-boost-img">
                                         <img :src="getBoostImg(selectedTeamBoost)" alt="" />
@@ -596,6 +591,7 @@ import MultiLang from "@/core/multilang";
 import { mapState } from "vuex";
 import TransferModal from "./ModalWindows/TransferModal.vue";
 import conf from "../../config.json";
+import Web3 from "web3";
 export default {
     name: "StakeCard",
     props: ["nft", "fullStakeDetails", "boostsApplied"],
@@ -608,6 +604,7 @@ export default {
             selectList2: false,
             selectList3: false,
             selectedNft: null,
+            claimableAmount: 0,
             showTransferModal: false,
             selectedTimeBoost: null,
             selectedTeamBoost: null,
@@ -795,12 +792,10 @@ export default {
             return Number(stake.rewardReceived / 1e18).toFixed(2);
         },
         getEarnedReward(stake) {
+            let nft = stake;
             let timeIncrease = 0;
             let profitIncrease = 0;
-            let dailyPerc = 0;
-            let period;
 
-            let nft = stake;
             if (nft.boostEvents && nft.boostEvents.length) {
                 for (let i = 0; i < nft.boostEvents.length; i++) {
                     const profitBoost = nft.boostEvents[i].boostType == 0 ? nft.boostEvents[i] : null;
@@ -820,54 +815,39 @@ export default {
                 }
             }
 
-            const stakePlan = (+stake.eggPlan - 1) < 0 ? 0 : (+stake.eggPlan - 1);
+            const stakePlan = (+stake.eggPlan - 1) < 0 ? 0 : +stake.eggPlan - 1;
 
-            if (timeIncrease > 0) {
-                period = `${conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days > 0
-                    ? (
-                        Number(conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days)
-                        + (conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days * Number(timeIncrease)) / 100
-                    ).toFixed(2)
-                    : "Unlimited"
-                    } DAYS`;
-            } else {
-                period = `${conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days > 0
-                    ? conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days.toFixed(2)
-                    : "Unlimited"
-                    } DAYS`;
-            }
+            let stakeType = conf[this.currentBlockchain].STAKING_PLANS[stakePlan];
+            let dayInSec = 86400;
+            let number1e4 = 10000;
 
-            if (profitIncrease > 0) {
-                dailyPerc =
-                    conf[this.currentBlockchain].STAKING_PLANS[stakePlan].profitPerDay +
-                    (conf[this.currentBlockchain].STAKING_PLANS[stakePlan].profitPerDay * Number(profitIncrease)) / 100;
-            } else {
-                dailyPerc = conf[this.currentBlockchain].STAKING_PLANS[stakePlan].profitPerDay;
-            }
+            let profitPerDay = Math.round(stakeType.profitPerDay * 100);
+            let termInSeconds = stakeType.days * dayInSec;
+            let time = Date.now() / 1000
+            let boostTimeSeconds = (timeIncrease / 100) * dayInSec;
+            let endTime = stake.timestamp + termInSeconds + boostTimeSeconds;
+            endTime = Math.round(time > endTime ? endTime : time);
+            let eggPriceInWei = Web3.utils.toWei(String(stake.event_data.amount), 'ether');
 
-            const { lastWithdrawTimestamp, event_data } = stake;
-            let { amount, timestamp } = event_data;
-            if (!amount) { amount = 7; }
-            let end;
-            if (stakePlan > 0) {
-                end = Math.min(
-                    new Date().getTime() / 1000,
-                    timestamp + Number(period.replace("DAYS", "")) * 24 * 3600
-                );
-            } else {
-                end = Math.floor(new Date().getTime() / 1000);
-            }
-            let hoursPassedSinceStart;
-            if (lastWithdrawTimestamp > 0) {
-                hoursPassedSinceStart = (end - lastWithdrawTimestamp) / 3600;
-            } else {
-                hoursPassedSinceStart = (end - timestamp) / 3600;
-            }
+            let reward = stake.isExpired ? 0 : eggPriceInWei * profitPerDay
+                * (number1e4 + profitIncrease)
+                * (endTime - stake.lastWithdrawTimestamp)
+                / number1e4
+                / number1e4
+                / dayInSec;
 
-            let res =
-                (Number(amount) * ((dailyPerc / 24) * hoursPassedSinceStart)) / 100;
-
-            return res > 0 ? res.toFixed(2) : 0;
+            reward = Number(Web3.utils.fromWei(Web3.utils.toBN(reward), 'ether')).toFixed(2);
+            return reward;
+        },
+        logClaimableInfo(claimableInfo) {
+            console.log("Claimable Info [BCHAIN] --> \neggPrice["
+                + String(claimableInfo.eggPrice) + "] \ndailyPercent["
+                + Number(claimableInfo.dailyPercent) + "] \nboostTime["
+                + claimableInfo.boostTime + "] \nboostProfit["
+                + Number(claimableInfo.boostProfit) + "] \nisExpired["
+                + claimableInfo.isExpired + "] \nendTimeClaim["
+                + Number(claimableInfo.endTimeClaim) + "] \nlastWithdrawalTime["
+                + Number(claimableInfo.lastWithdrawalTime) + "]");
         },
         async Claim(nft) {
             try {
@@ -1039,7 +1019,6 @@ export default {
         },
     },
     mounted() {
-        console.log(this.nft);
         this.lang.init();
     },
     beforeDestroy() {

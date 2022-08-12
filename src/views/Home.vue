@@ -5,7 +5,7 @@
             :class="{ 'header-fixed': fixedHeader, 'header-hidden': hiddenHeader, 'header-menu': showMenu == true }">
             <div class="container">
                 <div class="header-wrapper">
-                    <button class="logo" @click="toTop(), (showMenu = false)"></button>
+                    <button class="logo" @click="toTop(), (showMenu = false)" style="width: 120px; min-width: 120px; height: 60px;"></button>
 
                     <nav class="header-nav">
                         <ul>
@@ -141,7 +141,7 @@
                             <div class="audited">
                                 <div class="title-upper">{{ translatesGet("AUDITED_BY") }}</div>
                                 <ul class="audited-logos">
-                                    <a href="https://posduck.gitbook.io/posduck-dock/audited" target="_blank">
+                                    <a href="https://eggroi.gitbook.io/eggroi-dock/audited" target="_blank">
                                         <li>
                                             <span class="haze-crypto"></span>
                                         </li>
@@ -235,7 +235,7 @@
                                 <div class="title-row">
                                     <div class="h2">{{ translatesGet("LIMITED_STAKING") }}</div>
                                     <a class="link link-learn-more" target="_blank" rel="nofollow"
-                                        href="https://posduck.gitbook.io/posduck-dock/staking-pool-types">{{
+                                        href="https://eggroi.gitbook.io/eggroi-dock/staking-pool-types">{{
                                                 translatesGet("LEARN_MORE")
                                         }}<i class="i-arrow-right-3"></i></a>
                                 </div>
@@ -485,7 +485,7 @@
                                 <div class="title-row">
                                     <div class="h2">{{ translatesGet("BOOSTS") }}</div>
                                     <a target="_blank" rel="nofollow" class="link link-learn-more"
-                                        href="https://posduck.gitbook.io/posduck-dock/boosts">{{
+                                        href="https://eggroi.gitbook.io/eggroi-dock/boosts">{{
                                                 translatesGet("LEARN_MORE")
                                         }}<i class="i-arrow-right-3"></i></a>
                                 </div>
@@ -621,7 +621,7 @@
                             <div class="title-row">
                                 <div class="h2">{{ translatesGet("LEADERSHIP_PROGRAMM") }}</div>
                                 <a target="_blank" rel="nofollow" class="link link-learn-more"
-                                    href="https://posduck.gitbook.io/posduck-dock/leadership-program">{{
+                                    href="https://eggroi.gitbook.io/eggroi-dock/leadership-program">{{
                                             translatesGet("LEARN_MORE")
                                     }} <i class="i-arrow-right-3"></i></a>
                             </div>
@@ -1142,7 +1142,7 @@
                             <div class="title-row">
                                 <div class="h2">{{ translatesGet("REFERRAL_PROGRAM") }}</div>
                                 <a target="_blank" rel="nofollow" class="link link-learn-more"
-                                    href="https://posduck.gitbook.io/posduck-dock/referral-program">{{
+                                    href="https://eggroi.gitbook.io/eggroi-dock/referral-program">{{
                                             translatesGet("LEARN_MORE")
                                     }} <i class="i-arrow-right-3"></i></a>
                             </div>
@@ -1416,18 +1416,18 @@
                         <ul class="footer-list">
                             <li>
                                 <a target="_blank" rel="nofollow"
-                                    href="https://posduck.gitbook.io/posduck-dock/terms-of-service">{{
+                                    href="https://eggroi.gitbook.io/eggroi-dock/terms-of-service">{{
                                             translatesGet("TERMS_SERVICE")
                                     }}</a>
                             </li>
                             <li>
                                 <a target="_blank" rel="nofollow"
-                                    href="https://posduck.gitbook.io/posduck-dock/privacy-policy">{{
+                                    href="https://eggroi.gitbook.io/eggroi-dock/privacy-policy">{{
                                             translatesGet("PRIVACY_POLICY")
                                     }}</a>
                             </li>
                             <li>
-                                <a target="_blank" rel="nofollow" href="https://posduck.gitbook.io/posduck-dock">{{
+                                <a target="_blank" rel="nofollow" href="https://eggroi.gitbook.io/eggroi-dock">{{
                                         translatesGet("GITBOOK")
                                 }}</a>
                             </li>
@@ -1500,13 +1500,13 @@
                         <a href="https://twitter.com/POSDuck_NFT" rel="nofollow" target="_blank">
                             <span class="icon icon-twitter"></span>
                         </a>
-                        <a href="https://medium.com/@posduck" rel="nofollow" target="_blank">
+                        <a href="https://medium.com/@eggroi" rel="nofollow" target="_blank">
                             <span class="icon icon-medium"></span>
                         </a>
-                        <a href="https://t.me/posduck_channel" rel="nofollow" target="_blank">
+                        <a href="https://t.me/eggroi_channel" rel="nofollow" target="_blank">
                             <span class="icon icon-telegram-speaker"></span>
                         </a>
-                        <a href="https://t.me/posduck_group" rel="nofollow" target="_blank">
+                        <a href="https://t.me/eggroi_group" rel="nofollow" target="_blank">
                             <span class="icon icon-telegram"></span>
                         </a>
                     </div>

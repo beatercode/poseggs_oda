@@ -72,7 +72,7 @@
                     </router-link>
                 </li>
                 <li class="tab-item" @click="showMore = !showMore">
-                    <a href="https://posduck.gitbook.io/posduck-dock" target="_blank" rel="nofollow">
+                    <a href="https://eggroi.gitbook.io/eggroi-dock" target="_blank" rel="nofollow">
                         <span class="icon-wrap"> <i class="icon icon-book"> </i></span>
                         <span class="link-name">{{ translatesGet("GITBOOK") }}</span>
                     </a>

@@ -369,48 +369,48 @@
         "STAKING_PLANS": {
             "0": {
                 "days": 17,
-                "perc": 122.4,
+                "perc": 124.1,
                 "profitPerDay": 7.3
             },
             "1": {
                 "days": 27,
-                "perc": 164.7,
+                "perc": 183.6,
                 "profitPerDay": 6.8
             },
             "2": {
                 "days": 37,
-                "perc": 210.9,
+                "perc": 236.8,
                 "profitPerDay": 6.4
             },
             "3": {
                 "days": 47,
-                "perc": 258.5,
+                "perc": 286.7,
                 "profitPerDay": 6.1
             },
             "4": {
                 "days": 57,
-                "perc": 296.4,
+                "perc": 324.9,
                 "profitPerDay": 5.7
             },
             "5": {
                 "days": 67,
-                "perc": 335,
-                "profitPerDay": 5.5
+                "perc": 361.8,
+                "profitPerDay": 5.4
             },
             "6": {
                 "days": 77,
-                "perc": 385,
-                "profitPerDay": 5.1
+                "perc": 400.4,
+                "profitPerDay": 5.2
             },
             "7": {
                 "days": 87,
-                "perc": 461.1,
-                "profitPerDay": 4.4
+                "perc": 443.7,
+                "profitPerDay": 5.1
             }
         },
         "MIN_NFT_PRICE": "0.01",
         "DEFAULT_GAS_PRICE_GWEI": "45",
-        "STAKE_CONTRACT": "0x780F9C26D1a8A1605776561BFD82b34E7205AcD9",
+        "STAKE_CONTRACT": "0x3a46a5f30bE4CdA9dCE6069b5774A1e632743F6E",
         "ERC20_CONTRACT": "0xED4BA9203d69e4Ca92DC24795a7D3F5b43b250AA",
         "BOOST_NFT_CONTRACT": "0x7E07581f87a3884a4585c50CA5E60cFf42875695",
         "NFT_CONTRACT": "0x7228719C4938e9bb8B89A2c04a340ec381EE64e0",
@@ -615,7 +615,7 @@
     "FREE_EGG_DATA": {
         "price": 0,
         "value": 7,
-        "stats": 4,
+        "stats": 5,
         "profit": 7.3,
         "period": 17,
         "name": "Free Egg"
@@ -624,14 +624,14 @@
         "price": 9997,
         "value": 9997,
         "stats": 90,
-        "profit": 4.4,
+        "profit": 5.1,
         "period": 87,
         "name": "Bonus Egg"
     },
     "EGG_DATA": {
         "prices": [17, 47, 97, 197, 497, 997, 1997, 4997],
-        "stats": [9, 19, 29, 39, 49, 59, 69, 79],
-        "profits": [7.3, 6.8, 6.4, 6.1, 5.7, 5.4, 5.1, 4.4],
+        "stats": [10, 20, 30, 40, 50, 60, 70, 80],
+        "profits": [7.3, 6.8, 6.4, 6.1, 5.7, 5.4, 5.2, 5.1],
         "periods": [17, 27, 37, 47, 57, 67, 77, 87],
         "name": ["Ground Egg", "Water Egg", "Pink Egg", "Dark Egg", "Spider Egg", "Electro Egg", "Forest Egg", "Fire Egg"]
     },
@@ -645,8 +645,8 @@
         "chainid": "56",
         "name": "BNB Chain"
     },
-    "BASE_URL": "https://base.posduck.com/api",
-    "REF_BASE": "https://posduck.com/",
+    "BASE_URL": "https://base.eggroi.com/api",
+    "REF_BASE": "https://eggroi.com/",
     "DEFAULT_REFERRER": "0x5e633caE917f2c8A8E59498011B7C906478C7888",
     "ERROR_CODES": {
         "10": "Token already swapped",

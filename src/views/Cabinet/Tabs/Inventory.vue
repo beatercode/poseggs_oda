@@ -16,7 +16,7 @@
 
                             <div v-if="nfts && nfts.length" class="your-nfts-card your-nfts"
                                 :class="{ 'your-nfts-alone': nfts && nfts.length === 1 }">
-                                <li v-for="(nft, index) of nfts" class="li-our-nfts nft-list-buy li-nft-red">
+                                <li v-for="(nft, index) of nfts" class="li-our-nfts nft-list-buy nft-list-inv-page li-nft-red">
                                     <div class="li-our-nft-wrap">
                                         <img class="card-egg-image" :src="getNftImage(nft.plan)"
                                             @click="(nftType = 'Posegg'), (onlyData = true), (showTransferModal = true), (selectedNft = nft)" />
@@ -97,7 +97,7 @@
                             }}</div>
                         </div>
                         <div v-else class="your-boosts">
-                            <div class="your-boost-item" v-for="nft of nftBoost">
+                            <div class="li-our-nfts nft-list-buy nft-list-inv-page" v-for="nft of nftBoost">
                                 <div class="block-percent-img">
                                     <div class="your-nft-img"
                                         @click="(nftType = 'Boost'), (showTransferModal = true), (onlyData = true), (selectedNft = nft)">

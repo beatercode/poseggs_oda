@@ -1,5 +1,5 @@
 <template>
-    <div v-if="type === 'profit'" class="block-percent">
+    <div v-if="type === 'profit'" class="">
         <div class="block-percent-img">
             <div v-if="showLoader" class="nft-load">
                 <div class="nft-load-icon"></div>
@@ -39,7 +39,7 @@
             <button v-if="!isApproved" class="btn btn-radio-submit" type="submit" @click.prevent="approve()">{{ translatesGet("APPROVE") }}</button>
         </div>
     </div>
-    <div v-else-if="type === 'time'" class="block-percent">
+    <div v-else-if="type === 'time'" class="">
         <div class="block-percent-img">
             <div v-if="showLoader" class="nft-load">
                 <div class="nft-load-icon"></div>
@@ -82,7 +82,7 @@
             <button v-if="!isApproved" class="btn btn-radio-submit" type="submit" @click.prevent="approve()">{{ translatesGet("APPROVE") }}</button>
         </div>
     </div>
-    <div v-else-if="type === 'team' && !isClaimed" class="block-percent">
+    <div v-else-if="type === 'team' && !isClaimed" class="">
         <div class="block-percent-img">
             <div v-if="showLoader" class="nft-load">
                 <div class="nft-load-icon"></div>

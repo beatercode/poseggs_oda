@@ -1168,6 +1168,10 @@ export default class Core {
         const res = await this[`stake_${this.currentBlockchain}`].unstake(depositId);
         return res;
     }
+    async GetClaimable(address, depositId) {
+        const res = await this[`stake_${this.currentBlockchain}`].getClaimable(address, depositId);
+        return res;
+    }
     async Claim(depositId) {
         const res = await this[`stake_${this.currentBlockchain}`].claim(depositId);
         return res;

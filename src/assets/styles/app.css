@@ -1,7 +1,7 @@
 *{
     margin:0;
     padding:0;
-    box-sizing:border-box
+    box-sizing:border-box;
 }
 :not(i,img,video){
     /* font-family:Sora,sans-serif; */
@@ -52,6 +52,7 @@ a:disabled,button:disabled,input:disabled{
     cursor:default!important
 }
 .btn,button,button>div{
+    white-space: nowrap;
     display:flex;
     align-content:center;
     align-items:center;
@@ -514,7 +515,7 @@ table{
     overflow:hidden
 }
 .main-home .footer-home .logo,.main-home .header-fixed .logo{
-    background-image:url(../images/all/Logo-white.64f3d12d.svg)
+    background-image:url(../images/all/Logo.png)
 }
 .main-home .footer-home .logo{
     margin-right:20px;
@@ -731,7 +732,7 @@ table{
 }
 .ul-our-nfts{
     display:flex;
-    justify-content:left !important;
+    justify-content: space-between !important;
     width:100%;
     max-width:100%;
     flex-flow: row-reverse wrap-reverse;
@@ -825,11 +826,13 @@ table{
     background-image:url(../images/all/nft-8.png)
 }
 */
-@media (max-width:560.5px) {
-    .nft-list-buy-page:nth-child(odd) {
+@media (max-width:991.5px) {
+    .nft-list-buy-page:nth-child(odd),
+    .nft-list-inv-page:nth-child(odd) {
         margin-right: 0px !important;
     }
-    .nft-list-buy-page:nth-child(even) {
+    .nft-list-buy-page:nth-child(even),
+    .nft-list-inv-page:nth-child(even) {
         margin-left: 0px !important;
     }
 }
@@ -2099,7 +2102,7 @@ table{
     margin-top:auto
 }
 .general-card.profit{
-    background: linear-gradient(118.4deg, rgb(122, 35, 52) 27.5%, rgb(62, 9, 27) 92.7%);
+    background: linear-gradient(178.1deg, rgb(122, 35, 52) 8.5%, rgb(62, 9, 27) 92.7%);
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 .general-card.claim{
@@ -2107,20 +2110,24 @@ table{
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 .general-card.reward{
-    background: linear-gradient(118.4deg, rgb(72, 200, 160) 27.5%, rgb(48, 144, 113) 92.7%);
+    background: linear-gradient(178.1deg, rgb(72, 200, 160) 8.5%, rgb(48, 144, 113) 92.7%);
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 .general-card.team{
-    background-image:url(../images/all/card-team.3f1c1be9.png)
+    background: linear-gradient(178.1deg, #684E3F 8.5%, #BD7F41 92.7%);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 .general-card.percent{
-    background-image:url(../images/all/card-percent.5fe5af63.png)
+    background: linear-gradient(178.1deg, #5C724A 8.5%, #8BB955 92.7%);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 .general-card.lvl{
-    background-image:url(../images/all/card-lvl.cc0f535d.png)
+    background: linear-gradient(178.1deg, #493F81 8.5%, #5744C3 92.7%);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 .general-card.turnover{
-    background-image:url(../images/all/card-turnover.b507460d.png)
+    background: linear-gradient(178.1deg, #3E7261 8.5%, #3FBE7A 92.7%);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 .buy-nft-card .cab-row-card{
     flex-direction:column;
@@ -2696,19 +2703,7 @@ input.transfer-input+.btn{
     flex-wrap:wrap;
     width:100%
 }
-.block-percent{
-    display:flex;
-    flex-direction:column;
-    justify-content:stretch;
-    background:#1f212f;
-    border-radius:8px;
-    width:calc(25% - 20px);
-    min-width:200px;
-    padding:20px;
-    margin-right:20px;
-    margin-bottom:20px;
-    position:relative
-}
+
 .your-boosts-card .block-percent-img,.your-nfts-block .img-wrap{
     cursor:pointer
 }
@@ -3124,8 +3119,8 @@ input.transfer-input+.btn{
     display: flex;
     justify-content: space-between;
 }
-.stake-nft-value-tier > span:nth-child(1) { width: fit-content; }
-.stake-nft-value-tier > span:nth-child(2) { width: fit-content; opacity: 1; }
+.stake-nft-value-tier > span:nth-child(1) { width: fit-content; text-align: start !important; white-space: nowrap;}
+.stake-nft-value-tier > span:nth-child(2) { width: fit-content; opacity: 1; text-align: end !important; white-space: nowrap; }
 .stats-box-stealth{
     color:#ffffff00 !important;
     background:#ffffff00 !important;
@@ -3147,112 +3142,136 @@ input.transfer-input+.btn{
     border:1px solid #b2321e;
 }
 .label-tier-0 {
-    border: 2px solid #f8f8f8;
+    border: 2px solid transparent;
     border-radius: 4px;
     width: fit-content;
     padding-left: 5px;
     padding-right: 5px;
-    background-color: #f8f8f8;
+    background: linear-gradient(to right, #f8f8f8, #d3cdcd, #f8f8f8);
     color: black !important; 
     font-weight: 700 !important;
     opacity: 1;
 }
 .label-tier-1 {
-    border: 2px solid #B86810;
+    border: 2px solid transparent;
     border-radius: 4px;
     width: fit-content;
     padding-left: 5px;
     padding-right: 5px;
-    background-color: #B86810;
-    color: black !important; 
+    background: linear-gradient(to right, #df7504, #B86810, #df7504);
+    color: black !important;
     font-weight: 700 !important;
     opacity: 1;
 }
 .label-tier-2 {
-    border: 2px solid #8FD3DA;
+    border: 2px solid transparent;
     border-radius: 4px;
     width: fit-content;
     padding-left: 5px;
     padding-right: 5px;
-    background-color: #8FD3DA;
-    color: black !important; 
+    background: linear-gradient(to right, #3ebbc9, #8FD3DA, #3ebbc9);
+    color: black !important;
     font-weight: 700 !important;
     opacity: 1;
 }
 .label-tier-3 {
-    border: 2px solid #F3BDDB;
+    border: 2px solid transparent;
     border-radius: 4px;
     width: fit-content;
     padding-left: 5px;
     padding-right: 5px;
-    background-color: #F3BDDB;
+    background: linear-gradient(to right, #f17cbc, #F3BDDB, #f17cbc);
     color: black !important; 
     font-weight: 700 !important;
     opacity: 1;
 }
 .label-tier-4 {
-    border: 2px solid #9951A2;
+    border: 2px solid transparent;
     border-radius: 4px;
     width: fit-content;
     padding-left: 5px;
     padding-right: 5px;
-    background-color: #9951A2;
-    color: black !important; 
+    background: linear-gradient(to right, #902b9d, #9951A2, #902b9d);
+    color: black !important;
     font-weight: 700 !important;
     opacity: 1;
 }
 .label-tier-5 {
-    border: 2px solid #595959;
+    border: 2px solid transparent;
     border-radius: 4px;
     width: fit-content;
     padding-left: 5px;
     padding-right: 5px;
     background-color: #595959;
+    background: linear-gradient(to right, #766d6d, #595959, #766d6d);
     color: whitesmoke !important; 
     font-weight: 700 !important;
     opacity: 1;
 }
 .label-tier-6 {
-    border: 2px solid #DBDB7D;
+    border: 2px solid transparent;
     border-radius: 4px;
     width: fit-content;
     padding-left: 5px;
     padding-right: 5px;
-    background-color: #DBDB7D;
+    background: linear-gradient(to right, #b3b32d, #DBDB7D, #b3b32d);
     color: black !important; 
     font-weight: 700 !important;
     opacity: 1;
 }
 .label-tier-7 {
-    border: 2px solid #4EA86F;
+    border: 2px solid transparent;
     border-radius: 4px;
     width: fit-content;
     padding-left: 5px;
     padding-right: 5px;
-    background-color: #4EA86F;
+    background: linear-gradient(to right, #10843a, #4EA86F, #2a9d54);
     color: black !important; 
     font-weight: 700 !important;
     opacity: 1;
 }
 .label-tier-8 {
-    border: 2px solid #F6A381;
+    border: 2px solid transparent;
     border-radius: 4px;
     width: fit-content;
     padding-left: 5px;
     padding-right: 5px;
-    background-color: #F6A381;
+    background: linear-gradient(to right, #f87947, #F6A381, #f87947);
     color: black !important; 
     font-weight: 700 !important;
     opacity: 1;
 }
 .label-tier-9 {
-    border: 2px solid #f6c70c;
+    border: 2px solid transparent;
     border-radius: 4px;
     width: fit-content;
     padding-left: 5px;
     padding-right: 5px;
-    background-color: #f6c70c;
+    background: linear-gradient(to right, #f6c70c, #ffcc00, #f6c70c);
     color: black !important; 
+    font-weight: 700 !important;
+    opacity: 1;
+}
+.label-tier-10 {
+    border: 2px solid transparent;
+    border-radius: 4px;
+    width: fit-content;
+    padding-left: 5px;
+    padding-right: 5px;
+    background: linear-gradient(to right, #9E2E4A, #F96F9B, #9E2E4A);
+    color: white !important; 
+    font-weight: 700 !important;
+    opacity: 1;
+}
+
+.label-tier-11 {
+    border: 2px solid transparent;
+    border-radius: 4px;
+    width: fit-content;
+    padding-left: 5px;
+    padding-right: 5px;
+    background: linear-gradient(to right, #181818, #505050, #181818);
+    color: white !important; 
     font-weight: 700 !important;
     opacity: 1;
 }
@@ -3264,6 +3283,13 @@ input.transfer-input+.btn{
     color: rgb(255, 255, 255) !important; 
     font-weight: 300 !important;
     opacity: 1;
+}
+.nft-loot-add-1,
+.nft-loot-add-2,
+.nft-loot-add-3 {
+    height: 30%;
+    width: 30%;
+    position: relative;
 }
 .stake-nft-value svg path{
     fill:#77d15c
@@ -3281,6 +3307,27 @@ input.transfer-input+.btn{
 }
 .not-enabled {
     background-color: #707280 !important;
+}
+.btn-redirect {
+    background-color: #1f4fb0 !important;
+}
+.rarity-label-title {
+    width: 100%;
+    text-align: center;
+    border-radius: 6px;
+}
+.rarity-label-title-legendary {
+    background-color: rgb(248, 205, 32);
+    color: black;
+}
+.rarity-label-title-epic {
+    background-color: blueviolet;
+}
+.rarity-label-title-rare {
+    background-color: rgb(16, 42, 238);
+}
+.rarity-label-title-common {
+    background-color: rgb(5, 137, 29);
 }
 .card-container-btn .btn{
     margin-top:10px
@@ -4126,21 +4173,21 @@ input.transfer-input+.btn{
     background-repeat:no-repeat;
     background-size:100%;
     background-position:50%;
-    background-image:url(../images/all/Logo.aa2e9dc1.svg);
-    min-width:205.86px;
-    width:205.86px;
-    height:44px
+    background-image:url(../images/all/Logo-White.png);
+    min-width:412px;
+    width:412px;
+    height:88px
 }
 .logo.logo-xs{
-    background-image:url(../images/all/Logo-xs.9102ce9c.svg);
-    min-width:40px;
-    width:44px;
-    height:44px;
+    background-image:url(../images/all/Logo-xs.9102ce9c.png);
+    width: 80px !important;
+    min-width: 80px !important;
+    height: 60px !important;
     display:none;
     margin-right:auto
 }
 .sidebar .logo{
-    background-image:url(../images/all/Logo-white.64f3d12d.svg)
+    background-image:url(../images/all/Logo.png);
 }
 header{
     top:0;
@@ -8749,12 +8796,14 @@ i[class*=" i-"],i[class^=i-]{
         margin-top:20px
     }
     .block-percent,.boosts-card .boosts-item{
-        width:calc(25% - 20px)
+        width:calc(25% - 20px);
+        flex-grow: 1 !important;
+        max-width: unset !important;
     }
     .general-card-col,.general-info-card.general-info-card-program .general-card .general-card-col{
         padding:0
     }
-    .general-card,.general-info-card.general-info-card-program .general-card{
+    .general-card,.general-info-card.general-info-card-program .general-card {
         padding-left: 20px;
         padding-right: 20px;
         padding-top: 10px;
@@ -8762,7 +8811,28 @@ i[class*=" i-"],i[class^=i-]{
         min-width:-webkit-fit-content;
         min-width:-moz-fit-content;
         min-width:fit-content;
-        width:calc(50% - 10px)
+        flex-grow: 1 !important;
+        max-width: unset !important;
+        max-height: fit-content !important;
+    }
+    .general-card:nth-child(1) {
+        width: calc(25% - 10px) !important;
+        max-width: calc(25% - 10px) !important;
+        min-width: calc(25% - 10px) !important;
+        flex-grow: 1 !important;
+    }
+    .general-card:nth-child(2) {
+        width: calc(35% - 10px) !important;
+        max-width: calc(35% - 10px) !important;
+        min-width: calc(35% - 10px) !important;
+        flex-grow: 1 !important;
+    }
+    .general-card:nth-child(3),
+    .general-card:nth-child(4) {
+        width: calc(40% - 10px) !important;
+        max-width: calc(40% - 10px) !important;
+        min-width: calc(40% - 10px) !important;
+        flex-grow: 1 !important;
     }
     .general-card:not(.claim) .general-card-col:not(:first-child){
         /* margin:-30px 0 -30px -60px; */
@@ -8806,6 +8876,35 @@ i[class*=" i-"],i[class^=i-]{
         flex-direction:column
     }
 }
+@media (max-width:1140px){
+    .general-card:nth-child(1),
+    .general-card:nth-child(2) {
+        width: calc(50% - 10px) !important;
+        max-width: calc(50% - 10px) !important;
+        min-width: fit-content !important;
+    }
+    .general-card:nth-child(3),
+    .general-card:nth-child(4) {
+        width: calc(50% - 10px) !important;
+        max-width: calc(50% - 10px) !important;
+        min-width: fit-content !important;
+        flex-grow: 1 !important;
+        max-width: unset !important;
+    }
+}
+@media (max-width:840px){
+    .general-card:nth-child(1),
+    .general-card:nth-child(2),
+    .general-card:nth-child(3),
+    .general-card:nth-child(4) {
+        width: calc(100% - 10px) !important;
+        max-width: calc(100% - 10px) !important;
+        min-width: calc(100% - 10px) !important;
+        padding-top: 0px !important;
+        padding-bottom: 0px !important;
+        min-height: fit-content !important;
+    }
+}
 @media (max-width:1260.5px){
     .container{
         max-width:100%
@@ -8829,7 +8928,7 @@ i[class*=" i-"],i[class^=i-]{
     .li-our-nfts:nth-child(7),
     .li-our-nfts:nth-child(8) {
         background-color: #1a1c2982 !important;
-        padding: 4px !important;
+        padding: 6px !important;
     }
 }
 .lowOpacity {
@@ -8952,9 +9051,9 @@ i[class*=" i-"],i[class^=i-]{
         width:8px
     }
     .sidebar .logo{
-        width:150px;
-        min-width:150px;
-        height:34px
+        width:412px;
+        min-width:412px;
+        height:88px;
     }
     .main-dashboard{
         --widthSidaebar:264px
@@ -8978,7 +9077,9 @@ i[class*=" i-"],i[class^=i-]{
         width:calc(25% - 10px)
     }
     .block-percent,.boosts-card .boosts-item{
-        min-width:auto
+        min-width:auto;
+        flex-grow: 1 !important;
+        max-width: unset !important;
     }
     .main-boosts .boosts-wrap{
         margin-right:0
@@ -9008,9 +9109,9 @@ i[class*=" i-"],i[class^=i-]{
         display:none
     }
     .main-home .header-wrapper .logo{
-        width:141px;
-        min-width:141px;
-        height:30px
+        width: 300px;
+        min-width: 300px;
+        height: 150px;
     }
     .main-home .network-wrap .btn-network-main span{
         padding-right:0
@@ -9156,9 +9257,10 @@ i[class*=" i-"],i[class^=i-]{
 }
 @media (min-width:991.5px) and (max-width:1260.5px){
     .li-our-nfts{
-        margin:8px;
-        width:calc(25% - 48px);
-        max-width:calc(25% - 48px)
+        margin: 6.6px;
+        width: calc(25% - 10px);
+        max-width: calc(25% - 10px);
+        flex-grow: 1 !important;
     }
     .li-our-nfts:nth-child(4),
     .li-our-nfts:nth-child(8) {
@@ -9192,8 +9294,10 @@ i[class*=" i-"],i[class^=i-]{
         width:100%
     }
     .li-our-nfts{
-        margin:8px;
-        width:calc(33% - 16px);
+        margin: 8px;
+        flex-grow: 1;
+        width: calc(50% - 8px);
+        max-width: unset !important;
     }
     .li-nft-footer-amount{
         font-size:14px
@@ -9874,11 +9978,6 @@ i[class*=" i-"],i[class^=i-]{
     .ul-our-nfts{
         justify-content:center
     }
-    .li-our-nfts{
-        margin:8px;
-        flex-grow:0;
-        width:calc(33% - 16px);
-    }
     .slider-nft-container{
         margin-left:-8px;
         margin-right:-8px;
@@ -10056,9 +10155,6 @@ i[class*=" i-"],i[class^=i-]{
     .block-percent,.boosts-card-content,.boosts-card .boosts-item{
         margin-bottom:10px
     }
-    .block-percent{
-        width:calc(33.33333% - 10px)
-    }
     .dashboard-container main{
         padding-bottom:68px
     }
@@ -10187,9 +10283,6 @@ i[class*=" i-"],i[class^=i-]{
         padding:10px;
         min-width:60px
     }
-    .block-percent{
-        width:calc(25% - 10px)
-    }
     .push{
         left:0
     }
@@ -10197,11 +10290,6 @@ i[class*=" i-"],i[class^=i-]{
         margin:16px 0 0 0;
         width:100%;
         padding:16px 16px 16px 72px
-    }
-    .li-our-nfts{
-        margin:8px;
-        flex-grow:1;
-        width:calc(50% - 16px)
     }
     .ul-our-nfts{
         margin-left:-6px;
@@ -10282,10 +10370,6 @@ i[class*=" i-"],i[class^=i-]{
         min-width:224px;
         margin-bottom:10px
     }
-    .block-percent{
-        min-width:206px;
-        margin-right:20px
-    }
     .your-boost-item{
         width:calc(25% - 10px)
     }
@@ -10360,10 +10444,10 @@ i[class*=" i-"],i[class^=i-]{
         max-width:146px
     }
     .header-wrapper .logo,.logo,.main-home .header-fixed .logo,.main-home .header-menu .logo,.main-home .header-wrapper .logo,.main-home header.header-menu .logo{
-        background-image:url(../images/all/Logo-xs.9102ce9c.svg);
-        min-width:40px;
-        width:40px;
-        height:40px
+        background-image:url(../images/all/Logo-xs.9102ce9c.png);
+        width: 80px !important;
+        min-width: 80px !important;
+        height: 60px !important;
     }
     .btn-mobile-menu:not(.close){
         margin-left:2px
@@ -10373,13 +10457,6 @@ i[class*=" i-"],i[class^=i-]{
     }
     .section-mobile .img-comment{
         transform:translate(25%)
-    }
-}
-@media (max-width:390px){
-    .li-our-nfts{
-        margin:8px;
-        flex-grow:1;
-        width:calc(50% - 16px)
     }
 }
 @media (max-width:560.5px){
@@ -10694,7 +10771,7 @@ i[class*=" i-"],i[class^=i-]{
         z-index:15
     }
     .main-home .header-menu .logo{
-        background-image:url(../images/all/Logo-white.64f3d12d.svg)
+        background-image:url(../images/all/Logo.png);
     }
     .block-percent-value{
         font-size:14px;

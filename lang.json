@@ -166,6 +166,11 @@
             "Coming Soon"
         ],
         [
+            "ONLY_FROM_LOOTBOX",
+            "",
+            "Only via Lootbox"
+        ],
+        [
             "------- FOR FOOTER"
         ],
         [
@@ -479,7 +484,7 @@
         [
             "LIMITED_STAKING_DESC_3",
             "",
-            "Instant BNB Payouts"
+            "Instant BUSD Payouts"
         ],
         [
             "LIMITED_STAKING_DESC_3_MATIC",
@@ -530,7 +535,7 @@
         [
             "UNLIMITED_STAKING_DESC_1",
             "",
-            "Instant BNB Payouts",
+            "Instant BUSD Payouts",
             "Polygon"
         ],
         [
@@ -677,7 +682,7 @@
         [
             "HOW_TO_EARN_LIST_TITLE_4",
             "",
-            "Earn BNB Rewards"
+            "Earn BUSD Rewards"
         ],
         [
             "HOW_TO_EARN_LIST_DESC_4",
@@ -692,7 +697,7 @@
         [
             "HOW_TO_EARN_LIST_DESC_5",
             "",
-            "The more people you refer to ROIEgg, the more BNB you're going to passively make."
+            "The more people you refer to ROIEgg, the more BUSD you're going to passively make."
         ],
         [
             "HOW_TO_EARN_LIST_TITLE_1_MATIC",
@@ -848,7 +853,7 @@
         [
             "REFERRAL_PROGRAM_DESC",
             "",
-            "Referral Program enables its active users to earn passive BNB income. Expand your structure by referring more people to the platform to get from 5 to 20 percent of each user transaction in your structure."
+            "Referral Program enables its active users to earn passive BUSD income. Expand your structure by referring more people to the platform to get from 5 to 20 percent of each user transaction in your structure."
         ],
         [
             "REFERRAL_PROGRAM_DESC_MATIC",
@@ -875,7 +880,7 @@
         [
             "REFERRAL_PROGRAM_ITEM_4",
             "",
-            "Your referrer level depends on your structure's BNB turnover."
+            "Your referrer level depends on your structure's BUSD turnover."
         ],
         [
             "REFERRAL_PROGRAM_ITEM_4_MATIC",
@@ -891,7 +896,7 @@
         [
             "MODAL_TIMER_DESCR",
             "",
-            "You haven't got any applicable Boosts yet. Come buy some with BUSD, BNB or get them from other platform users."
+            "You haven't got any applicable Boosts yet. Come buy some with BUSD, BUSD or get them from other platform users."
         ],
         [
             "MODAL_TIMER_DESCR_POLYGON",
@@ -962,7 +967,17 @@
         [
             "REF_PROG_DESCR",
             "",
-            "Referral Program enables its active users to earn passive BNB income. Expand your structure by referring more people to the platform to get 5-20% of each EggNFT or Boost purchased by your structure members."
+            "Referral Program enables its active users to earn passive BUSD income. Expand your structure by referring more people to the platform to get 5-20% of each EggNFT or Boost purchased by your structure members."
+        ],
+        [
+            "REF_PROG_DESCR_COMING_SOON",
+            "",
+            "Any action you perform before this release will be considered. No a sincle refferral will be wasted. You can become leader as soon as we realease the feature."
+        ],
+        [
+            "REF_PROG_COMING_SOON",
+            "",
+            "Leader Referral system is coming in first week after offical lauch ..."
         ],
         [
             "REF_PROG_DESCR_POLYGON",
@@ -1000,7 +1015,7 @@
         [
             "YOUR_BOOSTS_0_DESCR_BNB",
             "",
-            "Use BUSD or BNB to buy some. You can also get Boosts from other people."
+            "Use BUSD or BUSD to buy some. You can also get Boosts from other people."
         ],
         [
             "YOUR_BOOSTS_0_DESCR_MATIC",
@@ -1030,7 +1045,7 @@
         [
             "YOUR_NFTS_0_DESCR",
             "",
-            "Use BNB to buy some. You can also get EggNFTs from other people."
+            "Use BUSD to buy some. You can also get EggNFTs from other people."
         ],
         [
             "YOUR_NFTS_0_DESCR_MATIC",
@@ -1475,7 +1490,7 @@
         [
             "PROGRESS_REF_DESCRIBE_1",
             "",
-            "Check how your referrals are faring with their BNB turnover to see if you upgraded to a new referral reward rate."
+            "Check how your referrals are faring with their BUSD turnover to see if you upgraded to a new referral reward rate."
         ],
         [
             "PROGRESS_REF_DESCRIBE_1_POLYGON",

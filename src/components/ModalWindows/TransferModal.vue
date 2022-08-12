@@ -192,7 +192,9 @@
                                 <div class="nft-load-icon"></div>
                             </div>
 
-                            <img class="your-nft-img" :src="nft.image" alt="main-img" />
+                            <div class="your-nft-img">
+                                <img :src="getClassImg" />
+                            </div>
                         </div>
                         <div class="nft-details">
                             <div class="nft-details-title">
@@ -266,11 +268,11 @@
                                     </div>
                                     <div class="block-info-row">
                                         <div class="block-info-td block-info-name">{{ translatesGet("TIME") }}</div>
-                                        <div class="block-info-td block-info-value">{{ Number(nft.boostTimePercent) === 0 ? "-" : Number(nft.boostTimePercent) / 100 + "%" }}</div>
+                                        <div class="block-info-td block-info-value">{{ Number(nft.boostTimePercent) === 0 ? "-" : Number(nft.boostTimePercent) + " days" }}</div>
                                     </div>
                                     <div class="block-info-row">
                                         <div class="block-info-td block-info-name">{{ translatesGet("PROFIT") }}</div>
-                                        <div class="block-info-td block-info-value">{{ Number(nft.boostProfitPercent) === 0 ? "-" : Number(nft.boostProfitPercent) / 100 + "%" }}</div>
+                                        <div class="block-info-td block-info-value">{{ Number(nft.boostProfitPercent) === 0 ? "-" : Number(nft.boostProfitPercent) + "%" }}</div>
                                     </div>
                                 </div>
                             </div>
@@ -409,7 +411,8 @@
                 return "#000000";
             },
             getClassImg() {
-                let boostPercent = (Number(this.nft.boostTimePercent) != 0 ? Number(this.nft.boostTimePercent) : Number(this.nft.boostProfitPercent)) / 100;
+                let boostPercent = (Number(this.nft.boostTimePercent) != 0 ? Number(this.nft.boostTimePercent) : Number(this.nft.boostProfitPercent));
+                console.log(boostPercent)
                 let lvl = boostPercent == 2 ? 1 : boostPercent == 5 ? 2 : 3;
                 let nameFix = this.nft.boostType == 1 ? "time-" : "percent-";
                 var images = require.context("/src/assets/images/all/", false, /\.png$/);
@@ -444,8 +447,8 @@
             },
             getMetadata() {
                 // return this.nft.collection.includes("Boost")
-                //     ? `https://base.posduck.com/api/getBoostMetadata?chainId=${this.currentBlockchain}&nftAddress=${this.nft.nftContractAddress}&id=${this.nft.tokenId}`
-                //     : `https://base.posduck.com/api/getNftMetadata?chainId=${this.currentBlockchain}&nftAddress=${this.nft.nftContractAddress}&id=${this.nft.tokenId}`;
+                //     ? `https://base.eggroi.com/api/getBoostMetadata?chainId=${this.currentBlockchain}&nftAddress=${this.nft.nftContractAddress}&id=${this.nft.tokenId}`
+                //     : `https://base.eggroi.com/api/getNftMetadata?chainId=${this.currentBlockchain}&nftAddress=${this.nft.nftContractAddress}&id=${this.nft.tokenId}`;
                 return null;
             },
         },

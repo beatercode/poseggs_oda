@@ -20,7 +20,7 @@
                                 <div class="h4">{{ translatesGet("STAKE") }}</div>
                                 <div class="h5">{{ translatesGet("STAKE_DESCR") }}</div>
                             </div>
-                            <a class="link link-learn-more" target="_blank" rel="nofollow" href="https://posduck.gitbook.io/posduck-dock/nft-staking">
+                            <a class="link link-learn-more" target="_blank" rel="nofollow" href="https://eggroi.gitbook.io/eggroi-dock/nft-staking">
                                 {{ translatesGet("LEARN_MORE") }}
                                 <i class="i-arrow-right-3"></i>
                             </a>

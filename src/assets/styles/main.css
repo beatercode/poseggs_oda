@@ -666,7 +666,7 @@ table {
 
 .main-home .footer-home .logo,
 .main-home .header-fixed .logo {
-    background-image: url(../images/all/Logo-white.64f3d12d.svg)
+    background-image:url(../images/all/Logo.png);
 }
 
 .main-home .footer-home .logo {
@@ -2605,34 +2605,6 @@ table {
 .general-card .general-card-col .btn {
     margin-left: auto;
     margin-top: auto
-}
-
-.general-card.profit {
-    background-image: url(../images/all/card-profit.97874bbf.png)
-}
-
-.general-card.claim {
-    background-image: url(../images/all/card-claim.111e57fc.png)
-}
-
-.general-card.reward {
-    background-image: url(../images/all/card-reward.98b6063a.png)
-}
-
-.general-card.team {
-    background-image: url(../images/all/card-team.3f1c1be9.png)
-}
-
-.general-card.percent {
-    background-image: url(../images/all/card-percent.5fe5af63.png)
-}
-
-.general-card.lvl {
-    background-image: url(../images/all/card-lvl.cc0f535d.png)
-}
-
-.general-card.turnover {
-    background-image: url(../images/all/card-turnover.b507460d.png)
 }
 
 .buy-nft-card .cab-row-card {
@@ -4795,23 +4767,23 @@ input.transfer-input+.btn {
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: 50%;
-    background-image: url(../images/all/Logo.aa2e9dc1.svg);
+    background-image:url(../images/all/Logo.png);
     min-width: 205.86px;
     width: 205.86px;
     height: 44px
 }
 
 .logo.logo-xs {
-    background-image: url(../images/all/Logo-xs.9102ce9c.svg);
-    min-width: 40px;
-    width: 44px;
-    height: 44px;
+    background-image: url(../images/all/Logo-xs.9102ce9c.png);
+    width: 80px !important;
+    min-width: 80px !important;
+    height: 60px !important;
     display: none;
     margin-right: auto
 }
 
 .sidebar .logo {
-    background-image: url(../images/all/Logo-white.64f3d12d.svg)
+    background-image:url(../images/all/Logo.png);
 }
 
 header {
@@ -11139,9 +11111,9 @@ i[class^=i-] {
         width: 8px
     }
     .sidebar .logo {
-        width: 150px;
-        min-width: 150px;
-        height: 34px
+        width: 412px;
+        min-width: 412px;
+        height: 88px
     }
     .main-cabinet {
         --widthSidaebar: 264px
@@ -12652,10 +12624,10 @@ i[class^=i-] {
     .main-home .header-menu .logo,
     .main-home .header-wrapper .logo,
     .main-home header.header-menu .logo {
-        background-image: url(../images/all/Logo-xs.9102ce9c.svg);
-        min-width: 40px;
-        width: 40px;
-        height: 40px
+        background-image: url(../images/all/Logo-xs.9102ce9c.png);
+        width: 80px !important;
+        min-width: 80px !important;
+        height: 60px !important;
     }
     .btn-mobile-menu:not(.close) {
         margin-left: 2px
@@ -12992,7 +12964,7 @@ i[class^=i-] {
         z-index: 15
     }
     .main-home .header-menu .logo {
-        background-image: url(../images/all/Logo-white.64f3d12d.svg)
+        background-image:url(../images/all/Logo.png);
     }
     .block-percent-value {
         font-size: 14px;
