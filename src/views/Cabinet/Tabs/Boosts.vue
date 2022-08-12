@@ -19,7 +19,7 @@
                                         <div class="h5">{{ translatesGet("BOOSTER_TIME_DESCR") }}</div>
                                     </div>
                                     <a class="link link-learn-more" target="_blank" rel="nofollow"
-                                        href="https://eggroi.gitbook.io/eggroi-dock/boosts#profitability-boost">
+                                        href="https://eggroi.gitbook.io/eggroi/boosts#profitability-boost">
                                         {{ translatesGet("LEARN_MORE") }}
                                         <i class="i-arrow-right-3"></i>
                                     </a>
@@ -45,7 +45,7 @@
                                         <div class="h5">{{ translatesGet("BOOSTER_PROFIT_DESCR") }}</div>
                                     </div>
                                     <a class="link link-learn-more" target="_blank" rel="nofollow"
-                                        href="https://eggroi.gitbook.io/eggroi-dock/boosts#staking-duration-boost">
+                                        href="https://eggroi.gitbook.io/eggroi/boosts#staking-duration-boost">
                                         {{ translatesGet("LEARN_MORE") }}<i class="i-arrow-right-3"></i>
                                     </a>
                                 </div>
@@ -70,7 +70,7 @@
                                         <div class="h5">{{ translatesGet("BOOSTER_TEAM_DESCR") }}</div>
                                     </div>
                                     <a class="link link-learn-more" target="_blank" rel="nofollow"
-                                        href="https://eggroi.gitbook.io/eggroi-dock/boosts#team-boost">
+                                        href="https://eggroi.gitbook.io/eggroi/boosts#team-boost">
                                         {{ translatesGet("LEARN_MORE") }}<i class="i-arrow-right-3"></i>
                                     </a>
                                 </div>

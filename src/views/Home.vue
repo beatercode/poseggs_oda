@@ -141,7 +141,7 @@
                             <div class="audited">
                                 <div class="title-upper">{{ translatesGet("AUDITED_BY") }}</div>
                                 <ul class="audited-logos">
-                                    <a href="https://eggroi.gitbook.io/eggroi-dock/audited" target="_blank">
+                                    <a href="https://eggroi.gitbook.io/eggroi/audited" target="_blank">
                                         <li>
                                             <span class="haze-crypto"></span>
                                         </li>
@@ -235,7 +235,7 @@
                                 <div class="title-row">
                                     <div class="h2">{{ translatesGet("LIMITED_STAKING") }}</div>
                                     <a class="link link-learn-more" target="_blank" rel="nofollow"
-                                        href="https://eggroi.gitbook.io/eggroi-dock/staking-pool-types">{{
+                                        href="https://eggroi.gitbook.io/eggroi/staking-pool-types">{{
                                                 translatesGet("LEARN_MORE")
                                         }}<i class="i-arrow-right-3"></i></a>
                                 </div>
@@ -485,7 +485,7 @@
                                 <div class="title-row">
                                     <div class="h2">{{ translatesGet("BOOSTS") }}</div>
                                     <a target="_blank" rel="nofollow" class="link link-learn-more"
-                                        href="https://eggroi.gitbook.io/eggroi-dock/boosts">{{
+                                        href="https://eggroi.gitbook.io/eggroi/boosts">{{
                                                 translatesGet("LEARN_MORE")
                                         }}<i class="i-arrow-right-3"></i></a>
                                 </div>
@@ -621,7 +621,7 @@
                             <div class="title-row">
                                 <div class="h2">{{ translatesGet("LEADERSHIP_PROGRAMM") }}</div>
                                 <a target="_blank" rel="nofollow" class="link link-learn-more"
-                                    href="https://eggroi.gitbook.io/eggroi-dock/leadership-program">{{
+                                    href="https://eggroi.gitbook.io/eggroi/leadership-program">{{
                                             translatesGet("LEARN_MORE")
                                     }} <i class="i-arrow-right-3"></i></a>
                             </div>
@@ -1142,7 +1142,7 @@
                             <div class="title-row">
                                 <div class="h2">{{ translatesGet("REFERRAL_PROGRAM") }}</div>
                                 <a target="_blank" rel="nofollow" class="link link-learn-more"
-                                    href="https://eggroi.gitbook.io/eggroi-dock/referral-program">{{
+                                    href="https://eggroi.gitbook.io/eggroi/referral-program">{{
                                             translatesGet("LEARN_MORE")
                                     }} <i class="i-arrow-right-3"></i></a>
                             </div>
@@ -1416,18 +1416,18 @@
                         <ul class="footer-list">
                             <li>
                                 <a target="_blank" rel="nofollow"
-                                    href="https://eggroi.gitbook.io/eggroi-dock/terms-of-service">{{
+                                    href="https://eggroi.gitbook.io/eggroi/terms-of-service">{{
                                             translatesGet("TERMS_SERVICE")
                                     }}</a>
                             </li>
                             <li>
                                 <a target="_blank" rel="nofollow"
-                                    href="https://eggroi.gitbook.io/eggroi-dock/privacy-policy">{{
+                                    href="https://eggroi.gitbook.io/eggroi/privacy-policy">{{
                                             translatesGet("PRIVACY_POLICY")
                                     }}</a>
                             </li>
                             <li>
-                                <a target="_blank" rel="nofollow" href="https://eggroi.gitbook.io/eggroi-dock">{{
+                                <a target="_blank" rel="nofollow" href="https://eggroi.gitbook.io/eggroi">{{
                                         translatesGet("GITBOOK")
                                 }}</a>
                             </li>

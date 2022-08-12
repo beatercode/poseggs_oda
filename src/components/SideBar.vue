@@ -57,7 +57,7 @@
             </ul>
         </nav>
         <div class="sidebar-block">
-            <a href="https://eggroi.gitbook.io/eggroi-dock" target="_blank" rel="nofollow">
+            <a href="https://eggroi.gitbook.io/eggroi" target="_blank" rel="nofollow">
                 <span class="icon-wrap"> <i class="icon icon-book"> </i></span>
                 <span class="link-name">{{ translatesGet("GITBOOK") }}</span>
             </a>

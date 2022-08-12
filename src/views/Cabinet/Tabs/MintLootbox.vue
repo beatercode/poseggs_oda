@@ -23,7 +23,7 @@
                                             </div>
                                         </div>
                                         <a class="link link-learn-more" target="_blank" rel="nofollow"
-                                            href="https://eggroi.gitbook.io/eggroi-dock/nft-purchase-on-the-eggroi-platform">
+                                            href="https://eggroi.gitbook.io/eggroi/nft-purchase-on-the-eggroi-platform">
                                             {{ translatesGet("LEARN_MORE") }}
                                             <i class="i-arrow-right-3"></i>
                                         </a>
@@ -176,7 +176,7 @@
                                             </div>
                                         </div>
                                         <a class="link link-learn-more" target="_blank" rel="nofollow"
-                                            href="https://eggroi.gitbook.io/eggroi-dock/nft-purchase-on-the-eggroi-platform">
+                                            href="https://eggroi.gitbook.io/eggroi/nft-purchase-on-the-eggroi-platform">
                                             {{ translatesGet("LEARN_MORE") }}
                                             <i class="i-arrow-right-3"></i>
                                         </a>
