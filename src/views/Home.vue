@@ -1387,15 +1387,6 @@
                                         <div class="list-item-icon icon-wrap"><i class="icon-check"></i></div>
                                         <span>{{ translatesGet("REFERRAL_PROGRAM_ITEM_3") }}</span>
                                     </li>
-                                    <li class="home-list-item">
-                                        <div class="list-item-icon icon-wrap"><i class="icon-check"></i></div>
-                                        <span v-if="getPreselectedChain == 'polygon'">{{
-                                                translatesGet("REFERRAL_PROGRAM_ITEM_4")
-                                        }}</span>
-                                        <span v-if="getPreselectedChain == 'polygon'">{{
-                                                translatesGet("REFERRAL_PROGRAM_ITEM_4_BUSD")
-                                        }}</span>
-                                    </li>
                                 </ul>
 
                                 <div class="table-img-wrap">

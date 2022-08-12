@@ -1130,36 +1130,36 @@ table{
     color:#1f212f
 }
 .program-item.egg-1 {
-    background: linear-gradient(180deg, #8E5625, #6d3a0e);
-    color: #1f212f
+    background: linear-gradient(180deg, #48404F, #4B4B50);
+    color: #ffffff;
 }
 .program-item.egg-2 {
     background: linear-gradient(180deg, #6bb7bf, #388992);
     color: #1f212f
 }
 .program-item.egg-3 {
-    background: linear-gradient(180deg, #B791AC, #AC477E);
-    color: #1f212f
+    background: linear-gradient(180deg, #58da56, #0ec60b);
+    color: #1f212f;
 }
 .program-item.egg-4 {
-    background: linear-gradient(180deg, #d55be0, #9a0ba7);
-    color: #1f212f
+    background: linear-gradient(180deg, #edeb68, #eae603);
+    color: #1f212f;
 }
 .program-item.egg-5 {
-    background: linear-gradient(180deg, #48404F, #4B4B50);
-    color: #ffffff
+    background: linear-gradient(180deg, #b85b18, #8b4407);
+    color: #1f212f;
 }
 .program-item.egg-6 {
-    background: linear-gradient(180deg, #edeb68, #eae603);
-    color: #1f212f
+    background: linear-gradient(180deg, #d46c40, #d64e13);
+    color: #1f212f;
 }
 .program-item.egg-7 {
-    background: linear-gradient(180deg, #58da56, #0ec60b);
-    color: #1f212f
+    background: linear-gradient(180deg, #B791AC, #AC477E);
+    color: #1f212f;
 }
 .program-item.egg-8 {
-    background: linear-gradient(180deg, #d46c40, #f16224);
-    color: #1f212f
+    background: linear-gradient(180deg, #d55be0, #9a0ba7);
+    color: #1f212f;
 }
 .section-unlimited-staking .program-col-value{
     font-size:36px
@@ -2102,31 +2102,31 @@ table{
     margin-top:auto
 }
 .general-card.profit{
-    background: linear-gradient(178.1deg, rgb(122, 35, 52) 8.5%, rgb(62, 9, 27) 92.7%);
+    background: linear-gradient(178.1deg, rgb(32, 183, 24) 8.5%, rgb(2, 94, 8) 92.7%);
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 .general-card.claim{
-    background: linear-gradient(178.1deg, rgb(60, 55, 106) 8.5%, rgb(23, 20, 69) 82.4%);
+    background: linear-gradient(178.1deg, rgb(47, 30, 205) 8.5%, rgb(10, 4, 115) 82.4%);
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 .general-card.reward{
-    background: linear-gradient(178.1deg, rgb(72, 200, 160) 8.5%, rgb(48, 144, 113) 92.7%);
+    background: linear-gradient(178.1deg, rgb(72, 200, 160) 8.5%, rgb(27, 108, 83) 92.7%);
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 .general-card.team{
-    background: linear-gradient(178.1deg, #684E3F 8.5%, #BD7F41 92.7%);
+    background: linear-gradient(178.1deg, #46b3d4 8.5%, #035a64 92.7%);
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 .general-card.percent{
-    background: linear-gradient(178.1deg, #5C724A 8.5%, #8BB955 92.7%);
+    background: linear-gradient(178.1deg, #1cae2b 8.5%, #03670e 92.7%);
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 .general-card.lvl{
-    background: linear-gradient(178.1deg, #493F81 8.5%, #5744C3 92.7%);
+    background: linear-gradient(178.1deg, #bcb727 8.5%, #7d7904 92.7%);
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 .general-card.turnover{
-    background: linear-gradient(178.1deg, #3E7261 8.5%, #3FBE7A 92.7%);
+    background: linear-gradient(178.1deg, #ff9900 8.5%, #b26b00 92.7%);
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 .buy-nft-card .cab-row-card{
@@ -3004,7 +3004,7 @@ input.transfer-input+.btn{
     height:100%;
     top:0;
     left:0;
-    background:rgba(0,0,0,.3);
+    background:rgba(0,0,0,0);
     border-radius:8px
 }
 .nft-label{
@@ -3148,7 +3148,7 @@ input.transfer-input+.btn{
     padding-left: 5px;
     padding-right: 5px;
     background: linear-gradient(to right, #f8f8f8, #d3cdcd, #f8f8f8);
-    color: black !important; 
+    color: black !important;
     font-weight: 700 !important;
     opacity: 1;
 }
@@ -3158,8 +3158,8 @@ input.transfer-input+.btn{
     width: fit-content;
     padding-left: 5px;
     padding-right: 5px;
-    background: linear-gradient(to right, #df7504, #B86810, #df7504);
-    color: black !important;
+    background: linear-gradient(to right, #766d6d, #595959, #766d6d);
+    color: whitesmoke !important;
     font-weight: 700 !important;
     opacity: 1;
 }
@@ -3180,7 +3180,7 @@ input.transfer-input+.btn{
     width: fit-content;
     padding-left: 5px;
     padding-right: 5px;
-    background: linear-gradient(to right, #f17cbc, #F3BDDB, #f17cbc);
+    background: linear-gradient(to right, #10843a, #4EA86F, #2a9d54);
     color: black !important; 
     font-weight: 700 !important;
     opacity: 1;
@@ -3191,7 +3191,7 @@ input.transfer-input+.btn{
     width: fit-content;
     padding-left: 5px;
     padding-right: 5px;
-    background: linear-gradient(to right, #902b9d, #9951A2, #902b9d);
+    background: linear-gradient(to right, #b3b32d, #DBDB7D, #b3b32d);
     color: black !important;
     font-weight: 700 !important;
     opacity: 1;
@@ -3203,34 +3203,12 @@ input.transfer-input+.btn{
     padding-left: 5px;
     padding-right: 5px;
     background-color: #595959;
-    background: linear-gradient(to right, #766d6d, #595959, #766d6d);
-    color: whitesmoke !important; 
+    background: linear-gradient(to right, #df7504, #B86810, #df7504);
+    color: black !important;
     font-weight: 700 !important;
     opacity: 1;
 }
 .label-tier-6 {
-    border: 2px solid transparent;
-    border-radius: 4px;
-    width: fit-content;
-    padding-left: 5px;
-    padding-right: 5px;
-    background: linear-gradient(to right, #b3b32d, #DBDB7D, #b3b32d);
-    color: black !important; 
-    font-weight: 700 !important;
-    opacity: 1;
-}
-.label-tier-7 {
-    border: 2px solid transparent;
-    border-radius: 4px;
-    width: fit-content;
-    padding-left: 5px;
-    padding-right: 5px;
-    background: linear-gradient(to right, #10843a, #4EA86F, #2a9d54);
-    color: black !important; 
-    font-weight: 700 !important;
-    opacity: 1;
-}
-.label-tier-8 {
     border: 2px solid transparent;
     border-radius: 4px;
     width: fit-content;
@@ -3241,13 +3219,35 @@ input.transfer-input+.btn{
     font-weight: 700 !important;
     opacity: 1;
 }
+.label-tier-7 {
+    border: 2px solid transparent;
+    border-radius: 4px;
+    width: fit-content;
+    padding-left: 5px;
+    padding-right: 5px;
+    background: linear-gradient(to right, #f17cbc, #F3BDDB, #f17cbc);
+    color: black !important; 
+    font-weight: 700 !important;
+    opacity: 1;
+}
+.label-tier-8 {
+    border: 2px solid transparent;
+    border-radius: 4px;
+    width: fit-content;
+    padding-left: 5px;
+    padding-right: 5px;
+    background: linear-gradient(to right, #c83ddb, #9951A2, #bc10d3);
+    color: black !important; 
+    font-weight: 700 !important;
+    opacity: 1;
+}
 .label-tier-9 {
     border: 2px solid transparent;
     border-radius: 4px;
     width: fit-content;
     padding-left: 5px;
     padding-right: 5px;
-    background: linear-gradient(to right, #f6c70c, #ffcc00, #f6c70c);
+    background: linear-gradient(to right, #BF953F, #FCF6BA, #B38728);
     color: black !important; 
     font-weight: 700 !important;
     opacity: 1;
@@ -3271,7 +3271,7 @@ input.transfer-input+.btn{
     padding-left: 5px;
     padding-right: 5px;
     background: linear-gradient(to right, #181818, #505050, #181818);
-    color: white !important; 
+    color: white !important;
     font-weight: 700 !important;
     opacity: 1;
 }

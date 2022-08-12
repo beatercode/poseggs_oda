@@ -1176,8 +1176,12 @@ export default class Core {
         const res = await this[`stake_${this.currentBlockchain}`].claim(depositId);
         return res;
     }
-    async batchClaim() {
-        return await this[`stake_${this.currentBlockchain}`].batchWithdraw();
+    async batchClaim(stakedAmount) {
+        let gasLimitToUse = stakedAmount * 200000;
+        console.log(gasLimitToUse)
+        return await this[`stake_${this.currentBlockchain}`].batchWithdraw({
+            gasLimit: gasLimitToUse
+        });
     }
 
     /****************** CONTRACT READ METHODS ************************/

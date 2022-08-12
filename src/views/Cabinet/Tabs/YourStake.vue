@@ -37,11 +37,11 @@
                                         /* currency */
                                     }}</span>
                                 </div>
-                                <div v-if="getAvaliableForClaim > 0" class="general-card-col" style="padding-right: 0px !important;">
+                                <!--div v-if="getAvaliableForClaim > 0" class="general-card-col" style="padding-right: 0px !important;">
                                     <button :disabled="showLoader" @click="batchClaim()" class="btn btn-claim">{{
                                             translatesGet("CLAIM_ALL")
                                     }}</button>
-                                </div>
+                                </div-->
                             </div>
                         </div>
                     </div>
@@ -238,7 +238,7 @@ export default {
             try {
                 this.showLoader = true;
                 this.isBatchClaiming = true;
-                const res = await this.$root.core.batchClaim();
+                const res = await this.$root.core.batchClaim(this.fullStakeDetails.length);
 
                 this.$store.commit("push_notification", {
                     type: "warning",
