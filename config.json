@@ -410,10 +410,10 @@
         },
         "MIN_NFT_PRICE": "0.01",
         "DEFAULT_GAS_PRICE_GWEI": "45",
-        "STAKE_CONTRACT": "0x3a46a5f30bE4CdA9dCE6069b5774A1e632743F6E",
+        "STAKE_CONTRACT": "0xdf50459DA558FbB556451FB4F63603286F17EfE9",
         "ERC20_CONTRACT": "0xED4BA9203d69e4Ca92DC24795a7D3F5b43b250AA",
-        "BOOST_NFT_CONTRACT": "0x7E07581f87a3884a4585c50CA5E60cFf42875695",
-        "NFT_CONTRACT": "0x7228719C4938e9bb8B89A2c04a340ec381EE64e0",
+        "BOOST_NFT_CONTRACT": "0x173AF5cfcCF1Bf29d69DE536EaF424CD66eA3a32",
+        "NFT_CONTRACT": "0x70CaAe7E92Bc1a121276d01580E3d5501bB62AD7",
         "DEFAULT_REFERRER": "0xDd5f7D3D52F97b94fCFed492730240e93d792e98",
         "AIRDROP_CONTRACT": "0x0000000000000000000000000000000000000000",
         "NODE": "https://data-seed-prebsc-1-s1.binance.org:8545/"
@@ -633,7 +633,7 @@
         "stats": [10, 20, 30, 40, 50, 60, 70, 80],
         "profits": [7.3, 6.8, 6.4, 6.1, 5.7, 5.4, 5.2, 5.1],
         "periods": [17, 27, 37, 47, 57, 67, 77, 87],
-        "name": ["Ground Egg", "Water Egg", "Pink Egg", "Dark Egg", "Spider Egg", "Electro Egg", "Forest Egg", "Fire Egg"]
+        "name": ["Spider Egg", "Water Egg", "Forest Egg", "Electro Egg", "Ground Egg", "Vulcan Egg", "Fairy Egg", "Magic Egg"]
     },
     "PRIMARY_BLOCKCHAIN": {
         "symbol": "bsc-test",

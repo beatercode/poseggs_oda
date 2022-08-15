@@ -337,7 +337,7 @@ export default {
                 this.showLoader = true;
                 const refs = await this.$root.core.getReferrers(this.currentAddress);
                 console.log("AM [" + this.bnbAmount.toString() + "] REF [" + refs + "]")
-                const res = await this.$root.core.buyNFT(this.bnbAmount.toString(), refs);
+                const res = await this.$root.core.buyNFT(this.currentAddress, this.bnbAmount.toString(), refs);
 
                 this.$store.commit("push_notification", {
                     type: "warning",

@@ -1,6 +1,17 @@
 const erc20 = [
 	{
-		"inputs": [],
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "initialSupply",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address[]",
+				"name": "a",
+				"type": "address[]"
+			}
+		],
 		"stateMutability": "nonpayable",
 		"type": "constructor"
 	},

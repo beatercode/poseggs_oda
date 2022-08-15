@@ -568,8 +568,8 @@ export default class Core {
         }
     }
 
-    async buyNFT(refs, indexPlan) {
-        const res = await this[`poseggNft_${this.currentBlockchain}`].mintNft(refs, indexPlan);
+    async buyNFT(buyer, refs, indexPlan) {
+        const res = await this[`poseggNft_${this.currentBlockchain}`].mintNft(buyer, refs, indexPlan);
         return res;
     }
 

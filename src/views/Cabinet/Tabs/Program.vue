@@ -544,7 +544,7 @@
                                         </div>
                                         <div v-else class="structure-row structure-row-img">
                                             <div class="structure-img-wrap"><img
-                                                    src="@/assets/images/all/boost-inactive-1.png" alt="" class="" />
+                                                    src="@/assets/images/all/boost-inactive-1.png" alt="" class="" style="filter: grayscale(1);" />
                                             </div>
                                         </div>
                                     </div>
@@ -574,7 +574,7 @@
                                         </div>
                                         <div v-else class="structure-row structure-row-img">
                                             <div class="structure-img-wrap"><img
-                                                    src="@/assets/images/all/boost-inactive-2.png" alt="" class="" />
+                                                    src="@/assets/images/all/boost-inactive-2.png" alt="" class="" style="filter: grayscale(1);" />
                                             </div>
                                         </div>
                                     </div>
@@ -604,7 +604,7 @@
                                         </div>
                                         <div v-else class="structure-row structure-row-img">
                                             <div class="structure-img-wrap"><img
-                                                    src="@/assets/images/all/boost-inactive-3.png" alt="" class="" />
+                                                    src="@/assets/images/all/boost-inactive-3.png" alt="" class="" style="filter: grayscale(1);" />
                                             </div>
                                         </div>
                                     </div>
@@ -634,7 +634,7 @@
                                         </div>
                                         <div v-else class="structure-row structure-row-img">
                                             <div class="structure-img-wrap"><img
-                                                    src="@/assets/images/all/boost-inactive-4.png" alt="" class="" />
+                                                    src="@/assets/images/all/boost-inactive-4.png" alt="" class="" style="filter: grayscale(1);" />
                                             </div>
                                         </div>
                                     </div>
@@ -666,7 +666,7 @@
                                         </div>
                                         <div v-else class="structure-row structure-row-img">
                                             <div class="structure-img-wrap"><img
-                                                    src="@/assets/images/all/boost-inactive-5.png" alt="" class="" />
+                                                    src="@/assets/images/all/boost-inactive-5.png" alt="" class="" style="filter: grayscale(1);" />
                                             </div>
                                         </div>
                                     </div>
@@ -698,7 +698,7 @@
                                         </div>
                                         <div v-else class="structure-row structure-row-img">
                                             <div class="structure-img-wrap"><img
-                                                    src="@/assets/images/all/boost-inactive-6.png" alt="" class="" />
+                                                    src="@/assets/images/all/boost-inactive-6.png" alt="" class="" style="filter: grayscale(1);" />
                                             </div>
                                         </div>
                                     </div>
@@ -730,7 +730,7 @@
                                         </div>
                                         <div v-else class="structure-row structure-row-img">
                                             <div class="structure-img-wrap"><img
-                                                    src="@/assets/images/all/boost-inactive-7.png" alt="" class="" />
+                                                    src="@/assets/images/all/boost-inactive-7.png" alt="" class="" style="filter: grayscale(1);" />
                                             </div>
                                         </div>
                                     </div>
@@ -762,7 +762,7 @@
                                         </div>
                                         <div v-else class="structure-row structure-row-img">
                                             <div class="structure-img-wrap"><img
-                                                    src="@/assets/images/all/boost-inactive-8.png" alt="" class="" />
+                                                    src="@/assets/images/all/boost-inactive-8.png" alt="" class="" style="filter: grayscale(1);" />
                                             </div>
                                         </div>
                                     </div>
@@ -794,7 +794,7 @@
                                         </div>
                                         <div v-else class="structure-row structure-row-img">
                                             <div class="structure-img-wrap"><img
-                                                    src="@/assets/images/all/boost-inactive-9.png" alt="" class="" />
+                                                    src="@/assets/images/all/boost-inactive-9.png" alt="" class="" style="filter: grayscale(1);" />
                                             </div>
                                         </div>
                                     </div>
@@ -826,7 +826,7 @@
                                         </div>
                                         <div v-else class="structure-row structure-row-img">
                                             <div class="structure-img-wrap"><img
-                                                    src="@/assets/images/all/boost-inactive-10.png" alt="" class="" />
+                                                    src="@/assets/images/all/boost-inactive-10.png" alt="" class="" style="filter: grayscale(1);" />
                                             </div>
                                         </div>
                                     </div>

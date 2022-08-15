@@ -413,7 +413,7 @@
                                                             {{ "TIER 9" }}
                                                         </div-->
                                                         <div class="card-egg-image">
-                                                            <img class="card-egg-image-img-no-hop" :src="getNftImage(7)"
+                                                            <img class="card-egg-image-img-no-hop" :src="getNftImage(5)"
                                                                 style="filter: hue-rotate(142deg) invert(1);" />
                                                         </div>
                                                         <div class="li-nft-footer">
@@ -830,7 +830,7 @@ export default {
                 }
                 this.showLoader = true;
                 const refs = await this.$root.core.getReferrers(this.currentAddress);
-                const res = await this.$root.core.buyNFT(refs, (index + 1));
+                const res = await this.$root.core.buyNFT(this.currentAddress, refs, (index + 1));
 
                 this.$store.commit("push_notification", {
                     type: "warning",
