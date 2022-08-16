@@ -268,11 +268,11 @@
                                     </div>
                                     <div class="block-info-row">
                                         <div class="block-info-td block-info-name">{{ translatesGet("TIME") }}</div>
-                                        <div class="block-info-td block-info-value">{{ Number(nft.boostTimePercent) === 0 ? "-" : Number(nft.boostTimePercent) + " days" }}</div>
+                                        <div class="block-info-td block-info-value">{{ Number(nft.boostTimePercent) === 0 ? "-" : (Number(nft.boostTimePercent) / 100) + " days" }}</div>
                                     </div>
                                     <div class="block-info-row">
                                         <div class="block-info-td block-info-name">{{ translatesGet("PROFIT") }}</div>
-                                        <div class="block-info-td block-info-value">{{ Number(nft.boostProfitPercent) === 0 ? "-" : Number(nft.boostProfitPercent) + "%" }}</div>
+                                        <div class="block-info-td block-info-value">{{ Number(nft.boostProfitPercent) === 0 ? "-" : (Number(nft.boostProfitPercent) / 100) + "%" }}</div>
                                     </div>
                                 </div>
                             </div>
@@ -390,6 +390,12 @@
             },
         },
         created() {
+            if ('name' in this.nft) {
+                let thisNftTimeBoost = this.nft.boostTimePercent;
+                let thisNftProfitBoost = this.nft.boostProfitPercent;
+                this.nft.boostTimePercent = thisNftTimeBoost <= 10 ? thisNftTimeBoost * 100 : thisNftTimeBoost;
+                this.nft.boostProfitPercent = thisNftProfitBoost <= 10 ? thisNftProfitBoost * 100 : thisNftProfitBoost;
+            }
         },
         computed: {
             ...mapState(["currentBlockchain", "currentAddress", "userNftsData"]),

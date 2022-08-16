@@ -540,7 +540,7 @@ table{
     padding-bottom:108px;
     display:flex;
     align-items:center;
-    color:#1f212f;
+    color: #ffffff;
     overflow:hidden;
     position:relative;
     z-index:1
@@ -552,7 +552,7 @@ table{
     left:0;
     height:100%;
     width:100%;
-    background-image:url(../images/all/main-bg.fada741b.jpg)
+    background-image:url(../images/all/main-bg.fada741b.png)
 }
 .section-boosts,.section-earn,.section-main:before{
     background-size:100% 100%;
@@ -563,7 +563,7 @@ table{
     margin-top:100px
 }
 .section-earn{
-    background-image:url(../images/all/earn-bg.694fb222.webp);
+    background-image:url(../images/all/earn-bg.694fb222.png);
     background-color:#2a2b3d
 }
 .section-main .half-content{
@@ -598,7 +598,7 @@ table{
     align-items:center;
     align-content:center;
     flex-direction:row;
-    color:#1f212f
+    color: #ffffff
 }
 .main-home .header-fixed .header-nav ul{
     color:#fff
@@ -1127,7 +1127,7 @@ table{
 }
 .program-item.light-orange{
     background:linear-gradient(180deg,#fbe08a,#e09752);
-    color:#1f212f
+    color: #ffffff
 }
 .program-item.egg-1 {
     background: linear-gradient(180deg, #48404F, #4B4B50);
@@ -1135,31 +1135,31 @@ table{
 }
 .program-item.egg-2 {
     background: linear-gradient(180deg, #6bb7bf, #388992);
-    color: #1f212f
+    color: #ffffff
 }
 .program-item.egg-3 {
     background: linear-gradient(180deg, #58da56, #0ec60b);
-    color: #1f212f;
+    color: #ffffff;
 }
 .program-item.egg-4 {
     background: linear-gradient(180deg, #edeb68, #eae603);
-    color: #1f212f;
+    color: #ffffff;
 }
 .program-item.egg-5 {
     background: linear-gradient(180deg, #b85b18, #8b4407);
-    color: #1f212f;
+    color: #ffffff;
 }
 .program-item.egg-6 {
     background: linear-gradient(180deg, #d46c40, #d64e13);
-    color: #1f212f;
+    color: #ffffff;
 }
 .program-item.egg-7 {
     background: linear-gradient(180deg, #B791AC, #AC477E);
-    color: #1f212f;
+    color: #ffffff;
 }
 .program-item.egg-8 {
     background: linear-gradient(180deg, #d55be0, #9a0ba7);
-    color: #1f212f;
+    color: #ffffff;
 }
 .section-unlimited-staking .program-col-value{
     font-size:36px
@@ -1243,7 +1243,7 @@ table{
     width:100%;
     height:100%;
     overflow:hidden;
-    background-image:url(../images/all/main-desctop-bg.6512682f.webp);
+    background-image:url(../images/all/main-desctop-bg.6512682f.png);
     background-position:top
 }
 .main-wrapp-content:before,.section-bounty-program{
@@ -1834,7 +1834,7 @@ table{
     width:100%
 }
 .cab-card-wrap.cab-card-referral:before{
-    background-image:url(../images/all/referal-bg.a72ed583.webp);
+    background-image:url(../images/all/referal-bg.a72ed583.png);
     width:45%;
     max-width:490px
 }
@@ -2289,7 +2289,7 @@ table{
 input.transfer-input{
     background:#fff;
     border-radius:4px;
-    color:#1f212f;
+    color: #ffffff;
     display:flex;
     flex-grow:1
 }
@@ -2460,7 +2460,7 @@ input.transfer-input+.btn{
     line-height:20px;
     background:#fff;
     border-radius:4px;
-    color:#1f212f;
+    color: #ffffff;
     display:block;
     overflow:hidden;
     text-overflow:ellipsis;
@@ -2807,12 +2807,14 @@ input.transfer-input+.btn{
 .your-boosts-card .empty-icon:after{
     background-image:url(../images/all/empty.94a5ac82.png);
     height:calc(100% - 40px);
-    width:calc(100% - 40px)
+    width:calc(100% - 40px);
+    background-repeat: no-repeat;
 }
 .stake-nft-container-empty .empty-icon:after,.your-nfts-card .empty-icon:after{
     background-image:url(../images/all/empty-nfts.8530069a.png);
-    height:100%;
-    width:100%
+    background-repeat: no-repeat;
+    height: calc(100% - 40px);
+    width: calc(100% - 40px);
 }
 .your-nfts{
     width:calc(100% + 10px);
@@ -4174,9 +4176,9 @@ input.transfer-input+.btn{
     background-size:100%;
     background-position:50%;
     background-image:url(../images/all/Logo-White.png);
-    min-width:412px;
-    width:412px;
-    height:88px
+    width: 120px;
+    min-width: 120px;
+    height: 60px;
 }
 .logo.logo-xs{
     background-image:url(../images/all/Logo-xs.9102ce9c.png);
@@ -4270,7 +4272,7 @@ header{
     color:hsla(0,0%,100%,.8)
 }
 .section-main .h5{
-    color:rgba(31,33,47,.8)
+    color: #ffffff
 }
 .btn,.h6,.link,.title-upper{
     font-weight:600;
@@ -5270,7 +5272,7 @@ header .btn{
 }
 .walletconnect-modal__mobile__toggle{
     background-color:#fff!important;
-    color:#1f212f!important;
+    color: #ffffff!important;
     text-transform:uppercase!important
 }
 .walletconnect-modal__mobile__toggle_selector{

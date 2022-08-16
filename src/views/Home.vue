@@ -134,7 +134,7 @@
                             </div>
                             <div class="half-img section-mobile">
                                 <div class="img-wrap">
-                                    <img src="@/assets/images/all/main-img.webp" alt="main-img" />
+                                    <img style="max-width: 80%;" src="@/assets/images/all/main-img.png" alt="main-img" />
                                     <div class="img-comment comment">{{ translatesGet("QUACK_1") }}</div>
                                 </div>
                             </div>
@@ -152,7 +152,7 @@
 
                         <div class="section-half half-img section-desctop">
                             <div class="img-wrap">
-                                <img src="@/assets/images/all/main-img.webp" alt="main-img" />
+                                <img style="max-width: 80%;" src="@/assets/images/all/main-img.png" alt="main-img" />
                                 <div class="img-comment comment">{{ translatesGet("QUACK_1") }}</div>
                             </div>
                         </div>

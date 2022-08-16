@@ -695,7 +695,7 @@ table {
     padding-bottom: 108px;
     display: flex;
     align-items: center;
-    color: #1f212f;
+    color: #ffffff;
     overflow: hidden;
     position: relative;
     z-index: 1
@@ -708,7 +708,7 @@ table {
     left: 0;
     height: 100%;
     width: 100%;
-    background-image: url(../images/all/main-bg.fada741b.jpg)
+    background-image: url(../images/all/main-bg.fada741b.png)
 }
 
 .section-boosts,
@@ -724,7 +724,7 @@ table {
 }
 
 .section-earn {
-    background-image: url(../images/all/earn-bg.694fb222.webp);
+    background-image: url(../images/all/earn-bg.694fb222.png);
     background-color: #2a2b3d
 }
 
@@ -764,7 +764,7 @@ table {
     align-items: center;
     align-content: center;
     flex-direction: row;
-    color: #1f212f
+    color: #ffffff
 }
 
 .main-home .header-fixed .header-nav ul {
@@ -1450,7 +1450,7 @@ table {
 
 .program-item.light-orange {
     background: linear-gradient(180deg, #fbe08a, #e09752);
-    color: #1f212f
+    color: #ffffff
 }
 
 .section-unlimited-staking .program-col-value {
@@ -1552,7 +1552,7 @@ table {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background-image: url(../images/all/main-desctop-bg.6512682f.webp);
+    background-image: url(../images/all/main-desctop-bg.6512682f.png);
     background-position: top
 }
 
@@ -2315,7 +2315,7 @@ table {
 }
 
 .cab-card-wrap.cab-card-referral:before {
-    background-image: url(../images/all/referal-bg.a72ed583.webp);
+    background-image: url(../images/all/referal-bg.a72ed583.png);
     width: 45%;
     max-width: 490px
 }
@@ -2778,7 +2778,7 @@ table {
 input.transfer-input {
     background: #fff;
     border-radius: 4px;
-    color: #1f212f;
+    color: #ffffff;
     display: flex;
     flex-grow: 1
 }
@@ -2981,7 +2981,7 @@ input.transfer-input+.btn {
     line-height: 20px;
     background: #fff;
     border-radius: 4px;
-    color: #1f212f;
+    color: #ffffff;
     display: block;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -3412,14 +3412,16 @@ input.transfer-input+.btn {
 .your-boosts-card .empty-icon:after {
     background-image: url(../images/all/empty.94a5ac82.png);
     height: calc(100% - 40px);
-    width: calc(100% - 40px)
+    width: calc(100% - 40px);
+    background-repeat: no-repeat;
 }
 
 .stake-nft-container-empty .empty-icon:after,
 .your-nfts-card .empty-icon:after {
     background-image: url(../images/all/empty-nfts.8530069a.png);
-    height: 100%;
-    width: 100%
+    background-repeat: no-repeat;
+    height: calc(100% - 40px);
+    width: calc(100% - 40px);
 }
 
 .your-nfts {
@@ -6250,7 +6252,7 @@ header {
 
 .walletconnect-modal__mobile__toggle {
     background-color: #fff !important;
-    color: #1f212f !important;
+    color: #ffffff !important;
     text-transform: uppercase !important
 }
 

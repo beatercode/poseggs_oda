@@ -50,7 +50,7 @@
                                                         :src="getNftImage(6)" />
                                                     <img class="card-egg-image-img nft-loot-add-3"
                                                         :src="getNftImage(7)" /-->
-                                                    <img class="card-egg-image-img" :src="getLootboxImage(index)" />
+                                                    <div style="overflow: hidden; width: fit-content; height: fit-content; border-radius: 8px;"><img class="card-egg-image-img" :src="getLootboxImage(index)" /></div>
                                                     <div class="li-nft-footer"
                                                         style="width: 100%; display: flex; flex-direction: row; justify-content: space-between;">
                                                         <span class="lootbox-main-stat-col">Egg</span>

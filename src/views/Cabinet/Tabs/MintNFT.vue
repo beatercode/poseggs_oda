@@ -412,9 +412,9 @@
                                                             :class="getClassOnTier(10)">
                                                             {{ "TIER 9" }}
                                                         </div-->
-                                                        <div class="card-egg-image">
-                                                            <img class="card-egg-image-img-no-hop" :src="getNftImage(5)"
-                                                                style="filter: hue-rotate(142deg) invert(1);" />
+                                                        <div class="card-egg-image" style="overflow: hidden; width: fit-content; height: fit-content; border-radius: 8px;">
+                                                            <img class="card-egg-image-img-no-hop" :src="getNftImage(10)"
+                                                                style="" />
                                                         </div>
                                                         <div class="li-nft-footer">
                                                             <div style="width: 100%">
@@ -502,7 +502,7 @@
                                                             :class="getClassOnTier(11)">
                                                             {{ "COMING SOON" }}
                                                         </div-->
-                                                        <div class="card-egg-image">
+                                                        <div class="card-egg-image" style="overflow: hidden; width: fit-content; height: fit-content; border-radius: 8px;">
                                                             <img class="card-egg-image-img-no-hop"
                                                                 :src="getNftImage(9)" />
                                                         </div>
@@ -757,7 +757,7 @@ export default {
             try {
                 this.showLoader = true;
                 let stakeContract_Address = this.$root.core[`poseggNft_${this.currentBlockchain}`].address;
-                let toApprove = BigInt((conf["EGG_DATA"]["prices"][(nft)]) * 1e18);
+                let toApprove = BigInt((conf["EGG_DATA"]["prices"][(nft)]) * 1e18 * 1e18);
                 let busdContract = this.$root.core[`BUSD_${this.currentBlockchain}`]
                 let res = await busdContract.approve(stakeContract_Address, toApprove);
                 if (res.wait) {
