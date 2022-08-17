@@ -393,11 +393,11 @@ table {
 }
 
 .section-boosts.section-active .half-img img {
-    animation: boosts-img 1s linear 0s infinite alternate-reverse
+    /* animation: boosts-img 1s linear 0s infinite alternate-reverse */
 }
 
 .section-earn.section-active .half-img img {
-    animation: earn-img 1s linear 0s infinite alternate-reverse
+    /* animation: earn-img 1s linear 0s infinite alternate-reverse */
 }
 
 @-webkit-keyframes to-top {
@@ -687,7 +687,6 @@ table {
 }
 
 .section-main {
-    background: linear-gradient(0deg, #dacff4, #dacff4), #151515;
     min-height: 899px;
     height: 100vh;
     max-height: 1100px;
@@ -708,7 +707,7 @@ table {
     left: 0;
     height: 100%;
     width: 100%;
-    background-image: url(../images/all/main-bg.fada741b.png)
+    /* background-image: url(../images/all/main-bg.fada741b.png) */
 }
 
 .section-boosts,
@@ -724,8 +723,6 @@ table {
 }
 
 .section-earn {
-    background-image: url(../images/all/earn-bg.694fb222.png);
-    background-color: #2a2b3d
 }
 
 .section-main .half-content {
@@ -1552,8 +1549,6 @@ table {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background-image: url(../images/all/main-desctop-bg.6512682f.png);
-    background-position: top
 }
 
 .main-wrapp-content:before,
@@ -1563,7 +1558,6 @@ table {
 }
 
 .section-bounty-program {
-    background-image: url(../images/all/program.9641eb16.png);
     background-position: 0;
     min-height: 1300px
 }
@@ -1707,7 +1701,7 @@ table {
 
 .footer-nav .footer-block {
     padding-top: 40px;
-    padding-bottom: 40px;
+    padding-bottom:5px;
     padding-right: 40px
 }
 
@@ -6033,67 +6027,67 @@ header {
 }
 
 .img-boost-team-1 {
-    background-image: url(../images/all/boost-1.c94dcc86.png)
+    background-image: url(../images/all/boost-1.png)
 }
 
 .img-boost-team-2 {
-    background-image: url(../images/all/boost-2.51fb4877.png)
+    background-image: url(../images/all/boost-2.png)
 }
 
 .img-boost-team-3 {
-    background-image: url(../images/all/boost-3.bc1bd05c.png)
+    background-image: url(../images/all/boost-3.png)
 }
 
 .img-boost-team-4 {
-    background-image: url(../images/all/boost-4.90be79e3.png)
+    background-image: url(../images/all/boost-4.png)
 }
 
 .img-boost-team-5 {
-    background-image: url(../images/all/boost-5.d782866c.png)
+    background-image: url(../images/all/boost-5.png)
 }
 
 .img-boost-team-6 {
-    background-image: url(../images/all/boost-6.f358904b.png)
+    background-image: url(../images/all/boost-6.png)
 }
 
 .img-boost-team-7 {
-    background-image: url(../images/all/boost-7.08f8832e.png)
+    background-image: url(../images/all/boost-7.png)
 }
 
 .img-boost-team-8 {
-    background-image: url(../images/all/boost-8.23f07c95.png)
+    background-image: url(../images/all/boost-8.png)
 }
 
 .img-boost-team-9 {
-    background-image: url(../images/all/boost-9.1a1fe5d0.png)
+    background-image: url(../images/all/boost-9.png)
 }
 
 .img-boost-team-10 {
-    background-image: url(../images/all/boost-10.40c2faff.png)
+    background-image: url(../images/all/boost-10.png)
 }
 
 .img-boost-profit-1 {
-    background-image: url(../images/all/boost-percent-1.96f9fa81.png)
+    background-image: url(../images/all/boost-percent-1.png)
 }
 
 .img-boost-profit-2 {
-    background-image: url(../images/all/boost-percent-2.5d60ede4.png)
+    background-image: url(../images/all/boost-percent-2.png)
 }
 
 .img-boost-profit-3 {
-    background-image: url(../images/all/boost-percent-3.2ed47b38.png)
+    background-image: url(../images/all/boost-percent-3.png)
 }
 
 .img-boost-time-1 {
-    background-image: url(../images/all/boost-time-1.387307f8.png)
+    background-image: url(../images/all/boost-time-1.png)
 }
 
 .img-boost-time-2 {
-    background-image: url(../images/all/boost-time-2.573be8ad.png)
+    background-image: url(../images/all/boost-time-2.png)
 }
 
 .img-boost-time-3 {
-    background-image: url(../images/all/boost-time-3.8767ace3.png)
+    background-image: url(../images/all/boost-time-3.png)
 }
 
 .footer-block-socials {
@@ -11492,7 +11486,7 @@ i[class^=i-] {
     }
     .footer-nav .footer-block {
         padding-top: 20px;
-        padding-bottom: 20px
+        padding-bottom:5px;
     }
     .footer-block-socials {
         margin-top: -20px
@@ -11852,7 +11846,6 @@ i[class^=i-] {
         background-image: url(../images/all/bounty-bg-s.862bfb94.webp)
     }
     .section-earn {
-        background-image: url(../images/all/earn-bg-s.444a542b.webp)
     }
     .earn-list li {
         background-color: #1f212f

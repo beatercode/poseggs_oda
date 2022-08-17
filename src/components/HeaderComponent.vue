@@ -143,7 +143,7 @@
                             </button>
                             <button :class="{ active: hideBalance }" class="balance">
                                 <div v-if="currentBlockchain && currentBlockchain === 56 || currentBlockchain === 97">*** BUSD</div>
-                                <div>*** {{ currency }}</div>
+                                <div>*** BUSD</div>
                                 <div class="balance-icon icon-wrap">
                                     <i class="icon-eye"></i>
                                 </div>

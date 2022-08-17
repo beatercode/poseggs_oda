@@ -64,7 +64,7 @@
                         <span class="h4" style="white-space: nowrap;">
                             {{ userRefData && userRefData.refTurnover > 0 ? Number(userRefData.refTurnover).toFixed(2) :
                                     "0.00"
-                            }} {{ currency }}
+                            }} BUSD
                         </span>
                     </div>
                 </div>
@@ -80,7 +80,7 @@
                         <span class="h4" style="white-space: nowrap;">{{ userRefData && userRefData.bonus > 0 ?
                                 Number(userRefData.bonus).toFixed(2)
                                 : "0.00"
-                        }} {{ currency }}</span>
+                        }} BUSD</span>
                     </div>
                 </div>
             </div>
@@ -138,7 +138,7 @@
                                         <span>{{ translatesGet("STRUCTURE_ROW_NAME_1") }}</span>
                                         <span class="lvl-short">{{ translatesGet("STRUCTURE_ROW_NAME_1_SHORT") }}</span>
                                     </div>
-                                    <div class="structure-row structure-row-text">{{ currency }} {{
+                                    <div class="structure-row structure-row-text">BUSD {{
                                             translatesGet("STRUCTURE_ROW_NAME_2")
                                     }}</div>
                                     <div class="structure-row structure-row-text">{{
@@ -492,7 +492,7 @@
                                         {{ userLeaderData && userLeaderData.refTurnover ?
                                                 Number(userLeaderData.refTurnover).toFixed(2) : "0.00"
                                         }}
-                                        {{ currency }}
+                                        BUSD
                                     </div>
                                 </div>
                             </div>
@@ -502,7 +502,7 @@
                                         <span>{{ translatesGet("STRUCTURE_ROW_NAME_1") }}</span>
                                         <span class="lvl-short">{{ translatesGet("STRUCTURE_ROW_NAME_1_SHORT") }}</span>
                                     </div>
-                                    <div class="structure-row structure-row-text">{{ currency }} {{
+                                    <div class="structure-row structure-row-text">BUSD {{
                                             translatesGet("STRUCTURE_ROW_NAME_2")
                                     }}</div>
                                     <div class="structure-row structure-row-text">{{
