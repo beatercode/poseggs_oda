@@ -881,7 +881,7 @@ table {
 .section-staking,
 .section-unlimited-staking,
 .slider-nft {
-    padding-top: 100px
+    padding-top: 60px
 }
 
 .section-boosts .container,
@@ -3486,7 +3486,6 @@ input.transfer-input+.btn {
     justify-content: flex-start;
     margin-top: 30px;
     margin-left: -10px;
-    margin-right: -10px
 }
 
 .pool-program {
@@ -6630,7 +6629,7 @@ input[type=radio i]:checked+label:after {
     right: 5px
 }
 
-.haze-crypto {
+.george-stamp {
     background-image: url(../images/all/audit1.af499ea8.png);
     min-width: 10%
 }

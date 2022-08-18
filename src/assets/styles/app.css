@@ -703,7 +703,7 @@ table{
     margin:5px
 }
 .section-bounty-program .container,.section-our-nft,.section-staking,.section-unlimited-staking,.slider-nft{
-    padding-top:100px
+    padding-top:60px
 }
 .section-boosts .container,.section-bounty-program .container,.section-earn .container,.section-staking .container{
     position:relative;
@@ -1279,7 +1279,7 @@ table{
     min-height:1300px
 }
 .section-boosts .section-wrap,.section-earn .container{
-    padding-top:100px;
+    padding-top:60px;
     padding-bottom:100px;
     min-height:60vh
 }
@@ -2896,7 +2896,6 @@ input.transfer-input+.btn{
     flex-flow: row-reverse wrap-reverse;
     margin-top:30px;
     margin-left:-10px;
-    margin-right:-10px;
 }
 .pool-program{
     justify-content:stretch;
@@ -3117,7 +3116,7 @@ input.transfer-input+.btn{
     width: 33% !important;
     max-width: 33% !important;
     min-width: 33% !important;
-    margin-left: 3% !important;
+    margin-left: 2% !important;
     text-align: right;
 }
 .lootbox-main-stat-col-mob:nth-last-child(1) {
@@ -4336,7 +4335,8 @@ header{
 }
 .h2.h1 .emphasize{
     color:#fff;
-    padding:10px
+    padding:10px;
+    border-radius: 12px;
 }
 .emphasize{
     position:relative;
@@ -5614,7 +5614,7 @@ input[type=radio i]:checked+label:after{
     content:"%";
     right:5px
 }
-.haze-crypto{
+.george-stamp{
     background-image:url(../images/all/audit1.af499ea8.png);
     min-width:10%
 }
@@ -9708,6 +9708,22 @@ i[class*=" i-"],i[class^=i-]{
         display:block
     }
 }
+.select-pool-wrap > .pool-program.program-item{
+    width:calc(25% - 10px);
+    margin: 0px;
+    margin-bottom: 20px
+}
+.select-pool-wrap > .program-item {
+    flex-direction: column !important;
+}
+.select-pool-wrap > .pool-program.program-item:nth-child(1), 
+.select-pool-wrap > .pool-program.program-item:nth-child(2), 
+.select-pool-wrap > .pool-program.program-item:nth-child(3), 
+.select-pool-wrap > .pool-program.program-item:nth-child(5), 
+.select-pool-wrap > .pool-program.program-item:nth-child(6), 
+.select-pool-wrap > .pool-program.program-item:nth-child(7) {
+    margin-left: 10px;
+}
 @media (max-width:991.5px){
     .stake-nft-card{
         width:calc(50% - 20px)
@@ -9716,6 +9732,20 @@ i[class*=" i-"],i[class^=i-]{
         width:calc(50% - 20px);
         margin-bottom:20px
     }
+}
+@media (max-width: 560.5px) {
+    .select-pool-wrap > .pool-program.program-item:nth-child(1), 
+    .select-pool-wrap > .pool-program.program-item:nth-child(2), 
+    .select-pool-wrap > .pool-program.program-item:nth-child(3), 
+    .select-pool-wrap > .pool-program.program-item:nth-child(5), 
+    .select-pool-wrap > .pool-program.program-item:nth-child(6), 
+    .select-pool-wrap > .pool-program.program-item:nth-child(7) {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .select-pool-wrap > .pool-program.program-item:nth-child(odd) {
+        margin-left: 10px;
+    } 
 }
 @media (max-width: 768.5px) {
     .modal-section-stake-pool:nth-child(1) {

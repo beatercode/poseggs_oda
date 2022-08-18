@@ -190,14 +190,14 @@
                                                                                     periods[index]).toFixed(1)
                                                                         }}%</span>
                                                                     </div>
-                                                                    <div class="stake-nft-value-main-stats">
+                                                                    <!--div class="stake-nft-value-main-stats">
                                                                         <span>Daily</span> <span>{{ profits[index]
                                                                         }}%</span>
                                                                     </div>
                                                                     <div class="stake-nft-value-main-stats">
                                                                         <span>Days</span> <span>{{ periods[index]
                                                                         }}</span>
-                                                                    </div>
+                                                                    </div-->
                                                                     <div class="cab-row cab-row-stats">
                                                                         <span
                                                                             class="li-nft-footer-amount card-footer-stats">Strength</span>
@@ -341,14 +341,14 @@
                                                                                     freeEggData.period).toFixed(1)
                                                                         }}%</span>
                                                                     </div>
-                                                                    <div class="stake-nft-value-main-stats">
+                                                                    <!--div class="stake-nft-value-main-stats">
                                                                         <span>Daily</span> <span>{{ freeEggData.profit
                                                                         }}%</span>
                                                                     </div>
                                                                     <div class="stake-nft-value-main-stats">
                                                                         <span>Days</span> <span>{{ freeEggData.period
                                                                         }}</span>
-                                                                    </div>
+                                                                    </div-->
                                                                     <div class="cab-row cab-row-stats">
                                                                         <span
                                                                             class="li-nft-footer-amount card-footer-stats">Strength</span>
@@ -433,14 +433,14 @@
                                                                                     bonusEggData.period).toFixed(1)
                                                                         }}%</span>
                                                                     </div>
-                                                                    <div class="stake-nft-value-main-stats">
+                                                                    <!--div class="stake-nft-value-main-stats">
                                                                         <span>Daily</span> <span>{{ bonusEggData.profit
                                                                         }}%</span>
                                                                     </div>
                                                                     <div class="stake-nft-value-main-stats">
                                                                         <span>Days</span> <span>{{ bonusEggData.period
                                                                         }}</span>
-                                                                    </div>
+                                                                    </div-->
                                                                     <div class="cab-row cab-row-stats">
                                                                         <span
                                                                             class="li-nft-footer-amount card-footer-stats">Strength</span>
@@ -520,12 +520,12 @@
                                                                     <div class="stake-nft-value-main-stats">
                                                                         <span>Total</span> <span>{{ "-" }}%</span>
                                                                     </div>
-                                                                    <div class="stake-nft-value-main-stats">
+                                                                    <!--div class="stake-nft-value-main-stats">
                                                                         <span>Daily</span> <span>{{ "-" }}%</span>
                                                                     </div>
                                                                     <div class="stake-nft-value-main-stats">
                                                                         <span>Days</span> <span>{{ "-" }}</span>
-                                                                    </div>
+                                                                    </div-->
                                                                     <div class="cab-row cab-row-stats">
                                                                         <span
                                                                             class="li-nft-footer-amount card-footer-stats">Strength</span>

@@ -140,9 +140,9 @@
                             <div class="audited">
                                 <div class="title-upper">{{ translatesGet("AUDITED_BY") }}</div>
                                 <ul class="audited-logos">
-                                    <a href="https://eggroi.gitbook.io/eggroi/audited" target="_blank">
+                                    <a href="" target="_blank">
                                         <li>
-                                            <span class="haze-crypto"></span>
+                                            <span class="george-stamp"></span>
                                         </li>
                                     </a>
                                 </ul>
