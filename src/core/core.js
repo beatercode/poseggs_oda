@@ -821,6 +821,7 @@ export default class Core {
             temp.event_data.transaction_id = "";
 
             temp.eggPlan = eggPlan;
+            temp.stakePlan = stake["stakePlan"].toNumber();
             temp.timestamp = stake["startTime"].toNumber();
 
             temp.boostEvents = [];

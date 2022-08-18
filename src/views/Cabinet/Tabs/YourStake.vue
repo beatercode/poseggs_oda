@@ -128,8 +128,7 @@ export default {
                 }
             }
 
-            let stakePlan = (+stake.eggPlan - 1) < 0 ? 0 : +stake.eggPlan - 1;
-            stakePlan = stakePlan > 7 ? 7 : stakePlan;
+            let stakePlan = stake.stakePlan;
 
             let stakeType = conf[this.currentBlockchain].STAKING_PLANS[stakePlan];
             let dayInSec = 86400;
@@ -185,8 +184,7 @@ export default {
                 }
             }
 
-            let stakePlan = (+nft.eggPlan - 1) < 0 ? 0 : +nft.eggPlan - 1;
-            stakePlan = stakePlan > 7 ? 7 : stakePlan;
+            let stakePlan = nft.stakePlan;
 
             if (timeIncrease > 0) {
                 period = `${conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days > 0
@@ -333,7 +331,6 @@ export default {
                 if (_this.currentAddress && _this.currentAddress !== "0x0000000000000000000000000000000000000000") {
                     const newData = [];
                     if (!_this.stakedNfts) throw Error();
-                    console.log(_this.stakedNfts);
 
                     for (let nft of _this.stakedNfts) {
                         newData.push(nft);

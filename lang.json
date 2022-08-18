@@ -1423,6 +1423,16 @@
             "Claimable Profit"
         ],
         [
+            "AVAILABLE_CLAIM_BONUS",
+            "",
+            "Claim Bonus"
+        ],
+        [
+            "NEXT_CLAIM_BONUS",
+            "",
+            "Next Claim Bonus"
+        ],
+        [
             "APPROVE",
             "",
             "Approve"

@@ -177,11 +177,29 @@
                                 {{ getEarnedReward(fullStakeDetails) }} {{ "BUSD" }}
                             </div>
                         </div>
-                        <div class="stake-pool-col stake-for-claim">
-                            <div v-if="getEarnedReward(fullStakeDetails) > 0" class="container-pool-btn">
+                        <div class="stake-pool-col">
+                            <div class="container-pool-btn">
                                 <button :disabled="showLoader" @click="Claim(nft)" class="btn btn-claim">
                                     {{ translatesGet("CLAIM") }}
                                 </button>
+                            </div>
+                        </div>
+                        <div class="stake-pool-col stake-for-claim-bonus">
+                            <div class="stake-pool-col-name">
+                                <div class="icon"></div>
+                                <span>{{ translatesGet("AVAILABLE_CLAIM_BONUS") }}</span>
+                            </div>
+                            <div class="stake-pool-col-value">
+                                {{ getClaimableBonusFE(fullStakeDetails) }}
+                            </div>
+                        </div>
+                        <div class="stake-pool-col stake-for-claim-bonus">
+                            <div class="stake-pool-col-name">
+                                <div class="icon"></div>
+                                <span>{{ translatesGet("NEXT_CLAIM_BONUS") }}</span>
+                            </div>
+                            <div class="stake-pool-col-value">
+                                {{ getNextClaimableBonusFE(fullStakeDetails) }}
                             </div>
                         </div>
                     </div>
@@ -720,8 +738,7 @@ export default {
                 }
             }
 
-            let stakePlan = (+nft.eggPlan - 1) < 0 ? 0 : (+nft.eggPlan - 1);
-            stakePlan = stakePlan > 7 ? 7 : stakePlan;
+            let stakePlan = nft.stakePlan;
 
             if (timeIncrease > 0) {
                 period = `${conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days > 0
@@ -791,6 +808,32 @@ export default {
         getAlreadyWithdrawnReward(stake) {
             return Number(stake.rewardReceived / 1e18).toFixed(2);
         },
+        getClaimableBonusLevel(stake) {
+
+            // mock
+            return 1;
+        },
+        getClaimableBonusFE(stake) {
+            let level = this.getClaimableBonusLevel(stake);
+            return level == 1 ? "+15% 🟢⚪️⚪️" : level == 2 ? "+40% 🟢🟢⚪️" : level == 3 ? "+90% 🟢🟢🟢" : "-";
+        },
+        getStakeHoldingDays(stake) {
+
+            // mock
+            return 5;
+        },
+        getStakeCountdownUntilNextBonus(stake, holdingDays) {
+
+            // mock
+            return "1h 12m 26s"
+        },
+        getNextClaimableBonusFE(stake) {
+            let holdingDays = this.getStakeHoldingDays(stake);
+            let countdownUntilNextDay = this.getStakeCountdownUntilNextBonus(stake, holdingDays);
+
+
+            return countdownUntilNextDay;
+        },
         getEarnedReward(stake) {
             let nft = stake;
             let timeIncrease = 0;
@@ -815,8 +858,7 @@ export default {
                 }
             }
 
-            let stakePlan = (+stake.eggPlan - 1) < 0 ? 0 : +stake.eggPlan - 1;
-            stakePlan = stakePlan > 7 ? 7 : stakePlan;
+            let stakePlan = stake.stakePlan;
 
             let stakeType = conf[this.currentBlockchain].STAKING_PLANS[stakePlan];
             let dayInSec = 86400;

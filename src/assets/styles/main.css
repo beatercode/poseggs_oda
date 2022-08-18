@@ -3123,7 +3123,9 @@ input.transfer-input+.btn {
 
 .boosts-item,
 .boosts-wrap .btn-claim {
-    margin-top: 20px
+    margin-top: 20px;
+    padding-top: 4px;
+    padding-bottom: 4px;
 }
 
 .boosts-item {

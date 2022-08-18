@@ -87,6 +87,7 @@ table{
     border-spacing:0!important
 }
 .home-binance {
+    /*
     background-image: url("../images/all/bg-main-image.jpg");
     background-repeat: no-repeat;
     background-position: center;
@@ -95,6 +96,10 @@ table{
     width: 100vw;
     position: fixed;
     background-size: cover;
+    */
+    background-image: url(http://localhost:8080/img/bg-main-image.47c30eee.jpg);
+    background-repeat: repeat;
+    background-position: top;
 }
 .section-active:not(.section-main) .section-half .h2{
     opacity:0;
@@ -2596,7 +2601,7 @@ input.transfer-input+.btn{
     margin-bottom:20px
 }
 .boosts-item,.boosts-wrap .btn-claim{
-    margin-top:20px
+    margin-top:20px;
 }
 .boosts-item{
     flex-direction:column;
@@ -3494,8 +3499,14 @@ input.transfer-input+.btn{
 .stake-pool-col.stake-for-claim .stake-pool-col-name{
     color:#77d15c
 }
+.stake-pool-col.stake-for-claim-bonus .stake-pool-col-name{
+    color:#508eef
+}
 .stake-pool-col.stake-for-claim .stake-pool-col-name .icon{
     background-image:url(../images/all/arrow-full-green.afff8bb6.svg)
+}
+.stake-pool-col.stake-for-claim-bonus .stake-pool-col-name .icon{
+    background-image:url(../images/all/arrow-full-blue.svg);
 }
 .stake-pool-col.stake-claimed .stake-pool-col-name{
     color:#ffc917
@@ -4632,7 +4643,9 @@ header{
     margin-top:20px
 }
 .btn.btn-claim,.btn.btn-mint,.btn.btn-radio-submit{
-    min-width:102px
+    min-width:102px;
+    padding-top: 4px;
+    padding-bottom: 4px;
 }
 .stake-nft-card .btn.btn-claim,.stake-nft-card .btn.btn-stake,.stake-nft-card .btn.btn-unstake{
     min-height:48px;
