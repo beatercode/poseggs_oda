@@ -19,7 +19,7 @@
                                 <li v-for="(nft, index) of nfts" class="li-our-nfts nft-list-buy nft-list-inv-page li-nft-red">
                                     <div class="li-our-nft-wrap">
                                         <img class="card-egg-image" :src="getNftImage(nft.plan)"
-                                            @click="(nftType = 'Posegg'), (onlyData = true), (showTransferModal = true), (selectedNft = nft)" />
+                                            @click="(nftType = 'AlphaEgg'), (onlyData = true), (showTransferModal = true), (selectedNft = nft)" />
                                         <div class="block-percent-value"> {{ nft.name }}
                                             <div class="boost-data-item" :class="getClassOnTier(+nft.plan)">
                                                 {{ "TIER " + (nft.plan) }}
@@ -100,7 +100,7 @@
                             <div class="li-our-nfts nft-list-buy nft-list-inv-page" v-for="nft of nftBoost">
                                 <div class="block-percent-img">
                                     <div class="your-nft-img"
-                                        @click="(nftType = 'Boost'), (showTransferModal = true), (onlyData = true), (selectedNft = nft)">
+                                        @click="(nftType = AlphaBoost), (showTransferModal = true), (onlyData = true), (selectedNft = nft)">
                                         <img :src="getBoostImg(nft)" />
                                     </div>
                                 </div>
@@ -149,7 +149,7 @@
                                 <div class="block-percent-content">
                                     <div class="btns-container">
                                         <button
-                                            @click="(nftType = 'Boost'), (showTransferModal = true), (selectedNft = nft)"
+                                            @click="(nftType = AlphaBoost), (showTransferModal = true), (selectedNft = nft)"
                                             class="btn btn-transfer">
                                             {{ translatesGet("BTN_TRANSFER") }}
                                         </button>
@@ -196,7 +196,7 @@ export default {
             disablePercWatcher: false,
             selectedToken: "",
             onlyData: false,
-            nftType: "Posegg",
+            nftType: "AlphaEgg",
             options: {
                 dotSize: 14,
                 width: "auto",

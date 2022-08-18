@@ -38,7 +38,7 @@
                                 v-if="!isBoostApplied(2)" class="st-boost" @click="showMore = true">
                                 <i class="icon-plus"></i>
                             </button>
-                            <button v-if="isBoostApplied(2)" class="st-boost" @click.stop="showMore = showMore" @click="(nftType = 'Boost'), (showTransferModal = true), (onlyData = true),
+                            <button v-if="isBoostApplied(2)" class="st-boost" @click.stop="showMore = showMore" @click="(nftType = AlphaBoost), (showTransferModal = true), (onlyData = true),
                             (selectedNft = fullStakeDetails.boostEvents.find((el) => el.boostType === 1))">
                                 <img :src="getImageForBoost(fullStakeDetails, 1)" alt="" class="" />
                             </button>
@@ -46,7 +46,7 @@
                                 v-if="!isBoostApplied(1)" class="st-boost" @click="showMore = true">
                                 <i class="icon-plus"></i>
                             </button>
-                            <button v-if="isBoostApplied(1)" class="st-boost" @click.stop="showMore = showMore" @click="(nftType = 'Boost'), (showTransferModal = true), (onlyData = true),
+                            <button v-if="isBoostApplied(1)" class="st-boost" @click.stop="showMore = showMore" @click="(nftType = AlphaBoost), (showTransferModal = true), (onlyData = true),
                             (selectedNft = fullStakeDetails.boostEvents.find((el) => el.boostType === 0))">
                                 <img :src="getImageForBoost(fullStakeDetails, 0)" alt="" class="" />
                             </button>
@@ -54,7 +54,7 @@
                                 v-if="!isBoostApplied(3)" class="st-boost" @click="showMore = true">
                                 <i class="icon-plus"></i>
                             </button>
-                            <button v-if="isBoostApplied(3)" class="st-boost" @click.stop="showMore = showMore" @click="(nftType = 'Boost'), (showTransferModal = true), (onlyData = true),
+                            <button v-if="isBoostApplied(3)" class="st-boost" @click.stop="showMore = showMore" @click="(nftType = AlphaBoost), (showTransferModal = true), (onlyData = true),
                             (selectedNft = fullStakeDetails.boostEvents.find((el) => el.boostType === 2))">
                                 <img :src="getImageForBoost(fullStakeDetails, 2)" alt="" class="" />
                             </button>
@@ -67,9 +67,6 @@
                         <div class="icon-wrap"><i class="icon-flash-fill"></i></div>
                         <!-- <span>{{ !showMore ? "Boost my NFT" : "Hide" }}</span> -->
                         <span>{{ !showMore ? translatesGet("BOOST_MY_NFT") : translatesGet("HIDE") }}</span>
-                    </button>
-                    <button :disabled="showLoader" v-if="unstakeAllowed" @click="Unstake(nft)" class="btn btn-light">
-                        <span>{{ translatesGet("BTN_UNSTAKE") }}</span>
                     </button>
                 </div>
             </div>
@@ -84,7 +81,7 @@
                                 v-if="!isBoostApplied(2)" class="st-boost" @click="showMore = true">
                                 <i class="icon-plus"></i>
                             </button>
-                            <button v-if="isBoostApplied(2)" class="st-boost" @click.stop="showMore = showMore" @click="(nftType = 'Boost'), (showTransferModal = true), (onlyData = true),
+                            <button v-if="isBoostApplied(2)" class="st-boost" @click.stop="showMore = showMore" @click="(nftType = AlphaBoost), (showTransferModal = true), (onlyData = true),
                             (selectedNft = fullStakeDetails.boostEvents.find((el) => el.boostType === 1))">
                                 <img :src="getImageForBoost(fullStakeDetails, 1)" alt="" class="" />
                             </button>
@@ -92,7 +89,7 @@
                                 v-if="!isBoostApplied(1)" class="st-boost" @click="showMore = true">
                                 <i class="icon-plus"></i>
                             </button>
-                            <button v-if="isBoostApplied(1)" class="st-boost" @click.stop="showMore = showMore" @click="(nftType = 'Boost'), (showTransferModal = true), (onlyData = true),
+                            <button v-if="isBoostApplied(1)" class="st-boost" @click.stop="showMore = showMore" @click="(nftType = AlphaBoost), (showTransferModal = true), (onlyData = true),
                             (selectedNft = fullStakeDetails.boostEvents.find((el) => el.boostType === 0))">
                                 <img :src="getImageForBoost(fullStakeDetails, 0)" alt="" class="" />
                             </button>
@@ -100,7 +97,7 @@
                                 v-if="!isBoostApplied(3)" class="st-boost" @click="showMore = true">
                                 <i class="icon-plus"></i>
                             </button>
-                            <button v-if="isBoostApplied(3)" class="st-boost" @click.stop="showMore = showMore" @click="(nftType = 'Boost'), (showTransferModal = true), (onlyData = true),
+                            <button v-if="isBoostApplied(3)" class="st-boost" @click.stop="showMore = showMore" @click="(nftType = AlphaBoost), (showTransferModal = true), (onlyData = true),
                             (selectedNft = fullStakeDetails.boostEvents.find((el) => el.boostType === 2))">
                                 <img :src="getImageForBoost(fullStakeDetails, 2)" alt="" class="" />
                             </button>
@@ -186,17 +183,19 @@
                         </div>
                     </div>
                 </div>
-                <div class="stake-nft-value-main-stats">
-                    <span>{{ getClaimBonusData(1, fullStakeDetails)[0] }}</span>
-                    <span>{{ getClaimBonusData(1, fullStakeDetails)[1] }}</span>
-                </div>
-                <div class="stake-nft-value-main-stats">
-                    <span>{{ getClaimBonusData(2, fullStakeDetails)[0] }}</span>
-                    <span>{{ getClaimBonusData(2, fullStakeDetails)[1] }}</span>
-                </div>
-                <div class="stake-nft-value-main-stats" style="margin-bottom: 15px;">
-                    <span>{{ getClaimBonusData(3, fullStakeDetails)[0] }}</span>
-                    <span>{{ getClaimBonusData(3, fullStakeDetails)[1] }}</span>
+                <div class="stake-data-header" style="justify-content: space-between; margin-bottom: 20px;">
+                    <div class="stake-nft-value-main-stats stake-bonus-claim" style="width: 33%;">
+                        <span>{{ getClaimBonusData(1, fullStakeDetails)[0] }}</span>
+                        <span>{{ getClaimBonusData(1, fullStakeDetails)[1] }}</span>
+                    </div>
+                    <div class="stake-nft-value-main-stats stake-bonus-claim" style="width: 33%;">
+                        <span>{{ getClaimBonusData(2, fullStakeDetails)[0] }}</span>
+                        <span>{{ getClaimBonusData(2, fullStakeDetails)[1] }}</span>
+                    </div>
+                    <div class="stake-nft-value-main-stats stake-bonus-claim" style="width: 33%;">
+                        <span>{{ getClaimBonusData(3, fullStakeDetails)[0] }}</span>
+                        <span>{{ getClaimBonusData(3, fullStakeDetails)[1] }}</span>
+                    </div>
                 </div>
                 <div class="stake-info-blocks-wrap">
                     <div class="stake-info-block">
@@ -807,16 +806,6 @@ export default {
             // mock
             return 1;
         },
-        getClaimBonusData(level, stake) {
-            let percent = level == 1 ? "15%" : level == 2 ? "40%" : "90%";
-            let bonusLevel = this.getClaimableBonusLevel(stake);
-            let countdownToLevel = this.getNextClaimableBonusCD(level, stake)
-            let enabled = bonusLevel >= level ? "🟢" : "⚪️";
-            return [
-                `${enabled} ${percent}`,
-                countdownToLevel
-            ];
-        },
         getStakeHoldingDays(stake) {
 
             // mock
@@ -833,6 +822,16 @@ export default {
 
 
             return countdownUntilNextDay;
+        },
+        getClaimBonusData(level, stake) {
+            let percent = level == 1 ? "15%" : level == 2 ? "40%" : "90%";
+            let bonusLevel = this.getClaimableBonusLevel(stake);
+            let countdownToLevel = this.getNextClaimableBonusCD(level, stake)
+            let enabled = bonusLevel >= level ? "🟢" : "⚪️";
+            return [
+                `${enabled} ${percent}`,
+                countdownToLevel
+            ];
         },
         getEarnedReward(stake) {
             let nft = stake;

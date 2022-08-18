@@ -1,5 +1,5 @@
 <template>
-    <div v-if="nftType === 'Posegg'" class="modal modal-transfer">
+    <div v-if="nftType === 'AlphaEgg'" class="modal modal-transfer">
         <div class="modal-full-close" @click="$emit('close')"></div>
         <div class="modal-wrap">
             <div class="modal-header">
@@ -140,7 +140,7 @@
             </div>
         </div>
     </div>
-    <div v-else-if="nftType === 'Boost'" class="modal modal-transfer modal-transfer-boost">
+    <div v-else-if="nftType === AlphaBoost" class="modal modal-transfer modal-transfer-boost">
         <div class="modal-full-close" @click="$emit('close')"></div>
         <div class="modal-wrap">
             <div class="modal-header">
@@ -413,7 +413,7 @@
                 return `${this.nft.price} ${currency}`;
             },
             getBackgroundColor() {
-                // return this.nftType === "Posegg" ? this.nft.attributes.find((el) => el.trait_type === "background_color")?.value : "#000000";
+                // return this.nftType === "AlphaEgg" ? this.nft.attributes.find((el) => el.trait_type === "background_color")?.value : "#000000";
                 return "#000000";
             },
             getClassImg() {

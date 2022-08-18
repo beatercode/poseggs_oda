@@ -1218,6 +1218,9 @@ table{
     color:#508eef;
     margin-bottom:-10px
 }
+.h3 {
+    font-size: 1.8rem !important;
+}
 .main-statistics li:not(:last-child):after{
     position:absolute;
     content:"";
@@ -1693,6 +1696,10 @@ table{
 }
 .balance-title,.network-title{
     margin-bottom:4px
+}
+.network-title {
+    top: 8px;
+    position: relative;
 }
 .btn-balance-wrap,.btn.btn-network-main .btn-network-wrap{
     display:flex;
@@ -3403,7 +3410,7 @@ input.transfer-input+.btn{
 .stake-info-blocks-wrap,.your-stake-boosts{
     display:flex;
     justify-content:flex-start;
-    align-content:stretch;
+    align-content:baseline;
     flex-wrap:wrap;
     margin:-5px;
     width:calc(100% + 10px);

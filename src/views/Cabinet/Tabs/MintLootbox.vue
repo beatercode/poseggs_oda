@@ -2,7 +2,7 @@
     <main class="main-boosts">
         <transfer-modal v-if="showTransferModal"
             @close="(showTransferModal = false), (selectedNft = null), (onlyData = false)" :nft="selectedNft"
-            :onlyData="onlyData" nftType="Posegg" />
+            :onlyData="onlyData" nftType="AlphaEgg" />
 
         <div class="cab-page-name">
             <div class="h2">{{ "Mint Lootbox" }}</div>
