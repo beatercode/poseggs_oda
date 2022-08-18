@@ -30,8 +30,8 @@
                                 class="pool-program program-item" :class="getStakeBgColor(index)" @click="selectedItem = (+index + 1)">
                                 <div class="program-conditions">
                                     <div class="program-col">
-                                        <span class="program-col-title">{{ translatesGet("POOL") }}-{{ getPoolTag(index) }}</span>
-                                        <span class="program-col-value">{{stPlan.days}} {{ translatesGet("DAYS") }}</span>
+                                        <span class="program-col-title">{{ getPoolTag(index) }} {{ translatesGet("POOL") }}</span>
+                                        <span class="program-col-value">{{stPlan.days}} {{ translatesGet("DAYS_ABB") }}</span>
                                     </div>
                                     <div class="program-col">
                                         <span class="program-col-title">{{ translatesGet("PROFIT_PER_PERIOD") }}</span>
@@ -117,7 +117,8 @@
                 return res >= 0 ? `${res} BNB` : undefined;
             },
             getPoolTag(index) {
-                return index == 0 ? "XXS" : index == 1 ? "XS" : index == 2 ? "S" : index == 3 ? "M" : index == 4 ? "L" : index == 5 ? "XL" : index == 6 ? "XXL" : "XXXL"
+                let pointer = 7 - index;
+                return conf["MISC"]["poolNames"][pointer];
             },
             getEarnedReward(stake) {
                 const { lastWithdrawTimestamp, event_data } = stake;

@@ -121,7 +121,7 @@
                                         <div class="block-info-td block-info-value">{{ Number(this.nft.base_strength) }}</div>
                                     </div>
                                     <div class="block-info-row">
-                                        <div class="block-info-td block-info-name">{{ "HEALT" }}</div>
+                                        <div class="block-info-td block-info-name">{{ "health" }}</div>
                                         <div class="block-info-td block-info-value">{{ Number(this.nft.base_healt) }}</div>
                                     </div>
                                     <div class="block-info-row">
@@ -324,7 +324,7 @@
                 return images("./nft-" + index + ".png");
             },
             getImageLinkByPrice(nftPrice) {
-                let nftId = nftPrice == 17 ? 1 : nftPrice == 47 ? 2 : nftPrice == 97 ? 3 : nftPrice == 197 ? 4 : nftPrice == 497 ? 5 : nftPrice == 997 ? 6 : nftPrice == 1997 ?  7 : nftPrice == 4997 ? 8 : 0;
+                let nftId = nftPrice == 17 ? 1 : nftPrice == 47 ? 2 : nftPrice == 97 ? 3 : nftPrice == 197 ? 4 : nftPrice == 497 ? 5 : nftPrice == 997 ? 6 : nftPrice == 1997 ?  7 : nftPrice == 4997 ? 8 : nftPrice == 9997 ? 11 : 0;
                 var images = require.context("/src/assets/images/all/", false, /\.png$/);
                 return images("./nft-" + nftId + ".png");
             },

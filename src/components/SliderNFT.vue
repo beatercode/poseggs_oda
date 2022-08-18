@@ -32,7 +32,7 @@
                                             }}</span>
                                         </div>
                                         <div class="cab-row cab-row-stats">
-                                            <span class="li-nft-footer-amount card-footer-stats">Healt</span>
+                                            <span class="li-nft-footer-amount card-footer-stats">Health</span>
                                             <span class="li-nft-footer-amount-2 card-footer-stats">{{
                                                     stats[index]
                                             }}</span>

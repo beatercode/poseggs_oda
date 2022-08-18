@@ -136,6 +136,11 @@
             "Days"
         ],
         [
+            "DAYS_ABB",
+            "",
+            "dd"
+        ],
+        [
             "HOURS",
             "",
             "Hours"
@@ -230,6 +235,11 @@
         ],
         [
             "PROFIT",
+            "",
+            "Profit"
+        ],
+        [
+            "PROFIT_TRUNC",
             "",
             "Profit"
         ],
@@ -374,7 +384,7 @@
         [
             "UP_TO_PERC",
             "",
-            "Up to 7% Daily"
+            "Up to 4X your value"
         ],
         [
             "ON_NFT_STAKING",
@@ -521,6 +531,11 @@
             "PROFIT_PER_DAY",
             "",
             "Profit per Day"
+        ],
+        [
+            "_PER_DAY",
+            "",
+            "per Day"
         ],
         [
             "UNLIMITED_STAKING",
@@ -972,7 +987,7 @@
         [
             "REF_PROG_DESCR_COMING_SOON",
             "",
-            "Any action you perform before this release will be considered. No a sincle refferral will be wasted. You can become leader as soon as we realease the feature."
+            "Any action you perform before this release will be considered. No a single refferral will be wasted. You can become leader as soon as we realease the feature."
         ],
         [
             "REF_PROG_COMING_SOON",
@@ -1190,6 +1205,11 @@
             "Estimated Profit"
         ],
         [
+            "CALCULATED_REWARD",
+            "",
+            "Profit"
+        ],
+        [
             "COPYRIGHT",
             "",
             "© 2022 ROIEgg. All rights reserved."
@@ -1328,7 +1348,7 @@
         [
             "PURCH_VALUE",
             "",
-            "Purchase Price"
+            "Value"
         ],
         [
             "BG_COLOR",

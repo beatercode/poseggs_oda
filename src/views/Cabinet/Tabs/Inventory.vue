@@ -281,9 +281,11 @@ export default {
         },
         getNftImage(index) {
             var images = require.context("/src/assets/images/all/", false, /\.png$/);
+            index = index == 9 ? 11 : index;
             return images("./nft-" + index + ".png");
         },
         getClassOnTier(tier) {
+            tier = tier == 9 ? 10 : tier;
             return "label-tier-" + tier;
         },
         getTierName(tier) {

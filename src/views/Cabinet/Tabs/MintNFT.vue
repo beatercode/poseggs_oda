@@ -59,18 +59,18 @@
                                                             <!--div class="icon logo-coin icon-card"></div-->
                                                             <div v-if="showStats">
                                                                 <div class="stake-nft-value-main-stats">
-                                                                    <span>Daily</span> <span>{{ profits[index]
-                                                                    }}%</span>
-                                                                </div>
-                                                                <div class="stake-nft-value-main-stats">
-                                                                    <span>Days</span> <span>{{ periods[index] }}</span>
-                                                                </div>
-                                                                <div class="stake-nft-value-main-stats">
                                                                     <span>Total</span> <span>{{
                                                                             parseFloat(profits[index] *
                                                                                 periods[index]).toFixed(1)
                                                                     }}%</span>
                                                                 </div>
+                                                                <!--div class="stake-nft-value-main-stats">
+                                                                    <span>Daily</span> <span>{{ profits[index]
+                                                                    }}%</span>
+                                                                </div>
+                                                                <div class="stake-nft-value-main-stats">
+                                                                    <span>Days</span> <span>{{ periods[index] }}</span>
+                                                                </div-->
                                                                 <div class="cab-row cab-row-stats">
                                                                     <span
                                                                         class="li-nft-footer-amount card-footer-stats">Strength</span>
@@ -81,7 +81,7 @@
                                                                 </div>
                                                                 <div class="cab-row cab-row-stats">
                                                                     <span
-                                                                        class="li-nft-footer-amount card-footer-stats">Healt</span>
+                                                                        class="li-nft-footer-amount card-footer-stats">Health</span>
                                                                     <span
                                                                         class="li-nft-footer-amount-2 card-footer-stats">{{
                                                                                 stats[index]
@@ -185,18 +185,18 @@
                                                                 </div>
                                                                 <div v-if="showStats">
                                                                     <div class="stake-nft-value-main-stats">
+                                                                        <span>Total</span> <span>{{
+                                                                                parseFloat(profits[index] *
+                                                                                    periods[index]).toFixed(1)
+                                                                        }}%</span>
+                                                                    </div>
+                                                                    <div class="stake-nft-value-main-stats">
                                                                         <span>Daily</span> <span>{{ profits[index]
                                                                         }}%</span>
                                                                     </div>
                                                                     <div class="stake-nft-value-main-stats">
                                                                         <span>Days</span> <span>{{ periods[index]
                                                                         }}</span>
-                                                                    </div>
-                                                                    <div class="stake-nft-value-main-stats">
-                                                                        <span>Total</span> <span>{{
-                                                                                parseFloat(profits[index] *
-                                                                                    periods[index]).toFixed(1)
-                                                                        }}%</span>
                                                                     </div>
                                                                     <div class="cab-row cab-row-stats">
                                                                         <span
@@ -214,7 +214,7 @@
                                                                     </div>
                                                                     <div class="cab-row cab-row-stats">
                                                                         <span
-                                                                            class="li-nft-footer-amount card-footer-stats">Healt</span>
+                                                                            class="li-nft-footer-amount card-footer-stats">Health</span>
                                                                         <div class="li-nft-footer-amount-2 card-footer-stats"
                                                                             style="text-align: left !important; display: flex; flex-direction: row; justify-content: flex-end;">
                                                                             <!--div class="plus-minus-mint-button">-</div-->
@@ -336,18 +336,18 @@
                                                                 <!--div class="icon logo-coin icon-card"></div-->
                                                                 <div v-if="showStats">
                                                                     <div class="stake-nft-value-main-stats">
+                                                                        <span>Total</span> <span>{{
+                                                                                parseFloat(freeEggData.profit *
+                                                                                    freeEggData.period).toFixed(1)
+                                                                        }}%</span>
+                                                                    </div>
+                                                                    <div class="stake-nft-value-main-stats">
                                                                         <span>Daily</span> <span>{{ freeEggData.profit
                                                                         }}%</span>
                                                                     </div>
                                                                     <div class="stake-nft-value-main-stats">
                                                                         <span>Days</span> <span>{{ freeEggData.period
                                                                         }}</span>
-                                                                    </div>
-                                                                    <div class="stake-nft-value-main-stats">
-                                                                        <span>Total</span> <span>{{
-                                                                                parseFloat(freeEggData.profit *
-                                                                                    freeEggData.period).toFixed(1)
-                                                                        }}%</span>
                                                                     </div>
                                                                     <div class="cab-row cab-row-stats">
                                                                         <span
@@ -361,7 +361,7 @@
                                                                     </div>
                                                                     <div class="cab-row cab-row-stats">
                                                                         <span
-                                                                            class="li-nft-footer-amount card-footer-stats">Healt</span>
+                                                                            class="li-nft-footer-amount card-footer-stats">Health</span>
                                                                         <div class="li-nft-footer-amount-2 card-footer-stats"
                                                                             style="text-align: left !important; display: flex; flex-direction: row; justify-content: flex-end;">
                                                                             <!--div class="plus-minus-mint-button">-</div-->
@@ -428,18 +428,18 @@
                                                                 <!--div class="icon logo-coin icon-card"></div-->
                                                                 <div v-if="showStats">
                                                                     <div class="stake-nft-value-main-stats">
+                                                                        <span>Total</span> <span>{{
+                                                                                parseFloat(bonusEggData.profit *
+                                                                                    bonusEggData.period).toFixed(1)
+                                                                        }}%</span>
+                                                                    </div>
+                                                                    <div class="stake-nft-value-main-stats">
                                                                         <span>Daily</span> <span>{{ bonusEggData.profit
                                                                         }}%</span>
                                                                     </div>
                                                                     <div class="stake-nft-value-main-stats">
                                                                         <span>Days</span> <span>{{ bonusEggData.period
                                                                         }}</span>
-                                                                    </div>
-                                                                    <div class="stake-nft-value-main-stats">
-                                                                        <span>Total</span> <span>{{
-                                                                                parseFloat(bonusEggData.profit *
-                                                                                    bonusEggData.period).toFixed(1)
-                                                                        }}%</span>
                                                                     </div>
                                                                     <div class="cab-row cab-row-stats">
                                                                         <span
@@ -453,7 +453,7 @@
                                                                     </div>
                                                                     <div class="cab-row cab-row-stats">
                                                                         <span
-                                                                            class="li-nft-footer-amount card-footer-stats">Healt</span>
+                                                                            class="li-nft-footer-amount card-footer-stats">Health</span>
                                                                         <div class="li-nft-footer-amount-2 card-footer-stats"
                                                                             style="text-align: left !important; display: flex; flex-direction: row; justify-content: flex-end;">
                                                                             <!--div class="plus-minus-mint-button">-</div-->
@@ -518,13 +518,13 @@
                                                                 <!--div class="icon logo-coin icon-card"></div-->
                                                                 <div v-if="showStats">
                                                                     <div class="stake-nft-value-main-stats">
+                                                                        <span>Total</span> <span>{{ "-" }}%</span>
+                                                                    </div>
+                                                                    <div class="stake-nft-value-main-stats">
                                                                         <span>Daily</span> <span>{{ "-" }}%</span>
                                                                     </div>
                                                                     <div class="stake-nft-value-main-stats">
                                                                         <span>Days</span> <span>{{ "-" }}</span>
-                                                                    </div>
-                                                                    <div class="stake-nft-value-main-stats">
-                                                                        <span>Total</span> <span>{{ "-" }}%</span>
                                                                     </div>
                                                                     <div class="cab-row cab-row-stats">
                                                                         <span
@@ -538,7 +538,7 @@
                                                                     </div>
                                                                     <div class="cab-row cab-row-stats">
                                                                         <span
-                                                                            class="li-nft-footer-amount card-footer-stats">Healt</span>
+                                                                            class="li-nft-footer-amount card-footer-stats">Health</span>
                                                                         <div class="li-nft-footer-amount-2 card-footer-stats"
                                                                             style="text-align: left !important; display: flex; flex-direction: row; justify-content: flex-end;">
                                                                             <!--div class="plus-minus-mint-button">-</div-->

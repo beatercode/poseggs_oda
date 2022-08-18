@@ -115,9 +115,7 @@
                                 <span>{{ translatesGet("STAKING_POOL") }}</span>
                             </div>
                             <div class="stake-pool-col-value">
-                                {{ translatesGet("POOL") }}({{
-                                        getStakingPlanData(fullStakeDetails)[4]
-                                }})
+                                {{ getStakingPlanData(fullStakeDetails)[4] }} {{ translatesGet("POOL") }}
                             </div>
                         </div>
                         <div class="stake-pool-col stake-time">
@@ -694,7 +692,8 @@ export default {
         },
         getImageLink(nft) {
             var images = require.context("/src/assets/images/all/", false, /\.png$/);
-            return images("./nft-" + nft.eggPlan + ".png");
+            let plan = nft.eggPlan == 9 ? 11 : nft.eggPlan;
+            return images("./nft-" + plan + ".png");
         },
         getStakingPlanData(nft) {
             let timeIncrease = 0;
@@ -721,7 +720,8 @@ export default {
                 }
             }
 
-            const stakePlan = (+nft.eggPlan - 1) < 0 ? 0 : (+nft.eggPlan - 1);
+            let stakePlan = (+nft.eggPlan - 1) < 0 ? 0 : (+nft.eggPlan - 1);
+            stakePlan = stakePlan > 7 ? 7 : stakePlan;
 
             if (timeIncrease > 0) {
                 period = `${conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days > 0
@@ -747,9 +747,9 @@ export default {
 
             const totalProfit = (parseFloat(period) * dailyPerc).toFixed(2);
             let expectedReward;
-            const size =
-                stakePlan === 0 ? "XXS" : stakePlan === 1 ? "XS" : stakePlan === 2 ? "S" : stakePlan === 3 ? "M" : stakePlan === 4
-                    ? "L" : stakePlan === 5 ? "XL" : stakePlan === 6 ? "XXL" : "XXL";
+            // const size = stakePlan === 0 ? "XXS" : stakePlan === 1 ? "XS" : stakePlan === 2 ? "S" : stakePlan === 3 ? "M" : stakePlan === 4 ? "L" : stakePlan === 5 ? "XL" : stakePlan === 6 ? "XXL" : "XXL";
+            let pointer = 7 - stakePlan;
+            const size = conf["MISC"]["poolNames"][pointer];
             let end;
             const start = Math.max(nft.timestamp, nft.lastWithdrawTimestamp);
             end = nft.timestamp + Number(period.replace("DAYS", "")) * 24 * 3600;
@@ -815,7 +815,8 @@ export default {
                 }
             }
 
-            const stakePlan = (+stake.eggPlan - 1) < 0 ? 0 : +stake.eggPlan - 1;
+            let stakePlan = (+stake.eggPlan - 1) < 0 ? 0 : +stake.eggPlan - 1;
+            stakePlan = stakePlan > 7 ? 7 : stakePlan;
 
             let stakeType = conf[this.currentBlockchain].STAKING_PLANS[stakePlan];
             let dayInSec = 86400;
@@ -836,7 +837,7 @@ export default {
                 / number1e4
                 / dayInSec;
 
-            reward = Number(Web3.utils.fromWei(Web3.utils.toBN(reward), 'ether')).toFixed(2);
+            reward = Number(Web3.utils.fromWei(Web3.utils.toBN(reward), 'ether')).toFixed(4);
             return reward;
         },
         logClaimableInfo(claimableInfo) {

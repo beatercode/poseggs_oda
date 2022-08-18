@@ -20,7 +20,7 @@
                     <div class="modal-select-pool-wrap">
                         <button v-for="(stPlan, index) of this.conf[this.currentBlockchain].STAKING_PLANS" class="select-pool-block"
                             @click="selectedPool = index" :class="{ active: selectedPool == index }">
-                            <div class="title">{{ stPlan.days }} {{ translatesGet("DAYS") }}</div>
+                            <div class="title">{{ stPlan.days }} {{ translatesGet("DAYS_ABB") }}</div>
                             <div class="value">{{ stPlan.perc }}% {{ translatesGet("PROFIT") }}</div>
                         </button>
                     </div>
@@ -37,7 +37,7 @@
                                         </div>
                                         <img :src="getImageLink(nft.plan)" alt="nft-img" class="your-nft-img" />
                                     </div>
-                                    <div class="title">{{ translatesGet("EXPECTED_REWARD") }}:</div>
+                                    <div class="title">{{ translatesGet("CALCULATED_REWARD") }}:</div>
                                     <div class="stake-nft-value">
                                         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path
@@ -125,11 +125,13 @@
             },
             getImageLink(index) {
                 var images = require.context("/src/assets/images/all/", false, /\.png$/);
-                return images("./nft-" + index + ".png");
+                let plan = index == 9 ? 11 : index;
+                return images("./nft-" + plan + ".png");
             },
             getExpectedReward(nft) {
                 let price = nft.price == 0 ? 7 : nft.price;
-                const totalProfit = parseFloat((price * conf[this.currentBlockchain].STAKING_PLANS[this.selectedPool].perc) / 100).toFixed(2);
+                let totalProfit = parseFloat((price * conf[this.currentBlockchain].STAKING_PLANS[this.selectedPool].perc) / 100).toFixed(2);
+                // totalProfit = totalProfit.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "\'")
                 return `${totalProfit} BUSD`;
             },
             getEarnedReward(stake) {

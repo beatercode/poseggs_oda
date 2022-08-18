@@ -527,7 +527,10 @@ table{
     padding-bottom:0
 }
 .main-home{
-    overflow:hidden;
+    overflow-x: hidden !important;
+}
+.main-home::-webkit-scrollbar {
+    display: none;
 }
 .main-home .footer-home .logo,.main-home .header-fixed .logo{
     background-image:url(../images/all/Logo.png)
@@ -1078,23 +1081,33 @@ table{
 .chat-container{
     margin-bottom:40px
 }
+.program-item:nth-child(odd) {
+    margin-left: 20px;
+}
 .program-item{
     border-radius:8px;
     padding:1px;
     display:flex;
     justify-content:space-between;
     align-items:flex-start;
-    width:100%;
+    width: calc(50% - 10px);
     position:relative
 }
 .section-unlimited-staking .program-item{
     justify-content:flex-start
 }
-.programs-wrap .program-item:not(:last-child){
+.programs-wrap .program-item:not(:first-child){
     margin-bottom:20px
 }
+.programs-wrap {
+    flex-flow: row-reverse wrap-reverse !important;
+    align-items: center !important;
+}
 .program-item .program-col{
-    padding:10px
+    padding: 3px 10px;
+}
+.program-col {
+    flex-direction: column !important;
 }
 .select-pool-wrap .container-btn,.select-pool-wrap .program-item,.select-pool-wrap .program-item .program-col{
     padding:10px
@@ -1110,7 +1123,8 @@ table{
 }
 .program-item .program-col,.programs-wrap{
     display:flex;
-    flex-direction:column;
+    flex-direction:row;
+    flex-wrap: wrap;
     align-items:flex-start;
     justify-content:flex-start;
     width:100%
@@ -1150,11 +1164,11 @@ table{
     color: #ffffff
 }
 .program-item.egg-3 {
-    background: linear-gradient(180deg, #58da56, #0ec60b);
+    background: linear-gradient(180deg, #46b144, #0a9708); 
     color: #ffffff;
 }
 .program-item.egg-4 {
-    background: linear-gradient(180deg, #edeb68, #eae603);
+    background: linear-gradient(180deg, #bebc53, #b8b501);
     color: #ffffff;
 }
 .program-item.egg-5 {
@@ -2013,7 +2027,8 @@ table{
     flex-grow:1;
     justify-content:stretch;
     background:#1a1c29;
-    border-radius:8px
+    border-radius:8px;
+    margin-bottom: 10px;
 }
 .your-stake-col.your-stake-nft{
     flex-grow:0;
@@ -2878,9 +2893,10 @@ input.transfer-input+.btn{
     flex-wrap:wrap;
     align-items:stretch;
     justify-content:flex-start;
+    flex-flow: row-reverse wrap-reverse;
     margin-top:30px;
     margin-left:-10px;
-    margin-right:-10px
+    margin-right:-10px;
 }
 .pool-program{
     justify-content:stretch;
@@ -3644,7 +3660,8 @@ input.transfer-input+.btn{
     margin-right:-5px;
     display:flex;
     flex-wrap:wrap;
-    justify-content:stretch
+    justify-content:stretch;
+    flex-flow: row-reverse wrap-reverse;
 }
 .modal-leader .modal-content,.modal-stake .modal-content{
     margin-top:-20px;
@@ -4219,7 +4236,7 @@ header{
 }
 .claim-value,.h3,.program-col-value,.timer-count{
     font-weight:600;
-    font-size:32px;
+    font-size: 1.2rem;
     line-height:48px
 }
 .claim-value{
@@ -9380,7 +9397,7 @@ i[class*=" i-"],i[class^=i-]{
         justify-content:space-between
     }
     .h3,.program-col-value,.timer-count{
-        font-size:24px;
+        font-size:1rem;
         line-height:32px
     }
     .section-unlimited-staking .chat-container{
@@ -9724,6 +9741,12 @@ i[class*=" i-"],i[class^=i-]{
         min-width: calc(33.333% - 5px);
     }
 }
+@media (max-width: 460px) {
+    .program-item{
+        width: 100%;
+        margin: 5px 10px !important;
+    }
+}
 @media (max-width:768.5px){
     .chat-row:not(:first-child){
         margin-top:20px
@@ -9754,10 +9777,8 @@ i[class*=" i-"],i[class^=i-]{
         background-size:100% 100%
     }
     .main-wrapp-content:before{
-        background-image:url(../images/all/main-mobile-bg.397ae95c.webp)
     }
     .section-bounty-program{
-        background-image:url(../images/all/bounty-bg-s.862bfb94.webp)
     }
     .section-earn{
     }
@@ -9959,8 +9980,11 @@ i[class*=" i-"],i[class^=i-]{
         width:100%
     }
     .programs-wrap .program-item:not(:last-child){
-        margin-bottom:0;
-        margin-right:8px
+        margin-bottom: 20px;
+    }
+    .program-item{
+        display: flex;
+        flex-direction: row !important;
     }
     .programs-wrap{
         flex-direction:row
@@ -9970,7 +9994,7 @@ i[class*=" i-"],i[class^=i-]{
         padding-left:0
     }
     .h3,.program-col-value,.timer-count{
-        font-size:24px;
+        font-size:1.1rem;
         line-height:32px
     }
     .main-home .h2{

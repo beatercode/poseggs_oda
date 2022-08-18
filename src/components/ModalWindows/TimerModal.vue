@@ -13,7 +13,7 @@
                     <div class="timer">
                         <div class="timer-col">
                             <div class="timer-count days"></div>
-                            <div class="timer-title">{{ translatesGet("DAYS") }}</div>
+                            <div class="timer-title">{{ translatesGet("DAYS_ABB") }}</div>
                         </div>
                         <div class="timer-col">
                             <div class="timer-count hours"></div>

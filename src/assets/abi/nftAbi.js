@@ -552,7 +552,7 @@ const nftAbi = [
 			},
 			{
 				"internalType": "uint256",
-				"name": "base_healt",
+				"name": "base_health",
 				"type": "uint256"
 			},
 			{

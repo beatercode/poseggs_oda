@@ -736,7 +736,7 @@ export default class Core {
             let eggInfo = await nftContract.EGGS(eggPlan);
             eggInfo = await this.arrayOfBNtoNumber(eggInfo);
             eggInfo.plan = eggPlan.toNumber();
-            eggInfo.name = eggInfo.plan == 0 ? conf.FREE_EGG_DATA.name : conf.EGG_DATA.name[eggPlanId - 1];
+            eggInfo.name = eggInfo.plan == 0 ? conf.FREE_EGG_DATA.name : eggInfo.plan == 9 ? conf.BONUS_EGG_DATA.name : conf.EGG_DATA.name[eggPlanId - 1];
             eggInfo.tokenId = ni.toNumber();
             eggInfo.collection = "POSEggs-NFT";
             eggInfo.description = "";
@@ -787,7 +787,7 @@ export default class Core {
         let temp = {};
         temp.price = parseFloat(utils.formatEther(array["price"]));
         temp.base_strength = Number(array["base_strength"]);
-        temp.base_healt = Number((array["base_healt"]));
+        temp.base_healt = Number((array["base_health"]));
         temp.base_speed = Number((array["base_speed"]));
         temp.base_magic = Number((array["base_magic"]));
         return temp;
@@ -811,7 +811,8 @@ export default class Core {
             temp.event_data = {};
             temp.event_data.tokenId = stake["tokenId"].toNumber();
             let eggPlan = await this.tokenIdToPlan(temp.event_data.tokenId);
-            temp.event_data.amount = (eggPlan - 1) < 0 ? conf["FREE_EGG_DATA"].value : conf["EGG_DATA"].prices[(eggPlan - 1)];
+            let adjEggPlan = (eggPlan - 1);
+            temp.event_data.amount = adjEggPlan < 0 ? conf["FREE_EGG_DATA"].value : adjEggPlan == 8 ? conf["BONUS_EGG_DATA"].price : conf["EGG_DATA"].prices[adjEggPlan];
             temp.event_data.investor = address;
             temp.event_data.eventName = "Staked";
             temp.event_data.timestamp = stake["startTime"].toNumber();

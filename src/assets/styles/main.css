@@ -1564,7 +1564,7 @@ table {
 
 .section-boosts .section-wrap,
 .section-earn .container {
-    padding-top: 100px;
+    padding-top: 40px;
     padding-bottom: 100px;
     min-height: 60vh
 }
@@ -11840,10 +11840,8 @@ i[class^=i-] {
         background-size: 100% 100%
     }
     .main-wrapp-content:before {
-        background-image: url(../images/all/main-mobile-bg.397ae95c.webp)
     }
     .section-bounty-program {
-        background-image: url(../images/all/bounty-bg-s.862bfb94.webp)
     }
     .section-earn {
     }
@@ -12052,8 +12050,7 @@ i[class^=i-] {
         width: 100%
     }
     .programs-wrap .program-item:not(:last-child) {
-        margin-bottom: 0;
-        margin-right: 8px
+        margin-bottom: 20px;
     }
     .programs-wrap {
         flex-direction: row
