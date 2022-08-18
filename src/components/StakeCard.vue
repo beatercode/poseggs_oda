@@ -184,25 +184,19 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="stake-pool-col stake-for-claim-bonus">
-                            <div class="stake-pool-col-name">
-                                <div class="icon"></div>
-                                <span>{{ translatesGet("AVAILABLE_CLAIM_BONUS") }}</span>
-                            </div>
-                            <div class="stake-pool-col-value">
-                                {{ getClaimableBonusFE(fullStakeDetails) }}
-                            </div>
-                        </div>
-                        <div class="stake-pool-col stake-for-claim-bonus">
-                            <div class="stake-pool-col-name">
-                                <div class="icon"></div>
-                                <span>{{ translatesGet("NEXT_CLAIM_BONUS") }}</span>
-                            </div>
-                            <div class="stake-pool-col-value">
-                                {{ getNextClaimableBonusFE(fullStakeDetails) }}
-                            </div>
-                        </div>
                     </div>
+                </div>
+                <div class="stake-nft-value-main-stats">
+                    <span>{{ getClaimBonusData(1, fullStakeDetails)[0] }}</span>
+                    <span>{{ getClaimBonusData(1, fullStakeDetails)[1] }}</span>
+                </div>
+                <div class="stake-nft-value-main-stats">
+                    <span>{{ getClaimBonusData(2, fullStakeDetails)[0] }}</span>
+                    <span>{{ getClaimBonusData(2, fullStakeDetails)[1] }}</span>
+                </div>
+                <div class="stake-nft-value-main-stats" style="margin-bottom: 15px;">
+                    <span>{{ getClaimBonusData(3, fullStakeDetails)[0] }}</span>
+                    <span>{{ getClaimBonusData(3, fullStakeDetails)[1] }}</span>
                 </div>
                 <div class="stake-info-blocks-wrap">
                     <div class="stake-info-block">
@@ -813,9 +807,15 @@ export default {
             // mock
             return 1;
         },
-        getClaimableBonusFE(stake) {
-            let level = this.getClaimableBonusLevel(stake);
-            return level == 1 ? "+15% 🟢⚪️⚪️" : level == 2 ? "+40% 🟢🟢⚪️" : level == 3 ? "+90% 🟢🟢🟢" : "-";
+        getClaimBonusData(level, stake) {
+            let percent = level == 1 ? "15%" : level == 2 ? "40%" : "90%";
+            let bonusLevel = this.getClaimableBonusLevel(stake);
+            let countdownToLevel = this.getNextClaimableBonusCD(level, stake)
+            let enabled = bonusLevel >= level ? "🟢" : "⚪️";
+            return [
+                `${enabled} ${percent}`,
+                countdownToLevel
+            ];
         },
         getStakeHoldingDays(stake) {
 
@@ -827,7 +827,7 @@ export default {
             // mock
             return "1h 12m 26s"
         },
-        getNextClaimableBonusFE(stake) {
+        getNextClaimableBonusCD(level, stake) {
             let holdingDays = this.getStakeHoldingDays(stake);
             let countdownUntilNextDay = this.getStakeCountdownUntilNextBonus(stake, holdingDays);
 
