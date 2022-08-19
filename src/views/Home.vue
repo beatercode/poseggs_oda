@@ -134,7 +134,7 @@
                             </div>
                             <div class="half-img section-mobile">
                                 <div class="img-wrap">
-                                    <img style="max-width: 80%;" src="@/assets/images/all/main-img.png" alt="main-img" />
+                                    <img style="margin: auto; max-height: 500px;" src="@/assets/images/all/main-img.png" alt="main-img" />
                                 </div>
                             </div>
                             <div class="audited">
@@ -151,8 +151,7 @@
 
                         <div class="section-half half-img section-desctop">
                             <div class="img-wrap">
-                                <img style="max-width: 80%;" src="@/assets/images/all/main-img.png" alt="main-img" />
-                                <!--img style="max-width: 80%;" src="@/assets/images/all/nft-6-tr.png" alt="main-img" /-->
+                                <img style="margin: auto; max-height: 500px;" src="@/assets/images/all/main-img.png" alt="main-img" />
                             </div>
                         </div>
                     </div>
@@ -1118,8 +1117,8 @@
                                         translatesGet("BECOME_A_LEADER")
                                 }}</router-link>
 
-                                <div class="table-img-wrap" style="margin-right: 30px;">
-                                    <img src="@/assets/images/all/img-table.png" alt="main-img" />
+                                <div class="table-img-wrap">
+                                    <img src="@/assets/images/all/img-table.png" style="margin: auto;" alt="main-img" />
                                 </div>
                             </div>
                         </div>

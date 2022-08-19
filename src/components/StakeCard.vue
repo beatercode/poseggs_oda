@@ -170,8 +170,11 @@
                                 <div class="icon"></div>
                                 <span>{{ translatesGet("AVAILABLE_CLAIM") }}</span>
                             </div>
-                            <div class="stake-pool-col-value">
-                                {{ getEarnedReward(fullStakeDetails) }} {{ "BUSD" }}
+                            <div class="stake-pool-col-value" style="display: flex; flex-direction: row;">
+                                <span v-if="this.claimBonusLevel > 0" style="color: #00EB00; margin-right: 4px;">
+                                    {{ getClaimBonusPerc((this.claimBonusLevel - 1)) }}%
+                                </span>
+                                <span>{{ getEarnedReward(fullStakeDetails) }} {{ "BUSD" }}</span>
                             </div>
                         </div>
                         <div class="stake-pool-col">
@@ -613,6 +616,7 @@ export default {
             selectList2: false,
             selectList3: false,
             selectedNft: null,
+            claimBonusLevel: 0,
             timeToBonusA: null,
             timeToBonusB: null,
             timeToBonusC: null,
@@ -712,6 +716,7 @@ export default {
         getStakingPlanData(nft) {
             let timeIncrease = 0;
             let profitIncrease = 0;
+            let bonusProfitIncrease = 0;
             let period;
             let dailyPerc = 0;
 
@@ -804,12 +809,15 @@ export default {
         getAlreadyWithdrawnReward(stake) {
             return Number(stake.rewardReceived / 1e18).toFixed(2);
         },
+        getClaimBonusPerc(val) {
+            return conf["CLAIM_BONUS_DATA"].percent[val];
+        },
         getClaimableBonusLevel(stake) {
             const { Difference_In_Days } = this.getTimeSinceLastClaim(stake);
-            return Difference_In_Days >= conf["CLAIM_BONUS_DATA"].days[0] 
-                ? 1 : Difference_In_Days >= conf["CLAIM_BONUS_DATA"].days[1] 
-                ? 2 : Difference_In_Days >= conf["CLAIM_BONUS_DATA"].days[2] 
-                ? 3 : 0;
+            return Difference_In_Days >= conf["CLAIM_BONUS_DATA"].days[2] 
+                ? 3 : Difference_In_Days >= conf["CLAIM_BONUS_DATA"].days[1] 
+                ? 2 : Difference_In_Days >= conf["CLAIM_BONUS_DATA"].days[0] 
+                ? 1 : 0;
         },
         getTimeSinceLastClaim(stake) {
             let rightNow = Date.now();
@@ -856,11 +864,11 @@ export default {
             const Difference_In_Mins_C = Difference_In_Mins;
             const Difference_In_Secs_C  = Difference_In_Secs;
 
-            let countdownUntilNexLevel = myBonusLevel >= levelRequired ? "-" 
+            let countdownUntilNexLevel = myBonusLevel >= levelRequired ? "Obtained" 
                 : (
                     levelRequired == 1 ? this.formatTimeDifference(Difference_In_Days_A, Difference_In_Hours_A, Difference_In_Mins_A, Difference_In_Secs_A) :
                     levelRequired == 2 ? this.formatTimeDifference(Difference_In_Days_B, Difference_In_Hours_B, Difference_In_Mins_B, Difference_In_Secs_B) :
-                    levelRequired == 3 ? this.formatTimeDifference(Difference_In_Days_C, Difference_In_Hours_C, Difference_In_Mins_C, Difference_In_Secs_C) : "-"
+                    levelRequired == 3 ? this.formatTimeDifference(Difference_In_Days_C, Difference_In_Hours_C, Difference_In_Mins_C, Difference_In_Secs_C) : "Obtained"
                 );
             
             return countdownUntilNexLevel;
@@ -869,9 +877,9 @@ export default {
             let percent = levelRequired == 1 
                 ? `${conf["CLAIM_BONUS_DATA"].percent[0]}%` : levelRequired == 2 
                 ? `${conf["CLAIM_BONUS_DATA"].percent[1]}%` : `${conf["CLAIM_BONUS_DATA"].percent[2]}%`;
-            let myBonusLevel = this.getClaimableBonusLevel(stake);
-            let countdownToLevel = this.getNextClaimableBonusCD(levelRequired, myBonusLevel, stake);
-            let enabled = myBonusLevel >= levelRequired ? "🟢" : "⚪️";
+            this.claimBonusLevel = this.getClaimableBonusLevel(stake);
+            let countdownToLevel = this.getNextClaimableBonusCD(levelRequired, this.claimBonusLevel, stake);
+            let enabled = this.claimBonusLevel >= levelRequired ? "🟢" : "⚪️";
 
             switch(levelRequired) {
                 case 1: this.timeToBonusA = countdownToLevel; break;
@@ -884,6 +892,7 @@ export default {
             let nft = stake;
             let timeIncrease = 0;
             let profitIncrease = 0;
+            let claimProfitIncrease = this.claimBonusLevel == 0 ? 0 : conf["CLAIM_BONUS_DATA"].percent[(this.claimBonusLevel - 1)];
 
             if (nft.boostEvents && nft.boostEvents.length) {
                 for (let i = 0; i < nft.boostEvents.length; i++) {
@@ -924,6 +933,7 @@ export default {
                 / number1e4
                 / number1e4
                 / dayInSec;
+            reward = reward + ((reward / 100) * claimProfitIncrease);
 
             reward = Number(Web3.utils.fromWei(Web3.utils.toBN(reward), 'ether')).toFixed(4);
             return reward;

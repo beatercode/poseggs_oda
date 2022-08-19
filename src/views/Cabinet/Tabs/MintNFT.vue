@@ -413,7 +413,7 @@
                                                             {{ "TIER 9" }}
                                                         </div-->
                                                         <div class="card-egg-image" style="overflow: hidden; width: fit-content; height: fit-content; border-radius: 8px;">
-                                                            <img class="card-egg-image-img-no-hop" :src="getNftImage(10)"
+                                                            <img class="card-egg-image-img" :src="getNftImage(10)"
                                                                 style="" />
                                                         </div>
                                                         <div class="li-nft-footer">

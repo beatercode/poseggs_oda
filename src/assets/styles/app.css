@@ -86,10 +86,10 @@ table{
     width:100%;
     border-spacing:0!important
 }
-.home-binance {
-    background: url(http://localhost:8080/img/bg-main-image.47c30eee.jpg) no-repeat top center;
-    background-size: 100%;
-    background-repeat: no-repeat;
+.section-main {
+    background: url('../images/all/bg-main-image.jpg') no-repeat top center;
+    background-size: cover;
+    max-width: 100%;
 }
 .section-active:not(.section-main) .section-half .h2{
     opacity:0;
@@ -493,7 +493,7 @@ table{
     padding-top:0;
     padding-bottom:0
 }
-.main-home > *{
+main > *{
     max-width: 1300px;
     margin: auto;
 }
@@ -774,11 +774,11 @@ table{
 }
 
 .card-egg-image-img:hover {
-    animation: hopping 0.05s linear alternate infinite;
+    animation: hopping .6s linear alternate infinite;
 }
 
 .hopping {
-    animation: hopping 0.05s linear alternate infinite;
+    animation: hopping .6s linear alternate infinite;
 }
 
 @keyframes hopping {
@@ -1097,7 +1097,7 @@ table{
     display:flex;
     flex-direction:row;
     flex-wrap: wrap;
-    align-items:flex-start;
+    align-items:center;
     justify-content:flex-start;
     width:100%
 }
@@ -1702,6 +1702,10 @@ table{
     margin-bottom:4px
 }
 .network-title {
+    top: 8px;
+    position: relative;
+}
+.balance-title {
     top: 8px;
     position: relative;
 }
@@ -4348,6 +4352,7 @@ header{
     display:none
 }
 .cab-page-name{
+    margin-left: 0px;
     margin-bottom:20px
 }
 .airdrop-title,.card-title,.modal-name{
@@ -4952,6 +4957,7 @@ header .btn{
     background-image:url(../images/all/user-active.e022e9df.svg)
 }
 .cab-col-wrap{
+    margin-left: 0px;
     display:flex;
     justify-content:stretch
 }

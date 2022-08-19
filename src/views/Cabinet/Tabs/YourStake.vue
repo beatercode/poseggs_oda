@@ -104,10 +104,39 @@ export default {
             var images = require.context("/src/assets/images/all/", false, /\.png$/);
             return images("./nft-" + index + ".png");
         },
+        getClaimableBonusLevel(stake) {
+            const { Difference_In_Days } = this.getTimeSinceLastClaim(stake);
+            return Difference_In_Days >= conf["CLAIM_BONUS_DATA"].days[2] 
+                ? 3 : Difference_In_Days >= conf["CLAIM_BONUS_DATA"].days[1] 
+                ? 2 : Difference_In_Days >= conf["CLAIM_BONUS_DATA"].days[0] 
+                ? 1 : 0;
+        },
+        getTimeSinceLastClaim(stake) {
+            let rightNow = Date.now();
+            let lastClaim = (new Date(stake.lastWithdrawTimestamp * 1000)).getTime();
+            return this.getTimeDifference(rightNow, lastClaim);
+
+        },
+        getTimeDifference(a, b) {
+            const MIL_DAY = 1000 * 3600 * 24;
+            const MIL_HOUR = 1000 * 3600;
+            const MIL_MIN = 1000 * 60;
+            const MIL_SEC = 1000 * 1;
+
+            let Difference_In_Time = a - b;
+            let Difference_In_Days = Math.trunc(Difference_In_Time / MIL_DAY);
+            let Difference_In_Hours = Math.trunc(Difference_In_Time / MIL_HOUR) - (24 * Difference_In_Days);
+            let Difference_In_Mins = Math.trunc(Difference_In_Time / MIL_MIN) - (60 * (Difference_In_Hours + (24 * Difference_In_Days)));
+            let Difference_In_Secs = Math.trunc(Difference_In_Time / MIL_SEC) - (60 * (Difference_In_Mins + 60 * (Difference_In_Hours + (24 * Difference_In_Days))));
+
+            return { Difference_In_Days, Difference_In_Hours, Difference_In_Mins, Difference_In_Secs }
+        },
         getEarnedReward(stake) {
             let nft = stake;
             let timeIncrease = 0;
             let profitIncrease = 0;
+            let claimBonusLevel = this.getClaimableBonusLevel(stake);
+            let claimProfitIncrease = claimBonusLevel == 0 ? 0 : conf["CLAIM_BONUS_DATA"].percent[(claimBonusLevel - 1)];
 
             if (nft.boostEvents && nft.boostEvents.length) {
                 for (let i = 0; i < nft.boostEvents.length; i++) {
@@ -148,6 +177,7 @@ export default {
                 / number1e4
                 / number1e4
                 / dayInSec;
+            reward = reward + ((reward / 100) * claimProfitIncrease);
 
             reward = Number(Web3.utils.fromWei(Web3.utils.toBN(reward), 'ether')).toFixed(2);
             return reward;

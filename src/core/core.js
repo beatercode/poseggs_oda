@@ -357,7 +357,7 @@ export default class Core {
                     setTimeout(tick, 30000);
                 }
             }
-        }, 1000);
+        }, 50);
     }
     getSiteData(period = 100000) {
         // let _this = this;
