@@ -4368,6 +4368,7 @@ header{
     border-radius: 12px;
 }
 .emphasize{
+    width: fit-content;
     position:relative;
     display:block;
     z-index:1
