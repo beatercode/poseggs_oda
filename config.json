@@ -609,6 +609,10 @@
         },
         "NODE": "https://polygon-rpc.com/"
     },
+    "CLAIM_BONUS_DATA": {
+        "days": [3, 6, 9],
+        "percent": [15, 40, 90]
+    },
     "LOOTBOX_DATA": {
         "prices": [17, 97, 497, 1997]
     },

@@ -185,16 +185,16 @@
                 </div>
                 <div class="stake-data-header" style="justify-content: space-between; margin-bottom: 20px;">
                     <div class="stake-nft-value-main-stats stake-bonus-claim" style="width: 33%;">
-                        <span>{{ getClaimBonusData(1, fullStakeDetails)[0] }}</span>
-                        <span>{{ getClaimBonusData(1, fullStakeDetails)[1] }}</span>
+                        <span>{{ getClaimBonusData(1, fullStakeDetails) }}</span>
+                        <span>{{ timeToBonusA }}</span>
                     </div>
                     <div class="stake-nft-value-main-stats stake-bonus-claim" style="width: 33%;">
-                        <span>{{ getClaimBonusData(2, fullStakeDetails)[0] }}</span>
-                        <span>{{ getClaimBonusData(2, fullStakeDetails)[1] }}</span>
+                        <span>{{ getClaimBonusData(2, fullStakeDetails) }}</span>
+                        <span>{{ timeToBonusB }}</span>
                     </div>
                     <div class="stake-nft-value-main-stats stake-bonus-claim" style="width: 33%;">
-                        <span>{{ getClaimBonusData(3, fullStakeDetails)[0] }}</span>
-                        <span>{{ getClaimBonusData(3, fullStakeDetails)[1] }}</span>
+                        <span>{{ getClaimBonusData(3, fullStakeDetails) }}</span>
+                        <span>{{ timeToBonusC }}</span>
                     </div>
                 </div>
                 <div class="stake-info-blocks-wrap">
@@ -338,7 +338,7 @@
                         <div class="select-boost" :class="{ 'select-boost-active': selectList1 }"
                             @mouseover="selectList1 = true" @mouseout="selectList1 = false">
                             <div class="selected" v-if="showMore" :class="{ lowOpacity: selectList1 }">
-                                <div class="select-boost-item">
+                                <div class=\>
                                     <div class="select-boost-img">
                                         <img :src="getBoostImg(selectedTimeBoost)" alt="" />
                                     </div>
@@ -613,6 +613,9 @@ export default {
             selectList2: false,
             selectList3: false,
             selectedNft: null,
+            timeToBonusA: null,
+            timeToBonusB: null,
+            timeToBonusC: null,
             claimableAmount: 0,
             showTransferModal: false,
             selectedTimeBoost: null,
@@ -802,36 +805,80 @@ export default {
             return Number(stake.rewardReceived / 1e18).toFixed(2);
         },
         getClaimableBonusLevel(stake) {
-
-            // mock
-            return 1;
+            const { Difference_In_Days } = this.getTimeSinceLastClaim(stake);
+            return Difference_In_Days >= conf["CLAIM_BONUS_DATA"].days[0] 
+                ? 1 : Difference_In_Days >= conf["CLAIM_BONUS_DATA"].days[1] 
+                ? 2 : Difference_In_Days >= conf["CLAIM_BONUS_DATA"].days[2] 
+                ? 3 : 0;
         },
-        getStakeHoldingDays(stake) {
+        getTimeSinceLastClaim(stake) {
+            let rightNow = Date.now();
+            let lastClaim = (new Date(stake.lastWithdrawTimestamp * 1000)).getTime();
+            return this.getTimeDifference(rightNow, lastClaim);
 
-            // mock
-            return 5;
         },
-        getStakeCountdownUntilNextBonus(stake, holdingDays) {
+        getTimeDifference(a, b) {
+            const MIL_DAY = 1000 * 3600 * 24;
+            const MIL_HOUR = 1000 * 3600;
+            const MIL_MIN = 1000 * 60;
+            const MIL_SEC = 1000 * 1;
 
-            // mock
-            return "1h 12m 26s"
+            let Difference_In_Time = a - b;
+            let Difference_In_Days = Math.trunc(Difference_In_Time / MIL_DAY);
+            let Difference_In_Hours = Math.trunc(Difference_In_Time / MIL_HOUR) - (24 * Difference_In_Days);
+            let Difference_In_Mins = Math.trunc(Difference_In_Time / MIL_MIN) - (60 * (Difference_In_Hours + (24 * Difference_In_Days)));
+            let Difference_In_Secs = Math.trunc(Difference_In_Time / MIL_SEC) - (60 * (Difference_In_Mins + 60 * (Difference_In_Hours + (24 * Difference_In_Days))));
+
+            return { Difference_In_Days, Difference_In_Hours, Difference_In_Mins, Difference_In_Secs }
         },
-        getNextClaimableBonusCD(level, stake) {
-            let holdingDays = this.getStakeHoldingDays(stake);
-            let countdownUntilNextDay = this.getStakeCountdownUntilNextBonus(stake, holdingDays);
-
-
-            return countdownUntilNextDay;
+        formatTimeDifference(Difference_In_Days, Difference_In_Hours, Difference_In_Mins, Difference_In_Secs) {
+            // return Difference_In_Days + "d " + Difference_In_Hours + "h " + Difference_In_Mins + "m " + Difference_In_Secs + "s";
+            return Difference_In_Days + "d " + Difference_In_Hours + "h " + Difference_In_Mins + "m";
         },
-        getClaimBonusData(level, stake) {
-            let percent = level == 1 ? "15%" : level == 2 ? "40%" : "90%";
-            let bonusLevel = this.getClaimableBonusLevel(stake);
-            let countdownToLevel = this.getNextClaimableBonusCD(level, stake)
-            let enabled = bonusLevel >= level ? "🟢" : "⚪️";
-            return [
-                `${enabled} ${percent}`,
-                countdownToLevel
-            ];
+        getNextClaimableBonusCD(levelRequired, myBonusLevel, stake) {
+            const BONUS_A = 1000 * 60 * 60 * 24 * conf["CLAIM_BONUS_DATA"].days[0];
+            const BONUS_B = 1000 * 60 * 60 * 24 * conf["CLAIM_BONUS_DATA"].days[1];
+            const BONUS_C = 1000 * 60 * 60 * 24 * conf["CLAIM_BONUS_DATA"].days[2];
+
+            let { Difference_In_Days, Difference_In_Hours, Difference_In_Mins, Difference_In_Secs } = this.getTimeDifference((stake.lastWithdrawTimestamp * 1000 + BONUS_A), Date.now());
+            const Difference_In_Days_A = Difference_In_Days;
+            const Difference_In_Hours_A = Difference_In_Hours;
+            const Difference_In_Mins_A = Difference_In_Mins;
+            const Difference_In_Secs_A  = Difference_In_Secs;
+            ({ Difference_In_Days, Difference_In_Hours, Difference_In_Mins, Difference_In_Secs } = this.getTimeDifference((stake.lastWithdrawTimestamp * 1000 + BONUS_B), Date.now()));
+            const Difference_In_Days_B = Difference_In_Days;
+            const Difference_In_Hours_B = Difference_In_Hours;
+            const Difference_In_Mins_B = Difference_In_Mins;
+            const Difference_In_Secs_B  = Difference_In_Secs;
+            ({ Difference_In_Days, Difference_In_Hours, Difference_In_Mins, Difference_In_Secs } = this.getTimeDifference((stake.lastWithdrawTimestamp * 1000 + BONUS_C), Date.now()));
+            const Difference_In_Days_C = Difference_In_Days;
+            const Difference_In_Hours_C = Difference_In_Hours;
+            const Difference_In_Mins_C = Difference_In_Mins;
+            const Difference_In_Secs_C  = Difference_In_Secs;
+
+            let countdownUntilNexLevel = myBonusLevel >= levelRequired ? "-" 
+                : (
+                    levelRequired == 1 ? this.formatTimeDifference(Difference_In_Days_A, Difference_In_Hours_A, Difference_In_Mins_A, Difference_In_Secs_A) :
+                    levelRequired == 2 ? this.formatTimeDifference(Difference_In_Days_B, Difference_In_Hours_B, Difference_In_Mins_B, Difference_In_Secs_B) :
+                    levelRequired == 3 ? this.formatTimeDifference(Difference_In_Days_C, Difference_In_Hours_C, Difference_In_Mins_C, Difference_In_Secs_C) : "-"
+                );
+            
+            return countdownUntilNexLevel;
+        },
+        getClaimBonusData(levelRequired, stake) {
+            let percent = levelRequired == 1 
+                ? `${conf["CLAIM_BONUS_DATA"].percent[0]}%` : levelRequired == 2 
+                ? `${conf["CLAIM_BONUS_DATA"].percent[1]}%` : `${conf["CLAIM_BONUS_DATA"].percent[2]}%`;
+            let myBonusLevel = this.getClaimableBonusLevel(stake);
+            let countdownToLevel = this.getNextClaimableBonusCD(levelRequired, myBonusLevel, stake);
+            let enabled = myBonusLevel >= levelRequired ? "🟢" : "⚪️";
+
+            switch(levelRequired) {
+                case 1: this.timeToBonusA = countdownToLevel; break;
+                case 2: this.timeToBonusB = countdownToLevel; break;
+                case 3: this.timeToBonusC = countdownToLevel; break;
+            }
+            return `${enabled} ${percent}`;
         },
         getEarnedReward(stake) {
             let nft = stake;
@@ -1061,6 +1108,20 @@ export default {
         },
     },
     mounted() {
+
+        /*
+        let _this = this;
+        setTimeout(async function fetch() {
+            let myBonusLevel = _this.getClaimableBonusLevel(_this.fullStakeDetails);
+            let countdownToLevel_1 = _this.getNextClaimableBonusCD(1, myBonusLevel, _this.fullStakeDetails);
+            let countdownToLevel_2 = _this.getNextClaimableBonusCD(2, myBonusLevel, _this.fullStakeDetails);
+            let countdownToLevel_3 = _this.getNextClaimableBonusCD(3, myBonusLevel, _this.fullStakeDetails);
+            _this.timeToBonusA = countdownToLevel_1
+            _this.timeToBonusB = countdownToLevel_2
+            _this.timeToBonusC = countdownToLevel_3
+        }, 300);
+        */
+
         this.lang.init();
     },
     beforeDestroy() {
@@ -1078,6 +1139,16 @@ export default {
         this.increasedProfit = 0;
     },
     watch: {
+        calcCountDownData(levelRequired, stake) {
+            let myBonusLevel = this.getClaimableBonusLevel(stake);
+            let countdownToLevel = this.getNextClaimableBonusCD(levelRequired, myBonusLevel, stake);
+
+            switch(levelRequired) {
+                case 1: this.timeToBonusA = countdownToLevel; break;
+                case 2: this.timeToBonusB = countdownToLevel; break;
+                case 3: this.timeToBonusC = countdownToLevel; break;
+            }
+        },
         showMore: function (newVal) {
             if (newVal) {
                 const [days, daily] = this.getStakingPlanData(this.fullStakeDetails);

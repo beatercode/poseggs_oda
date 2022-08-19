@@ -152,6 +152,7 @@
                         <div class="section-half half-img section-desctop">
                             <div class="img-wrap">
                                 <img style="max-width: 80%;" src="@/assets/images/all/main-img.png" alt="main-img" />
+                                <!--img style="max-width: 80%;" src="@/assets/images/all/nft-6-tr.png" alt="main-img" /-->
                             </div>
                         </div>
                     </div>
@@ -580,12 +581,8 @@
                                     translatesGet("START_EARN")
                             }}</router-link>
                         </div>
-                        <div class="section-half half-img" style="overflow: hidden; max-width: 500px; width: auto; height: auto; margin-top: 12px;">
-                            <img v-if="getPreselectedChain == 'binance'" style="border-radius: 8px;" src="@/assets/images/all/earn-img-binance.png"
-                                alt="main-img" />
-                            <img v-else-if="getPreselectedChain == 'binancetest'" style="border-radius: 8px;"
-                                src="@/assets/images/all/earn-img-binance.png" alt="main-img" />
-                            <img v-else src="@/assets/images/all/earn-img-polygon.png" alt="main-img" />
+                        <div class="section-half half-img" style="overflow: hidden; width: 100%; height: auto; margin-top: 12px; text-align: center;">
+                            <img style="border-radius: 8px; max-width: 500px; margin: auto;" src="@/assets/images/all/earn-img-binance.png" alt="main-img" />
                         </div>
                     </div>
                 </div>

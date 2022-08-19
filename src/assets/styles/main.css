@@ -195,22 +195,22 @@ table {
 .section-active:not(.section-main) .section-half .h2 {
     opacity: 0;
     transform: translateY(-100%);
-    -webkit-animation: to-top .3s linear .1s 1 forwards;
-    animation: to-top .3s linear .1s 1 forwards
+    -webkit-animation: to-top .05s linear 0s 1 forwards;
+    animation: to-top .05s linear 0s 1 forwards
 }
 
 .section-active:not(.section-main) .section-half .h5 {
     opacity: 0;
     transform: translateY(-100%);
-    -webkit-animation: to-top .3s linear .4s 1 forwards;
-    animation: to-top .3s linear .4s 1 forwards
+    -webkit-animation: to-top .05s linear 0s 1 forwards;
+    animation: to-top .05s linear 0s 1 forwards
 }
 
 .section-active .section-half .types-boosts .h6 {
     opacity: 0;
     transform: translateY(-100%);
-    -webkit-animation: to-top .2s linear .7s 1 forwards;
-    animation: to-top .2s linear .7s 1 forwards
+    -webkit-animation: to-top .05s linear 0s 1 forwards;
+    animation: to-top .05s linear 0s 1 forwards
 }
 
 .section-active .boosts-list li,
@@ -225,123 +225,123 @@ table {
 }
 
 .section-our-nft.section-active .ul-our-nfts:first-child li:first-child {
-    -webkit-animation: nft .35s linear 0s 1 forwards;
-    animation: nft .35s linear 0s 1 forwards
+    -webkit-animation: nft .2s linear 0s 1 forwards;
+    animation: nft .2s linear 0s 1 forwards
 }
 
 .section-our-nft.section-active .ul-our-nfts:first-child li:nth-child(2) {
-    -webkit-animation: nft .35s linear .2s 1 forwards;
-    animation: nft .35s linear .2s 1 forwards
+    -webkit-animation: nft .05s linear 0s 1 forwards;
+    animation: nft .05s linear 0s 1 forwards
 }
 
 .section-our-nft.section-active .ul-our-nfts:first-child li:nth-child(3) {
-    -webkit-animation: nft .35s linear .4s 1 forwards;
-    animation: nft .35s linear .4s 1 forwards
+    -webkit-animation: nft .05s linear 0s 1 forwards;
+    animation: nft .05s linear 0s 1 forwards
 }
 
 .section-our-nft.section-active .ul-our-nfts:first-child li:nth-child(4) {
-    -webkit-animation: nft .35s linear .6s 1 forwards;
-    animation: nft .35s linear .6s 1 forwards
+    -webkit-animation: nft .05s linear 0s 1 forwards;
+    animation: nft .05s linear 0s 1 forwards
 }
 
 .section-our-nft.section-active .ul-our-nfts:first-child li:nth-child(5) {
-    -webkit-animation: nft .35s linear .8s 1 forwards;
-    animation: nft .35s linear .8s 1 forwards
+    -webkit-animation: nft .05s linear 0s 1 forwards;
+    animation: nft .05s linear 0s 1 forwards
 }
 
 .section-our-nft.section-active .ul-our-nfts:first-child li:nth-child(6) {
-    -webkit-animation: nft .35s linear 1s 1 forwards;
-    animation: nft .35s linear 1s 1 forwards
+    -webkit-animation: nft .05s linear 0s 1 forwards;
+    animation: nft .05s linear 0s 1 forwards
 }
 
 .section-our-nft.section-active .ul-our-nfts:first-child li:nth-child(7) {
-    -webkit-animation: nft .35s linear 1.2s 1 forwards;
-    animation: nft .35s linear 1.2s 1 forwards
+    -webkit-animation: nft .05s linear 0s 1 forwards;
+    animation: nft .05s linear 0s 1 forwards
 }
 
 .section-our-nft.section-active .ul-our-nfts:first-child li:nth-child(8) {
-    -webkit-animation: nft .35s linear 1.4s 1 forwards;
-    animation: nft .35s linear 1.4s 1 forwards
+    -webkit-animation: nft .05s linear 0s 1 forwards;
+    animation: nft .05s linear 0s 1 forwards
 }
 
 .section-active .boosts-list li:first-child {
-    -webkit-animation: to-top .3s linear .9s 1 forwards;
-    animation: to-top .3s linear .9s 1 forwards
+    -webkit-animation: to-top .05s linear 0s 1 forwards;
+    animation: to-top .05s linear 0s 1 forwards
 }
 
 .section-active .boosts-list li:nth-child(2) {
-    -webkit-animation: to-top .3s linear 1.2s 1 forwards;
-    animation: to-top .3s linear 1.2s 1 forwards
+    -webkit-animation: to-top .05s linear 0s 1 forwards;
+    animation: to-top .05s linear 0s 1 forwards
 }
 
 .section-active .boosts-list li:nth-child(3) {
-    -webkit-animation: to-top .3s linear 1.6s 1 forwards;
-    animation: to-top .3s linear 1.6s 1 forwards
+    -webkit-animation: to-top .05s linear 0s 1 forwards;
+    animation: to-top .05s linear 0s 1 forwards
 }
 
 .section-active .types-boosts+.btn {
     opacity: 0;
-    -webkit-animation: to-top .2s linear 1.9s 1 forwards;
-    animation: to-top .2s linear 1.9s 1 forwards
+    -webkit-animation: to-top .05s linear 0s 1 forwards;
+    animation: to-top .05s linear 0s 1 forwards
 }
 
 .section-active .earn-list li:first-child {
-    -webkit-animation: earn .6s linear .2s 1 forwards;
-    animation: earn .6s linear .2s 1 forwards
+    -webkit-animation: earn .05s linear 0s 1 forwards;
+    animation: earn .05s linear 0s 1 forwards
 }
 
 .section-active .earn-list li:nth-child(2) {
-    -webkit-animation: earn .6s linear .4s 1 forwards;
-    animation: earn .6s linear .4s 1 forwards
+    -webkit-animation: earn .05s linear 0s 1 forwards;
+    animation: earn .05s linear 0s 1 forwards
 }
 
 .section-active .earn-list li:nth-child(3) {
-    -webkit-animation: earn .6s linear .6s 1 forwards;
-    animation: earn .6s linear .6s 1 forwards
+    -webkit-animation: earn .05s linear 0s 1 forwards;
+    animation: earn .05s linear 0s 1 forwards
 }
 
 .section-active .earn-list li:nth-child(4) {
-    -webkit-animation: earn .6s linear .8s 1 forwards;
-    animation: earn .6s linear .8s 1 forwards
+    -webkit-animation: earn .05s linear 0s 1 forwards;
+    animation: earn .05s linear 0s 1 forwards
 }
 
 .section-active .earn-list li:nth-child(5) {
-    -webkit-animation: earn .6s linear 1s 1 forwards;
-    animation: earn .6s linear 1s 1 forwards 
+    -webkit-animation: earn .05s linear 0s 1 forwards;
+    animation: earn .05s linear 0s 1 forwards 
 }
 
 .section-active .earn-list+.btn {
     opacity: 0;
-    -webkit-animation: to-top .6s linear 1.6s 1 forwards;
-    animation: to-top .6s linear 1.6s 1 forwards
+    -webkit-animation: to-top .05s linear 0s 1 forwards;
+    animation: to-top .05s linear 0s 1 forwards
 }
 
 .section-active .section-half .home-list {
     opacity: 0;
     transform: translateY(-100%);
-    -webkit-animation: to-top .35s linear .9s 1 forwards;
-    animation: to-top .35s linear .9s 1 forwards
+    -webkit-animation: to-top .05s linear 0s 1 forwards;
+    animation: to-top .05s linear 0s 1 forwards
 }
 
 .section-active .home-list+.btn {
     opacity: 0;
     transform: translateY(-100%);
-    -webkit-animation: to-top .2s linear 1.25s 1 forwards;
-    animation: to-top .2s linear 1.25s 1 forwards
+    -webkit-animation: to-top .05s linear 0s 1 forwards;
+    animation: to-top .05s linear 0s 1 forwards
 }
 
 .section-active .section-half .title-row .link-learn-more {
     opacity: 0;
     transform: translateY(-100%);
-    -webkit-animation: to-top .2s linear 1.45s 1 forwards;
-    animation: to-top .2s linear 1.45s 1 forwards
+    -webkit-animation: to-top .05s linear 0s 1 forwards;
+    animation: to-top .05s linear 0s 1 forwards
 }
 
 .section-main.section-active .img-wrap {
     transform: scale(.85);
     opacity: 0;
-    -webkit-animation: main-img .2s linear .2s 1 forwards;
-    animation: main-img .2s linear .2s 1 forwards
+    -webkit-animation: main-img .05s linear 0s 1 forwards;
+    animation: main-img .05s linear 0s 1 forwards
 }
 
 .section-active .section-half-programs .program-item {
@@ -350,26 +350,26 @@ table {
 }
 
 .section-active .section-half-programs .program-item:first-child {
-    -webkit-animation: earn .05s linear .25s 1 forwards;
-    animation: earn .05s linear .25s 1 forwards
+    -webkit-animation: earn .05s linear 0s 1 forwards;
+    animation: earn .05s linear 0s 1 forwards
 }
 
 .section-active .section-half-programs .program-item:nth-child(2) {
-    -webkit-animation: earn .05s linear .05s 1 forwards;
-    animation: earn .05s linear .05s 1 forwards
+    -webkit-animation: earn .05s linear 0s 1 forwards;
+    animation: earn .05s linear 0s 1 forwards
 }
 
 .section-active .section-half-programs .program-item:nth-child(3) {
-    -webkit-animation: earn .05s linear .75s 1 forwards;
-    animation: earn .05s linear .75s 1 forwards
+    -webkit-animation: earn .05s linear 0s 1 forwards;
+    animation: earn .05s linear 0s 1 forwards
 }
 
 .section-our-nft.section-active .chat-row .comment {
     overflow: hidden;
     display: flex;
     display: block;
-    -webkit-animation: chat-right .4s linear .2s 1 forwards;
-    animation: chat-right .4s linear .2s 1 forwards
+    -webkit-animation: chat-right .05s linear 0s 1 forwards;
+    animation: chat-right .05s linear 0s 1 forwards
 }
 
 .section-our-nft.section-active .chat-row .comment span {
@@ -383,21 +383,21 @@ table {
 }
 
 .section-active .chat-container .chat-left .comment {
-    /* -webkit-animation: chat-left .4s linear .05s 1 forwards;
-    animation: chat-left .4s linear .05s 1 forwards
+    -webkit-animation: chat-left .05s linear 0s 1 forwards;
+    animation: chat-left .05s linear 0s 1 forwards
 }
 
 .section-active .chat-container .chat-right .comment {
-    /* -webkit-animation: chat-right .4s linear 1s 1 forwards;
-    animation: chat-right .4s linear 1s 1 forwards
+    -webkit-animation: chat-right .05s linear 0s 1 forwards;
+    animation: chat-right .05s linear 0s 1 forwards
 }
 
 .section-boosts.section-active .half-img img {
-    /* animation: boosts-img 1s linear 0s infinite alternate-reverse */
+    /* animation: boosts-img .05s linear 0s infinite alternate-reverse */
 }
 
 .section-earn.section-active .half-img img {
-    /* animation: earn-img 1s linear 0s infinite alternate-reverse */
+    /* animation: earn-img .05s linear 0s infinite alternate-reverse */
 }
 
 @-webkit-keyframes to-top {
@@ -6457,8 +6457,8 @@ input[type=radio i]:checked+label:after {
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAOlSURBVHgB1ZpdUtswEMf/klt4ahtPL2BOQHICwglqTlBuwFfbmT4RnvoClJyg4QRxT0A4AbkB7ns7zmNLx3ZXsgP5siQb23F/MxkSW1F2tav17gqGEnB7QQuvQhewtumjA4Y2/W2lrym+fMUYIw5v8dcae59tH8+EoSCJ0NE+GH9HH7sohlCmjwdrVFSZ3ApIwd/ggFbyEPMr/DxiDPCAs7yK5FLA/Rqcli74Igw978g+Mx9ugPslcLCJIb1tox58/MGuiTW4bsDeZfCehL9DfcILxILdueeBqxuoVEC4TAzyzSpdJpsWSTeUbqsg04VSf+8hH2MgukXMKbpgIl9TuAivEVmR7yCvNRX7YqUC7vlPF9wawgwhKIVCDEwjCC2OkwYDEYIdk+8wWPvD49fXy9cXJ082rPB5ndskgnNc0epMUABSpIWIFGE4NRg+oY3dWVykZQUug3voV8Wnb+6R4GOUQGqRG4PfHXvHdmf2Al+Y6NRgkhEJ3ylLeAHNJRakI+dW03YvfvVmLzxaIHWde80ESytQNuQBwhJdxZAJSb01ddsnC2xo/VCs0i6qhlwTSeKXBe2b6PBpOAxXP9HaRw2ke0IVSB6tkFhgI+wqZ4wpyapJeIH8rTjqK4YIK+yLN4kCzDpQDPZp1AB1w/kVgOzwnKTxYFr3YTLOH2ENyIjDePbeZLA5Xoa6x3of6yKxQjZR6HJw1lUMGdfp+4ukoTL7ecNYm/YA386eghKztaOSgTliEzuZ92NlPK6HkHuq22oFIl5aulAU76M9EmF85c2IDbQVWRPwTuxeqoSfXhpRFrvnfbC9F/hPkEpgucASFiiUyzcFtQI8dNBwuGz1ZUFxFg2HU6H9Q3F7Bw2HLBCrQmVb1q0NhlIJS/mgmC0emkhS0KjLuLkSrmkkD7I4+q4Y02qyFRIFOB9AXTwcyLqhgUgFpHvoSrhN3DRxQz/lQroSTiR9MUzbjbUx15nTlnAJo7Qr14hNvaq1aHIWYHwAUTXL6XTSWNKtrmwEiFbkuvfF6vb6RUCnj/gGM0THzsNv9NdhkewDjougZ9j2nkUcbIwQ4tr7VF7zV4XykK+gEtOZc502FkV7SikP2rh0p/y+HkdH3snbK1SItiYWdWfau/eRF3qCo2KMinrR3KJzga3M7kA2DiomV1dCFtaUmVKOfW34lco3cvF/9hA9/IhScAbhJqsffGnrAxVSWIFZpDIhKcGjrmxVivPhiJ4LoilVMf8AsbxRJEBroKgAAAAASUVORK5CYII=);
     background-size: contain;
     background-position: 50%;
-    -webkit-animation: load-nft 1.05s linear 0s infinite forwards;
-    animation: load-nft 1.05s linear 0s infinite forwards
+    -webkit-animation: load-nft 1.2s linear 0s infinite forwards;
+    animation: load-nft 1.2s linear 0s infinite forwards
 }
 
 @-webkit-keyframes load-nft {
@@ -13127,7 +13127,7 @@ i[class^=i-] {
 }
 
 body {
-    background-color: #1f212f;
+    background: linear-gradient(to bottom, black 0%, black 10%, #242323 30%, black 55%, #242323 75%, black 100%);
     color: #fff;
     font-family: Sora, sans-serif;
     font-style: normal;
