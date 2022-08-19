@@ -736,6 +736,9 @@ main > *{
     position:relative;
     cursor:pointer;
 }
+.li-our-nfts-home {
+    background-color: #1720cb;
+}
 .nft-list-buy {
     min-width: calc(25% - 16px);
     margin: 8px;

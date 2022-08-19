@@ -13127,7 +13127,7 @@ i[class^=i-] {
 }
 
 body {
-    background: linear-gradient(to bottom, black 0%, black 10%, #242323 30%, black 55%, #242323 75%, black 100%);
+    background-color: #000000;
     color: #fff;
     font-family: Sora, sans-serif;
     font-style: normal;

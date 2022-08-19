@@ -166,6 +166,19 @@
                                 <span class="h3">{{ siteData && siteData[56].NFT.totalNftsSold }}</span>
                             </li>
                             <li>
+                                <span class="title-upper">{{ translatesGet("INCOME_FROM_REF") }}</span>
+                                <span class="h3">{{
+                                        preselectedChain === 56 || preselectedChain === 97
+                                            ? siteData && siteData[56].STAKE.refTotalTurnover > 0
+                                                ? siteData[56].STAKE.refTotalTurnover.toFixed(2)
+                                                : "0.00"
+                                            : siteData && siteData[preselectedChain].STAKE.refTotalTurnover > 0
+                                                ? siteData[preselectedChain].STAKE.refTotalTurnover.toFixed(0)
+                                                : "0"
+                                }}
+                                    BUSD</span>
+                            </li>
+                            <li>
                                 <span class="title-upper">{{ translatesGet("NFT_VOLUME") }}</span>
                                 <span class="h3">{{
                                     preselectedChain === 56 || preselectedChain === 97
@@ -181,19 +194,6 @@
                             <li>
                                 <span class="title-upper">{{ translatesGet("TOTAL_PARTICIPANTS") }}</span>
                                 <span class="h3">{{ siteData && siteData[56].NFT.uniqueUsers }}</span>
-                            </li>
-                            <li>
-                                <span class="title-upper">{{ translatesGet("INCOME_FROM_REF") }}</span>
-                                <span class="h3">{{
-                                        preselectedChain === 56 || preselectedChain === 97
-                                            ? siteData && siteData[56].STAKE.refTotalTurnover > 0
-                                                ? siteData[56].STAKE.refTotalTurnover.toFixed(2)
-                                                : "0.00"
-                                            : siteData && siteData[preselectedChain].STAKE.refTotalTurnover > 0
-                                                ? siteData[preselectedChain].STAKE.refTotalTurnover.toFixed(0)
-                                                : "0"
-                                }}
-                                    BUSD</span>
                             </li>
                         </ul>
                     </div>

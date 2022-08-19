@@ -439,17 +439,17 @@
         [
             "NFT_SOLD",
             "",
-            "NFTs Sold"
+            "NFTs Mint"
         ],
         [
             "NFT_VOLUME",
             "",
-            "NFT Sales Volume"
+            "NFT Total Volume"
         ],
         [
             "TOTAL_PARTICIPANTS",
             "",
-            "Total Participants"
+            "Holder"
         ],
         [
             "INCOME_FROM_REF",

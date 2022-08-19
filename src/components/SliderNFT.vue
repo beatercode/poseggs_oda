@@ -4,7 +4,7 @@
             <div class="slider-nft-wrap">
                 <ul class="ul-our-nfts" :class="'ul-binance'">
                     <li v-for="(price, index) of prices" @click="redirect(8)"
-                        class="li-our-nfts nft-list-buy li-nft-red" style="margin: 4px; !important; border: 1px solid #7a7a7a;">
+                        class="li-our-nfts nft-list-buy li-nft-red" style="margin: 4px; !important; background-color: #2A2B3D !important">
                         <div class="li-our-nft-wrap" @click="showStats = showStats">
                             <img class="card-egg-image" :src="getNftImage(index)" />
                             <div class="li-nft-footer">
