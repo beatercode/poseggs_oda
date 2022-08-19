@@ -4694,7 +4694,6 @@ input.transfer-input+.btn {
     background: #2a2b3d;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
-    min-height: 88px
 }
 
 .table-body .table-half:first-child {

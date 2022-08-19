@@ -353,7 +353,7 @@
         [
             "BALANCE",
             "",
-            "Wallet Ballance:"
+            "Wallet Balance:"
         ],
         [
             "SWITCH_NET",
@@ -382,9 +382,14 @@
             "Earn"
         ],
         [
-            "UP_TO_PERC",
+            "UP_TO_PERC_1",
             "",
-            "Up to 4X your value"
+            "Up to 10X "
+        ],
+        [
+            "UP_TO_PERC_2",
+            "",
+            "your value"
         ],
         [
             "ON_NFT_STAKING",
@@ -1425,7 +1430,7 @@
         [
             "AVAILABLE_CLAIM",
             "",
-            "Claimable Profit"
+            "Generated"
         ],
         [
             "AVAILABLE_CLAIM_BONUS",

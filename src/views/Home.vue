@@ -5,7 +5,8 @@
             :class="{ 'header-fixed': fixedHeader, 'header-hidden': hiddenHeader, 'header-menu': showMenu == true }">
             <div class="container">
                 <div class="header-wrapper">
-                    <button class="logo" @click="toTop(), (showMenu = false)" style="width: 200px; min-width: 200px; height: 100px;"></button>
+                    <button class="logo" @click="toTop(), (showMenu = false)"
+                        style="width: 200px; min-width: 200px; height: 100px;"></button>
 
                     <nav class="header-nav">
                         <ul>
@@ -122,7 +123,8 @@
                         <div class="section-half half-content">
                             <div class="h2 h1">
                                 <span>{{ translatesGet("EARN") }}</span>
-                                <span class="emphasize">{{ translatesGet("UP_TO_PERC") }}</span>
+                                <span class="emphasize">{{ translatesGet("UP_TO_PERC_1") }}</span>
+                                <span class="emphasize">{{ translatesGet("UP_TO_PERC_2") }}</span>
                                 <span>{{ translatesGet("ON_NFT_STAKING") }}</span>
                             </div>
                             <div class="h5">
@@ -134,7 +136,8 @@
                             </div>
                             <div class="half-img section-mobile">
                                 <div class="img-wrap">
-                                    <img style="margin: auto; max-height: 500px;" src="@/assets/images/all/main-img.png" alt="main-img" />
+                                    <img style="margin: auto; max-height: 500px;" src="@/assets/images/all/main-img.png"
+                                        alt="main-img" />
                                 </div>
                             </div>
                             <div class="audited">
@@ -151,7 +154,8 @@
 
                         <div class="section-half half-img section-desctop">
                             <div class="img-wrap">
-                                <img style="margin: auto; max-height: 500px;" src="@/assets/images/all/main-img.png" alt="main-img" />
+                                <img style="margin: auto; max-height: 500px;" src="@/assets/images/all/main-img.png"
+                                    alt="main-img" />
                             </div>
                         </div>
                     </div>
@@ -163,37 +167,24 @@
                         <ul class="main-statistics">
                             <li>
                                 <span class="title-upper">{{ translatesGet("NFT_SOLD") }}</span>
-                                <span class="h3">{{ siteData && siteData[56].NFT.totalNftsSold }}</span>
+                                <span class="h3">{{ siteData && siteData[mainChain].NFT.totalNftsSold }}</span>
                             </li>
                             <li>
                                 <span class="title-upper">{{ translatesGet("LOOTBOX_SOLD") }}</span>
-                                <span class="h3">{{
-                                        preselectedChain === 56 || preselectedChain === 97
-                                            ? siteData && siteData[56].STAKE.refTotalTurnover > 0
-                                                ? siteData[56].STAKE.refTotalTurnover.toFixed(2)
-                                                : "0.00"
-                                            : siteData && siteData[preselectedChain].STAKE.refTotalTurnover > 0
-                                                ? siteData[preselectedChain].STAKE.refTotalTurnover.toFixed(0)
-                                                : "0"
-                                }}
-                                    BUSD</span>
+                                <span class="h3">{{ siteData && siteData[mainChain].STAKE.refTotalTurnover }}</span>
                             </li>
                             <li>
                                 <span class="title-upper">{{ translatesGet("NFT_VOLUME") }}</span>
                                 <span class="h3">{{
-                                    preselectedChain === 56 || preselectedChain === 97
-                                        ? siteData && siteData[56].NFT.totalAmountSoldNft > 0
-                                            ? siteData[56].NFT.totalAmountSoldNft.toFixed(2)
-                                            : "0.00"
-                                        : siteData && siteData[preselectedChain].NFT.totalAmountSoldNft > 0
-                                            ? siteData[preselectedChain].NFT.totalAmountSoldNft.toFixed(2)
+                                        siteData && siteData[mainChain].NFT.totalAmountSoldNft > 0
+                                            ? siteData[mainChain].NFT.totalAmountSoldNft.toFixed(2)
                                             : "0.00"
                                 }}
                                     BUSD</span>
                             </li>
                             <li>
                                 <span class="title-upper">{{ translatesGet("TOTAL_PARTICIPANTS") }}</span>
-                                <span class="h3">{{ siteData && siteData[56].NFT.uniqueUsers }}</span>
+                                <span class="h3">{{ siteData && siteData[mainChain].NFT.uniqueUsers }}</span>
                             </li>
                         </ul>
                     </div>
@@ -464,11 +455,14 @@
                 <section class="section-boosts" id="section-boosts">
                     <div class="container">
                         <div class="section-wrap">
-                            <div class="section-half half-img" style="overflow: hidden; max-width: 500px; width: auto; height: auto;">
+                            <div class="section-half half-img"
+                                style="overflow: hidden; max-width: 500px; width: auto; height: auto;">
                                 <img v-if="getPreselectedChain == 'binance'"
-                                    src="@/assets/images/all/boosts-img-binance.png" style="border-radius: 8px;" alt="main-img" />
+                                    src="@/assets/images/all/boosts-img-binance.png" style="border-radius: 8px;"
+                                    alt="main-img" />
                                 <img v-else-if="getPreselectedChain == 'binancetest'"
-                                    src="@/assets/images/all/boosts-img-binance.png" style="border-radius: 8px;" alt="main-img" />
+                                    src="@/assets/images/all/boosts-img-binance.png" style="border-radius: 8px;"
+                                    alt="main-img" />
                                 <img v-else src="@/assets/images/all/boosts-img-polygon.png" alt="main-img" />
                             </div>
                             <div class="section-half section-half-content">
@@ -580,8 +574,10 @@
                                     translatesGet("START_EARN")
                             }}</router-link>
                         </div>
-                        <div class="section-half half-img" style="overflow: hidden; width: 100%; height: auto; margin-top: 12px; text-align: center;">
-                            <img style="border-radius: 8px; max-width: 500px; margin: auto;" src="@/assets/images/all/earn-img-binance.png" alt="main-img" />
+                        <div class="section-half half-img"
+                            style="overflow: hidden; width: 100%; height: auto; margin-top: 12px; text-align: center;">
+                            <img style="border-radius: 8px; max-width: 500px; margin: auto;"
+                                src="@/assets/images/all/earn-img-binance.png" alt="main-img" />
                         </div>
                     </div>
                 </div>
@@ -1158,7 +1154,8 @@
                                                 <div class="table-value">1</div>
                                             </div>
                                             <div class="table-col">
-                                                <div class="table-title">{{ translatesGet("STRUCT_TURNOVER") }}, BUSD</div>
+                                                <div class="table-title">{{ translatesGet("STRUCT_TURNOVER") }}, BUSD
+                                                </div>
                                                 <div class="table-value">{{ getPreselectedChain != "polygon" ? "0.01" :
                                                         "5"
                                                 }}</div>
@@ -1180,7 +1177,8 @@
                                                 <div class="table-value">2</div>
                                             </div>
                                             <div class="table-col">
-                                                <div class="table-title">{{ translatesGet("STRUCT_TURNOVER") }}, BUSD</div>
+                                                <div class="table-title">{{ translatesGet("STRUCT_TURNOVER") }}, BUSD
+                                                </div>
                                                 <div class="table-value">{{ getPreselectedChain != "polygon" ? "30" :
                                                         "10 500"
                                                 }}</div>
@@ -1202,7 +1200,8 @@
                                                 <div class="table-value">3</div>
                                             </div>
                                             <div class="table-col">
-                                                <div class="table-title">{{ translatesGet("STRUCT_TURNOVER") }}, BUSD</div>
+                                                <div class="table-title">{{ translatesGet("STRUCT_TURNOVER") }}, BUSD
+                                                </div>
                                                 <div class="table-value">{{ getPreselectedChain != "polygon" ? "100" :
                                                         "35 000"
                                                 }}</div>
@@ -1224,7 +1223,8 @@
                                                 <div class="table-value">4</div>
                                             </div>
                                             <div class="table-col">
-                                                <div class="table-title">{{ translatesGet("STRUCT_TURNOVER") }}, BUSD</div>
+                                                <div class="table-title">{{ translatesGet("STRUCT_TURNOVER") }}, BUSD
+                                                </div>
                                                 <div class="table-value">{{ getPreselectedChain != "polygon" ? "300" :
                                                         "105 000"
                                                 }}</div>
@@ -1246,7 +1246,8 @@
                                                 <div class="table-value">5</div>
                                             </div>
                                             <div class="table-col">
-                                                <div class="table-title">{{ translatesGet("STRUCT_TURNOVER") }}, BUSD</div>
+                                                <div class="table-title">{{ translatesGet("STRUCT_TURNOVER") }}, BUSD
+                                                </div>
                                                 <div class="table-value">{{ getPreselectedChain != "polygon" ? "500" :
                                                         "175 000"
                                                 }}</div>
@@ -1268,7 +1269,8 @@
                                                 <div class="table-value">6</div>
                                             </div>
                                             <div class="table-col">
-                                                <div class="table-title">{{ translatesGet("STRUCT_TURNOVER") }}, BUSD</div>
+                                                <div class="table-title">{{ translatesGet("STRUCT_TURNOVER") }}, BUSD
+                                                </div>
                                                 <div class="table-value">{{ getPreselectedChain != "polygon" ? "1 000" :
                                                         "350 000"
                                                 }}</div>
@@ -1290,7 +1292,8 @@
                                                 <div class="table-value">7</div>
                                             </div>
                                             <div class="table-col">
-                                                <div class="table-title">{{ translatesGet("STRUCT_TURNOVER") }}, BUSD</div>
+                                                <div class="table-title">{{ translatesGet("STRUCT_TURNOVER") }}, BUSD
+                                                </div>
                                                 <div class="table-value">{{ getPreselectedChain != "polygon" ? "3 000" :
                                                         "1 050 000"
                                                 }}</div>
@@ -1312,7 +1315,8 @@
                                                 <div class="table-value">8</div>
                                             </div>
                                             <div class="table-col">
-                                                <div class="table-title">{{ translatesGet("STRUCT_TURNOVER") }}, BUSD</div>
+                                                <div class="table-title">{{ translatesGet("STRUCT_TURNOVER") }}, BUSD
+                                                </div>
                                                 <div class="table-value">{{ getPreselectedChain != "polygon" ? "10 000"
                                                         : "3 500 000"
                                                 }}</div>
@@ -1359,7 +1363,7 @@
                                     </li>
                                 </ul>
 
-                                <div class="table-img-wrap" style="margin-right: 30px;">
+                                <div class="table-img-wrap" style="margin-right: 30px; margin-top: 20px;">
                                     <img src="@/assets/images/all/img-table.png" alt="main-img" />
                                 </div>
                             </div>
@@ -1494,6 +1498,7 @@ export default {
             switcher2: false,
             showMenu: false,
             // widthTable: 0,
+            mainChain: 97,
             lastScroll: 0,
             scrollLeft: 0,
             arraySections: "",

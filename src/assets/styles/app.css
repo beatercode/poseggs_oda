@@ -899,7 +899,7 @@ main > *{
 .li-our-nfts:nth-child(6),
 .li-our-nfts:nth-child(7),
 .li-our-nfts:nth-child(8) {
-    background-color: #1a1c2982 !important;
+    background-color: #1A1C29 !important;
     padding: 10px !important;
 }
 .price-card-wrap {
@@ -1436,7 +1436,7 @@ main > *{
     }
 }
 .main-dashboard{
-    background-color: #181818;
+    background-color: #1F212F;
     display:flex;
     justify-content:stretch;
     align-items:stretch;
@@ -1976,6 +1976,10 @@ main > *{
 }
 .show-selected-program .cab-row-card{
     max-width:100%
+}
+.show-selected-program {
+    margin-left: 0px;
+    width: 100%;
 }
 .cab-row-card.section-wrap-blocks .section-block-switcher{
     margin-top:-10px
@@ -3098,7 +3102,7 @@ input.transfer-input+.btn{
     max-width: 37% !important;
     min-width: 37% !important;
     margin-left: 3% !important;
-    text-align: left;
+    text-align: center;
 }
 .lootbox-main-stat-col:nth-last-child(2) {
     width: 22% !important;
@@ -8960,7 +8964,7 @@ i[class*=" i-"],i[class^=i-]{
     .li-our-nfts:nth-child(6),
     .li-our-nfts:nth-child(7),
     .li-our-nfts:nth-child(8) {
-        background-color: #1a1c2982 !important;
+        background-color: #1A1C29 !important;
         padding: 6px !important;
     }
 }

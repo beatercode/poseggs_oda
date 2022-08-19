@@ -103,6 +103,25 @@ const stakeAbi = [
 				"type": "uint256"
 			}
 		],
+		"name": "CLAIM_BOOST_PERC",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
 		"name": "STAKE_FREE_EGG_DATA",
 		"outputs": [
 			{
@@ -275,6 +294,30 @@ const stakeAbi = [
 				"internalType": "uint8",
 				"name": "",
 				"type": "uint8"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "investorAddr_",
+				"type": "address"
+			},
+			{
+				"internalType": "uint8",
+				"name": "stakeIdx_",
+				"type": "uint8"
+			}
+		],
+		"name": "getBoostClaim",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
 			}
 		],
 		"stateMutability": "view",

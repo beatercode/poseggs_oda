@@ -875,8 +875,8 @@ export default {
         },
         getClaimBonusData(levelRequired, stake) {
             let percent = levelRequired == 1 
-                ? `${conf["CLAIM_BONUS_DATA"].percent[0]}%` : levelRequired == 2 
-                ? `${conf["CLAIM_BONUS_DATA"].percent[1]}%` : `${conf["CLAIM_BONUS_DATA"].percent[2]}%`;
+                ? `+${conf["CLAIM_BONUS_DATA"].percent[0]}%` : levelRequired == 2 
+                ? `+${conf["CLAIM_BONUS_DATA"].percent[1]}%` : `+${conf["CLAIM_BONUS_DATA"].percent[2]}%`;
             this.claimBonusLevel = this.getClaimableBonusLevel(stake);
             let countdownToLevel = this.getNextClaimableBonusCD(levelRequired, this.claimBonusLevel, stake);
             let enabled = this.claimBonusLevel >= levelRequired ? "🟢" : "⚪️";
@@ -934,8 +934,7 @@ export default {
                 / number1e4
                 / dayInSec;
             reward = reward + ((reward / 100) * claimProfitIncrease);
-
-            reward = Number(Web3.utils.fromWei(Web3.utils.toBN(reward), 'ether')).toFixed(4);
+            reward = Number(reward / 1e18).toFixed(2);
             return reward;
         },
         logClaimableInfo(claimableInfo) {

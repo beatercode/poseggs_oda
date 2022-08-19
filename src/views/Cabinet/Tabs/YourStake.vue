@@ -132,6 +132,7 @@ export default {
             return { Difference_In_Days, Difference_In_Hours, Difference_In_Mins, Difference_In_Secs }
         },
         getEarnedReward(stake) {
+
             let nft = stake;
             let timeIncrease = 0;
             let profitIncrease = 0;
@@ -178,8 +179,7 @@ export default {
                 / number1e4
                 / dayInSec;
             reward = reward + ((reward / 100) * claimProfitIncrease);
-
-            reward = Number(Web3.utils.fromWei(Web3.utils.toBN(reward), 'ether')).toFixed(2);
+            reward = Number(reward / 1e18).toFixed(2);
             return reward;
         },
         logClaimableInfo(claimableInfo) {

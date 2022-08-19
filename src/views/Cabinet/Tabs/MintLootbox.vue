@@ -53,7 +53,7 @@
                                                     <div style="overflow: hidden; width: fit-content; height: fit-content; border-radius: 8px;"><img class="card-egg-image-img" :src="getLootboxImage(index)" /></div>
                                                     <div class="li-nft-footer"
                                                         style="width: 100%; display: flex; flex-direction: row; justify-content: space-between;">
-                                                        <span class="lootbox-main-stat-col">Egg</span>
+                                                        <span class="lootbox-main-stat-col" style="text-align: left;">Egg</span>
                                                         <span class="lootbox-main-stat-col">$</span>
                                                         <span class="lootbox-main-stat-col">Chance</span>
                                                     </div>
@@ -65,7 +65,7 @@
                                                                     <span class="lootbox-main-stat-col"
                                                                         :class="getClassOnTier(+index * 2 + 5)">{{ index
                                                                                 == 2 ? "BONUS" : !isNumberEq(index, 3) ?
-                                                                                ("TIER".concat(index * 2 + 5)) : "Soon"
+                                                                                ("TIER ".concat(index * 2 + 5)) : "Soon"
                                                                         }}</span>
                                                                     <span class="lootbox-main-stat-col">{{
                                                                             getEggValue(+index * 2 + 5)
@@ -101,7 +101,7 @@
                                                                 <div class="stake-nft-value-main-stats-loot">
                                                                     <span class="lootbox-main-stat-col"
                                                                         :class="getClassOnTier(+index * 2 + 2)">{{
-                                                                                "TIER".concat(index * 2 + 2)
+                                                                                "TIER ".concat(index * 2 + 2)
                                                                         }}</span>
                                                                     <span class="lootbox-main-stat-col">{{
                                                                             getEggValue(+index * 2 + 2)
@@ -112,7 +112,7 @@
                                                                 <div class="stake-nft-value-main-stats-loot">
                                                                     <span class="lootbox-main-stat-col"
                                                                         :class="getClassOnTier(+index * 2 + 1)">{{
-                                                                                "TIER".concat(index * 2 + 1)
+                                                                                "TIER ".concat(index * 2 + 1)
                                                                         }}</span>
                                                                     <span class="lootbox-main-stat-col">{{
                                                                             getEggValue(+index * 2 + 1)
@@ -123,7 +123,7 @@
                                                                 <div class="stake-nft-value-main-stats-loot">
                                                                     <span class="lootbox-main-stat-col"
                                                                         :class="getClassOnTier(+index * 2 + 0)">{{
-                                                                                "TIER".concat(index * 2 + 0)
+                                                                                "TIER ".concat(index * 2 + 0)
                                                                         }}</span>
                                                                     <span class="lootbox-main-stat-col">{{
                                                                             getEggValue(+index * 2 + 0)
@@ -220,7 +220,7 @@
                                                                         <span class="lootbox-main-stat-col-mob"
                                                                             :class="getClassOnTier(+index * 2 + 4)">{{
                                                                                     !isNumberEq(index,
-                                                                                        3) ? ("TIER".concat(index * 2 + 4)) : "Soon"
+                                                                                        3) ? ("TIER ".concat(index * 2 + 4)) : "Soon"
                                                                             }}</span>
                                                                         <!--span class="lootbox-main-stat-col">{{ getEggValue(+index*2 + 4) }}</span-->
                                                                         <span class="lootbox-main-stat-col-mob">{{
@@ -259,7 +259,7 @@
                                                                     <div class="stake-nft-value-main-stats-loot">
                                                                         <span class="lootbox-main-stat-col-mob"
                                                                             :class="getClassOnTier(index)">{{
-                                                                                    "TIER".concat(index * 2 + 0)
+                                                                                    "TIER ".concat(index * 2 + 0)
                                                                             }}</span>
                                                                         <!--span class="lootbox-main-stat-col">{{ getEggValue(+index*2 + 0) }}</span-->
                                                                         <span class="lootbox-main-stat-col-mob">{{ "20%"
