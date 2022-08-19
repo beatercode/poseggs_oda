@@ -186,16 +186,16 @@
                         </div>
                     </div>
                 </div>
-                <div class="stake-data-header" style="justify-content: space-between; margin-bottom: 20px;">
-                    <div class="stake-nft-value-main-stats stake-bonus-claim" style="width: 33%;">
-                        <span>{{ getClaimBonusData(1, fullStakeDetails) }}</span>
-                        <span>{{ timeToBonusA }}</span>
+                <div class="stake-data-header" style="justify-content: space-between; margin-bottom: 5px;">
+                    <div class="stake-bonus-claim">
+                        <span style="width: fit-content;">{{ getClaimBonusData(1, fullStakeDetails) }}</span>
+                        <span style="width: fit-content;">{{ timeToBonusA }}</span>
                     </div>
-                    <div class="stake-nft-value-main-stats stake-bonus-claim" style="width: 33%;">
+                    <div class="stake-bonus-claim">
                         <span>{{ getClaimBonusData(2, fullStakeDetails) }}</span>
                         <span>{{ timeToBonusB }}</span>
                     </div>
-                    <div class="stake-nft-value-main-stats stake-bonus-claim" style="width: 33%;">
+                    <div class="stake-bonus-claim">
                         <span>{{ getClaimBonusData(3, fullStakeDetails) }}</span>
                         <span>{{ timeToBonusC }}</span>
                     </div>
@@ -341,7 +341,7 @@
                         <div class="select-boost" :class="{ 'select-boost-active': selectList1 }"
                             @mouseover="selectList1 = true" @mouseout="selectList1 = false">
                             <div class="selected" v-if="showMore" :class="{ lowOpacity: selectList1 }">
-                                <div class=\>
+                                <div class="select-boost-item">
                                     <div class="select-boost-img">
                                         <img :src="getBoostImg(selectedTimeBoost)" alt="" />
                                     </div>

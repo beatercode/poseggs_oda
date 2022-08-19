@@ -787,7 +787,7 @@ export default class Core {
         let temp = {};
         temp.price = parseFloat(utils.formatEther(array["price"]));
         temp.base_strength = Number(array["base_strength"]);
-        temp.base_healt = Number((array["base_health"]));
+        temp.base_health = Number((array["base_health"]));
         temp.base_speed = Number((array["base_speed"]));
         temp.base_magic = Number((array["base_magic"]));
         return temp;
@@ -1132,14 +1132,14 @@ export default class Core {
 
     /****************** WRITE METHODS ************************/
     async isApprovedForAll(userAddress, type) {
-        if (type === "POSDUCK") {
+        if (type === "ALPHAEGG") {
             return await this[`poseggNft_${this.currentBlockchain}`].isApprovedForAll(userAddress, this[`stake_${this.currentBlockchain}`].address);
         } else if (type === "BOOST") {
             return await this[`boostNft_${this.currentBlockchain}`].isApprovedForAll(userAddress, this[`stake_${this.currentBlockchain}`].address);
         }
     }
     async approve(nftToken, userAddress) {
-        if (nftToken === "POSDUCK") {
+        if (nftToken === "ALPHAEGG") {
             //sending approve each time approve function is called
             let res = await this.isApprovedForAll(userAddress, nftToken);
             // await this[`poseggNft_${this.currentBlockchain}`].getApproved(id);
@@ -1231,7 +1231,7 @@ export default class Core {
             this.context.$store.commit("push_notification", {
                 type: "error",
                 typeClass: "error",
-                message: `Ope, an error occured. Try reloading the page. Please contact the PoSDuck Customer Support if the error persists.`,
+                message: `Ope, an error occured. Try reloading the page. Please contact the ALPHAEGG Customer Support if the error persists.`,
             });
             return;
         } else {

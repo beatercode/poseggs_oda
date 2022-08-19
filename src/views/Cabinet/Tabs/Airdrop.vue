@@ -35,7 +35,7 @@
                             {{ translatesGet("CLAIM_DESCR_4") }}
                         </div>
                         <!-- You didn't participate in airdrop program, so you have nothing to claim -->
-                        <a href="https://t.me/HueyPOSDuck" target="_blank" rel="nofollow" class="btn btn-airdrop btn-dark">{{ translatesGet("BTN_WRITE") }}</a>
+                        <a href="https://t.me/HueyALPHAEGG" target="_blank" rel="nofollow" class="btn btn-airdrop btn-dark">{{ translatesGet("BTN_WRITE") }}</a>
                     </div>
                 </div>
             </div>

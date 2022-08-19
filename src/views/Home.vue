@@ -124,7 +124,7 @@
                             <div class="h2 h1">
                                 <span>{{ translatesGet("EARN") }}</span>
                                 <span class="emphasize">{{ translatesGet("UP_TO_PERC_1") }}</span>
-                                <span class="emphasize">{{ translatesGet("UP_TO_PERC_2") }}</span>
+                                <span>{{ translatesGet("UP_TO_PERC_2") }}</span><br />
                                 <span>{{ translatesGet("ON_NFT_STAKING") }}</span>
                             </div>
                             <div class="h5">
@@ -175,12 +175,7 @@
                             </li>
                             <li>
                                 <span class="title-upper">{{ translatesGet("NFT_VOLUME") }}</span>
-                                <span class="h3">{{
-                                        siteData && siteData[mainChain].NFT.totalAmountSoldNft > 0
-                                            ? siteData[mainChain].NFT.totalAmountSoldNft.toFixed(2)
-                                            : "0.00"
-                                }}
-                                    BUSD</span>
+                                <span class="h3">{{ siteData[mainChain].NFT.totalAmountSoldNft }} BUSD</span>
                             </li>
                             <li>
                                 <span class="title-upper">{{ translatesGet("TOTAL_PARTICIPANTS") }}</span>
@@ -1462,7 +1457,7 @@
                         {{ translatesGet("COPYRIGHT") }}
                     </div>
                     <div class="footer-block footer-block-socials social-links">
-                        <a href="https://twitter.com/POSDuck_NFT" rel="nofollow" target="_blank">
+                        <a href="https://twitter.com/ALPHAEGG_NFT" rel="nofollow" target="_blank">
                             <span class="icon icon-twitter"></span>
                         </a>
                         <a href="https://medium.com/@eggroi" rel="nofollow" target="_blank">

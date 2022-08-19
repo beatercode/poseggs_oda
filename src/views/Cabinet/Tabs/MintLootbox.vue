@@ -477,6 +477,7 @@ export default {
                         message: `Transaction was confirmed! You may now stake your NFT.`,
                     });
                 }
+                res = await this.BuyLOOTBOX(nft);
                 this.showLoader = false;
             } catch (error) {
                 console.log(error);

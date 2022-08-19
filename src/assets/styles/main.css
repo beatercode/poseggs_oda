@@ -6496,6 +6496,12 @@ input[type=radio i]:checked+label:after {
     line-height: 24px
 }
 
+.title {
+    font-weight: 300 !important;
+    font-size: 12px !important;
+    line-height: 18px !important;
+}
+
 .nft-wrap .nft-value {
     z-index: 4;
     position: absolute;

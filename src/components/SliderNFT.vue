@@ -14,13 +14,13 @@
                                     }}</span>
                                     <!--div class="icon logo-coin icon-card"></div-->
                                     <div>
-                                        <div class="stake-nft-value-main-stats">
+                                        <div class="box-main-stats">
                                             <span>Daily</span> <span>{{ profits[index] }}%</span>
                                         </div>
-                                        <div class="stake-nft-value-main-stats">
+                                        <div class="box-main-stats">
                                             <span>Days</span> <span>{{ periods[index] }}</span>
                                         </div>
-                                        <div class="stake-nft-value-main-stats">
+                                        <div class="box-main-stats">
                                             <span>Total</span> <span>{{ parseFloat(profits[index] *
                                                     periods[index]).toFixed(1)
                                             }}%</span>

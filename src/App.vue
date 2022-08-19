@@ -27,7 +27,7 @@ export default {
                     "97": {
                         "NFT": {
                             "totalNftsSold": Number(siteInfo.nftsSold),
-                            "totalAmountSoldNft": Number(siteInfo.nftsSalesVolume),
+                            "totalAmountSoldNft": Number(siteInfo.nftsSalesVolume) / 1e18,
                             "uniqueUsers": Number(siteInfo.uniqueUsers)
                         },
                         "STAKE": {

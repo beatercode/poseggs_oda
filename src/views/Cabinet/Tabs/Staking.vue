@@ -17,8 +17,8 @@
                         <div class="card-header">
                             <div class="card-header-icon earn-stake"></div>
                             <div>
-                                <div class="h4">{{ translatesGet("STAKE") }}</div>
                                 <div class="h5">{{ translatesGet("STAKE_DESCR") }}</div>
+                                <div class="h4">{{ translatesGet("STAKE") }}</div>
                             </div>
                             <a class="link link-learn-more" target="_blank" rel="nofollow" href="https://eggroi.gitbook.io/eggroi/nft-staking">
                                 {{ translatesGet("LEARN_MORE") }}
@@ -30,16 +30,16 @@
                                 class="pool-program program-item" :class="getStakeBgColor(index)" @click="selectedItem = (+index + 1)">
                                 <div class="program-conditions">
                                     <div class="program-col">
-                                        <span class="program-col-title">{{ getPoolTag(index) }} {{ translatesGet("POOL") }}</span>
-                                        <span class="program-col-value">{{stPlan.days}} {{ translatesGet("DAYS_ABB") }}</span>
-                                    </div>
-                                    <div class="program-col">
                                         <span class="program-col-title">{{ translatesGet("PROFIT_PER_PERIOD") }}</span>
                                         <span class="program-col-value">{{stPlan.perc}}%</span>
                                     </div>
                                     <div class="program-col">
                                         <span class="program-col-title">{{ translatesGet("PROFIT_PER_DAY") }}</span>
                                         <span class="program-col-value">{{stPlan.profitPerDay}}%</span>
+                                    </div>
+                                    <div class="program-col">
+                                        <span class="program-col-title">{{ getPoolTag(index) }} {{ translatesGet("POOL") }}</span>
+                                        <span class="program-col-value">{{stPlan.days}} {{ translatesGet("DAYS_ABB") }}</span>
                                     </div>
                                 </div>
                                 <div class="container-btn">
@@ -140,7 +140,7 @@
                     this.isStaking = true;
                     this.tokenId = nft.tokenId;
                     this.showLoader = true;
-                    let res = await this.$root.core.approve("POSDUCK", nft.tokenId);
+                    let res = await this.$root.core.approve("ALPHAEGG", nft.tokenId);
                     if (res.wait) {
                         this.$store.commit("push_notification", {
                             type: "warning",
@@ -204,7 +204,7 @@
             const timeout = setTimeout(async function fetch() {
                 try {
                     if (_this.currentAddress && _this.currentBlockchain) {
-                        _this.isApprovedForAll = await _this.$root.core.isApprovedForAll(_this.currentAddress, "POSDUCK");
+                        _this.isApprovedForAll = await _this.$root.core.isApprovedForAll(_this.currentAddress, "ALPHAEGG");
                         const timeout = setTimeout(fetch, 10000);
                         _this.timeOuts.push(timeout);
                     } else {

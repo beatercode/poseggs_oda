@@ -20,8 +20,8 @@
                     <div class="modal-select-pool-wrap">
                         <button v-for="(stPlan, index) of this.conf[this.currentBlockchain].STAKING_PLANS" class="select-pool-block"
                             @click="selectedPool = index" :class="{ active: selectedPool == index }">
-                            <div class="title">{{ stPlan.days }} {{ translatesGet("DAYS_ABB") }}</div>
                             <div class="value">{{ stPlan.perc }}% {{ translatesGet("PROFIT") }}</div>
+                            <div class="title">{{ stPlan.days }} {{ translatesGet("DAYS_ABB") }}</div>
                         </button>
                     </div>
                 </div>
@@ -153,7 +153,7 @@
                 try {
                     this.showLoader = true;
                     this.tokenId = nft.tokenId;
-                    let res = await this.$root.core.approve("POSDUCK", this.currentAddress);
+                    let res = await this.$root.core.approve("ALPHAEGG", this.currentAddress);
                     if (res.wait) {
                         this.$store.commit("push_notification", {
                             type: "warning",
@@ -167,6 +167,7 @@
                             message: `Transaction was confirmed! You may now stake your NFT.`,
                         });
                     }
+                    res = await this.stake(nft);
                     this.showLoader = false;
                     this.tokenId = "";
                 } catch (error) {

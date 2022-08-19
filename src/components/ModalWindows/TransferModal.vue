@@ -122,7 +122,7 @@
                                     </div>
                                     <div class="block-info-row">
                                         <div class="block-info-td block-info-name">{{ "health" }}</div>
-                                        <div class="block-info-td block-info-value">{{ Number(this.nft.base_healt) }}</div>
+                                        <div class="block-info-td block-info-value">{{ Number(this.nft.base_health) }}</div>
                                     </div>
                                     <div class="block-info-row">
                                         <div class="block-info-td block-info-name">{{ "SPEED" }}</div>
