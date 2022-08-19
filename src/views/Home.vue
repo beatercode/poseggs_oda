@@ -5,7 +5,7 @@
             :class="{ 'header-fixed': fixedHeader, 'header-hidden': hiddenHeader, 'header-menu': showMenu == true }">
             <div class="container">
                 <div class="header-wrapper">
-                    <button class="logo" @click="toTop(), (showMenu = false)" style="width: 120px; min-width: 120px; height: 60px;"></button>
+                    <button class="logo" @click="toTop(), (showMenu = false)" style="width: 200px; min-width: 200px; height: 100px;"></button>
 
                     <nav class="header-nav">
                         <ul>
@@ -166,7 +166,7 @@
                                 <span class="h3">{{ siteData && siteData[56].NFT.totalNftsSold }}</span>
                             </li>
                             <li>
-                                <span class="title-upper">{{ translatesGet("INCOME_FROM_REF") }}</span>
+                                <span class="title-upper">{{ translatesGet("LOOTBOX_SOLD") }}</span>
                                 <span class="h3">{{
                                         preselectedChain === 56 || preselectedChain === 97
                                             ? siteData && siteData[56].STAKE.refTotalTurnover > 0

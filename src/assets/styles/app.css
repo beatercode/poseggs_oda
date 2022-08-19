@@ -1107,7 +1107,7 @@ main > *{
 .program-col-title{
     font-weight:400;
     font-size:14px;
-    line-height:20px
+    line-height: 35px;
 }
 .program-col:first-child .program-col-title{
     font-weight:600;
@@ -1115,7 +1115,7 @@ main > *{
     text-transform:uppercase
 }
 .program-col-value{
-    margin-top:10px
+    margin-top:0px
 }
 .program-item.light-blue{
     background:linear-gradient(180deg,#7aa9ea,#4b95e4 95.31%)

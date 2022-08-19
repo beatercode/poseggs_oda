@@ -442,6 +442,11 @@
             "NFTs Mint"
         ],
         [
+            "LOOTBOX_SOLD",
+            "",
+            "Lootbox Mint"
+        ],
+        [
             "NFT_VOLUME",
             "",
             "NFT Total Volume"

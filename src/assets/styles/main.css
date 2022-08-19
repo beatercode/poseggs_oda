@@ -1420,7 +1420,7 @@ table {
 .program-col-title {
     font-weight: 400;
     font-size: 14px;
-    line-height: 20px
+    line-height: 35px;
 }
 
 .program-col:first-child .program-col-title {
@@ -4809,7 +4809,7 @@ header {
 .timer-count {
     font-weight: 600;
     font-size: 32px;
-    line-height: 48px
+    line-height: 35px
 }
 
 .claim-value {
