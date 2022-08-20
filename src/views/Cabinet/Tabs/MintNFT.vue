@@ -169,7 +169,8 @@
                                                                 </div>
                                                                 <div v-if="showStats">
                                                                     <div class="box-main-stats">
-                                                                        <span>Total</span> <span>{{
+                                                                        <span style="font-weight: 700;">Total</span>
+                                                                        <span style="font-weight: 700;">{{
                                                                                 parseFloat(profits[index] *
                                                                                     periods[index]).toFixed(1)
                                                                         }}%</span>
@@ -300,7 +301,8 @@
                                                                 <!--div class="icon logo-coin icon-card"></div-->
                                                                 <div v-if="showStats">
                                                                     <div class="box-main-stats">
-                                                                        <span>Total</span> <span>{{
+                                                                        <span style="font-weight: 700;">Total</span>
+                                                                        <span style="font-weight: 700;">{{
                                                                                 parseFloat(freeEggData.profit *
                                                                                     freeEggData.period).toFixed(1)
                                                                         }}%</span>
@@ -380,7 +382,8 @@
                                                                 </div>
                                                                 <div v-if="showStats">
                                                                     <div class="box-main-stats">
-                                                                        <span>Total</span> <span>{{
+                                                                        <span style="font-weight: 700;">Total</span>
+                                                                        <span style="font-weight: 700;">{{
                                                                                 parseFloat(bonusEggData.profit *
                                                                                     bonusEggData.period).toFixed(1)
                                                                         }}%</span>
@@ -450,7 +453,7 @@
                                                                 </div>
                                                                 <div v-if="showStats">
                                                                     <div class="box-main-stats">
-                                                                        <span>Total</span> <span>{{ "-" }}%</span>
+                                                                        <span style="font-weight: 700;">Total</span> <span style="font-weight: 700;">{{ "-" }}%</span>
                                                                     </div>
                                                                     <div class="cab-row cab-row-stats">
                                                                         <span

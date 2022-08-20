@@ -11,6 +11,8 @@
                         <div>
                             <div class="h4">{{ translatesGet("STAKING_DASH") }}</div>
                             <div class="h5">{{ translatesGet("STAKING_DASH_DESCR") }}</div>
+                            <div class="h4" style="margin-top: 10px">{{ translatesGet("CLAIM_HOLD_BONUS") }}</div>
+                            <div class="h5">{{ translatesGet("CLAIM_HOLD_BONUS_DESCR") }}</div>
                         </div>
                     </div>
                     <div class="cab-row"

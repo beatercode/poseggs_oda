@@ -945,9 +945,19 @@
             "Staking Dashboard"
         ],
         [
+            "CLAIM_HOLD_BONUS",
+            "",
+            "Claim Hold Bonus"
+        ],
+        [
             "STAKING_DASH_DESCR",
             "",
             "Monitor your staked EggNFTs, your profits and rates. Apply special Boosts to your NFTs' pools to get more rewards and extend staking periods. Stake, unstake, claim your rewards from this tab."
+        ],
+        [
+            "CLAIM_HOLD_BONUS_DESCR",
+            "",
+            "For every single Egg you put in stake, you can see you Claiming Hold Bonus. There are three levels. Each level entitles you to an amazing percentage bonus claim! The best strategy is to claim only when you have reached the desired level!"
         ],
         [
             "BOOSTER_TIME",
@@ -1175,7 +1185,7 @@
         [
             "FREE_EGG_BUY_DESCR",
             "",
-            "Those special Egg can be minted once per wallet. Team will release around 5 Free eggs around every 24 hours. Bonus eggs can be aquired only thourght lootbox"
+            "Here you can see our special eggs. Free Egg can be free-minted once per day; Alpha Tribe admin will be realese 5 Eggs in a random moment of the day, keep an Eye on it and claim as fast as possibile! Bonus TIER 9 Egg can be only obtained from lootbox, get you chance!"
         ],
         [
             "MINT_LOOTBOX",

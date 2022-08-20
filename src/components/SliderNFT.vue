@@ -15,13 +15,16 @@
                                     <!--div class="icon logo-coin icon-card"></div-->
                                     <div>
                                         <div class="box-main-stats">
-                                            <span>Daily</span> <span>{{ profits[index] }}%</span>
+                                            <span style="font-weight: 700;">Daily</span>
+                                            <span style="font-weight: 700;">{{ profits[index] }}%</span>
                                         </div>
                                         <div class="box-main-stats">
-                                            <span>Days</span> <span>{{ periods[index] }}</span>
+                                            <span style="font-weight: 700;">Days</span>
+                                            <span style="font-weight: 700;">{{ periods[index] }}</span>
                                         </div>
                                         <div class="box-main-stats">
-                                            <span>Total</span> <span>{{ parseFloat(profits[index] *
+                                            <span style="font-weight: 700;">Total</span>
+                                            <span style="font-weight: 700;">{{ parseFloat(profits[index] *
                                                     periods[index]).toFixed(1)
                                             }}%</span>
                                         </div>
@@ -145,10 +148,7 @@ export default {
     computed: {
         ...mapState(["preselectedChain"]),
         getPreselectedChain() {
-            // return this.preselectedChain === 56 ? "ul-binance" : this.preselectedChain === 137 ? "ul-polygon" : "ul-binance";
-            return this.preselectedChain === 56 || this.preselectedChain === 97
-                ? "ul-binance"
-                : "ul-polygon";
+            return "ul-binance"
         },
         currency() {
             return this.preselectedChain && this.preselectedChain === 137 ? "MATIC" : "BNB";

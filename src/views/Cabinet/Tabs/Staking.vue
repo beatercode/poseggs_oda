@@ -17,8 +17,8 @@
                         <div class="card-header">
                             <div class="card-header-icon earn-stake"></div>
                             <div>
-                                <div class="h5">{{ translatesGet("STAKE_DESCR") }}</div>
                                 <div class="h4">{{ translatesGet("STAKE") }}</div>
+                                <div class="h5">{{ translatesGet("STAKE_DESCR") }}</div>
                             </div>
                             <a class="link link-learn-more" target="_blank" rel="nofollow" href="https://eggroi.gitbook.io/eggroi/nft-staking">
                                 {{ translatesGet("LEARN_MORE") }}

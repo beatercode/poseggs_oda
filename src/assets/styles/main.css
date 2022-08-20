@@ -748,7 +748,6 @@ table {
     top: 60%;
     left: 60%;
     transform: translate(-50%, -50%) scale(1.2);
-    background-image: url(../images/all/main-img-bg.f433c086.png)
 }
 
 .section-main .emphasize {
@@ -2293,7 +2292,6 @@ table {
 }
 
 .cab-card-wrap.cab-card-timer:before {
-    background-image: url(../images/all/sponsor-bg.8ea437ae.webp);
     width: 40%;
     max-width: 431px
 }
@@ -4212,7 +4210,6 @@ input.transfer-input+.btn {
     background-repeat: no-repeat;
     background-position: 50%;
     background-size: contain;
-    background-image: url(../images/all/reward-inactive.47f2f402.png)
 }
 
 .block-reward.block-reward-link .copy-ref-link {
@@ -4594,18 +4591,6 @@ input.transfer-input+.btn {
     background-size: 100% 100%;
     background-position: 50%;
     background-repeat: no-repeat
-}
-
-.modal-lead-block:first-child {
-    background-image: url(../images/all/lead-block-1.540484b6.png)
-}
-
-.modal-lead-block:nth-child(2) {
-    background-image: url(../images/all/lead-block-2.3ca52c01.png)
-}
-
-.modal-lead-block:nth-child(3) {
-    background-image: url(../images/all/lead-block-3.f77b2d77.png)
 }
 
 .modal-lead-wrap {
@@ -6681,23 +6666,23 @@ i[class^=icon-] {
 }
 
 .icon-box {
-    background-image: url(../images/all/box.16fd4ce2.svg)
+    background-image: url(../images/all/farm-symbol.svg)
 }
 
 .icon-monitor {
-    background-image: url(../images/all/monitor.41ed0110.svg)
+    background-image: url(../images/all/wallet-symbol.svg)
 }
 
 .icon-money {
-    background-image: url(../images/all/money.07f79c82.svg)
+    background-image: url(../images/all/cash-symbol.svg)
 }
 
 .icon-share-symbol {
-    background-image: url(../images/all/share-symbol.ee063622.svg)
+    background-image: url(../images/all/bolt-symbol.svg)
 }
 
 .icon-profile-2user {
-    background-image: url(../images/all/profile-2user.c8ad6c08.svg)
+    background-image: url(../images/all/leader-symbol.svg)
 }
 
 i.icon-crown {
@@ -6706,7 +6691,7 @@ i.icon-crown {
 }
 
 .icon-book {
-    background-image: url(../images/all/book.22dd4011.svg)
+    background-image: url(../images/all/book-symbol.svg)
 }
 
 .icon-more {
@@ -6714,7 +6699,7 @@ i.icon-crown {
 }
 
 .icon-logout {
-    background-image: url(../images/all/logout.edb9b5be.svg)
+    background-image: url(../images/all/door-symbol.svg)
 }
 
 .icon-arrow-left {
@@ -13132,6 +13117,7 @@ i[class^=i-] {
 }
 
 body {
+    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 20%, rgb(23, 23, 23) 30%, rgb(23, 23, 23) 85%, rgba(0,0,0,1) 100%);
     background-color: #000000;
     color: #fff;
     font-family: Sora, sans-serif;

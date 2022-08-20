@@ -1,6 +1,5 @@
 <template>
-    <div class="main-home"
-        :class="{ 'home-binance': (getPreselectedChain == 'binance' || getPreselectedChain == 'binancetest'), 'home-polygon': getPreselectedChain == 'polygon' }">
+    <div class="main-home home-binance">
         <header
             :class="{ 'header-fixed': fixedHeader, 'header-hidden': hiddenHeader, 'header-menu': showMenu == true }">
             <div class="container">
@@ -31,9 +30,7 @@
                                     <div class="network-title">
                                         {{ translatesGet("SWITCH_NET") }}
                                     </div>
-                                    <span v-if="getPreselectedChain === 'binance'">BNB Chain</span>
-                                    <span v-else-if="getPreselectedChain === 'binancetest'">BNB Chain Test</span>
-                                    <span v-else>Polygon</span>
+                                    <span>BNB Chain</span>
                                 </div>
                                 <i class="icon-current-network"
                                     :class="{ 'icon-bsc': (getPreselectedChain == 'binance' || getPreselectedChain == 'binancetest'), 'icon-matic': getPreselectedChain == 'polygon' }"></i>
@@ -189,11 +186,8 @@
                         <div class="section-wrap">
                             <div class="section-half">
                                 <div class="h2">{{ translatesGet("OUR_NFT") }}</div>
-                                <div v-if="getPreselectedChain == 'polygon'" class="h5">
+                                <div class="h5">
                                     {{ translatesGet("OUR_NFT_DESC") }}
-                                </div>
-                                <div v-if="getPreselectedChain == 'polygon'" class="h5">
-                                    {{ translatesGet("OUR_NFT_DESC_BUSD") }}
                                 </div>
                             </div>
                             <div class="section-half">
@@ -237,10 +231,7 @@
                                     </li>
                                     <li class="home-list-item">
                                         <div class="list-item-icon icon-wrap"><i class="icon-check"></i></div>
-                                        <span v-if="getPreselectedChain == 'polygon'"> {{
-                                                translatesGet("LIMITED_STAKING_DESC_3")
-                                        }}</span>
-                                        <span v-else> {{ translatesGet("LIMITED_STAKING_DESC_3_BUSD") }}</span>
+                                        <span> {{ translatesGet("LIMITED_STAKING_DESC_3_BUSD") }}</span>
                                     </li>
                                     <li class="home-list-item">
                                         <div class="list-item-icon icon-wrap"><i class="icon-check"></i></div>
@@ -374,91 +365,13 @@
                         </div>
                     </div>
                 </section>
-                <!--section class="section-unlimited-staking" id="section-un-staking">
-                    <div class="container">
-                        <div class="section-wrap">
-                            <div class="section-half section-half-content">
-                                <div class="title-row">
-                                    <div class="h2">{{ translatesGet("UNLIMITED_STAKING") }}</div>
-                                    <a class="link link-learn-more" href=""></a>
-                                </div>
-                                <div class="h5">{{ translatesGet("UNLIMITED_STAKING_DESC") }}</div>
-                                <ul class="home-list">
-                                    <li class="home-list-item">
-                                        <div class="list-item-icon icon-wrap"><i class="icon-check"></i></div>
-                                        <span v-if="getPreselectedChain == 'polygon'"> {{
-                                                translatesGet("UNLIMITED_STAKING_DESC_1")
-                                        }}</span>
-                                        <span v-else> {{ translatesGet("UNLIMITED_STAKING_DESC_1_BUSD") }}</span>
-                                    </li>
-                                    <li class="home-list-item">
-                                        <div class="list-item-icon icon-wrap"><i class="icon-check"></i></div>
-                                        <span> {{ translatesGet("UNLIMITED_STAKING_DESC_2") }}</span>
-                                    </li>
-                                    <li class="home-list-item">
-                                        <div class="list-item-icon icon-wrap"><i class="icon-check"></i></div>
-                                        <span> {{ translatesGet("UNLIMITED_STAKING_DESC_3") }}</span>
-                                    </li>
-                                    <li class="home-list-item">
-                                        <div class="list-item-icon icon-wrap"><i class="icon-check"></i></div>
-                                        <span> {{ translatesGet("UNLIMITED_STAKING_DESC_4") }}</span>
-                                    </li>
-                                    <li class="home-list-item">
-                                        <div class="list-item-icon icon-wrap"><i class="icon-check"></i></div>
-                                        <span> {{ translatesGet("UNLIMITED_STAKING_DESC_5") }}</span>
-                                    </li>
-                                </ul>
-                                <router-link class="btn btn-go-staking" to="/dashboard/staking">{{
-                                        translatesGet("GO_TO_STAKE")
-                                }}</router-link>
-                            </div>
-                            <div class="section-half section-half-programs">
-                                <ul class="programs-wrap">
-                                    <li class="program-item light-orange">
-                                        <div class="program-col">
-                                            <span class="program-col-title">{{ translatesGet("POOL") }}-XL</span>
-                                            <span class="program-col-value unlim-desctop">{{ translatesGet("UNLIM_DAYS")
-                                            }}</span>
-                                            <span class="program-col-value unlim-mobile">{{
-                                                    translatesGet("UNLIM_DAYS_MOBILE")
-                                            }}</span>
-                                        </div>
-                                        <div class="program-col">
-                                            <span class="program-col-title">{{ "DAILY" }}</span>
-                                            <span class="program-col-value">3.33%</span>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <div class="chat-container">
-                                    <div class="chat-row chat-left">
-                                        <div class="chat-avatar she">
-                                            <div class="avatar-img"></div>
-                                        </div>
-                                        <div class="comment">{{ translatesGet("WHY_UNLIM_POOL") }}</div>
-                                    </div>
-                                    <div class="chat-row chat-right">
-                                        <div class="comment">{{ translatesGet("ANSWER_WHY") }}</div>
-                                        <div class="chat-avatar he">
-                                            <div class="avatar-img"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section-->
                 <section class="section-boosts" id="section-boosts">
                     <div class="container">
                         <div class="section-wrap">
                             <div class="section-half half-img"
-                                style="overflow: hidden; max-width: 500px; width: auto; height: auto;">
-                                <img v-if="getPreselectedChain == 'binance'"
-                                    src="@/assets/images/all/boosts-img-binance.png" style="border-radius: 8px;"
-                                    alt="main-img" />
-                                <img v-else-if="getPreselectedChain == 'binancetest'"
-                                    src="@/assets/images/all/boosts-img-binance.png" style="border-radius: 8px;"
-                                    alt="main-img" />
-                                <img v-else src="@/assets/images/all/boosts-img-polygon.png" alt="main-img" />
+                                style="overflow: hidden; max-width: 500px; width: auto; height: auto; margin: auto; margin-top: 30px;">
+                                <img style="border-radius: 8px;"
+                                    src="@/assets/images/all/boosts-img-binance.png" alt="main-img" />
                             </div>
                             <div class="section-half section-half-content">
                                 <div class="title-row">
@@ -468,14 +381,8 @@
                                                 translatesGet("LEARN_MORE")
                                         }}<i class="i-arrow-right-3"></i></a>
                                 </div>
-                                <div v-if="getPreselectedChain == 'binance'" class="h5">
+                                <div class="h5">
                                     {{ translatesGet("BOOSTS_DESC_BNB") }}
-                                </div>
-                                <div v-else-if="getPreselectedChain == 'binancetest'" class="h5">
-                                    {{ translatesGet("BOOSTS_DESC_BNB") }}
-                                </div>
-                                <div v-else class="h5">
-                                    {{ translatesGet("BOOSTS_DESC_BUSD") }}
                                 </div>
                                 <div class="types-boosts">
                                     <div class="h6">{{ translatesGet("BOOSTS_TYPES") }}</div>
@@ -511,33 +418,6 @@
                     <div class="h5">{{ translatesGet("HOW_TO_EARN_SUBTITLE") }}</div>
                     <div class="section-wrap">
                         <div class="section-half half-content">
-                            <!--ul class="earn-list" v-if="getPreselectedChain == 'polygon'">
-                                <li>
-                                    <span class="earn-icon earn-buy"></span>
-                                    <span class="h4">{{ translatesGet("HOW_TO_EARN_LIST_TITLE_1") }}</span>
-                                    <span class="h7">{{ translatesGet("HOW_TO_EARN_LIST_DESC_1") }}</span>
-                                </li>
-                                <li>
-                                    <span class="earn-icon earn-stake"></span>
-                                    <span class="h4">{{ translatesGet("HOW_TO_EARN_LIST_TITLE_2") }}</span>
-                                    <span class="h7">{{ translatesGet("HOW_TO_EARN_LIST_DESC_2") }}</span>
-                                </li>
-                                <li>
-                                    <span class="earn-icon earn-boost"></span>
-                                    <span class="h4">{{ translatesGet("HOW_TO_EARN_LIST_TITLE_3") }}</span>
-                                    <span class="h7">{{ translatesGet("HOW_TO_EARN_LIST_DESC_3") }}</span>
-                                </li>
-                                <li>
-                                    <span class="earn-icon earn-token"></span>
-                                    <span class="h4">{{ translatesGet("HOW_TO_EARN_LIST_TITLE_4") }}</span>
-                                    <span class="h7">{{ translatesGet("HOW_TO_EARN_LIST_DESC_4") }}</span>
-                                </li>
-                                <li>
-                                    <span class="earn-icon earn-referral"></span>
-                                    <span class="h4">{{ translatesGet("HOW_TO_EARN_LIST_TITLE_5") }}</span>
-                                    <span class="h7">{{ translatesGet("HOW_TO_EARN_LIST_DESC_5") }}</span>
-                                </li>
-                            </ul-->
                             <ul class="earn-list">
                                 <li>
                                     <span class="earn-icon earn-buy"></span>
@@ -570,7 +450,7 @@
                             }}</router-link>
                         </div>
                         <div class="section-half half-img"
-                            style="overflow: hidden; width: 100%; height: auto; margin-top: 12px; text-align: center;">
+                            style="overflow: hidden; width: 100%; height: auto; margin-top: 30px; text-align: center;">
                             <img style="border-radius: 8px; max-width: 500px; margin: auto;"
                                 src="@/assets/images/all/earn-img-binance.png" alt="main-img" />
                         </div>
@@ -756,9 +636,7 @@
                                             <div class="table-col">
                                                 <div class="table-title">{{ translatesGet("TURNOVER") }}, BUSD
                                                 </div>
-                                                <div class="table-value">{{ getPreselectedChain != "polygon" ? "300" :
-                                                        "105 000"
-                                                }}</div>
+                                                <div class="table-value">{{ "300" }}</div>
                                             </div>
                                         </div>
                                         <div class="table-half">
@@ -1124,11 +1002,8 @@
                                     }} <i class="i-arrow-right-3"></i></a>
                             </div>
                             <div class="section-container">
-                                <div class="h5" v-if="getPreselectedChain == 'polygon'">{{
+                                <div class="h5">{{
                                         translatesGet("REFERRAL_PROGRAM_DESC")
-                                }}</div>
-                                <div class="h5" v-if="getPreselectedChain == 'polygon'">{{
-                                        translatesGet("REFERRAL_PROGRAM_DESC_BUSD")
                                 }}</div>
                             </div>
                             <div class="custom-table">
