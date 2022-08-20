@@ -1402,7 +1402,7 @@ export default {
         this.handleScroll;
         window.addEventListener("scroll", this.handleScroll);
         this.arraySections = document.querySelectorAll("section");
-        this.arraySections[0].classList.add("section-active");
+        if (this.arraySections[0]) this.arraySections[0].classList.add("section-active");
         window.addEventListener("scroll", () => {
             setTimeout(() => {
                 this.checkScreen();

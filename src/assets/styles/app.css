@@ -9355,6 +9355,14 @@ i[class*=" i-"],i[class^=i-]{
         width: calc(50% - 8px);
         max-width: unset !important;
     }
+    .li-bonus-nft-mint:nth-child(odd){
+        margin-left: 0px !important;
+        margin-right: 8px !important;
+    }
+    .li-bonus-nft-mint:nth-child(even){
+        margin-left: 8px !important;
+        margin-right: 0px !important;
+    }
     .li-nft-footer-amount{
         font-size:14px
     }

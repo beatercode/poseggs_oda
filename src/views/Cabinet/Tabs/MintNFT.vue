@@ -285,7 +285,7 @@
                                                 style="flex-direction: row; justify-content: flex-start !important; flex-flow: inherit;">
                                                 <li @click="setSelectedEgg(freeEggData.price, 8)"
                                                     :style="[8 == selectedIndex ? { 'opacity': '1' } : { 'opacity': '1' }]"
-                                                    class="li-our-nfts nft-list-buy nft-list-buy-page li-nft-red">
+                                                    class="li-our-nfts nft-list-buy nft-list-buy-page li-nft-red li-bonus-nft-mint">
                                                     <div class="li-our-nft-wrap" @click="showStats = showStats">
                                                         <div class="card-egg-image">
                                                             <img class="card-egg-image-img" :src="getNftImage(-1)" />
@@ -364,7 +364,7 @@
                                                 </li>
                                                 <li @click="setSelectedEgg(bonusEggData.price, 8)"
                                                     :style="[8 == selectedIndex ? { 'opacity': '1' } : { 'opacity': '1' }]"
-                                                    class="li-our-nfts nft-list-buy nft-list-buy-page li-nft-red">
+                                                    class="li-our-nfts nft-list-buy nft-list-buy-page li-nft-red li-bonus-nft-mint">
                                                     <div class="li-our-nft-wrap" @click="showStats = showStats">
                                                         <div class="card-egg-image"
                                                             style="overflow: hidden; width: fit-content; height: fit-content; border-radius: 8px;">
@@ -435,7 +435,7 @@
                                                 </li>
                                                 <li @click="setSelectedEgg(bonusEggData.price, 8)"
                                                     :style="[8 == selectedIndex ? { 'opacity': '1' } : { 'opacity': '1' }]"
-                                                    class="li-our-nfts nft-list-buy nft-list-buy-page li-nft-red">
+                                                    class="li-our-nfts nft-list-buy nft-list-buy-page li-nft-red li-bonus-nft-mint">
                                                     <div class="li-our-nft-wrap" @click="showStats = showStats">
                                                         <div class="card-egg-image"
                                                             style="overflow: hidden; width: fit-content; height: fit-content; border-radius: 8px;">
