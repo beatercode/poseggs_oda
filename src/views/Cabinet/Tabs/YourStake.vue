@@ -422,7 +422,7 @@ export default {
                         this.$store.commit("push_notification", {
                             type: "success",
                             typeClass: "success",
-                            message: `You have successfully unstaked your DuckNFT. The NFT should appear in the "Your NFTs" section of the "Mint NFTs" tab now.`,
+                            message: `You have successfully unstaked your AlphaTribe AlphaTribe NFT. The NFT should appear in the "Your NFTs" section of the "Mint NFTs" tab now.`,
                         });
                         this.disableChildLoader = true;
                         setTimeout(() => {

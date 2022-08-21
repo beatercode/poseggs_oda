@@ -609,7 +609,7 @@ export default {
                     this.$store.commit("push_notification", {
                         type: "success",
                         typeClass: "success",
-                        message: `Congrats! You have successfully minted your DuckNFT.`,
+                        message: `Congrats! You have successfully minted your AlphaTribe NFT.`,
                     });
                 }
             }

@@ -1438,6 +1438,24 @@ main > *{
     padding: 3px 5px;
     font-size: .8rem;
 }
+.box-main-stats > span:nth-child(1) {
+    padding-left: 4px;
+}
+.box-main-stats > span:nth-child(2) {
+    padding-right: 4px;
+}
+.cab-row.cab-row-stats > span {
+    padding-left: 8px;
+}
+.cab-row.cab-row-stats > div > span {
+    padding-right: 8px;
+}
+.mint-nft-block > div:nth-child(1) {
+    padding-left: 4px;
+}
+.mint-nft-block > div:nth-child(2) {
+    padding-right: 4px;
+}
 .stake-bonus-claim {
     width: 32%;
     display: flex;
@@ -2924,6 +2942,13 @@ input.transfer-input+.btn{
     cursor:pointer;
     transition:.2s
 }
+.pool-program-item-title {
+    margin: auto;
+    font-size: 1.4rem;
+    padding-bottom: 10px;
+    padding-top: 5px;
+    font-weight: 700;
+}
 .pool-program.light-orange .program-col:last-child{
     margin-top:auto
 }
@@ -3447,7 +3472,8 @@ input.transfer-input+.btn{
     flex-wrap:wrap;
     margin:-5px;
     width:calc(100% + 10px);
-    height:100%
+    height:100%;
+    align-content: stretch;
 }
 .stake-info-block,.your-stake-boost-wrap{
     display:flex;
@@ -4239,7 +4265,7 @@ header{
     top:0;
     left:0;
     z-index:40;
-    transition:all .3s
+    transition:all .1s
 }
 .h2.h1{
     text-transform:uppercase;
@@ -4355,7 +4381,7 @@ header{
 .h2.h1 .emphasize{
     color:#fff;
     padding:10px;
-    border-radius: 12px;
+    border-radius: 4px;
 }
 .emphasize{
     width: fit-content;
@@ -9995,7 +10021,7 @@ i[class*=" i-"],i[class^=i-]{
         display:none!important
     }
     .mobile-menu{
-        padding-top:64px
+        padding-top:84px
     }
     .main-home .header-fixed,.main-home .header-menu{
         padding-top:0;

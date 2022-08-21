@@ -601,7 +601,7 @@ export default {
     methods: {
         async checkFreeEggSupply() {
             try {
-                let nftContract = this.$root.core[`poseggNft_${this.currentBlockchain}`];
+                let nftContract = this.$root.core[`alphaTribeNft_${this.currentBlockchain}`];
                 let res = await nftContract.freeEggSupply();
                 this.freeEggSypply = Number(res);
             } catch (err) {
@@ -610,7 +610,7 @@ export default {
 
         },
         async checkBusdAllowance() {
-            let nftContract_Address = this.$root.core[`poseggNft_${this.currentBlockchain}`].address;
+            let nftContract_Address = this.$root.core[`alphaTribeNft_${this.currentBlockchain}`].address;
             let busdContract = this.$root.core[`BUSD_${this.currentBlockchain}`]
             let res = await busdContract.allowance(this.currentAddress, nftContract_Address);
             this.busdApprovedAmount = Number(res);
@@ -677,7 +677,7 @@ export default {
         async approve(nft) {
             try {
                 this.showLoader = true;
-                let stakeContract_Address = this.$root.core[`poseggNft_${this.currentBlockchain}`].address;
+                let stakeContract_Address = this.$root.core[`alphaTribeNft_${this.currentBlockchain}`].address;
                 let toApprove = BigInt((conf["EGG_DATA"]["prices"][(nft)]) * 1e21 * 1e21);
                 let busdContract = this.$root.core[`BUSD_${this.currentBlockchain}`]
                 let res = await busdContract.approve(stakeContract_Address, toApprove);
@@ -1072,7 +1072,7 @@ export default {
                     this.$store.commit("push_notification", {
                         type: "success",
                         typeClass: "success",
-                        message: `Congrats! You have successfully minted your DuckNFT.`,
+                        message: `Congrats! You have successfully minted your AlphaTribe NFT.`,
                     });
                 }
             }

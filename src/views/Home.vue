@@ -250,12 +250,12 @@
                                 <ul class="programs-wrap">
                                     <li class="program-item egg-1">
                                         <div class="program-col">
-                                            <span class="program-col-title">Theta</span>
-                                            <span class="program-col-value">17 {{ translatesGet("DAYS_ABB") }}</span>
-                                        </div>
-                                        <div class="program-col">
                                             <span class="program-col-title">{{ "PROFIT" }}</span>
                                             <span class="program-col-value">120%</span>
+                                        </div>
+                                        <div class="program-col">
+                                            <span class="program-col-title">DAYS</span>
+                                            <span class="program-col-value">17</span>
                                         </div>
                                         <div class="program-col">
                                             <span class="program-col-title">{{ "DAILY" }}</span>
@@ -264,12 +264,12 @@
                                     </li>
                                     <li class="program-item egg-2">
                                         <div class="program-col">
-                                            <span class="program-col-title">Eta</span>
-                                            <span class="program-col-value">27 {{ translatesGet("DAYS_ABB") }}</span>
-                                        </div>
-                                        <div class="program-col">
                                             <span class="program-col-title">{{ "PROFIT" }}</span>
                                             <span class="program-col-value">140%</span>
+                                        </div>
+                                        <div class="program-col">
+                                            <span class="program-col-title">DAYS</span>
+                                            <span class="program-col-value">27</span>
                                         </div>
                                         <div class="program-col">
                                             <span class="program-col-title">{{ "DAILY" }}</span>
@@ -279,7 +279,7 @@
                                     <li class="program-item egg-3">
                                         <div class="program-col">
                                             <span class="program-col-title">Zeta</span>
-                                            <span class="program-col-value">47 {{ translatesGet("DAYS_ABB") }}</span>
+                                            <span class="program-col-value">47</span>
                                         </div>
                                         <div class="program-col">
                                             <span class="program-col-title">{{ "PROFIT" }}</span>
@@ -293,7 +293,7 @@
                                     <li class="program-item egg-4">
                                         <div class="program-col">
                                             <span class="program-col-title">Epsilon</span>
-                                            <span class="program-col-value">17 {{ translatesGet("DAYS_ABB") }}</span>
+                                            <span class="program-col-value">17</span>
                                         </div>
                                         <div class="program-col">
                                             <span class="program-col-title">{{ "PROFIT" }}</span>
@@ -306,12 +306,12 @@
                                     </li>
                                     <li class="program-item egg-5">
                                         <div class="program-col">
-                                            <span class="program-col-title">Delta</span>
-                                            <span class="program-col-value">27 {{ translatesGet("DAYS_ABB") }}</span>
-                                        </div>
-                                        <div class="program-col">
                                             <span class="program-col-title">{{ "PROFIT" }}</span>
                                             <span class="program-col-value">140%</span>
+                                        </div>
+                                        <div class="program-col">
+                                            <span class="program-col-title">DAYS</span>
+                                            <span class="program-col-value">27</span>
                                         </div>
                                         <div class="program-col">
                                             <span class="program-col-title">{{ "DAILY" }}</span>
@@ -320,12 +320,12 @@
                                     </li>
                                     <li class="program-item egg-6">
                                         <div class="program-col">
-                                            <span class="program-col-title">Gamma</span>
-                                            <span class="program-col-value">47 {{ translatesGet("DAYS_ABB") }}</span>
-                                        </div>
-                                        <div class="program-col">
                                             <span class="program-col-title">{{ "PROFIT" }}</span>
                                             <span class="program-col-value">220%</span>
+                                        </div>
+                                        <div class="program-col">
+                                            <span class="program-col-title">DAYS</span>
+                                            <span class="program-col-value">47</span>
                                         </div>
                                         <div class="program-col">
                                             <span class="program-col-title">{{ "DAILY" }}</span>
@@ -334,12 +334,12 @@
                                     </li>
                                     <li class="program-item egg-7">
                                         <div class="program-col">
-                                            <span class="program-col-title">Beta</span>
-                                            <span class="program-col-value">27 {{ translatesGet("DAYS_ABB") }}</span>
-                                        </div>
-                                        <div class="program-col">
                                             <span class="program-col-title">{{ "PROFIT" }}</span>
                                             <span class="program-col-value">140%</span>
+                                        </div>
+                                        <div class="program-col">
+                                            <span class="program-col-title">DAYS</span>
+                                            <span class="program-col-value">27</span>
                                         </div>
                                         <div class="program-col">
                                             <span class="program-col-title">{{ "DAILY" }}</span>
@@ -348,12 +348,12 @@
                                     </li>
                                     <li class="program-item egg-8">
                                         <div class="program-col">
-                                            <span class="program-col-title">Alpha</span>
-                                            <span class="program-col-value">47 {{ translatesGet("DAYS_ABB") }}</span>
-                                        </div>
-                                        <div class="program-col">
                                             <span class="program-col-title">{{ "PROFIT" }}</span>
                                             <span class="program-col-value">220%</span>
+                                        </div>
+                                        <div class="program-col">
+                                            <span class="program-col-title">DAYS</span>
+                                            <span class="program-col-value">47</span>
                                         </div>
                                         <div class="program-col">
                                             <span class="program-col-title">{{ "DAILY" }}</span>
@@ -370,8 +370,8 @@
                         <div class="section-wrap">
                             <div class="section-half half-img"
                                 style="overflow: hidden; max-width: 500px; width: auto; height: auto; margin: auto; margin-top: 30px;">
-                                <img style="border-radius: 8px;"
-                                    src="@/assets/images/all/boosts-img-binance.png" alt="main-img" />
+                                <img style="border-radius: 8px;" src="@/assets/images/all/boosts-img-binance.png"
+                                    alt="main-img" />
                             </div>
                             <div class="section-half section-half-content">
                                 <div class="title-row">

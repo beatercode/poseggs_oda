@@ -453,8 +453,8 @@
             },
             getMetadata() {
                 // return this.nft.collection.includes("Boost")
-                //     ? `https://base.eggroi.com/api/getBoostMetadata?chainId=${this.currentBlockchain}&nftAddress=${this.nft.nftContractAddress}&id=${this.nft.tokenId}`
-                //     : `https://base.eggroi.com/api/getNftMetadata?chainId=${this.currentBlockchain}&nftAddress=${this.nft.nftContractAddress}&id=${this.nft.tokenId}`;
+                //     ? `https://base.alphatribe.com/api/getBoostMetadata?chainId=${this.currentBlockchain}&nftAddress=${this.nft.nftContractAddress}&id=${this.nft.tokenId}`
+                //     : `https://base.alphatribe.com/api/getNftMetadata?chainId=${this.currentBlockchain}&nftAddress=${this.nft.nftContractAddress}&id=${this.nft.tokenId}`;
                 return null;
             },
         },

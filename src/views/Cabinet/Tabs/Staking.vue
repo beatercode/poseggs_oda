@@ -28,6 +28,7 @@
                         <div class="select-pool-wrap" v-if="this.conf && this.conf[this.currentBlockchain] && this.conf[this.currentBlockchain].STAKING_PLANS">
                             <div v-for="(stPlan, index) of this.conf[this.currentBlockchain].STAKING_PLANS"
                                 class="pool-program program-item" :class="getStakeBgColor(index)" @click="selectedItem = (+index + 1)">
+                                <span class="pool-program-item-title">{{ getPoolTag(index) }}</span>
                                 <div class="program-conditions">
                                     <div class="program-col">
                                         <span class="program-col-title">{{ translatesGet("PROFIT_PER_PERIOD") }}</span>
@@ -38,8 +39,8 @@
                                         <span class="program-col-value">{{stPlan.profitPerDay}}%</span>
                                     </div>
                                     <div class="program-col">
-                                        <span class="program-col-title">{{ getPoolTag(index) }} {{ translatesGet("POOL") }}</span>
-                                        <span class="program-col-value">{{stPlan.days}} {{ translatesGet("DAYS_ABB") }}</span>
+                                        <span class="program-col-title">Days</span>
+                                        <span class="program-col-value">{{stPlan.days}}</span>
                                     </div>
                                 </div>
                                 <div class="container-btn">
@@ -151,7 +152,7 @@
                         this.$store.commit("push_notification", {
                             type: "success",
                             typeClass: "success",
-                            message: `Your transaction has been processed! Please approve access to your DuckNFT in the wallet.`,
+                            message: `Your transaction has been processed! Please approve access to your AlphaTribe NFT in the wallet.`,
                         });
                     } else {
                         console.log(res);

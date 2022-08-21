@@ -205,8 +205,9 @@
                         <div class="stake-pool-col-name">
                             {{ translatesGet("DAYS_OF_STAKING") }}
                         </div>
-                        <div class="stake-pool-col-value">
-                            {{ getStakingPlanData(fullStakeDetails)[0] }}
+                        <div class="stake-pool-col-value" style="white-space: nowrap;">
+                            <span>{{ getStakingPlanData(fullStakeDetails)[0] }}</span>
+                            <span style="font-size: 0.8rem; margin-right: 1px;">DAYS</span>
                         </div>
                         <div class="select-boost-item-data-wrap"
                             v-if="showMore && (selectedTimeBoost || selectedTeamBoost)">
@@ -291,8 +292,9 @@
                         <div class="stake-pool-col-name">
                             {{ translatesGet("EXPECTED_REWARD") }}
                         </div>
-                        <div class="stake-pool-col-value">
-                            {{ getStakingPlanData(fullStakeDetails)[3] + ` ${"BUSD" /* currency */}` }}
+                        <div class="stake-pool-col-value" style="white-space: nowrap;">
+                            <span>{{ getStakingPlanData(fullStakeDetails)[3] }}</span>
+                            <span style="font-size: 0.8rem; margin-left: 1px;">BUSD</span>
                         </div>
                         <div class="select-boost-item-data-wrap" v-if="
                             showMore &&
@@ -742,16 +744,10 @@ export default {
             let stakePlan = nft.stakePlan;
 
             if (timeIncrease > 0) {
-                period = `${conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days > 0
-                    ? (Number(conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days)
-                        + Number(timeIncrease) / 100).toFixed(0)
-                    : "Unlimited"
-                    } DAYS`;
+                period = (Number(conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days)
+                    + Number(timeIncrease) / 100).toFixed(0)
             } else {
-                period = `${conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days > 0
-                    ? conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days
-                    : "Unlimited"
-                    } DAYS`;
+                period = conf[this.currentBlockchain].STAKING_PLANS[stakePlan].days
             }
 
             if (profitIncrease > 0) {
@@ -770,7 +766,7 @@ export default {
             const size = conf["MISC"]["poolNames"][pointer];
             let end;
             const start = Math.max(nft.timestamp, nft.lastWithdrawTimestamp);
-            end = nft.timestamp + Number(period.replace("DAYS", "")) * 24 * 3600;
+            end = nft.timestamp + Number(period) * 24 * 3600;
 
             expectedReward =
                 (
@@ -814,10 +810,10 @@ export default {
         },
         getClaimableBonusLevel(stake) {
             const { Difference_In_Days } = this.getTimeSinceLastClaim(stake);
-            return Difference_In_Days >= conf["CLAIM_BONUS_DATA"].days[2] 
-                ? 3 : Difference_In_Days >= conf["CLAIM_BONUS_DATA"].days[1] 
-                ? 2 : Difference_In_Days >= conf["CLAIM_BONUS_DATA"].days[0] 
-                ? 1 : 0;
+            return Difference_In_Days >= conf["CLAIM_BONUS_DATA"].days[2]
+                ? 3 : Difference_In_Days >= conf["CLAIM_BONUS_DATA"].days[1]
+                    ? 2 : Difference_In_Days >= conf["CLAIM_BONUS_DATA"].days[0]
+                        ? 1 : 0;
         },
         getTimeSinceLastClaim(stake) {
             let rightNow = Date.now();
@@ -852,36 +848,36 @@ export default {
             const Difference_In_Days_A = Difference_In_Days;
             const Difference_In_Hours_A = Difference_In_Hours;
             const Difference_In_Mins_A = Difference_In_Mins;
-            const Difference_In_Secs_A  = Difference_In_Secs;
+            const Difference_In_Secs_A = Difference_In_Secs;
             ({ Difference_In_Days, Difference_In_Hours, Difference_In_Mins, Difference_In_Secs } = this.getTimeDifference((stake.lastWithdrawTimestamp * 1000 + BONUS_B), Date.now()));
             const Difference_In_Days_B = Difference_In_Days;
             const Difference_In_Hours_B = Difference_In_Hours;
             const Difference_In_Mins_B = Difference_In_Mins;
-            const Difference_In_Secs_B  = Difference_In_Secs;
+            const Difference_In_Secs_B = Difference_In_Secs;
             ({ Difference_In_Days, Difference_In_Hours, Difference_In_Mins, Difference_In_Secs } = this.getTimeDifference((stake.lastWithdrawTimestamp * 1000 + BONUS_C), Date.now()));
             const Difference_In_Days_C = Difference_In_Days;
             const Difference_In_Hours_C = Difference_In_Hours;
             const Difference_In_Mins_C = Difference_In_Mins;
-            const Difference_In_Secs_C  = Difference_In_Secs;
+            const Difference_In_Secs_C = Difference_In_Secs;
 
-            let countdownUntilNexLevel = myBonusLevel >= levelRequired ? "Obtained" 
+            let countdownUntilNexLevel = myBonusLevel >= levelRequired ? "Obtained"
                 : (
                     levelRequired == 1 ? this.formatTimeDifference(Difference_In_Days_A, Difference_In_Hours_A, Difference_In_Mins_A, Difference_In_Secs_A) :
-                    levelRequired == 2 ? this.formatTimeDifference(Difference_In_Days_B, Difference_In_Hours_B, Difference_In_Mins_B, Difference_In_Secs_B) :
-                    levelRequired == 3 ? this.formatTimeDifference(Difference_In_Days_C, Difference_In_Hours_C, Difference_In_Mins_C, Difference_In_Secs_C) : "Obtained"
+                        levelRequired == 2 ? this.formatTimeDifference(Difference_In_Days_B, Difference_In_Hours_B, Difference_In_Mins_B, Difference_In_Secs_B) :
+                            levelRequired == 3 ? this.formatTimeDifference(Difference_In_Days_C, Difference_In_Hours_C, Difference_In_Mins_C, Difference_In_Secs_C) : "Obtained"
                 );
-            
+
             return countdownUntilNexLevel;
         },
         getClaimBonusData(levelRequired, stake) {
-            let percent = levelRequired == 1 
-                ? `+${conf["CLAIM_BONUS_DATA"].percent[0]}%` : levelRequired == 2 
-                ? `+${conf["CLAIM_BONUS_DATA"].percent[1]}%` : `+${conf["CLAIM_BONUS_DATA"].percent[2]}%`;
+            let percent = levelRequired == 1
+                ? `+${conf["CLAIM_BONUS_DATA"].percent[0]}%` : levelRequired == 2
+                    ? `+${conf["CLAIM_BONUS_DATA"].percent[1]}%` : `+${conf["CLAIM_BONUS_DATA"].percent[2]}%`;
             this.claimBonusLevel = this.getClaimableBonusLevel(stake);
             let countdownToLevel = this.getNextClaimableBonusCD(levelRequired, this.claimBonusLevel, stake);
             let enabled = this.claimBonusLevel >= levelRequired ? "🟢" : "⚪️";
 
-            switch(levelRequired) {
+            switch (levelRequired) {
                 case 1: this.timeToBonusA = countdownToLevel; break;
                 case 2: this.timeToBonusB = countdownToLevel; break;
                 case 3: this.timeToBonusC = countdownToLevel; break;
@@ -1152,7 +1148,7 @@ export default {
             let myBonusLevel = this.getClaimableBonusLevel(stake);
             let countdownToLevel = this.getNextClaimableBonusCD(levelRequired, myBonusLevel, stake);
 
-            switch(levelRequired) {
+            switch (levelRequired) {
                 case 1: this.timeToBonusA = countdownToLevel; break;
                 case 2: this.timeToBonusB = countdownToLevel; break;
                 case 3: this.timeToBonusC = countdownToLevel; break;
@@ -1313,7 +1309,7 @@ export default {
                 this.$store.commit("push_notification", {
                     type: "success",
                     typeClass: "success",
-                    message: `You have successfully unstaked your DuckNFT. The NFT should appear in the "Your NFTs" section of the "Mint NFTs" tab now.`,
+                    message: `You have successfully unstaked your AlphaTribe-NFT. The NFT should appear in the "Your NFTs" section of the "Mint NFTs" tab now.`,
                 });
             }
         },

@@ -652,8 +652,8 @@
         "chainid": "56",
         "name": "BNB Chain"
     },
-    "BASE_URL": "https://base.eggroi.com/api",
-    "REF_BASE": "https://eggroi.com/",
+    "BASE_URL": "https://base.alphatribe.com/api",
+    "REF_BASE": "https://alphatribe.app/",
     "DEFAULT_REFERRER": "0x5e633caE917f2c8A8E59498011B7C906478C7888",
     "ERROR_CODES": {
         "10": "Token already swapped",
