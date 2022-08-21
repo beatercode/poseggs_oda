@@ -4755,7 +4755,7 @@ input.transfer-input+.btn {
 }
 
 .logo.logo-xs {
-    background-image: url(../images/all/Logo-xs.9102ce9c.png);
+    background-image: url(../images/all/Logo-White.png);
     width: 80px !important;
     min-width: 80px !important;
     height: 60px !important;
@@ -12607,7 +12607,7 @@ i[class^=i-] {
     .main-home .header-menu .logo,
     .main-home .header-wrapper .logo,
     .main-home header.header-menu .logo {
-        background-image: url(../images/all/Logo-xs.9102ce9c.png);
+        background-image: url(../images/all/Logo-White.png);
         width: 80px !important;
         min-width: 80px !important;
         height: 60px !important;

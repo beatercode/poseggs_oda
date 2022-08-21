@@ -4248,7 +4248,7 @@ input.transfer-input+.btn{
     height: 60px;
 }
 .logo.logo-xs{
-    background-image:url(../images/all/Logo-xs.9102ce9c.png);
+    background-image:url(../images/all/Logo-White.png);
     width: 80px !important;
     min-width: 80px !important;
     height: 60px !important;
@@ -10570,7 +10570,7 @@ i[class*=" i-"],i[class^=i-]{
         max-width:146px
     }
     .header-wrapper .logo,.logo,.main-home .header-fixed .logo,.main-home .header-menu .logo,.main-home .header-wrapper .logo,.main-home header.header-menu .logo{
-        background-image:url(../images/all/Logo-xs.9102ce9c.png);
+        background-image:url(../images/all/Logo-White.png);
         width: 80px !important;
         min-width: 80px !important;
         height: 60px !important;
