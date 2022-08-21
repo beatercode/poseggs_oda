@@ -1442,13 +1442,13 @@ export default {
         handleScroll() {
             const header = document.querySelector("header");
             // if (window.pageYOffset > header.getBoundingClientRect().height) {
-            if (this.lastScroll > window.pageYOffset && window.pageYOffset > header.getBoundingClientRect().height) {
+            if (this.lastScroll > window.pageYOffset && window.pageYOffset > (header.getBoundingClientRect().height) / 3) {
                 this.fixedHeader = true;
                 this.hiddenHeader = false;
             }
             // if (window.pageYOffset <= header.getBoundingClientRect().height) {
             if (this.lastScroll < window.pageYOffset || window.pageYOffset < header.getBoundingClientRect().height) {
-                if (window.pageYOffset > this.lastScroll && window.pageYOffset > header.getBoundingClientRect().height) {
+                if (window.pageYOffset > this.lastScroll && window.pageYOffset > (header.getBoundingClientRect().height) / 3) {
                     // if (window.pageYOffset > header.getBoundingClientRect().height) {
                     this.hiddenHeader = true;
                 } else {
