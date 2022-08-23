@@ -675,7 +675,7 @@
         "25": "Failed to send BNB to the main NFT contract",
         "00": "Only owner can call this method",
         "01": "Invalid contract address",
-        "02": "Invalid NFT buy price amount",
+        "02": "Invalid NFT price amount",
         "03": "Failed to send BNB to the main contract",
         "04": "Invalid referrers list",
         "05": "You can't claim your leadership now",

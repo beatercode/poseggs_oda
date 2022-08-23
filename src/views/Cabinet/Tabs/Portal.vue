@@ -19,16 +19,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="blocks-percent-wrap">
-                            <div class="li-our-nfts nft-list-buy" style="opacity: 0.5;">
-                                <img src="../../../assets/images/all/qmark.png" />
-                            </div>
-                            <div class="li-our-nfts nft-list-buy" style="opacity: 0.5;">
-                                <img src="../../../assets/images/all/qmark.png" />
-                            </div>
-                            <div class="li-our-nfts nft-list-buy" style="opacity: 0.5;">
-                                <img src="../../../assets/images/all/qmark.png" />
-                            </div>
+                        <div class="blocks-percent-wrap" style="justify-content: space-between;">
+                            <img src="../../../assets/images/all/qmark.png" class="li-our-nfts nft-list-buy" style="border-radius: 8px;" />
+                            <img src="../../../assets/images/all/qmark.png" class="li-our-nfts nft-list-buy" style="border-radius: 8px;" />
+                            <img src="../../../assets/images/all/qmark.png" class="li-our-nfts nft-list-buy" style="border-radius: 8px;" />
+                            <img src="../../../assets/images/all/qmark.png" class="li-our-nfts nft-list-buy" style="border-radius: 8px;" />
                         </div>
                     </div>
                 </div>
@@ -36,7 +31,27 @@
             <section class="cab-row">
                 <div class="cab-row-card">
                     <div class="cab-card-wrap stake-card">
-                        <div class="card-header">
+                        <div class="card-header" style="border-bottom: 10px;">
+                            <div style="filter: hue-rotate(316deg) invert(1); border: .5px solid #515151; border-radius: 8px;" class="card-header-icon header-egg-icon">
+                            </div>
+                            <div>
+                                <div class="h4">{{ translatesGet("REVEAL_COMING_SOON_TITLE") }}</div>
+                                <div class="h5">
+                                    {{ translatesGet("REVEAL_COMING_SOON") }}
+                                </div>
+                                <div class="h5" style="font-weight: 600; margin-top: 20px;">
+                                    {{ betaReveal_Time }}
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </section>
+            <section class="cab-row">
+                <div class="cab-row-card">
+                    <div class="cab-card-wrap stake-card">
+                        <div class="card-header" style="border-bottom: 10px;">
                             <div style="filter: hue-rotate(316deg) invert(1);" class="card-header-icon header-beta">
                             </div>
                             <div>
@@ -77,6 +92,7 @@ export default {
             showLeadModal: false,
             showLoader: false,
             betaLauncher_Time: "",
+            betaReveal_Time: "",
         };
     },
     mixins: [copiedMixin],
@@ -331,6 +347,16 @@ export default {
             let seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
 
             _this.betaLauncher_Time = days + "d " + hours + "h " + minutes + "m " + seconds + "s"
+
+            let countDownDate_2 = Date.parse('26 Sep 2022 00:00:00 GMT');
+            let timeleft_2 = countDownDate_2 - now;
+
+            let days_2 = Math.floor(timeleft_2 / (1000 * 60 * 60 * 24));
+            let hours_2 = Math.floor((timeleft_2 % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            let minutes_2 = Math.floor((timeleft_2 % (1000 * 60 * 60)) / (1000 * 60));
+            let seconds_2 = Math.floor((timeleft_2 % (1000 * 60)) / 1000);
+
+            _this.betaReveal_Time = days_2 + "d " + hours_2 + "h " + minutes_2 + "m " + seconds_2 + "s"
         }, 1000)
 
         _this.lang.init();

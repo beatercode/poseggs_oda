@@ -479,7 +479,7 @@
         [
             "TRIBE_2",
             "",
-            "First you need to purchase a staking NFT. Pick your fave egg and follow my lead. It's been eggy for me ever since I started staking NFTs!"
+            "First you need to purchase a staking NFT. Pick your fav egg and follow my lead. It's been amazing for me ever since I started staking NFTs!"
         ],
         [
             "LIMITED_STAKING",
@@ -662,7 +662,7 @@
         [
             "BUY_BOOSTS",
             "",
-            "Buy"
+            "Mint"
         ],
         [
             "HOW_TO_EARN_TITLE",
@@ -677,12 +677,12 @@
         [
             "HOW_TO_EARN_LIST_TITLE_1",
             "",
-            "Buy NFT"
+            "Mint NFT"
         ],
         [
             "HOW_TO_EARN_LIST_DESC_1",
             "",
-            "Buy an EggNFT, the most affordable one is just 0.01 BNB."
+            "Join the revolution, mint your nfts and become an alphaholder."
         ],
         [
             "HOW_TO_EARN_LIST_TITLE_2",
@@ -692,7 +692,7 @@
         [
             "HOW_TO_EARN_LIST_DESC_2",
             "",
-            "Select an staking pool that suits your goals better."
+            "Select the pool you prefer and remember, you only got a single bullet."
         ],
         [
             "HOW_TO_EARN_LIST_TITLE_3",
@@ -702,7 +702,7 @@
         [
             "HOW_TO_EARN_LIST_DESC_3",
             "",
-            "Earn more rewards staking your EggNFTs by applying special Boost NFTs."
+            "Earn more rewards staking your AlphaTribe NFTs by applying time and profit boosts."
         ],
         [
             "HOW_TO_EARN_LIST_TITLE_4",
@@ -712,7 +712,7 @@
         [
             "HOW_TO_EARN_LIST_DESC_4",
             "",
-            "Turn your EggNFTs into powerful passive income generators."
+            "Turn your AlphaTribe NFTs into powerful passive income generators."
         ],
         [
             "HOW_TO_EARN_LIST_TITLE_5",
@@ -727,12 +727,12 @@
         [
             "HOW_TO_EARN_LIST_TITLE_1_BUSD",
             "",
-            "Buy NFT"
+            "Mint NFT"
         ],
         [
             "HOW_TO_EARN_LIST_DESC_1_BUSD",
             "",
-            "Buy an EggNFT, the most affordable one is just 5 BUSD."
+            "Join the revolution, mint your nfts and become an alphaholder."
         ],
         [
             "HOW_TO_EARN_LIST_TITLE_2_BUSD",
@@ -742,7 +742,7 @@
         [
             "HOW_TO_EARN_LIST_DESC_2_BUSD",
             "",
-            "Select an staking pool that suits your goals better."
+            "Select the pool you prefer and remember, you only got a single bullet."
         ],
         [
             "HOW_TO_EARN_LIST_TITLE_3_BUSD",
@@ -752,7 +752,7 @@
         [
             "HOW_TO_EARN_LIST_DESC_3_BUSD",
             "",
-            "Earn more rewards staking your EggNFTs by applying special Boost NFTs."
+            "Earn more rewards staking your AlphaTribe NFTs by applying time and profit boosts."
         ],
         [
             "HOW_TO_EARN_LIST_TITLE_4_BUSD",
@@ -762,7 +762,7 @@
         [
             "HOW_TO_EARN_LIST_DESC_4_BUSD",
             "",
-            "Turn your EggNFTs into powerful passive income generators."
+            "Turn your AlphaTribe NFTs into powerful passive income generators."
         ],
         [
             "HOW_TO_EARN_LIST_TITLE_5_BUSD",
@@ -921,12 +921,12 @@
         [
             "MODAL_TIMER_DESCR",
             "",
-            "You haven't got any applicable Boosts yet. Come buy some with BUSD, BUSD or get them from other platform users."
+            "You haven't got any applicable Boosts yet. Come mint some with BUSD or get them from other platform users."
         ],
         [
             "MODAL_TIMER_DESCR_POLYGON",
             "",
-            "You haven't got any applicable Boosts yet. Come buy some with BUSD or get them from other platform users.",
+            "You haven't got any applicable Boosts yet. Come mint some with BUSD or get them from other platform users.",
             "Polygon"
         ],
         [
@@ -952,7 +952,7 @@
         [
             "STAKING_DASH_DESCR",
             "",
-            "Monitor your staked EggNFTs, your profits and rates. Apply special Boosts to your NFTs' pools to get more rewards and extend staking periods. Stake, unstake, claim your rewards from this tab."
+            "Monitor your staked AlphaTribe NFTs, your profits and rates. Apply special Boosts to your NFTs' pools to get more rewards and extend staking periods. Stake, unstake, claim your rewards from this tab."
         ],
         [
             "CLAIM_HOLD_BONUS_DESCR",
@@ -1002,7 +1002,7 @@
         [
             "REF_PROG_DESCR",
             "",
-            "Referral Program enables its active users to earn passive BUSD income. Expand your structure by referring more people to the platform to get 5-20% of each EggNFT or Boost purchased by your structure members."
+            "Referral Program enables its active users to earn passive BUSD income. Expand your structure by referring more people to the platform to get 5-20% of each AlphaTribe NFT or Boost purchased by your structure members."
         ],
         [
             "REF_PROG_DESCR_COMING_SOON",
@@ -1025,6 +1025,16 @@
             "Profile In-App Beta"
         ],
         [
+            "REVEAL_COMING_SOON_TITLE",
+            "",
+            "NFTs Reveal Event"
+        ],
+        [
+            "REVEAL_COMING_SOON",
+            "",
+            "Keep and eye there when timer ends. Your NFTs will be revlead according his stats and selected pool."
+        ],
+        [
             "LAUNCHER_PROG_COMING_SOON",
             "",
             "This section will contain info about your evolved NFT, your Tokens and much much more ..."
@@ -1037,7 +1047,7 @@
         [
             "REF_PROG_DESCR_POLYGON",
             "",
-            "Referral Program enables its active users to earn passive BUSD income. Expand your structure by referring more people to the platform to get 5-20% of each EggNFT or Boost purchased by your structure members.",
+            "Referral Program enables its active users to earn passive BUSD income. Expand your structure by referring more people to the platform to get 5-20% of each AlphaTribe NFT or Boost purchased by your structure members.",
             "Polygon"
         ],
         [
@@ -1070,12 +1080,12 @@
         [
             "YOUR_BOOSTS_0_DESCR_BNB",
             "",
-            "Use BUSD or BUSD to buy some. You can also get Boosts from other people."
+            "Use BUSD to mint some. You can also get Boosts from other people."
         ],
         [
             "YOUR_BOOSTS_0_DESCR_BUSD",
             "",
-            "Use BUSD to buy some. You can also get Boosts from other people."
+            "Use BUSD to mint some. You can also get Boosts from other people."
         ],
         [
             "YOUR_NFTS",
@@ -1100,12 +1110,12 @@
         [
             "YOUR_NFTS_0_DESCR",
             "",
-            "Use BUSD to buy some. You can also get EggNFTs from other people."
+            "Use BUSD to mint some. You can also get AlphaTribe NFTs from other people."
         ],
         [
             "YOUR_NFTS_0_DESCR_BUSD",
             "",
-            "Use BUSD to buy some. You can also get EggNFTs from other people."
+            "Use BUSD to mint some. You can also get AlphaTribe NFTs from other people."
         ],
         [
             "YOUR_STAKE_0_TITLE",
@@ -1115,7 +1125,7 @@
         [
             "YOUR_STAKE_0_DESCR",
             "",
-            "Start staking your EggNFTs to earn interest now!"
+            "Start staking your AlphaTribe NFTs to earn interest now!"
         ],
         [
             "YOUR_STAKE_0_BTN",
@@ -1220,12 +1230,12 @@
         [
             "STAKE",
             "",
-            "Stake Your EggNFTs"
+            "Stake Your AlphaTribe NFTs"
         ],
         [
             "STAKE_DESCR",
             "",
-            "Please select a staking pool. There's Limited & Unlimited pools. EggNFTs staked in the former get burned once the staking period's over, while the latter enables you to unstake anytime."
+            "Please select a staking pool. There's Limited & Unlimited pools. AlphaTribe NFTs staked in the former get burned once the staking period's over, while the latter enables you to unstake anytime."
         ],
         [
             "SELECT",
@@ -1323,12 +1333,12 @@
         [
             "NO_TIME_BOOST",
             "",
-            "You don't have any Time Boosts yet. Buy one it to extend your staking period."
+            "You don't have any Time Boosts yet. Mint one it to extend your staking period."
         ],
         [
             "NO_PROFIT_BOOST",
             "",
-            "You don't have any Profit Boosts yet. Buy one it to increase interest on your NFT."
+            "You don't have any Profit Boosts yet. Mint one it to increase interest on your NFT."
         ],
         [
             "ACTIVE",
@@ -1338,7 +1348,7 @@
         [
             "BUY_BOOST",
             "",
-            "Buy"
+            "Mint"
         ],
         [
             "NFT_DETAILS",
@@ -1529,7 +1539,7 @@
         [
             "REWARD_INACTIVE_DESCR",
             "",
-            "Wow, you can't go higher than that! Everything is just full-on eggy now!"
+            "Wow, you can't go higher than that! Everything is just full-on alpha now!"
         ],
         [
             "REWARD_LINK",
@@ -1734,7 +1744,7 @@
         [
             "BUY_BOOST_AIRDROP",
             "",
-            "Buy Boosts"
+            "Mint Boosts"
         ],
         [
             "BTN_WRITE",
@@ -1801,7 +1811,7 @@
         [
             "",
             "",
-            "Обміняйте Вашу NFT отриману з Містері Боксів на EggNFT або NFT Boost для використання на платформі AlphaTribe"
+            "Обміняйте Вашу NFT отриману з Містері Боксів на AlphaTribe NFT або NFT Boost для використання на платформі AlphaTribe"
         ]
     ]
 }

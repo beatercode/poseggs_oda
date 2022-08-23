@@ -1348,6 +1348,9 @@ main > *{
 .header-beta{
     background-image:url(../images/all/beta-symbol.svg)
 }
+.header-egg-icon{
+    background-image:url(../images/all/push-icon.png)
+}
 .section-earn .half-img img{
     margin-left:auto;
     margin-bottom:32px
