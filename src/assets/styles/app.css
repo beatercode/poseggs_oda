@@ -739,6 +739,27 @@ main > *{
 .li-our-nfts-home {
     background-color: #1720cb;
 }
+@media (max-width:991.5px) {
+    .partner-section {
+        flex-direction: column;
+    }
+    .partners-image {
+        width: 100%;
+    }
+}
+.partner-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 15px;
+    margin-top: 20px;
+    opacity: .5;
+}
+.partners-image {
+    border-radius: 12px;
+    overflow: hidden;
+    width: 30%;
+}
 .nft-list-buy {
     min-width: calc(25% - 16px);
     margin: 8px;
@@ -891,14 +912,7 @@ main > *{
     /* background:radial-gradient(50% 50% at 49.87% 50.15%, #F4812E .01%,#e57849 100%) */
     background-color: #f16224
 }
-.li-our-nfts:nth-child(1),
-.li-our-nfts:nth-child(2),
-.li-our-nfts:nth-child(3),
-.li-our-nfts:nth-child(4),
-.li-our-nfts:nth-child(5),
-.li-our-nfts:nth-child(6),
-.li-our-nfts:nth-child(7),
-.li-our-nfts:nth-child(8) {
+.li-our-nfts {
     background-color: #1A1C29 !important;
     padding: 10px !important;
 }
@@ -1327,6 +1341,12 @@ main > *{
 }
 .header-crown{
     background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAYAAACohjseAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHaSURBVHgB7dlPTsJAFMfx32vRJXFrYi+gnoA90b2JnMC9Cdcw8QAuXJvAnsSdG6NrSNzjBWRtZ3yPfzEN0GQ60zLkfTfUppR+2g4yQFdv9hQHXIIDT4Gxp8DYU2DsKTD2FBh7Cow9BcaeAn11BGQp8JkSPo5TnKGmnIHzAyZ8pQkeKUG7bFsDDEFzWJYbDMuQsk/e/0Beo2z/u3IGmhTn/NCGRY+vzGDbQRRwq3Yi5zjLzwE68hqJxTUccwbaHCfrZYvLTcgtuFWZMXgurlzhLHABD3kbg0VkCW7xHGD6/2/fOKkFjwmSz9grEUaM6wHbxw4Bk5xwL0oeZ7f8kMmt6BMneQUuy/gg73ZtsMTdWINZi9Dn7fu8Tqzeq/3/4CYcAlYrsG6cVBuwCZxUC7ApnBQc2CROCgpsGicFA+4DTgoC3Bec5B0YCDeDY87AhDAurgt15fij3w8ccwYyRD4or89swNty9mvwDsfcp0sMsYQHWQ455njfL6gQVf2NnnjSynPDb1kO8IYyNYSunDg4VvlNZoXjuWDH85WbmGRxV6BC3qZLfDBjsphQxfkczyllvI1y4Ak5KucNOB+TQBd7ln4vGnsKjD0Fxp4CY0+BsafA2FNg7Ckw9v4Ap/7KLnxCjyIAAAAASUVORK5CYII=)
+}
+.header-game{
+    background-image:url(../images/all/coop-symbol.svg)
+}
+.header-beta{
+    background-image:url(../images/all/beta-symbol.svg)
 }
 .section-earn .half-img img{
     margin-left:auto;
@@ -2018,7 +2038,7 @@ main > *{
     width: 100%;
 }
 .cab-row-card.section-wrap-blocks .section-block-switcher{
-    margin-top:-10px
+    margin-top:0px
 }
 .cab-row-card.general-info-card{
     margin-left:-5px;
@@ -2506,6 +2526,9 @@ input.transfer-input+.btn{
     margin-top:10px
 }
 .copy-ref-link{
+    margin-top:0px
+}
+.copy-ref-link{
     display:flex;
     justify-content:flex-start;
     align-items:stretch;
@@ -2519,7 +2542,8 @@ input.transfer-input+.btn{
     line-height:20px;
     background:#fff;
     border-radius:4px;
-    color: #ffffff;
+    font-weight:600;
+    color: #000000;
     display:block;
     overflow:hidden;
     text-overflow:ellipsis;
@@ -3764,7 +3788,7 @@ input.transfer-input+.btn{
     max-width:382px;
     justify-self:flex-end;
     margin-left:auto;
-    margin-top:-28px
+    margin-top:-24px
 }
 .section-row-reward{
     display:flex;
@@ -4494,7 +4518,8 @@ header{
 .copy-ref-link-title{
     width:100%;
     text-align:left;
-    margin-top:10px
+    margin-bottom:10px;
+    margin-top:0px;
 }
 .msg-content{
     opacity:.5
@@ -4828,7 +4853,7 @@ header .btn{
     left:20px;
     background-color:rgba(31,33,50,.5);
     border-radius:8px;
-    background-image:url(data:image/png;base64,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);
+    background-image:url(../images/all/push-icon.png);
     background-size:contain;
     background-position:50%
 }
@@ -5716,6 +5741,9 @@ i[class*=" icon-"],i[class^=icon-]{
 }
 .icon-profile-2user{
     background-image:url(../images/all/leader-symbol.svg)
+}
+.icon-game{
+    background-image:url(../images/all/game-symbol.svg)
 }
 i.icon-crown{
     background-image:url(../images/all/crown.4c213eb2.svg);
@@ -9001,14 +9029,7 @@ i[class*=" i-"],i[class^=i-]{
         padding-left:16px;
         padding-right:16px
     }
-    .li-our-nfts:nth-child(1),
-    .li-our-nfts:nth-child(2),
-    .li-our-nfts:nth-child(3),
-    .li-our-nfts:nth-child(4),
-    .li-our-nfts:nth-child(5),
-    .li-our-nfts:nth-child(6),
-    .li-our-nfts:nth-child(7),
-    .li-our-nfts:nth-child(8) {
+    .li-our-nfts {
         background-color: #1A1C29 !important;
         padding: 6px !important;
     }
@@ -9891,7 +9912,7 @@ i[class*=" i-"],i[class^=i-]{
     .main-statistics{
         flex-direction:column;
         margin-top:-56px;
-        width:calc(100% - 32px);
+        width:100%;
         transform:translateY(0);
         margin-left:auto;
         margin-right:auto
@@ -10418,8 +10439,6 @@ i[class*=" i-"],i[class^=i-]{
         padding:16px 16px 16px 72px
     }
     .ul-our-nfts{
-        margin-left:-6px;
-        margin-right:-6px;
         width:calc(100% + 12px);
         max-width:calc(100% + 12px)
     }

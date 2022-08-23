@@ -15,7 +15,7 @@
                 </button>
             </div>
             <div class="modal-content modal-content-stake-pool">
-                <div class="modal-section modal-section-stake-pool">
+                <div class="modal-section modal-section-stake-pool overflow-vertical">
                     <div class="h4">{{ translatesGet("YOUR_ST_POOL") }}:</div>
                     <div class="modal-select-pool-wrap">
                         <button v-for="(stPlan, index) of this.conf[this.currentBlockchain].STAKING_PLANS" class="select-pool-block"

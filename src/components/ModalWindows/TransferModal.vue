@@ -369,7 +369,7 @@
                     this.$store.commit("push_notification", {
                         type: "success",
                         typeClass: "success",
-                        message: `Your transaction has been processed! Your quacky NFT has been sent successfully!`,
+                        message: `Your transaction has been processed! Your Tribe NFT has been sent successfully!`,
                     });
                     this.$emit("close");
                 } catch (error) {

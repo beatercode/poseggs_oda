@@ -172,7 +172,7 @@
                             </li>
                             <li>
                                 <span class="title-upper">{{ translatesGet("NFT_VOLUME") }}</span>
-                                <span class="h3">{{ siteData[mainChain].NFT.totalAmountSoldNft }} BUSD</span>
+                                <span class="h3">{{ siteData && siteData[mainChain].NFT.totalAmountSoldNft }} BUSD</span>
                             </li>
                             <li>
                                 <span class="title-upper">{{ translatesGet("TOTAL_PARTICIPANTS") }}</span>
@@ -194,7 +194,7 @@
                                 <div class="">
                                     <div class="chat-row chat-right">
                                         <div class="comment">
-                                            <span>{{ translatesGet("QUACK_2") }}</span>
+                                            <span>{{ translatesGet("TRIBE_2") }}</span>
                                         </div>
                                         <div class="chat-avatar she">
                                             <div class="avatar-img"></div>
@@ -251,7 +251,7 @@
                                     <li class="program-item egg-1">
                                         <div class="program-col">
                                             <span class="program-col-title">{{ "PROFIT" }}</span>
-                                            <span class="program-col-value">120%</span>
+                                            <span class="program-col-value">4440%</span>
                                         </div>
                                         <div class="program-col">
                                             <span class="program-col-title">DAYS</span>
@@ -951,10 +951,10 @@
                                         <div class="chat-avatar she">
                                             <div class="avatar-img"></div>
                                         </div>
-                                        <div class="comment">{{ translatesGet("QUACK_3") }}</div>
+                                        <div class="comment">{{ translatesGet("TRIBE_3") }}</div>
                                     </div>
                                     <div class="chat-row chat-right">
-                                        <div class="comment">{{ translatesGet("QUACK_4") }}</div>
+                                        <div class="comment">{{ translatesGet("TRIBE_4") }}</div>
                                         <div class="chat-avatar he">
                                             <div class="avatar-img"></div>
                                         </div>
@@ -1209,10 +1209,10 @@
                                         <div class="chat-avatar she">
                                             <div class="avatar-img"></div>
                                         </div>
-                                        <div class="comment">{{ translatesGet("QUACK_5") }}</div>
+                                        <div class="comment">{{ translatesGet("TRIBE_5") }}</div>
                                     </div>
                                     <div class="chat-row chat-right">
-                                        <div class="comment">{{ translatesGet("QUACK_6") }}</div>
+                                        <div class="comment">{{ translatesGet("TRIBE_6") }}</div>
                                         <div class="chat-avatar he">
                                             <div class="avatar-img"></div>
                                         </div>

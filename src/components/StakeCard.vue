@@ -859,8 +859,9 @@ export default {
             const Difference_In_Hours_C = Difference_In_Hours;
             const Difference_In_Mins_C = Difference_In_Mins;
             const Difference_In_Secs_C = Difference_In_Secs;
-
-            let countdownUntilNexLevel = myBonusLevel >= levelRequired ? "Obtained"
+            
+            let countdownUntilNexLevel = ((stake.stakePlan == 0 && levelRequired < 3)
+                || (stake.stakePlan == 1 && levelRequired < 2)) ? "Disabled" : myBonusLevel >= levelRequired ? "Obtained"
                 : (
                     levelRequired == 1 ? this.formatTimeDifference(Difference_In_Days_A, Difference_In_Hours_A, Difference_In_Mins_A, Difference_In_Secs_A) :
                         levelRequired == 2 ? this.formatTimeDifference(Difference_In_Days_B, Difference_In_Hours_B, Difference_In_Mins_B, Difference_In_Secs_B) :
@@ -870,6 +871,7 @@ export default {
             return countdownUntilNexLevel;
         },
         getClaimBonusData(levelRequired, stake) {
+
             let percent = levelRequired == 1
                 ? `+${conf["CLAIM_BONUS_DATA"].percent[0]}%` : levelRequired == 2
                     ? `+${conf["CLAIM_BONUS_DATA"].percent[1]}%` : `+${conf["CLAIM_BONUS_DATA"].percent[2]}%`;

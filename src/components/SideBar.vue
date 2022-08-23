@@ -54,6 +54,12 @@
                         <span class="link-name">{{ translatesGet("INCENTIVE_PROGRAM") }}</span>
                     </router-link>
                 </li>
+                <li>
+                    <router-link active-class="active" :to="{ name: 'Portal' }">
+                        <span class="icon-wrap"> <i class="icon icon-game"> </i></span>
+                        <span class="link-name">{{ "Portal" }}</span>
+                    </router-link>
+                </li>
             </ul>
         </nav>
         <div class="sidebar-block">

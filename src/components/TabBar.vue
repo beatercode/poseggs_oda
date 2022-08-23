@@ -72,6 +72,12 @@
                     </router-link>
                 </li>
                 <li class="tab-item" @click="showMore = !showMore">
+                    <router-link active-class="active" :to="{ name: 'Portal' }">
+                        <span class="icon-wrap"> <i class="icon icon-profile-2user"> </i></span>
+                        <span class="link-name">{{ "Portal" }}</span>
+                    </router-link>
+                </li>
+                <li class="tab-item" @click="showMore = !showMore">
                     <a href="https://eggroi.gitbook.io/eggroi" target="_blank" rel="nofollow">
                         <span class="icon-wrap"> <i class="icon icon-book"> </i></span>
                         <span class="link-name">{{ translatesGet("GITBOOK") }}</span>

@@ -909,7 +909,6 @@ export default {
         },
         isClaimed(level) {
             if (this.userNftsData && this.userNftsData.length > 0) {
-                console.log(this.userNftsData)
                 // const index = this.userNftsData[this.currentBlockchain].claimedBoosts.findIndex((el) => el.leader_level === level);
                 const index = 0;
                 return index < 0 ? "" : "img-done";

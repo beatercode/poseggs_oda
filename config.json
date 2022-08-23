@@ -610,7 +610,7 @@
         "NODE": "https://polygon-rpc.com/"
     },
     "CLAIM_BONUS_DATA": {
-        "days": [3, 6, 9],
+        "days": [7, 14, 21],
         "percent": [15, 40, 90]
     },
     "LOOTBOX_DATA": {
@@ -640,7 +640,8 @@
         "name": ["Spider Egg", "Water Egg", "Forest Egg", "Electro Egg", "Ground Egg", "Vulcan Egg", "Fairy Egg", "Magic Egg"]
     },
     "MISC": {
-        "poolNames": ["Alpha", "Beta", "Gamma", "Delta", "Epsilon", "Zeta", "Eta", "Theta"]
+        "poolNames": ["Alpha", "Beta", "Gamma", "Delta", "Epsilon", "Zeta", "Eta", "Theta"],
+        "betaTime": "30092022"
     },
     "PRIMARY_BLOCKCHAIN": {
         "symbol": "bsc-test",

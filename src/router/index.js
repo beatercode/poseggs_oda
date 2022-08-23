@@ -143,6 +143,20 @@ const routes = [{
                     },
                 },
                 {
+                    path: "Portal",
+                    name: "Portal",
+                    component: () =>
+                        import ("../views/Cabinet/Tabs/Portal.vue"),
+                    beforeEnter(to, from, next) {
+                        window.scrollTo({
+                            top: 0,
+                            behavior: "instant",
+                        });
+                        next();
+                        // ...
+                    },
+                },
+                {
                     path: "airdrop",
                     name: "Airdrop",
                     component: () =>

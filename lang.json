@@ -322,7 +322,7 @@
         [
             "TEAM_BOOST_UNAVAIL_DESC",
             "",
-            "The higher your leader's level is, the higher is the Boost LVL your team members can claim. Go for a quacky chief to secure higher-LVL Boosts for your team."
+            "The higher your leader's level is, the higher is the Boost LVL your team members can claim. Go for an Alpha chief to secure higher-LVL Boosts for your team."
         ],
         [
             "TEAM_BOOST_UNAVAIL_DESC_2",
@@ -432,9 +432,9 @@
             "You're Leader"
         ],
         [
-            "QUACK_1",
+            "TRIBE_1",
             "",
-            "Quack, quack! 🦆 Curious how I got these wheels? Join in to find out!"
+            "Curious how I got these wheels? Join in to find out!"
         ],
         [
             "AUDITED_BY",
@@ -469,15 +469,15 @@
         [
             "OUR_NFT_DESC",
             "",
-            "AlphaTribe has its own quacky NFT collection launched on the BNB Chain net. There's 8 NFT types of the ERC-721 standard."
+            "AlphaTribe has its own NFT collection launched on the BNB Chain net. There's 8 NFT types of the ERC-721 standard."
         ],
         [
             "OUR_NFT_DESC_BUSD",
             "",
-            "AlphaTribe has its own quacky NFT collection launched on the Polygon net. There's 8 NFT types of the ERC-721 standard."
+            "AlphaTribe has its own NFT collection launched on the Polygon net. There's 8 NFT types of the ERC-721 standard."
         ],
         [
-            "QUACK_2",
+            "TRIBE_2",
             "",
             "First you need to purchase a staking NFT. Pick your fave egg and follow my lead. It's been eggy for me ever since I started staking NFTs!"
         ],
@@ -805,24 +805,24 @@
             "Leader Program gives AlphaTribe's most active users - leaders - the opportunity to secure Boosts for their team members as their structures reach higher levels."
         ],
         [
-            "QUACK_3",
+            "TRIBE_3",
             "",
             "How do I take the leader's reins?"
         ],
         [
-            "QUACK_4",
+            "TRIBE_4",
             "",
-            "Expand your structure inviting more quacky friends!"
+            "Expand your structure inviting more Tribe friends!"
         ],
         [
-            "QUACK_5",
+            "TRIBE_5",
             "",
             "How do I take the leader's reins?"
         ],
         [
-            "QUACK_6",
+            "TRIBE_6",
             "",
-            "Expand your structure inviting more quacky friends!"
+            "Expand your structure inviting more Tribe friends!"
         ],
         [
             "LEADERSHIP_PROGRAMM_ITEM_1",
@@ -1012,7 +1012,27 @@
         [
             "REF_PROG_COMING_SOON",
             "",
-            "Leader Referral system is coming in first week after offical lauch ..."
+            "Leader Referral system is coming in first week after offical launch ..."
+        ],
+        [
+            "PARTNER_PROG_COMING_SOON_TITLE",
+            "",
+            "AlphaTribe parterships"
+        ],
+        [
+            "LAUNCHER_PROG_COMING_SOON_TITLE",
+            "",
+            "Profile In-App Beta"
+        ],
+        [
+            "LAUNCHER_PROG_COMING_SOON",
+            "",
+            "This section will contain info about your evolved NFT, your Tokens and much much more ..."
+        ],
+        [
+            "PARTNER_PROG_COMING_SOON",
+            "",
+            "Official Partener of AlphaTribe will be announced in middle Semptember. Keep an eye on this section not to miss any important news!"
         ],
         [
             "REF_PROG_DESCR_POLYGON",
@@ -1185,7 +1205,7 @@
         [
             "FREE_EGG_BUY_DESCR",
             "",
-            "Here you can see our special eggs. Free Egg can be free-minted once per day; Alpha Tribe admin will be realese 5 Eggs in a random moment of the day, keep an Eye on it and claim as fast as possibile! Bonus TIER 9 Egg can be only obtained from lootbox, get you chance!"
+            "Here you can see our special eggs. Free Egg can be free-minted once per day; Alpha Tribe admin will be realese 5 Eggs in a random moment of the day, keep an Eye on it and claim as fast as possibile! Bonus TIER 9 Egg can be only obtained from lootbox, get your chance!"
         ],
         [
             "MINT_LOOTBOX",
@@ -1601,7 +1621,7 @@
         [
             "MODAL_LEAD_TITLE",
             "",
-            "Become Quacky Leader"
+            "Become Tribe Leader"
         ],
         [
             "MODAL_LEAD_DESC_1",
@@ -1611,7 +1631,7 @@
         [
             "MODAL_LEAD_DESC_2",
             "",
-            "Level 1 is the minimum required one to become your team's leader. Hit “Become Leader, Quack” if you're Level 1 or higher. The button will be lit up for you once you meet the conditions. Team Boosts unlock for your team members on your becoming the leader."
+            "Level 1 is the minimum required one to become your team's leader. Hit “Become Leader” if you're Level 1 or higher. The button will be lit up for you once you meet the conditions. Team Boosts unlock for your team members on your becoming the leader."
         ],
         [
             "MODAL_LEAD_SECTION_TITLE_1_1",
@@ -1680,7 +1700,7 @@
         [
             "MODAL_LEAD_MAIN_BTN",
             "",
-            "Become Leader, Quack"
+            "Become Leader"
         ],
         [
             "MODAL_LEAD_WARN_1",
