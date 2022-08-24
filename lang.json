@@ -1032,7 +1032,7 @@
         [
             "REVEAL_COMING_SOON",
             "",
-            "Keep and eye there when timer ends. Your NFTs will be revlead according his stats and selected pool."
+            "Keep and eye there when timer ends. Your NFTs will be revealed according his stats and selected pool."
         ],
         [
             "LAUNCHER_PROG_COMING_SOON",
@@ -1235,7 +1235,7 @@
         [
             "STAKE_DESCR",
             "",
-            "Please select a staking pool. There's Limited & Unlimited pools. AlphaTribe NFTs staked in the former get burned once the staking period's over, while the latter enables you to unstake anytime."
+            "Please select a staking pool. AlphaTribe NFTs staked get burned once the staking period's over. You only got a single shot into the pool, choose carefully"
         ],
         [
             "SELECT",

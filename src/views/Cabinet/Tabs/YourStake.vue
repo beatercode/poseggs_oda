@@ -6,17 +6,38 @@
         <section class="cab-row">
             <div class="cab-row-card">
                 <div class="cab-card-wrap your-stake-card">
+
+                    <!--div class="card-header" style="padding-top: 0px; padding-left: 0px; flex-direction: column;">
+                        <div>
+                            <div class="h4" style="margin-top: 10px; lex-direction: row; display: flex;">
+                                <div class="earn-piggy-bank" style="width: 30px; height: 30px; margin-right: 10px;">
+                                </div>{{ translatesGet("STAKING_DASH") }}
+                            </div>
+                            <div class="h5">{{ translatesGet("STAKING_DASH_DESCR") }}</div>
+                        </div>
+                        <div style="padding-top: 15px">
+                            <div class="h4" style="margin-top: 10px; lex-direction: row; display: flex;">
+                                <div class="earn-claim-bonus" style="width: 30px; height: 30px; margin-right: 10px;">
+                                </div>{{ translatesGet("CLAIM_HOLD_BONUS") }}
+                            </div>
+                            <div class="h5">{{ translatesGet("CLAIM_HOLD_BONUS_DESCR") }}</div>
+                        </div>
+                    </div-->
                     <div class="card-header">
-                        <div class="card-header-icon earn-buy"></div>
+                        <div class="card-header-icon earn-piggy-bank"></div>
                         <div>
                             <div class="h4">{{ translatesGet("STAKING_DASH") }}</div>
                             <div class="h5">{{ translatesGet("STAKING_DASH_DESCR") }}</div>
-                            <div class="h4" style="margin-top: 10px">{{ translatesGet("CLAIM_HOLD_BONUS") }}</div>
+                        </div>
+                    </div>
+                    <div class="card-header" style="margin-top: 20px;">
+                        <div class="card-header-icon earn-claim-bonus"></div>
+                        <div>
+                            <div class="h4">{{ translatesGet("CLAIM_HOLD_BONUS") }}</div>
                             <div class="h5">{{ translatesGet("CLAIM_HOLD_BONUS_DESCR") }}</div>
                         </div>
                     </div>
-                    <div class="cab-row"
-                        :class="{ 'row-binance': !currentBlockchain || currentBlockchain === 56 || currentBlockchain === 97, 'row-polygon': currentBlockchain === 137 }">
+                    <div class="cab-row row-binance">
                         <div class="cab-row-card general-info-card">
                             <div class="general-card profit">
                                 <div class="general-card-col">
@@ -108,10 +129,10 @@ export default {
         },
         getClaimableBonusLevel(stake) {
             const { Difference_In_Days } = this.getTimeSinceLastClaim(stake);
-            return Difference_In_Days >= conf["CLAIM_BONUS_DATA"].days[2] 
-                ? 3 : Difference_In_Days >= conf["CLAIM_BONUS_DATA"].days[1] 
-                ? 2 : Difference_In_Days >= conf["CLAIM_BONUS_DATA"].days[0] 
-                ? 1 : 0;
+            return Difference_In_Days >= conf["CLAIM_BONUS_DATA"].days[2]
+                ? 3 : Difference_In_Days >= conf["CLAIM_BONUS_DATA"].days[1]
+                    ? 2 : Difference_In_Days >= conf["CLAIM_BONUS_DATA"].days[0]
+                        ? 1 : 0;
         },
         getTimeSinceLastClaim(stake) {
             let rightNow = Date.now();

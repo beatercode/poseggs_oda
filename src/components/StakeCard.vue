@@ -289,12 +289,12 @@
                         </div>
                     </div>
                     <div class="stake-info-block">
-                        <div class="stake-pool-col-name">
-                            {{ translatesGet("EXPECTED_REWARD") }}
+                        <div class="stake-pool-col-name" style="white-space: nowrap;">
+                            {{ translatesGet("EXPECTED_REWARD") }}<span style="font-size: 0.6rem; margin-left: 4px;">(BUSD)</span>
                         </div>
                         <div class="stake-pool-col-value" style="white-space: nowrap;">
                             <span>{{ getStakingPlanData(fullStakeDetails)[3] }}</span>
-                            <span style="font-size: 0.8rem; margin-left: 1px;">BUSD</span>
+                            <!--span style="font-size: 0.8rem; margin-left: 1px;">BUSD</span-->
                         </div>
                         <div class="select-boost-item-data-wrap" v-if="
                             showMore &&
@@ -1159,7 +1159,7 @@ export default {
         showMore: function (newVal) {
             if (newVal) {
                 const [days, daily] = this.getStakingPlanData(this.fullStakeDetails);
-                let increasedDays = Number(days.replace("DAYS", ""));
+                let increasedDays = Number(days);
                 let increasedPercent = Number(daily);
                 if (!this.isTeamBoostApplied) {
                     this.selectedTeamBoost = this.teamBoosts[0] || null;
