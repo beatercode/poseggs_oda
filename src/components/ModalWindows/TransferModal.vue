@@ -140,7 +140,7 @@
             </div>
         </div>
     </div>
-    <div v-else-if="nftType === AlphaBoost" class="modal modal-transfer modal-transfer-boost">
+    <div v-else-if="nftType === 'AlphaBoost'" class="modal modal-transfer modal-transfer-boost">
         <div class="modal-full-close" @click="$emit('close')"></div>
         <div class="modal-wrap">
             <div class="modal-header">
@@ -203,7 +203,7 @@
                                     <div class="icon-wrap">
                                         <img src="@/assets/images/all/push-icon.png" alt="" />
                                     </div>
-                                    <span>{{ nft.collection }} </span>
+                                    <span>{{ "AlphaTribes-BOOST" }} </span>
                                 </div>
                             </div>
                             <div class="nft-details-describe">{{ nft.description }}</div>
@@ -390,6 +390,7 @@
             },
         },
         created() {
+            console.log(this.nft)
             if ('name' in this.nft) {
                 let thisNftTimeBoost = this.nft.boostTimePercent;
                 let thisNftProfitBoost = this.nft.boostProfitPercent;

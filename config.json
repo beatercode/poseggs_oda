@@ -169,23 +169,44 @@
         ],
         "STAKING_PLANS": {
             "0": {
-                "days": 0,
-                "profitPerDay": 3.33
+                "days": 17,
+                "perc": 119.0,
+                "profitPerDay": 7
             },
             "1": {
-                "days": 17,
-                "perc": 120,
-                "profitPerDay": 7.0588
+                "days": 27,
+                "perc": 180.9,
+                "profitPerDay": 6.7
             },
             "2": {
-                "days": 27,
-                "perc": 140,
-                "profitPerDay": 5.1851
+                "days": 37,
+                "perc": 236.8,
+                "profitPerDay": 6.3
             },
             "3": {
                 "days": 47,
-                "perc": 220,
-                "profitPerDay": 4.6808
+                "perc": 233.1,
+                "profitPerDay": 6.1
+            },
+            "4": {
+                "days": 57,
+                "perc": 319.2,
+                "profitPerDay": 5.6
+            },
+            "5": {
+                "days": 67,
+                "perc": 355.1,
+                "profitPerDay": 5.3
+            },
+            "6": {
+                "days": 77,
+                "perc": 392.7,
+                "profitPerDay": 5.1
+            },
+            "7": {
+                "days": 87,
+                "perc": 435.0,
+                "profitPerDay": 5.0
             }
         },
         "MIN_NFT_PRICE": "0.01",
@@ -369,43 +390,43 @@
         "STAKING_PLANS": {
             "0": {
                 "days": 17,
-                "perc": 124.1,
-                "profitPerDay": 7.3
+                "perc": 119.0,
+                "profitPerDay": 7
             },
             "1": {
                 "days": 27,
-                "perc": 183.6,
-                "profitPerDay": 6.8
+                "perc": 180.9,
+                "profitPerDay": 6.7
             },
             "2": {
                 "days": 37,
                 "perc": 236.8,
-                "profitPerDay": 6.4
+                "profitPerDay": 6.3
             },
             "3": {
                 "days": 47,
-                "perc": 286.7,
+                "perc": 233.1,
                 "profitPerDay": 6.1
             },
             "4": {
                 "days": 57,
-                "perc": 324.9,
-                "profitPerDay": 5.7
+                "perc": 319.2,
+                "profitPerDay": 5.6
             },
             "5": {
                 "days": 67,
-                "perc": 361.8,
-                "profitPerDay": 5.4
+                "perc": 355.1,
+                "profitPerDay": 5.3
             },
             "6": {
                 "days": 77,
-                "perc": 400.4,
-                "profitPerDay": 5.2
+                "perc": 392.7,
+                "profitPerDay": 5.1
             },
             "7": {
                 "days": 87,
-                "perc": 443.7,
-                "profitPerDay": 5.1
+                "perc": 435.0,
+                "profitPerDay": 5.0
             }
         },
         "MIN_NFT_PRICE": "0.01",
@@ -635,7 +656,7 @@
     "EGG_DATA": {
         "prices": [17, 47, 97, 197, 497, 997, 1997, 4997],
         "stats": [10, 20, 30, 40, 50, 60, 70, 80],
-        "profits": [7.3, 6.8, 6.4, 6.1, 5.7, 5.4, 5.2, 5.1],
+        "profits": [7, 6.7, 6.3, 6.1, 5.6, 5.3, 5.1, 5.0],
         "periods": [17, 27, 37, 47, 57, 67, 77, 87],
         "name": ["Spider Egg", "Water Egg", "Forest Egg", "Electro Egg", "Ground Egg", "Vulcan Egg", "Fairy Egg", "Magic Egg"]
     },

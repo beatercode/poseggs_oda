@@ -100,7 +100,7 @@
                             <div class="li-our-nfts nft-list-buy nft-list-inv-page" v-for="nft of nftBoost">
                                 <div class="block-percent-img">
                                     <div class="your-nft-img"
-                                        @click="(nftType = AlphaBoost), (showTransferModal = true), (onlyData = true), (selectedNft = nft)">
+                                        @click="(nftType = 'AlphaBoost'), (showTransferModal = true), (onlyData = true), (selectedNft = nft)">
                                         <img :src="getBoostImg(nft)" />
                                     </div>
                                 </div>
@@ -149,7 +149,7 @@
                                 <div class="block-percent-content">
                                     <div class="btns-container">
                                         <button
-                                            @click="(nftType = AlphaBoost), (showTransferModal = true), (selectedNft = nft)"
+                                            @click="(nftType = 'AlphaBoost'), (showTransferModal = true), (selectedNft = nft)"
                                             class="btn btn-transfer">
                                             {{ translatesGet("BTN_TRANSFER") }}
                                         </button>

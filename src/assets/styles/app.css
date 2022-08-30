@@ -3780,6 +3780,15 @@ input.transfer-input+.btn{
     font-weight: 700;
     font-size: 14px;
 }
+.home-iphone-cut-desktop {
+    width: 100%;
+}
+.home-iphone-cut {
+    display: block;
+    height: 400px;
+    line-height: 200px;
+    overflow: hidden;
+}
 .select-pool-block .value{
     font-family:Sora,sans-serif;
     font-style:normal;

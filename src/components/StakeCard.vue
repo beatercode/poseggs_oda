@@ -38,7 +38,7 @@
                                 v-if="!isBoostApplied(2)" class="st-boost" @click="showMore = true">
                                 <i class="icon-plus"></i>
                             </button>
-                            <button v-if="isBoostApplied(2)" class="st-boost" @click.stop="showMore = showMore" @click="(nftType = AlphaBoost), (showTransferModal = true), (onlyData = true),
+                            <button v-if="isBoostApplied(2)" class="st-boost" @click.stop="showMore = showMore" @click="(nftType = 'AlphaBoost'), (showTransferModal = true), (onlyData = true),
                             (selectedNft = fullStakeDetails.boostEvents.find((el) => el.boostType === 1))">
                                 <img :src="getImageForBoost(fullStakeDetails, 1)" alt="" class="" />
                             </button>
@@ -46,7 +46,7 @@
                                 v-if="!isBoostApplied(1)" class="st-boost" @click="showMore = true">
                                 <i class="icon-plus"></i>
                             </button>
-                            <button v-if="isBoostApplied(1)" class="st-boost" @click.stop="showMore = showMore" @click="(nftType = AlphaBoost), (showTransferModal = true), (onlyData = true),
+                            <button v-if="isBoostApplied(1)" class="st-boost" @click.stop="showMore = showMore" @click="(nftType = 'AlphaBoost'), (showTransferModal = true), (onlyData = true),
                             (selectedNft = fullStakeDetails.boostEvents.find((el) => el.boostType === 0))">
                                 <img :src="getImageForBoost(fullStakeDetails, 0)" alt="" class="" />
                             </button>
@@ -54,7 +54,7 @@
                                 v-if="!isBoostApplied(3)" class="st-boost" @click="showMore = true">
                                 <i class="icon-plus"></i>
                             </button>
-                            <button v-if="isBoostApplied(3)" class="st-boost" @click.stop="showMore = showMore" @click="(nftType = AlphaBoost), (showTransferModal = true), (onlyData = true),
+                            <button v-if="isBoostApplied(3)" class="st-boost" @click.stop="showMore = showMore" @click="(nftType = 'AlphaBoost'), (showTransferModal = true), (onlyData = true),
                             (selectedNft = fullStakeDetails.boostEvents.find((el) => el.boostType === 2))">
                                 <img :src="getImageForBoost(fullStakeDetails, 2)" alt="" class="" />
                             </button>
@@ -71,39 +71,6 @@
                 </div>
             </div>
             <div class="your-stake-col your-stake-data">
-                <!--div class="stake-data-header">
-                    <div class="stake-id">
-                        #{{ fullStakeDetails.event_data.depositIdx + 1 }}
-                    </div>
-                    <div class="stake-boosts">
-                        <template>
-                            <button :disabled="getStakingPlanData(fullStakeDetails)[6] === true"
-                                v-if="!isBoostApplied(2)" class="st-boost" @click="showMore = true">
-                                <i class="icon-plus"></i>
-                            </button>
-                            <button v-if="isBoostApplied(2)" class="st-boost" @click.stop="showMore = showMore" @click="(nftType = AlphaBoost), (showTransferModal = true), (onlyData = true),
-                            (selectedNft = fullStakeDetails.boostEvents.find((el) => el.boostType === 1))">
-                                <img :src="getImageForBoost(fullStakeDetails, 1)" alt="" class="" />
-                            </button>
-                            <button :disabled="getStakingPlanData(fullStakeDetails)[6] === true"
-                                v-if="!isBoostApplied(1)" class="st-boost" @click="showMore = true">
-                                <i class="icon-plus"></i>
-                            </button>
-                            <button v-if="isBoostApplied(1)" class="st-boost" @click.stop="showMore = showMore" @click="(nftType = AlphaBoost), (showTransferModal = true), (onlyData = true),
-                            (selectedNft = fullStakeDetails.boostEvents.find((el) => el.boostType === 0))">
-                                <img :src="getImageForBoost(fullStakeDetails, 0)" alt="" class="" />
-                            </button>
-                            <button :disabled="getStakingPlanData(fullStakeDetails)[6] === true"
-                                v-if="!isBoostApplied(3)" class="st-boost" @click="showMore = true">
-                                <i class="icon-plus"></i>
-                            </button>
-                            <button v-if="isBoostApplied(3)" class="st-boost" @click.stop="showMore = showMore" @click="(nftType = AlphaBoost), (showTransferModal = true), (onlyData = true),
-                            (selectedNft = fullStakeDetails.boostEvents.find((el) => el.boostType === 2))">
-                                <img :src="getImageForBoost(fullStakeDetails, 2)" alt="" class="" />
-                            </button>
-                        </template>
-                    </div>
-                </div-->
                 <div class="stake-pool-info">
                     <div class="container-pool-info">
                         <div class="stake-pool-col stake-pool">

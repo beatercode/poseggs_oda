@@ -132,8 +132,8 @@
                                 <a href="#section-our-nft" class="btn btn-buy-nft">{{ translatesGet("BUY_NFT") }} </a>
                             </div>
                             <div class="half-img section-mobile">
-                                <div class="img-wrap">
-                                    <img style="margin: auto; max-height: 500px;" src="@/assets/images/all/main-img.png"
+                                <div class="img-wrap home-iphone-cut">
+                                    <img style="margin: auto; max-height: 500px;" src="@/assets/images/all/main-img-iphone.png"
                                         alt="main-img" />
                                 </div>
                             </div>
@@ -150,8 +150,8 @@
                         </div>
 
                         <div class="section-half half-img section-desctop">
-                            <div class="img-wrap">
-                                <img style="margin: auto; max-height: 500px;" src="@/assets/images/all/main-img.png"
+                            <div class="img-wrap home-iphone-cut-desktop">
+                                <img style="float: right; max-height: 500px;" src="@/assets/images/all/main-img-iphone.png"
                                     alt="main-img" />
                             </div>
                         </div>
