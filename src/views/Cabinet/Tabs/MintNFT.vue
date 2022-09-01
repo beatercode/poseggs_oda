@@ -716,8 +716,7 @@ export default {
             }
             if (!this.usdcAmount) {
                 this.disablePercWatcher = true;
-                this.usdcAmount =
-                    this.currentBlockchain && this.currentBlockchain === 97 ? 17 : 0.01;
+                this.usdcAmount = 17;
             }
 
             if (this.usdcAmount > 99999.9999) {
@@ -913,8 +912,7 @@ export default {
                         _this.currentAddress !==
                         "0x0000000000000000000000000000000000000000" &&
                         _this.userERC20Balance !== null &&
-                        (Number(_this.currentBlockchain) === Number(obj.chain) ||
-                            Number(_this.currentBlockchain) === 97)
+                        (Number(_this.currentBlockchain) === Number(obj.chain))
                     ) {
                         _this.disablePercWatcher = true;
                         _this.usdcAmount = obj.price.toString();
@@ -957,7 +955,7 @@ export default {
             "currency",
         ]),
         getImage() {
-            if (this.currentBlockchain === 56 || this.currentBlockchain === 97) {
+            if (this.currentBlockchain === 43114 || this.currentBlockchain === 43113) {
                 const eggNumber =
                     Number(this.usdcAmount) < 0.1
                         ? "56" + "-1"

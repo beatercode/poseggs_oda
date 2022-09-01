@@ -493,7 +493,7 @@ export default {
             }
             if (!this.bnbAmount) {
                 this.disablePercWatcher = true;
-                this.bnbAmount = this.currentBlockchain && this.currentBlockchain === 97 ? 17 : 0.01;
+                this.bnbAmount = 17;
             }
 
             if (this.bnbAmount > 99999.9999) {
@@ -636,9 +636,7 @@ export default {
                         _this.currentAddress &&
                         _this.currentAddress !== "0x0000000000000000000000000000000000000000" &&
                         _this.userERC20Balance !== null &&
-                        (Number(_this.currentBlockchain) === Number(obj.chain)
-                            ||
-                            Number(_this.currentBlockchain) === 97)
+                        (Number(_this.currentBlockchain) === Number(obj.chain))
                     ) {
                         _this.disablePercWatcher = true;
                         _this.bnbAmount = obj.price.toString();
@@ -674,7 +672,7 @@ export default {
     computed: {
         ...mapState(["userCoinBalance", "userERC20Balance", "currentBlockchain", "userNftsData", "currentAddress", "currency"]),
         getImage() {
-            if (this.currentBlockchain === 56 || this.currentBlockchain === 97) {
+            if (this.currentBlockchain === 43114 || this.currentBlockchain === 43113) {
                 const eggNumber =
                     Number(this.bnbAmount) < 0.1
                         ? "56" + "-1"

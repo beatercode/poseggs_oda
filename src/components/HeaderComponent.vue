@@ -131,14 +131,14 @@
                         <div @click="hideBalance = !hideBalance" class="btn-balance-wrap">
                             <div class="balance-title">{{ translatesGet("BALANCE") }}</div>
                             <button :class="{ active: !hideBalance }" class="balance">
-                                <div v-if="currentBlockchain && currentBlockchain === 56 || currentBlockchain === 97">{{ Number(userERC20Balance).toFixed(2) }} USDC</div>
+                                <div>{{ Number(userERC20Balance).toFixed(2) }} USDC</div>
                                 <div>{{ Number(userCoinBalance).toFixed(3) }} {{ currency }}</div>
                                 <div class="balance-icon icon-wrap">
                                     <i class="icon-eye-slash"></i>
                                 </div>
                             </button>
                             <button :class="{ active: hideBalance }" class="balance">
-                                <div v-if="currentBlockchain && currentBlockchain === 56 || currentBlockchain === 97">*** USDC</div>
+                                <div>*** USDC</div>
                                 <div>*** USDC</div>
                                 <div class="balance-icon icon-wrap">
                                     <i class="icon-eye"></i>

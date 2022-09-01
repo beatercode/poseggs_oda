@@ -98,17 +98,8 @@ export default {
     mixins: [copiedMixin],
     methods: {
         getStats(level) {
-            if (this.isLeaderProgram && (!this.currentBlockchain || this.currentBlockchain === 56 || this.currentBlockchain === 97)) {
-                const obj = conf[this.currentBlockchain || 56].LEAD_RULES.find((el) => el.level === level);
-                return [obj.turnover, obj.referrals];
-            } else if (this.isRefProgram && (!this.currentBlockchain || this.currentBlockchain === 56 || this.currentBlockchain === 97)) {
-                const obj = conf[this.currentBlockchain || 56].REF_RULES.find((el) => el.level === level);
-                return [obj.turnover, obj.referrals];
-            } else if (this.isLeaderProgram && (!this.currentBlockchain || this.currentBlockchain === 137)) {
-                const obj = conf[this.currentBlockchain || 56].LEAD_RULES.find((el) => el.level === level);
-                return [obj.turnover, obj.referrals];
-            } else if (this.isRefProgram && (!this.currentBlockchain || this.currentBlockchain === 137)) {
-                const obj = conf[this.currentBlockchain || 56].REF_RULES.find((el) => el.level === level);
+            if (this.isLeaderProgram && (!this.currentBlockchain || this.currentBlockchain === 43114 || this.currentBlockchain === 43113)) {
+                const obj = conf[this.currentBlockchain || 43114].LEAD_RULES.find((el) => el.level === level);
                 return [obj.turnover, obj.referrals];
             }
         },

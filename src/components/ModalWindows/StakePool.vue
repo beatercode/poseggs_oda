@@ -64,10 +64,7 @@
                         <div>
                             <div class="empty-icon"></div>
                             <div class="empty-title h4">{{ translatesGet("YOUR_NFTS_0_TITLE") }}</div>
-                            <div class="empty-title h7" v-if="!currentBlockchain || currentBlockchain === 56 || currentBlockchain === 97">
-                                {{ translatesGet("YOUR_NFTS_0_DESCR") }}
-                            </div>
-                            <div class="empty-title h7" v-if="currentBlockchain === 137">
+                            <div class="empty-title h7">
                                 {{ translatesGet("YOUR_NFTS_0_DESCR_USDC") }}
                             </div>
 

@@ -110,13 +110,9 @@
                                 <div v-if="!nfts || !nfts.length" class="your-boosts your-boosts-empty">
                                     <div class="empty-icon"></div>
                                     <div class="empty-title h4">{{ translatesGet("YOUR_BOOSTS_0_TITLE") }}</div>
-                                    <div class="empty-title h7"
-                                        v-if="!currentBlockchain || currentBlockchain === 56 || currentBlockchain === 97">
-                                        {{ translatesGet("YOUR_BOOSTS_0_DESCR_BNB") }}
+                                    <div class="empty-title h7">
+                                        {{ translatesGet("YOUR_BOOSTS_0_DESCR_USDC") }}
                                     </div>
-                                    <div class="empty-title h7" v-if="currentBlockchain === 137">{{
-                                            translatesGet("YOUR_BOOSTS_0_DESCR_USDC")
-                                    }}</div>
                                 </div>
                                 <div v-else class="your-boosts">
                                     <div class="your-boost-item" v-for="nft of getNftBoost()">

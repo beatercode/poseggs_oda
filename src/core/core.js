@@ -310,7 +310,7 @@ export default class Core {
                 }
                 const referrer = res.referrer;
 
-                if (_this.currentBlockchain === 56 || _this.currentBlockchain === 97) {
+                if (_this.currentBlockchain === 43114 || _this.currentBlockchain === 43113) {
                     // TODO
                     const airdropData = "";//await _this.isAmongRegistered(userAddress);
                     _this.context.$store.commit("setAirdropData", airdropData);
@@ -524,7 +524,6 @@ export default class Core {
     }
 
     async getReferrers(userFrom) {
-        if (this.currentBlockchain === 97) return ["0x0000000000000000000000000000000000000000"];
         try {
             const res = await this[`alphaTribeNft_${this.currentBlockchain}`].getBuyerReferralsStats(userFrom);
 
@@ -721,7 +720,7 @@ export default class Core {
     }
 
     async getUserNftsInChain(address, chainId) {
-        if (chainId != 56 && chainId != 137 && chainId != 97) return;
+        if (chainId != 43114 && chainId != 43113) return;
         const nftContract = this[`alphaTribeNft_${this.currentBlockchain}`];
         let buyersNftIds = [];
         try {
@@ -746,7 +745,7 @@ export default class Core {
     }
 
     async getUserNftsBoostsInChain(address, chainId) {
-        if (chainId != 56 && chainId != 137 && chainId != 97) return;
+        if (chainId != 43114 && chainId != 43113) return;
         const nftContract = this[`boostNft_${this.currentBlockchain}`];
         let buyersNftIds = [];
         try {
@@ -887,7 +886,7 @@ export default class Core {
     }
 
     async getUserStakes(address, chainId) {
-        if (chainId != 56 && chainId != 97 && chainId != 137) return;
+        if (chainId != 43114 && chainId != 43113) return;
         const nftContract = this[`stake_${this.currentBlockchain}`];
         let activeStakes = [];
         let inactiveStakes = [];
@@ -910,7 +909,6 @@ export default class Core {
     }
 
     async getUserRefStats(address) {
-        if (this.currentBlockchain === 97) return;
         try {
             const res = await this[`alphaTribeNft_${this.currentBlockchain}`].getBuyerReferralsStats(address);
             const buyers = await this[`alphaTribeNft_${this.currentBlockchain}`].buyers(address);
@@ -1068,7 +1066,7 @@ export default class Core {
     }
     async getLeaderLevel(address) {
         try {
-            if (Number(this.currentBlockchain) === 56 || Number(this.currentBlockchain) === 97) {
+            if (Number(this.currentBlockchain) === 43114 || Number(this.currentBlockchain) === 43113) {
                 /*
                 const res = await axios.get(`${conf.BASE_URL}/getLeader`, {
                     params: {

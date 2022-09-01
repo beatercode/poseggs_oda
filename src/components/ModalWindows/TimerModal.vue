@@ -31,7 +31,7 @@
                 </div>
                 <div class="modal-describe">
                     {{ translatesGet("MODAL_TIMER_DESCR") }}
-                    {{!currentBlockchain || currentBlockchain === 97 ? translatesGet("MODAL_TIMER_DESCR") : translatesGet("MODAL_TIMER_DESCR_POLYGON")}}
+                    {{ translatesGet("MODAL_TIMER_DESCR") }}
                 </div>
                 <div class="modal-footer">
                     <button @click="$emit('close')" class="btn btn-modal-msg"><span>{{ translatesGet("GOT_IT") }}</span></button>
