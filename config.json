@@ -1,4 +1,444 @@
 {
+    "43114": {
+        "MIN_DEP": 0.01,
+        "REF_RULES": [
+            {
+                "level": 0,
+                "referrals": 0,
+                "turnover": 0,
+                "perc": 0,
+                "toolTip": "The structure’s turnover is 0 AVAX."
+            },
+            {
+                "level": 1,
+                "referrals": 0,
+                "turnover": 0.01,
+                "perc": 5,
+                "toolTip": "The structure’s turnover is 0,01 AVAX."
+            },
+            {
+                "level": 2,
+                "referrals": 15,
+                "turnover": 30,
+                "perc": 7,
+                "toolTip": "The structure’s turnover is 30 AVAX."
+            },
+            {
+                "level": 3,
+                "referrals": 25,
+                "turnover": 100,
+                "perc": 9,
+                "toolTip": "The structure’s turnover is 100 AVAX."
+            },
+            {
+                "level": 4,
+                "referrals": 50,
+                "turnover": 300,
+                "perc": 11,
+                "toolTip": "The structure’s turnover is 300 AVAX."
+            },
+            {
+                "level": 5,
+                "referrals": 100,
+                "turnover": 500,
+                "perc": 14,
+                "toolTip": "The structure’s turnover is 500 AVAX."
+            },
+            {
+                "level": 6,
+                "referrals": 150,
+                "turnover": 1000,
+                "perc": 16,
+                "toolTip": "The structure’s turnover is 1 000 AVAX."
+            },
+            {
+                "level": 7,
+                "referrals": 300,
+                "turnover": 3000,
+                "perc": 18,
+                "toolTip": "The structure’s turnover is 3 000 AVAX."
+            },
+            {
+                "level": 8,
+                "referrals": 500,
+                "turnover": 10000,
+                "perc": 20,
+                "toolTip": "The structure’s turnover is 10 000 AVAX."
+            }
+        ],
+        "LEAD_RULES": [
+            {
+                "level": 0,
+                "referrals": 0,
+                "turnover": 0,
+                "perc": 0,
+                "timePerc": "",
+                "profitPerc": "",
+                "toolTip": "Leadership Level 1 will become available when your net's turnover of 0.01 AVAX and 10 people in it."
+            },
+            {
+                "level": 1,
+                "referrals": 10,
+                "turnover": 0.01,
+                "perc": 5,
+                "timePerc": "0",
+                "profitPerc": "1",
+                "toolTip": "With your net's turnover of 0,01+ AVAX and 10+ people in it."
+            },
+            {
+                "level": 2,
+                "referrals": 15,
+                "turnover": 30,
+                "perc": 7,
+                "timePerc": "1",
+                "profitPerc": "1.5",
+                "toolTip": "With your net's turnover of 30+ AVAX and 15+ people in it."
+            },
+            {
+                "level": 3,
+                "referrals": 25,
+                "turnover": 100,
+                "perc": 9,
+                "timePerc": "1.5",
+                "profitPerc": "2",
+                "toolTip": "With your net's turnover of 100+ BNAVAXB and 25+ people in it."
+            },
+            {
+                "level": 4,
+                "referrals": 50,
+                "turnover": 300,
+                "perc": 11,
+                "timePerc": "2",
+                "profitPerc": "2.5",
+                "toolTip": "With your net's turnover of 300+ AVAX and 50+ people in it."
+            },
+            {
+                "level": 5,
+                "referrals": 100,
+                "turnover": 500,
+                "perc": 14,
+                "timePerc": "2.5",
+                "profitPerc": "3",
+                "toolTip": "With your net's turnover of 500+ AVAX and 100+ people in it."
+            },
+            {
+                "level": 6,
+                "referrals": 150,
+                "turnover": 1000,
+                "perc": 16,
+                "timePerc": "3",
+                "profitPerc": "3.5",
+                "toolTip": "With your net's turnover of 1 000+ AVAX and 150+ people in it.."
+            },
+            {
+                "level": 7,
+                "referrals": 300,
+                "turnover": 3000,
+                "perc": 18,
+                "timePerc": "3.5",
+                "profitPerc": "4",
+                "toolTip": "With your net's turnover of 3 000+ AVAX and 300+ people in it."
+            },
+            {
+                "level": 8,
+                "referrals": 500,
+                "turnover": 10000,
+                "perc": 20,
+                "timePerc": "4",
+                "profitPerc": "4.5",
+                "toolTip": "With your net's turnover of 10 000+ AVAX and 500+ people in it."
+            },
+            {
+                "level": 9,
+                "referrals": 1000,
+                "turnover": 20000,
+                "perc": 20,
+                "timePerc": "4.5",
+                "profitPerc": "5",
+                "toolTip": "With your net's turnover of 20 000+ AVAX and 1 000+ people in it."
+            },
+            {
+                "level": 10,
+                "referrals": 2500,
+                "turnover": 50000,
+                "perc": 20,
+                "timePerc": "5",
+                "profitPerc": "5.5",
+                "toolTip": "With your net's turnover of 50 000+ AVAX and 2 500+ people in it."
+            }
+        ],
+        "STAKING_PLANS": {
+            "0": {
+                "days": 17,
+                "perc": 119.0,
+                "profitPerDay": 7
+            },
+            "1": {
+                "days": 27,
+                "perc": 180.9,
+                "profitPerDay": 6.7
+            },
+            "2": {
+                "days": 37,
+                "perc": 236.8,
+                "profitPerDay": 6.3
+            },
+            "3": {
+                "days": 47,
+                "perc": 233.1,
+                "profitPerDay": 6.1
+            },
+            "4": {
+                "days": 57,
+                "perc": 319.2,
+                "profitPerDay": 5.6
+            },
+            "5": {
+                "days": 67,
+                "perc": 355.1,
+                "profitPerDay": 5.3
+            },
+            "6": {
+                "days": 77,
+                "perc": 392.7,
+                "profitPerDay": 5.1
+            },
+            "7": {
+                "days": 87,
+                "perc": 435.0,
+                "profitPerDay": 5.0
+            }
+        },
+        "MIN_NFT_PRICE": "0.01",
+        "DEFAULT_GAS_PRICE_GWEI": "45",
+        "STAKE_CONTRACT": "",
+        "ERC20_CONTRACT": "",
+        "BOOST_NFT_CONTRACT": "",
+        "NFT_CONTRACT": "",
+        "DEFAULT_REFERRER": "0x5e633caE917f2c8A8E59498011B7C906478C7888",
+        "AIRDROP_CONTRACT": "",
+        "NODE": "https://api.avax.network/ext/bc/C/rpc"
+    },
+    "43113": {
+        "MIN_DEP": 0.01,
+        "REF_RULES": [
+            {
+                "level": 0,
+                "referrals": 0,
+                "turnover": 0,
+                "perc": 0,
+                "toolTip": "The structure’s turnover is 0 AVAX."
+            },
+            {
+                "level": 1,
+                "referrals": 0,
+                "turnover": 0.01,
+                "perc": 5,
+                "toolTip": "The structure’s turnover is 0,01 AVAX."
+            },
+            {
+                "level": 2,
+                "referrals": 15,
+                "turnover": 30,
+                "perc": 7,
+                "toolTip": "The structure’s turnover is 30 AVAX."
+            },
+            {
+                "level": 3,
+                "referrals": 25,
+                "turnover": 100,
+                "perc": 9,
+                "toolTip": "The structure’s turnover is 100 AVAX."
+            },
+            {
+                "level": 4,
+                "referrals": 50,
+                "turnover": 300,
+                "perc": 11,
+                "toolTip": "The structure’s turnover is 300 AVAX."
+            },
+            {
+                "level": 5,
+                "referrals": 100,
+                "turnover": 500,
+                "perc": 14,
+                "toolTip": "The structure’s turnover is 500 AVAX."
+            },
+            {
+                "level": 6,
+                "referrals": 150,
+                "turnover": 1000,
+                "perc": 16,
+                "toolTip": "The structure’s turnover is 1 000 AVAX."
+            },
+            {
+                "level": 7,
+                "referrals": 300,
+                "turnover": 3000,
+                "perc": 18,
+                "toolTip": "The structure’s turnover is 3 000 AVAX."
+            },
+            {
+                "level": 8,
+                "referrals": 500,
+                "turnover": 10000,
+                "perc": 20,
+                "toolTip": "The structure’s turnover is 10 000 AVAX."
+            }
+        ],
+        "LEAD_RULES": [
+            {
+                "level": 0,
+                "referrals": 0,
+                "turnover": 0,
+                "perc": 0,
+                "timePerc": "",
+                "profitPerc": "",
+                "toolTip": "Leadership Level 1 will become available when your net's turnover of 0.01 AVAX and 10 people in it."
+            },
+            {
+                "level": 1,
+                "referrals": 10,
+                "turnover": 0.01,
+                "perc": 5,
+                "timePerc": "0",
+                "profitPerc": "1",
+                "toolTip": "With your net's turnover of 0,01+ AVAX and 10+ people in it."
+            },
+            {
+                "level": 2,
+                "referrals": 15,
+                "turnover": 30,
+                "perc": 7,
+                "timePerc": "1",
+                "profitPerc": "1.5",
+                "toolTip": "With your net's turnover of 30+ AVAX and 15+ people in it."
+            },
+            {
+                "level": 3,
+                "referrals": 25,
+                "turnover": 100,
+                "perc": 9,
+                "timePerc": "1.5",
+                "profitPerc": "2",
+                "toolTip": "With your net's turnover of 100+ BNAVAXB and 25+ people in it."
+            },
+            {
+                "level": 4,
+                "referrals": 50,
+                "turnover": 300,
+                "perc": 11,
+                "timePerc": "2",
+                "profitPerc": "2.5",
+                "toolTip": "With your net's turnover of 300+ AVAX and 50+ people in it."
+            },
+            {
+                "level": 5,
+                "referrals": 100,
+                "turnover": 500,
+                "perc": 14,
+                "timePerc": "2.5",
+                "profitPerc": "3",
+                "toolTip": "With your net's turnover of 500+ AVAX and 100+ people in it."
+            },
+            {
+                "level": 6,
+                "referrals": 150,
+                "turnover": 1000,
+                "perc": 16,
+                "timePerc": "3",
+                "profitPerc": "3.5",
+                "toolTip": "With your net's turnover of 1 000+ AVAX and 150+ people in it.."
+            },
+            {
+                "level": 7,
+                "referrals": 300,
+                "turnover": 3000,
+                "perc": 18,
+                "timePerc": "3.5",
+                "profitPerc": "4",
+                "toolTip": "With your net's turnover of 3 000+ AVAX and 300+ people in it."
+            },
+            {
+                "level": 8,
+                "referrals": 500,
+                "turnover": 10000,
+                "perc": 20,
+                "timePerc": "4",
+                "profitPerc": "4.5",
+                "toolTip": "With your net's turnover of 10 000+ AVAX and 500+ people in it."
+            },
+            {
+                "level": 9,
+                "referrals": 1000,
+                "turnover": 20000,
+                "perc": 20,
+                "timePerc": "4.5",
+                "profitPerc": "5",
+                "toolTip": "With your net's turnover of 20 000+ AVAX and 1 000+ people in it."
+            },
+            {
+                "level": 10,
+                "referrals": 2500,
+                "turnover": 50000,
+                "perc": 20,
+                "timePerc": "5",
+                "profitPerc": "5.5",
+                "toolTip": "With your net's turnover of 50 000+ AVAX and 2 500+ people in it."
+            }
+        ],
+        "STAKING_PLANS": {
+            "0": {
+                "days": 17,
+                "perc": 119.0,
+                "profitPerDay": 7
+            },
+            "1": {
+                "days": 27,
+                "perc": 180.9,
+                "profitPerDay": 6.7
+            },
+            "2": {
+                "days": 37,
+                "perc": 236.8,
+                "profitPerDay": 6.3
+            },
+            "3": {
+                "days": 47,
+                "perc": 233.1,
+                "profitPerDay": 6.1
+            },
+            "4": {
+                "days": 57,
+                "perc": 319.2,
+                "profitPerDay": 5.6
+            },
+            "5": {
+                "days": 67,
+                "perc": 355.1,
+                "profitPerDay": 5.3
+            },
+            "6": {
+                "days": 77,
+                "perc": 392.7,
+                "profitPerDay": 5.1
+            },
+            "7": {
+                "days": 87,
+                "perc": 435.0,
+                "profitPerDay": 5.0
+            }
+        },
+        "MIN_NFT_PRICE": "0.01",
+        "DEFAULT_GAS_PRICE_GWEI": "45",
+        "STAKE_CONTRACT": "0x4eA20FF116391A9c83Ebfb81B8C1c82Bbc6B3faA",
+        "ERC20_CONTRACT": "0xAf4c01E7eB541293344Fa6BA5c6B287E77C8BfeB",
+        "BOOST_NFT_CONTRACT": "0xCFB2c5CdD22bb2529Ea79c30e57508Db2f90cA6A",
+        "NFT_CONTRACT": "0x69E0Fc88d2a8f58F2EEdcFA15e437719d543ad7C",
+        "DEFAULT_REFERRER": "0x5e633caE917f2c8A8E59498011B7C906478C7888",
+        "AIRDROP_CONTRACT": "",
+        "NODE": "https://api.avax.network/ext/bc/C/rpc"
+    },
     "56": {
         "MIN_DEP": 0.01,
         "REF_RULES": [
@@ -446,56 +886,56 @@
                 "referrals": 0,
                 "turnover": 5,
                 "perc": 5,
-                "toolTip": "The structure’s turnover is 5 BUSD."
+                "toolTip": "The structure’s turnover is 5 USDC."
             },
             {
                 "level": 2,
                 "referrals": 15,
                 "turnover": 10500,
                 "perc": 7,
-                "toolTip": "The structure’s turnover is 10 500 BUSD."
+                "toolTip": "The structure’s turnover is 10 500 USDC."
             },
             {
                 "level": 3,
                 "referrals": 25,
                 "turnover": 35000,
                 "perc": 9,
-                "toolTip": "The structure’s turnover is 35 000 BUSD."
+                "toolTip": "The structure’s turnover is 35 000 USDC."
             },
             {
                 "level": 4,
                 "referrals": 50,
                 "turnover": 105000,
                 "perc": 11,
-                "toolTip": "The structure’s turnover is 105 000 BUSD."
+                "toolTip": "The structure’s turnover is 105 000 USDC."
             },
             {
                 "level": 5,
                 "referrals": 100,
                 "turnover": 175000,
                 "perc": 14,
-                "toolTip": "The structure’s turnover is 175 000 BUSD."
+                "toolTip": "The structure’s turnover is 175 000 USDC."
             },
             {
                 "level": 6,
                 "referrals": 150,
                 "turnover": 350000,
                 "perc": 16,
-                "toolTip": "The structure’s turnover is 350 000 BUSD."
+                "toolTip": "The structure’s turnover is 350 000 USDC."
             },
             {
                 "level": 7,
                 "referrals": 300,
                 "turnover": 1050000,
                 "perc": 18,
-                "toolTip": "The structure’s turnover is 1 050 000 BUSD."
+                "toolTip": "The structure’s turnover is 1 050 000 USDC."
             },
             {
                 "level": 8,
                 "referrals": 500,
                 "turnover": 3500000,
                 "perc": 20,
-                "toolTip": "The structure’s turnover is 3 500 000 BUSD."
+                "toolTip": "The structure’s turnover is 3 500 000 USDC."
             }
         ],
         "LEAD_RULES": [
@@ -506,7 +946,7 @@
                 "perc": 0,
                 "timePerc": "",
                 "profitPerc": "",
-                "toolTip": "Leadership Level 1 will become available when your net's turnover of 5 BUSD and 10 people in it."
+                "toolTip": "Leadership Level 1 will become available when your net's turnover of 5 USDC and 10 people in it."
             },
             {
                 "level": 1,
@@ -515,7 +955,7 @@
                 "perc": 5,
                 "timePerc": "0",
                 "profitPerc": "1",
-                "toolTip": "With your net's turnover of 5+ BUSD and 10+ people in it."
+                "toolTip": "With your net's turnover of 5+ USDC and 10+ people in it."
             },
             {
                 "level": 2,
@@ -524,7 +964,7 @@
                 "perc": 7,
                 "timePerc": "1",
                 "profitPerc": "1.5",
-                "toolTip": "With your net's turnover of 10 500+ BUSD and 15+ people in it."
+                "toolTip": "With your net's turnover of 10 500+ USDC and 15+ people in it."
             },
             {
                 "level": 3,
@@ -533,7 +973,7 @@
                 "perc": 9,
                 "timePerc": "1.5",
                 "profitPerc": "2",
-                "toolTip": "With your net's turnover of 35 000+ BUSD and 25+ people in it."
+                "toolTip": "With your net's turnover of 35 000+ USDC and 25+ people in it."
             },
             {
                 "level": 4,
@@ -542,7 +982,7 @@
                 "perc": 11,
                 "timePerc": "2",
                 "profitPerc": "2.5",
-                "toolTip": "With your net's turnover of 105 000+ BUSD and 50+ people in it."
+                "toolTip": "With your net's turnover of 105 000+ USDC and 50+ people in it."
             },
             {
                 "level": 5,
@@ -551,7 +991,7 @@
                 "perc": 14,
                 "timePerc": "2.5",
                 "profitPerc": "3",
-                "toolTip": "With your net's turnover of 175 000+ BUSD and 100+ people in it."
+                "toolTip": "With your net's turnover of 175 000+ USDC and 100+ people in it."
             },
             {
                 "level": 6,
@@ -560,7 +1000,7 @@
                 "perc": 16,
                 "timePerc": "3",
                 "profitPerc": "3.5",
-                "toolTip": "With your net's turnover of 1 350 000+ BUSD and 150+ people in it.."
+                "toolTip": "With your net's turnover of 1 350 000+ USDC and 150+ people in it.."
             },
             {
                 "level": 7,
@@ -569,7 +1009,7 @@
                 "perc": 18,
                 "timePerc": "3.5",
                 "profitPerc": "4",
-                "toolTip": "With your net's turnover of 1 050 000+ BUSD and 300+ people in it."
+                "toolTip": "With your net's turnover of 1 050 000+ USDC and 300+ people in it."
             },
             {
                 "level": 8,
@@ -578,7 +1018,7 @@
                 "perc": 20,
                 "timePerc": "4",
                 "profitPerc": "4.5",
-                "toolTip": "With your net's turnover of 3 500 000+ BUSD and 500+ people in it."
+                "toolTip": "With your net's turnover of 3 500 000+ USDC and 500+ people in it."
             },
             {
                 "level": 9,
@@ -587,7 +1027,7 @@
                 "perc": 20,
                 "timePerc": "4.5",
                 "profitPerc": "5",
-                "toolTip": "With your net's turnover of 7 000 000+ BUSD and 1 000+ people in it."
+                "toolTip": "With your net's turnover of 7 000 000+ USDC and 1 000+ people in it."
             },
             {
                 "level": 10,
@@ -596,7 +1036,7 @@
                 "perc": 20,
                 "timePerc": "5",
                 "profitPerc": "5.5",
-                "toolTip": "With your net's turnover of 17 000 000+ BUSD and 2 500+ people in it."
+                "toolTip": "With your net's turnover of 17 000 000+ USDC and 2 500+ people in it."
             }
         ],
         "MIN_NFT_PRICE": "5",
@@ -631,11 +1071,24 @@
         "NODE": "https://polygon-rpc.com/"
     },
     "CLAIM_BONUS_DATA": {
-        "days": [7, 14, 21],
-        "percent": [15, 40, 90]
+        "days": [
+            7,
+            14,
+            21
+        ],
+        "percent": [
+            15,
+            40,
+            90
+        ]
     },
     "LOOTBOX_DATA": {
-        "prices": [17, 97, 497, 1997]
+        "prices": [
+            17,
+            97,
+            497,
+            1997
+        ]
     },
     "FREE_EGG_DATA": {
         "price": 0,
@@ -654,20 +1107,74 @@
         "name": "Bonus Egg"
     },
     "EGG_DATA": {
-        "prices": [17, 47, 97, 197, 497, 997, 1997, 4997],
-        "stats": [10, 20, 30, 40, 50, 60, 70, 80],
-        "profits": [7, 6.7, 6.3, 6.1, 5.6, 5.3, 5.1, 5.0],
-        "periods": [17, 27, 37, 47, 57, 67, 77, 87],
-        "name": ["Spider Egg", "Water Egg", "Forest Egg", "Electro Egg", "Ground Egg", "Vulcan Egg", "Fairy Egg", "Magic Egg"]
+        "prices": [
+            17,
+            47,
+            97,
+            197,
+            497,
+            997,
+            1997,
+            4997
+        ],
+        "stats": [
+            10,
+            20,
+            30,
+            40,
+            50,
+            60,
+            70,
+            80
+        ],
+        "profits": [
+            7,
+            6.7,
+            6.3,
+            6.1,
+            5.6,
+            5.3,
+            5.1,
+            5.0
+        ],
+        "periods": [
+            17,
+            27,
+            37,
+            47,
+            57,
+            67,
+            77,
+            87
+        ],
+        "name": [
+            "Spider Egg",
+            "Water Egg",
+            "Forest Egg",
+            "Electro Egg",
+            "Ground Egg",
+            "Vulcan Egg",
+            "Fairy Egg",
+            "Magic Egg"
+        ]
     },
     "MISC": {
-        "poolNames": ["Alpha", "Beta", "Gamma", "Delta", "Epsilon", "Zeta", "Eta", "Theta"],
+        "poolNames": [
+            "Alpha",
+            "Beta",
+            "Gamma",
+            "Delta",
+            "Epsilon",
+            "Zeta",
+            "Eta",
+            "Theta"
+        ],
         "betaTime": "30092022"
     },
     "PRIMARY_BLOCKCHAIN": {
-        "symbol": "bsc-test",
-        "chainid": "97",
-        "name": "BNB Chain"
+        "symbol": "avax",
+        "chainid": "43114",
+        "name": "Avalanche Network"
     },
     "PRIMARY_BLOCKCHAIN_MAINNET": {
         "symbol": "bsc",
@@ -747,6 +1254,46 @@
             }
         },
         {
+            "name": "Avalanche Network",
+            "symbol": "avax",
+            "chainId": "0xA86A",
+            "params": {
+                "chainId": "0xA86A",
+                "chainName": "Avalanche Network",
+                "nativeCurrency": {
+                    "name": "Avalanche",
+                    "symbol": "AVAX",
+                    "decimals": 18
+                },
+                "rpcUrls": [
+                    "https://api.avax.network/ext/bc/C/rpc"
+                ],
+                "blockExplorerUrls": [
+                    "https://snowtrace.io/"
+                ]
+            }
+        },
+        {
+            "name": "Avalanche Fuji Testnet",
+            "symbol": "avaxtest",
+            "chainId": "0xA869",
+            "params": {
+                "chainId": "0xA869",
+                "chainName": "Avalanche Fuji Testnet",
+                "nativeCurrency": {
+                    "name": "Avalanche Fuji",
+                    "symbol": "AVAX",
+                    "decimals": 18
+                },
+                "rpcUrls": [
+                    "https://api.avax-test.network/ext/bc/C/rpc"
+                ],
+                "blockExplorerUrls": [
+                    "https://testnet.snowtrace.io/"
+                ]
+            }
+        },
+        {
             "name": "Polygon Mainnet",
             "symbol": "poly",
             "chainId": "0x89",
@@ -802,16 +1349,16 @@
         "1666700000": "Harmony TestNet"
     },
     "SUPPORTED_BLOCKCHAINS": [
-        97,
-        56
+        43114,
+        43113
     ],
     "NEWS_DATA": [
         {
-            "id": "102",
-            "date": "07.08.2022",
-            "title": "✅ Non scammeremo mai, fidati❗️ Welcome test test test 🎯",
-            "desc": "You knwo brah",
-            "link": "https://www.google.com/",
+            "id": "1001",
+            "date": "01.09.2022",
+            "title": "✅ Welcome to the beta of AlphaTribe❗️",
+            "desc": "Welcome to all our Beta Tester! 🎯",
+            "link": "https://alphatribe.app/",
             "important": "TRUE"
         }
     ]

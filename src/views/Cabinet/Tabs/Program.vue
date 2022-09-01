@@ -48,7 +48,7 @@
         </section>
         <!-- section 2 -->
         <section class="cab-row"
-            :class="{ 'row-binance': !currentBlockchain || currentBlockchain === 56 || currentBlockchain === 97, 'row-polygon': currentBlockchain === 137 }">
+            :class="{ 'row-binance': !currentBlockchain || currentBlockchain === 43114 || currentBlockchain === 43113 }">
             <div class="cab-row-card general-info-card general-info-card-program">
                 <div class="general-card team">
                     <div class="general-card-col">
@@ -64,7 +64,7 @@
                         <span class="h4" style="white-space: nowrap;">
                             {{ userRefData && userRefData.refTurnover > 0 ? Number(userRefData.refTurnover).toFixed(2) :
                                     "0.00"
-                            }} BUSD
+                            }} USDC
                         </span>
                     </div>
                 </div>
@@ -80,7 +80,7 @@
                         <span class="h4" style="white-space: nowrap;">{{ userRefData && userRefData.bonus > 0 ?
                                 Number(userRefData.bonus).toFixed(2)
                                 : "0.00"
-                        }} BUSD</span>
+                        }} USDC</span>
                     </div>
                 </div>
             </div>
@@ -113,11 +113,7 @@
                             <div>
                                 <div class="h4">{{ translatesGet("REF_PROG") }}</div>
                                 <div class="h5">
-                                    {{
-                                            !currentBlockchain || currentBlockchain === 56 || currentBlockchain === 97
-                                                ? translatesGet("REF_PROG_DESCR")
-                                                : translatesGet("REF_PROG_DESCR_POLYGON")
-                                    }}
+                                    {{ translatesGet("REF_PROG_DESCR") }}
                                 </div>
                             </div>
                         </div>
@@ -125,11 +121,7 @@
                             <div class="structure-header">
                                 <div class="h4">{{ translatesGet("PROGRESS_REF_TITLE") }}</div>
                                 <div class="h5">
-                                    {{
-                                            !currentBlockchain || currentBlockchain === 56 || currentBlockchain === 97
-                                                ? translatesGet("PROGRESS_REF_DESCRIBE_1")
-                                                : translatesGet("PROGRESS_REF_DESCRIBE_1_POLYGON")
-                                    }}
+                                    {{ translatesGet("PROGRESS_REF_DESCRIBE_1") }}
                                 </div>
                             </div>
                             <div class="structure-table structure-table-ref">
@@ -138,7 +130,7 @@
                                         <span>{{ translatesGet("STRUCTURE_ROW_NAME_1") }}</span>
                                         <span class="lvl-short">{{ translatesGet("STRUCTURE_ROW_NAME_1_SHORT") }}</span>
                                     </div>
-                                    <div class="structure-row structure-row-text">BUSD {{
+                                    <div class="structure-row structure-row-text">USDC {{
                                             translatesGet("STRUCTURE_ROW_NAME_2")
                                     }}</div>
                                     <div class="structure-row structure-row-text">{{
@@ -492,7 +484,7 @@
                                         {{ userLeaderData && userLeaderData.refTurnover ?
                                                 Number(userLeaderData.refTurnover).toFixed(2) : "0.00"
                                         }}
-                                        BUSD
+                                        USDC
                                     </div>
                                 </div>
                             </div>
@@ -502,7 +494,7 @@
                                         <span>{{ translatesGet("STRUCTURE_ROW_NAME_1") }}</span>
                                         <span class="lvl-short">{{ translatesGet("STRUCTURE_ROW_NAME_1_SHORT") }}</span>
                                     </div>
-                                    <div class="structure-row structure-row-text">BUSD {{
+                                    <div class="structure-row structure-row-text">USDC {{
                                             translatesGet("STRUCTURE_ROW_NAME_2")
                                     }}</div>
                                     <div class="structure-row structure-row-text">{{
@@ -544,7 +536,8 @@
                                         </div>
                                         <div v-else class="structure-row structure-row-img">
                                             <div class="structure-img-wrap"><img
-                                                    src="@/assets/images/all/boost-inactive-1.png" alt="" class="" style="filter: grayscale(1);" />
+                                                    src="@/assets/images/all/boost-inactive-1.png" alt="" class=""
+                                                    style="filter: grayscale(1);" />
                                             </div>
                                         </div>
                                     </div>
@@ -574,7 +567,8 @@
                                         </div>
                                         <div v-else class="structure-row structure-row-img">
                                             <div class="structure-img-wrap"><img
-                                                    src="@/assets/images/all/boost-inactive-2.png" alt="" class="" style="filter: grayscale(1);" />
+                                                    src="@/assets/images/all/boost-inactive-2.png" alt="" class=""
+                                                    style="filter: grayscale(1);" />
                                             </div>
                                         </div>
                                     </div>
@@ -604,7 +598,8 @@
                                         </div>
                                         <div v-else class="structure-row structure-row-img">
                                             <div class="structure-img-wrap"><img
-                                                    src="@/assets/images/all/boost-inactive-3.png" alt="" class="" style="filter: grayscale(1);" />
+                                                    src="@/assets/images/all/boost-inactive-3.png" alt="" class=""
+                                                    style="filter: grayscale(1);" />
                                             </div>
                                         </div>
                                     </div>
@@ -634,7 +629,8 @@
                                         </div>
                                         <div v-else class="structure-row structure-row-img">
                                             <div class="structure-img-wrap"><img
-                                                    src="@/assets/images/all/boost-inactive-4.png" alt="" class="" style="filter: grayscale(1);" />
+                                                    src="@/assets/images/all/boost-inactive-4.png" alt="" class=""
+                                                    style="filter: grayscale(1);" />
                                             </div>
                                         </div>
                                     </div>
@@ -666,7 +662,8 @@
                                         </div>
                                         <div v-else class="structure-row structure-row-img">
                                             <div class="structure-img-wrap"><img
-                                                    src="@/assets/images/all/boost-inactive-5.png" alt="" class="" style="filter: grayscale(1);" />
+                                                    src="@/assets/images/all/boost-inactive-5.png" alt="" class=""
+                                                    style="filter: grayscale(1);" />
                                             </div>
                                         </div>
                                     </div>
@@ -698,7 +695,8 @@
                                         </div>
                                         <div v-else class="structure-row structure-row-img">
                                             <div class="structure-img-wrap"><img
-                                                    src="@/assets/images/all/boost-inactive-6.png" alt="" class="" style="filter: grayscale(1);" />
+                                                    src="@/assets/images/all/boost-inactive-6.png" alt="" class=""
+                                                    style="filter: grayscale(1);" />
                                             </div>
                                         </div>
                                     </div>
@@ -730,7 +728,8 @@
                                         </div>
                                         <div v-else class="structure-row structure-row-img">
                                             <div class="structure-img-wrap"><img
-                                                    src="@/assets/images/all/boost-inactive-7.png" alt="" class="" style="filter: grayscale(1);" />
+                                                    src="@/assets/images/all/boost-inactive-7.png" alt="" class=""
+                                                    style="filter: grayscale(1);" />
                                             </div>
                                         </div>
                                     </div>
@@ -762,7 +761,8 @@
                                         </div>
                                         <div v-else class="structure-row structure-row-img">
                                             <div class="structure-img-wrap"><img
-                                                    src="@/assets/images/all/boost-inactive-8.png" alt="" class="" style="filter: grayscale(1);" />
+                                                    src="@/assets/images/all/boost-inactive-8.png" alt="" class=""
+                                                    style="filter: grayscale(1);" />
                                             </div>
                                         </div>
                                     </div>
@@ -794,7 +794,8 @@
                                         </div>
                                         <div v-else class="structure-row structure-row-img">
                                             <div class="structure-img-wrap"><img
-                                                    src="@/assets/images/all/boost-inactive-9.png" alt="" class="" style="filter: grayscale(1);" />
+                                                    src="@/assets/images/all/boost-inactive-9.png" alt="" class=""
+                                                    style="filter: grayscale(1);" />
                                             </div>
                                         </div>
                                     </div>
@@ -826,7 +827,8 @@
                                         </div>
                                         <div v-else class="structure-row structure-row-img">
                                             <div class="structure-img-wrap"><img
-                                                    src="@/assets/images/all/boost-inactive-10.png" alt="" class="" style="filter: grayscale(1);" />
+                                                    src="@/assets/images/all/boost-inactive-10.png" alt="" class=""
+                                                    style="filter: grayscale(1);" />
                                             </div>
                                         </div>
                                     </div>

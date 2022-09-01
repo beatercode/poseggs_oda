@@ -143,7 +143,7 @@
                                                                 <span type="number" @input="disablePercWatcher = true">
                                                                     {{ price }}
                                                                 </span>
-                                                                <span class="coin">BUSD</span>
+                                                                <span class="coin">USDC</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -279,7 +279,7 @@
                                                                         @input="disablePercWatcher = true">
                                                                         {{ price }}
                                                                     </span>
-                                                                    <span class="coin">BUSD</span>
+                                                                    <span class="coin">USDC</span>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -330,7 +330,7 @@ export default {
             amount2: false,
             amount3: false,
             amount4: false,
-            busdApprovedAmount: 0,
+            usdcApprovedAmount: 0,
             showLoader: false,
             percent: 0,
             selectedIndex: 3,
@@ -393,15 +393,15 @@ export default {
         getClassOnTier(tier) {
             return tier > 9 ? "label-tier-stealth" : "label-tier-" + tier;
         },
-        async checkBusdAllowance() {
+        async checkUsdcAllowance() {
             let nftContract_Address = this.$root.core[`alphaTribeNft_${this.currentBlockchain}`].address;
-            let busdContract = this.$root.core[`BUSD_${this.currentBlockchain}`]
-            let res = await busdContract.allowance(this.currentAddress, nftContract_Address);
-            this.busdApprovedAmount = Number(res);
+            let usdcContract = this.$root.core[`USDC_${this.currentBlockchain}`]
+            let res = await usdcContract.allowance(this.currentAddress, nftContract_Address);
+            this.usdcApprovedAmount = Number(res);
         },
         isApproved(nft) {
             let needed = conf["LOOTBOX_DATA"]["prices"][(nft)];
-            return this.busdApprovedAmount >= needed * 1e18;
+            return this.usdcApprovedAmount >= needed * 1e18;
         },
         translatesGet(key) {
             try {
@@ -452,7 +452,7 @@ export default {
         setSelectedLoot(amount, _selectedIndex) {
             if (this.selectedIndex == _selectedIndex) return;
             this.selectedIndex = _selectedIndex;
-            this.busdAmount = parseFloat(
+            this.usdcAmount = parseFloat(
                 Number(this.$root.core.withoutRound(amount, 4))
             );
         },
@@ -461,15 +461,15 @@ export default {
                 this.showLoader = true;
                 let stakeContract_Address = this.$root.core[`alphaTribeNft_${this.currentBlockchain}`].address;
                 let toApprove = BigInt((conf["LOOTBOX_DATA"]["prices"][(nft)]) * 1e18);
-                let busdContract = this.$root.core[`BUSD_${this.currentBlockchain}`]
-                let res = await busdContract.approve(stakeContract_Address, toApprove);
+                let usdcContract = this.$root.core[`USDC_${this.currentBlockchain}`]
+                let res = await usdcContract.approve(stakeContract_Address, toApprove);
                 if (res.wait) {
                     this.$store.commit("push_notification", {
                         type: "warning",
                         typeClass: "warning",
                         message: `Your transaction has successfully entered the blockchain! Waiting for enough confirmations...`,
                     });
-                    this.checkBusdAllowance();
+                    this.checkUsdcAllowance();
                     await res.wait();
                     this.$store.commit("push_notification", {
                         type: "success",
@@ -559,7 +559,7 @@ export default {
             if (_this.currentBlockchain) {
                 clearInterval(i);
                 try {
-                    _this.checkBusdAllowance();
+                    _this.checkUsdcAllowance();
                 } catch (err) { }
             }
         }, 1000);
@@ -587,16 +587,14 @@ export default {
                                 chain: _this?.$router?.currentRoute?.params?.chosenBlockchain,
                             })
                         );
-                        const symbol = _this.currentBlockchain === 56 || _this.currentBlockchain === 97 ? "bsc" : _this.currentBlockchain === 137 ? "poly" : "";
+                        const symbol = _this.currentBlockchain === 43114 ? "avax" : _this.currentBlockchain === 43113 ? "avaxtest" : "";
                         _this.$store.commit("push_notification", {
                             type: "warning",
                             typeClass: "warning",
-                            message: `It seems that you preselected ${Number(_this?.$router?.currentRoute?.params?.chosenBlockchain) === 56
-                                || Number(_this?.$router?.currentRoute?.params?.chosenBlockchain) === 97
-                                ? "BNB Chain"
-                                : Number(_this?.$router?.currentRoute?.params?.chosenBlockchain) === 137
-                                    ? "Polygon"
-                                    : ""
+                            message: `It seems that you preselected ${Number(_this?.$router?.currentRoute?.params?.chosenBlockchain) === 43114
+                                || Number(_this?.$router?.currentRoute?.params?.chosenBlockchain) === 43113
+                                ? "Avalanche"
+                                : ""
                                 } network. If you want to use it, please accept network change in your wallet. Otherwise you may continue use the website.`,
                         });
                         await _this.$root.core.changeNetwork(symbol);

@@ -129,7 +129,7 @@
                                 <span>{{ translatesGet("CLAIMED") }}</span>
                             </div>
                             <div class="stake-pool-col-value">
-                                {{ getAlreadyWithdrawnReward(fullStakeDetails) }} {{ "BUSD" /* currency */ }}
+                                {{ getAlreadyWithdrawnReward(fullStakeDetails) }} {{ "USDC" /* currency */ }}
                             </div>
                         </div>
                         <div class="stake-pool-col stake-for-claim">
@@ -141,7 +141,7 @@
                                 <span v-if="this.claimBonusLevel > 0" style="color: #00EB00; margin-right: 4px;">
                                     {{ getClaimBonusPerc((this.claimBonusLevel - 1)) }}%
                                 </span>
-                                <span>{{ getEarnedReward(fullStakeDetails) }} {{ "BUSD" }}</span>
+                                <span>{{ getEarnedReward(fullStakeDetails) }} {{ "USDC" }}</span>
                             </div>
                         </div>
                         <div class="stake-pool-col">
@@ -257,11 +257,11 @@
                     </div>
                     <div class="stake-info-block">
                         <div class="stake-pool-col-name" style="white-space: nowrap;">
-                            {{ translatesGet("EXPECTED_REWARD") }}<span style="font-size: 0.6rem; margin-left: 4px;">(BUSD)</span>
+                            {{ translatesGet("EXPECTED_REWARD") }}<span style="font-size: 0.6rem; margin-left: 4px;">(USDC)</span>
                         </div>
                         <div class="stake-pool-col-value" style="white-space: nowrap;">
                             <span>{{ getStakingPlanData(fullStakeDetails)[3] }}</span>
-                            <!--span style="font-size: 0.8rem; margin-left: 1px;">BUSD</span-->
+                            <!--span style="font-size: 0.8rem; margin-left: 1px;">USDC</span-->
                         </div>
                         <div class="select-boost-item-data-wrap" v-if="
                             showMore &&
@@ -274,7 +274,7 @@
                                         d="M13.667 6.99967C13.667 3.31967 10.6803 0.333008 7.00033 0.333008C3.32032 0.333007 0.333658 3.31967 0.333658 6.99967C0.333658 10.6797 3.32032 13.6663 7.00032 13.6663C10.6803 13.6663 13.667 10.6797 13.667 6.99967ZM6.50032 9.33301L6.50032 5.87301L5.35366 7.01967C5.16032 7.21301 4.84033 7.21301 4.64699 7.01967C4.54699 6.91967 4.50032 6.79301 4.50032 6.66634C4.50032 6.53967 4.54699 6.41301 4.64699 6.31301L6.64699 4.31301C6.84033 4.11967 7.16032 4.11967 7.35366 4.31301L9.35366 6.31301C9.54699 6.50634 9.54699 6.82634 9.35366 7.01967C9.16032 7.21301 8.84033 7.21301 8.64699 7.01967L7.50032 5.87301L7.50032 9.33301C7.50032 9.60634 7.27366 9.83301 7.00032 9.83301C6.72699 9.83301 6.50032 9.60634 6.50032 9.33301Z"
                                         fill="#77D15C" />
                                 </svg>
-                                {{ increasedProfit }} {{ "BUSD" /* currency */ }}
+                                {{ increasedProfit }} {{ "USDC" /* currency */ }}
                             </div>
                         </div>
                     </div>

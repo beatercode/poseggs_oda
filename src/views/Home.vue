@@ -30,47 +30,38 @@
                                     <div class="network-title">
                                         {{ translatesGet("SWITCH_NET") }}
                                     </div>
-                                    <span>BNB Chain</span>
+                                    <span style="text-transform: none !important;">{{ getPreselectedChain == 'avax' ? "Avalance Netowrk" : "Avalanche Fuji" }}</span>
                                 </div>
                                 <i class="icon-current-network"
-                                    :class="{ 'icon-bsc': (getPreselectedChain == 'binance' || getPreselectedChain == 'binancetest'), 'icon-matic': getPreselectedChain == 'polygon' }"></i>
+                                    :class="{ 'icon-avalanche': (getPreselectedChain == 'avax' || getPreselectedChain == 'avaxtest') }"></i>
                             </button>
                             <div class="networks">
                                 <div class="list-networks">
-                                    <div @click="setPreselectedChain(56)" class="network-item"
-                                        :class="{ active: getPreselectedChain == 'binance' }">
-                                        <i class="icon-network icon-bsc"></i>
-                                        <span>BNB Chain</span>
+                                    <div @click="setPreselectedChain(43114)" class="network-item"
+                                        :class="{ active: getPreselectedChain == 'avax' }">
+                                        <i class="icon-network icon-avalanche"></i>
+                                        <span>Avalanche Network</span>
                                     </div>
-                                    <div @click="setPreselectedChain(97)" class="network-item"
-                                        :class="{ active: getPreselectedChain == 'binancetest' }">
-                                        <i class="icon-network icon-bsc"></i>
-                                        <span>BNB Chain Testnet</span>
+                                    <div @click="setPreselectedChain(43113)" class="network-item"
+                                        :class="{ active: getPreselectedChain == 'avaxtest' }">
+                                        <i class="icon-network icon-avalanche"></i>
+                                        <span>Avalance Fuji</span>
                                     </div>
-                                    <!--div @click="setPreselectedChain(137)" class="network-item" :class="{ active: getPreselectedChain == 'polygon' }">
-                                        <i class="icon-network icon-matic"></i>
-                                        <span>Polygon</span>
-                                    </div-->
                                 </div>
                             </div>
                         </div>
                         <div class="switcher-network-wrap"
-                            :class="{ active1: (getPreselectedChain == 'binance' || getPreselectedChain == 'binancetest'), active2: getPreselectedChain == 'polygon' }">
-                            <button @click="setPreselectedChain(56)" class="btn-switch-network">
+                            :class="{ active1: (getPreselectedChain == 'avax' || getPreselectedChain == 'avaxtest') }">
+                            <button @click="setPreselectedChain(43114)" class="btn-switch-network">
                                 <div class="icon-wrap">
-                                    <i class="icon-bsc"></i>
+                                    <i class="icon-avalanche"></i>
                                 </div>
                             </button>
-                            <button @click="setPreselectedChain(97)" class="btn-switch-network">
+                            <button @click="setPreselectedChain(43113)" class="btn-switch-network">
                                 <div class="icon-wrap">
-                                    <i class="icon-bsc"></i>
+                                    <i class="icon-avalanche"></i>
                                 </div>
                             </button>
-                            <!--button @click="setPreselectedChain(137)" class="btn-switch-network">
-                                <div class="icon-wrap">
-                                    <i class="icon-matic"></i>
-                                </div>
-                            </button-->
                         </div>
                         <div>
                             <button class="btn btn-connect" @click="$router.push('/dashboard/mintnft')">{{
@@ -133,8 +124,8 @@
                             </div>
                             <div class="half-img section-mobile">
                                 <div class="img-wrap home-iphone-cut">
-                                    <img style="margin: auto; max-height: 500px;" src="@/assets/images/all/main-img-iphone.png"
-                                        alt="main-img" />
+                                    <img style="margin: auto; max-height: 500px;"
+                                        src="@/assets/images/all/main-img-iphone.png" alt="main-img" />
                                 </div>
                             </div>
                             <div class="audited">
@@ -151,8 +142,8 @@
 
                         <div class="section-half half-img section-desctop">
                             <div class="img-wrap home-iphone-cut-desktop">
-                                <img style="float: right; max-height: 500px;" src="@/assets/images/all/main-img-iphone.png"
-                                    alt="main-img" />
+                                <img style="float: right; max-height: 500px;"
+                                    src="@/assets/images/all/main-img-iphone.png" alt="main-img" />
                             </div>
                         </div>
                     </div>
@@ -172,7 +163,8 @@
                             </li>
                             <li>
                                 <span class="title-upper">{{ translatesGet("NFT_VOLUME") }}</span>
-                                <span class="h3">{{ siteData && siteData[mainChain].NFT.totalAmountSoldNft }} BUSD</span>
+                                <span class="h3">{{ siteData && siteData[mainChain].NFT.totalAmountSoldNft }}
+                                    USDC</span>
                             </li>
                             <li>
                                 <span class="title-upper">{{ translatesGet("TOTAL_PARTICIPANTS") }}</span>
@@ -231,7 +223,7 @@
                                     </li>
                                     <li class="home-list-item">
                                         <div class="list-item-icon icon-wrap"><i class="icon-check"></i></div>
-                                        <span> {{ translatesGet("LIMITED_STAKING_DESC_3_BUSD") }}</span>
+                                        <span> {{ translatesGet("LIMITED_STAKING_DESC_3_USDC") }}</span>
                                     </li>
                                     <li class="home-list-item">
                                         <div class="list-item-icon icon-wrap"><i class="icon-check"></i></div>
@@ -421,28 +413,28 @@
                             <ul class="earn-list">
                                 <li>
                                     <span class="earn-icon earn-buy"></span>
-                                    <span class="h4">{{ translatesGet("HOW_TO_EARN_LIST_TITLE_1_BUSD") }}</span>
-                                    <span class="h7">{{ translatesGet("HOW_TO_EARN_LIST_DESC_1_BUSD") }}</span>
+                                    <span class="h4">{{ translatesGet("HOW_TO_EARN_LIST_TITLE_1_USDC") }}</span>
+                                    <span class="h7">{{ translatesGet("HOW_TO_EARN_LIST_DESC_1_USDC") }}</span>
                                 </li>
                                 <li>
                                     <span class="earn-icon earn-stake"></span>
-                                    <span class="h4">{{ translatesGet("HOW_TO_EARN_LIST_TITLE_2_BUSD") }}</span>
-                                    <span class="h7">{{ translatesGet("HOW_TO_EARN_LIST_DESC_2_BUSD") }}</span>
+                                    <span class="h4">{{ translatesGet("HOW_TO_EARN_LIST_TITLE_2_USDC") }}</span>
+                                    <span class="h7">{{ translatesGet("HOW_TO_EARN_LIST_DESC_2_USDC") }}</span>
                                 </li>
                                 <li>
                                     <span class="earn-icon earn-boost"></span>
-                                    <span class="h4">{{ translatesGet("HOW_TO_EARN_LIST_TITLE_3_BUSD") }}</span>
-                                    <span class="h7">{{ translatesGet("HOW_TO_EARN_LIST_DESC_3_BUSD") }}</span>
+                                    <span class="h4">{{ translatesGet("HOW_TO_EARN_LIST_TITLE_3_USDC") }}</span>
+                                    <span class="h7">{{ translatesGet("HOW_TO_EARN_LIST_DESC_3_USDC") }}</span>
                                 </li>
                                 <li>
                                     <span class="earn-icon earn-token"></span>
-                                    <span class="h4">{{ translatesGet("HOW_TO_EARN_LIST_TITLE_4_BUSD") }}</span>
-                                    <span class="h7">{{ translatesGet("HOW_TO_EARN_LIST_DESC_4_BUSD") }}</span>
+                                    <span class="h4">{{ translatesGet("HOW_TO_EARN_LIST_TITLE_4_USDC") }}</span>
+                                    <span class="h7">{{ translatesGet("HOW_TO_EARN_LIST_DESC_4_USDC") }}</span>
                                 </li>
                                 <li>
                                     <span class="earn-icon earn-referral"></span>
-                                    <span class="h4">{{ translatesGet("HOW_TO_EARN_LIST_TITLE_5_BUSD") }}</span>
-                                    <span class="h7">{{ translatesGet("HOW_TO_EARN_LIST_DESC_5_BUSD") }}</span>
+                                    <span class="h4">{{ translatesGet("HOW_TO_EARN_LIST_TITLE_5_USDC") }}</span>
+                                    <span class="h7">{{ translatesGet("HOW_TO_EARN_LIST_DESC_5_USDC") }}</span>
                                 </li>
                             </ul>
                             <router-link class="btn btn-start-earn" to="/dashboard/mintnft">{{
@@ -508,7 +500,7 @@
                                                 <div class="table-value">10</div>
                                             </div>
                                             <div class="table-col">
-                                                <div class="table-title">{{ translatesGet("TURNOVER") }}, BUSD
+                                                <div class="table-title">{{ translatesGet("TURNOVER") }}, USDC
                                                 </div>
                                                 <div class="table-value">{{ getPreselectedChain != "polygon" ? "0.01" :
                                                         "5"
@@ -543,7 +535,7 @@
                                                 <div class="table-value">15</div>
                                             </div>
                                             <div class="table-col">
-                                                <div class="table-title">{{ translatesGet("TURNOVER") }}, BUSD
+                                                <div class="table-title">{{ translatesGet("TURNOVER") }}, USDC
                                                 </div>
                                                 <div class="table-value">{{ getPreselectedChain != "polygon" ? "30" :
                                                         "10 500"
@@ -589,7 +581,7 @@
                                                 <div class="table-value">25</div>
                                             </div>
                                             <div class="table-col">
-                                                <div class="table-title">{{ translatesGet("TURNOVER") }}, BUSD
+                                                <div class="table-title">{{ translatesGet("TURNOVER") }}, USDC
                                                 </div>
                                                 <div class="table-value">{{ getPreselectedChain != "polygon" ? "100" :
                                                         "35 000"
@@ -634,7 +626,7 @@
                                                 <div class="table-value">50</div>
                                             </div>
                                             <div class="table-col">
-                                                <div class="table-title">{{ translatesGet("TURNOVER") }}, BUSD
+                                                <div class="table-title">{{ translatesGet("TURNOVER") }}, USDC
                                                 </div>
                                                 <div class="table-value">{{ "300" }}</div>
                                             </div>
@@ -678,7 +670,7 @@
                                                 <div class="table-value">100</div>
                                             </div>
                                             <div class="table-col">
-                                                <div class="table-title">{{ translatesGet("TURNOVER") }}, BUSD
+                                                <div class="table-title">{{ translatesGet("TURNOVER") }}, USDC
                                                 </div>
                                                 <div class="table-value">{{ getPreselectedChain != "polygon" ? "500" :
                                                         "175 000"
@@ -724,7 +716,7 @@
                                                 <div class="table-value">150</div>
                                             </div>
                                             <div class="table-col">
-                                                <div class="table-title">{{ translatesGet("TURNOVER") }}, BUSD
+                                                <div class="table-title">{{ translatesGet("TURNOVER") }}, USDC
                                                 </div>
                                                 <div class="table-value">{{ getPreselectedChain != "polygon" ? "1 000" :
                                                         "350 000"
@@ -770,7 +762,7 @@
                                                 <div class="table-value">300</div>
                                             </div>
                                             <div class="table-col">
-                                                <div class="table-title">{{ translatesGet("TURNOVER") }}, BUSD
+                                                <div class="table-title">{{ translatesGet("TURNOVER") }}, USDC
                                                 </div>
                                                 <div class="table-value">{{ getPreselectedChain != "polygon" ? "3 000" :
                                                         "1 050 000"
@@ -816,7 +808,7 @@
                                                 <div class="table-value">500</div>
                                             </div>
                                             <div class="table-col">
-                                                <div class="table-title">{{ translatesGet("TURNOVER") }}, BUSD
+                                                <div class="table-title">{{ translatesGet("TURNOVER") }}, USDC
                                                 </div>
                                                 <div class="table-value">{{ getPreselectedChain != "polygon" ? "10 000"
                                                         : "3 500 000"
@@ -862,7 +854,7 @@
                                                 <div class="table-value">1 000</div>
                                             </div>
                                             <div class="table-col">
-                                                <div class="table-title">{{ translatesGet("TURNOVER") }}, BUSD
+                                                <div class="table-title">{{ translatesGet("TURNOVER") }}, USDC
                                                 </div>
                                                 <div class="table-value">{{ getPreselectedChain != "polygon" ? "20 000"
                                                         : "7 000 000"
@@ -908,7 +900,7 @@
                                                 <div class="table-value">2 500</div>
                                             </div>
                                             <div class="table-col">
-                                                <div class="table-title">{{ translatesGet("TURNOVER") }}, BUSD
+                                                <div class="table-title">{{ translatesGet("TURNOVER") }}, USDC
                                                 </div>
                                                 <div class="table-value">{{ getPreselectedChain != "polygon" ? "50 000"
                                                         : "17 000 000"
@@ -1024,7 +1016,7 @@
                                                 <div class="table-value">1</div>
                                             </div>
                                             <div class="table-col">
-                                                <div class="table-title">{{ translatesGet("STRUCT_TURNOVER") }}, BUSD
+                                                <div class="table-title">{{ translatesGet("STRUCT_TURNOVER") }}, USDC
                                                 </div>
                                                 <div class="table-value">{{ getPreselectedChain != "polygon" ? "0.01" :
                                                         "5"
@@ -1047,7 +1039,7 @@
                                                 <div class="table-value">2</div>
                                             </div>
                                             <div class="table-col">
-                                                <div class="table-title">{{ translatesGet("STRUCT_TURNOVER") }}, BUSD
+                                                <div class="table-title">{{ translatesGet("STRUCT_TURNOVER") }}, USDC
                                                 </div>
                                                 <div class="table-value">{{ getPreselectedChain != "polygon" ? "30" :
                                                         "10 500"
@@ -1070,7 +1062,7 @@
                                                 <div class="table-value">3</div>
                                             </div>
                                             <div class="table-col">
-                                                <div class="table-title">{{ translatesGet("STRUCT_TURNOVER") }}, BUSD
+                                                <div class="table-title">{{ translatesGet("STRUCT_TURNOVER") }}, USDC
                                                 </div>
                                                 <div class="table-value">{{ getPreselectedChain != "polygon" ? "100" :
                                                         "35 000"
@@ -1093,7 +1085,7 @@
                                                 <div class="table-value">4</div>
                                             </div>
                                             <div class="table-col">
-                                                <div class="table-title">{{ translatesGet("STRUCT_TURNOVER") }}, BUSD
+                                                <div class="table-title">{{ translatesGet("STRUCT_TURNOVER") }}, USDC
                                                 </div>
                                                 <div class="table-value">{{ getPreselectedChain != "polygon" ? "300" :
                                                         "105 000"
@@ -1116,7 +1108,7 @@
                                                 <div class="table-value">5</div>
                                             </div>
                                             <div class="table-col">
-                                                <div class="table-title">{{ translatesGet("STRUCT_TURNOVER") }}, BUSD
+                                                <div class="table-title">{{ translatesGet("STRUCT_TURNOVER") }}, USDC
                                                 </div>
                                                 <div class="table-value">{{ getPreselectedChain != "polygon" ? "500" :
                                                         "175 000"
@@ -1139,7 +1131,7 @@
                                                 <div class="table-value">6</div>
                                             </div>
                                             <div class="table-col">
-                                                <div class="table-title">{{ translatesGet("STRUCT_TURNOVER") }}, BUSD
+                                                <div class="table-title">{{ translatesGet("STRUCT_TURNOVER") }}, USDC
                                                 </div>
                                                 <div class="table-value">{{ getPreselectedChain != "polygon" ? "1 000" :
                                                         "350 000"
@@ -1162,7 +1154,7 @@
                                                 <div class="table-value">7</div>
                                             </div>
                                             <div class="table-col">
-                                                <div class="table-title">{{ translatesGet("STRUCT_TURNOVER") }}, BUSD
+                                                <div class="table-title">{{ translatesGet("STRUCT_TURNOVER") }}, USDC
                                                 </div>
                                                 <div class="table-value">{{ getPreselectedChain != "polygon" ? "3 000" :
                                                         "1 050 000"
@@ -1185,7 +1177,7 @@
                                                 <div class="table-value">8</div>
                                             </div>
                                             <div class="table-col">
-                                                <div class="table-title">{{ translatesGet("STRUCT_TURNOVER") }}, BUSD
+                                                <div class="table-title">{{ translatesGet("STRUCT_TURNOVER") }}, USDC
                                                 </div>
                                                 <div class="table-value">{{ getPreselectedChain != "polygon" ? "10 000"
                                                         : "3 500 000"
@@ -1392,9 +1384,9 @@ export default {
             return this.preselectedChain && this.preselectedChain === 137 ? "MATIC" : "BNB";
         },
         getPreselectedChain() {
-            return this.preselectedChain === 56 || this.preselectedChain === 97
-                ? "binance"
-                : "polygon";
+            return this.preselectedChain === 43114 ? "avax" : this.preselectedChain === 43113
+                ? "avaxtest"
+                : "wrong";
         },
     },
     mounted() {
@@ -1429,14 +1421,11 @@ export default {
         setPreselectedChain(chain) {
             window.localStorage.setItem("preselectedChain", chain);
             this.$store.commit("setPreselectedChain", chain);
-            if (chain === 56) {
-                this.selectedChain = "binance";
+            if (chain === 43114) {
+                this.selectedChain = "avax";
             }
-            if (chain === 97) {
-                this.selectedChain = "binancetest";
-            }
-            if (chain === 137) {
-                this.selectedChain = "polygon";
+            if (chain === 43113) {
+                this.selectedChain = "avaxtest";
             }
         },
         handleScroll() {

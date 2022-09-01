@@ -16,7 +16,8 @@
 
                             <div v-if="nfts && nfts.length" class="your-nfts-card your-nfts"
                                 :class="{ 'your-nfts-alone': nfts && nfts.length === 1 }">
-                                <li v-for="(nft, index) of nfts" class="li-our-nfts nft-list-buy nft-list-inv-page li-nft-red">
+                                <li v-for="(nft, index) of nfts"
+                                    class="li-our-nfts nft-list-buy nft-list-inv-page li-nft-red">
                                     <div class="li-our-nft-wrap">
                                         <img class="card-egg-image" :src="getNftImage(nft.plan)"
                                             @click="(nftType = 'AlphaEgg'), (onlyData = true), (showTransferModal = true), (selectedNft = nft)" />
@@ -71,7 +72,7 @@
                                     {{ translatesGet("YOUR_NFTS_0_DESCR") }}
                                 </div>
                                 <div class="empty-title h7" v-if="currentBlockchain === 137">
-                                    {{ translatesGet("YOUR_NFTS_0_DESCR_BUSD") }}
+                                    {{ translatesGet("YOUR_NFTS_0_DESCR_USDC") }}
                                 </div>
                             </div>
                         </div>
@@ -93,7 +94,7 @@
                                 {{ translatesGet("YOUR_BOOSTS_0_DESCR_BNB") }}
                             </div>
                             <div class="empty-title h7" v-if="currentBlockchain === 137">{{
-                                    translatesGet("YOUR_BOOSTS_0_DESCR_BUSD")
+                                    translatesGet("YOUR_BOOSTS_0_DESCR_USDC")
                             }}</div>
                         </div>
                         <div v-else class="your-boosts">
@@ -399,16 +400,14 @@ export default {
                                 chain: _this?.$router?.currentRoute?.params?.chosenBlockchain,
                             })
                         );
-                        const symbol = _this.currentBlockchain === 56 || _this.currentBlockchain === 97 ? "bsc" : _this.currentBlockchain === 137 ? "poly" : "";
+                        const symbol = _this.currentBlockchain === 43114 ? "avax" : _this.currentBlockchain === 43113 ? "avaxtest" : "";
                         _this.$store.commit("push_notification", {
                             type: "warning",
                             typeClass: "warning",
-                            message: `It seems that you preselected ${Number(_this?.$router?.currentRoute?.params?.chosenBlockchain) === 56
-                                || Number(_this?.$router?.currentRoute?.params?.chosenBlockchain) === 97
-                                ? "BNB Chain"
-                                : Number(_this?.$router?.currentRoute?.params?.chosenBlockchain) === 137
-                                    ? "Polygon"
-                                    : ""
+                            message: `It seems that you preselected ${Number(_this?.$router?.currentRoute?.params?.chosenBlockchain) === 43114
+                                || Number(_this?.$router?.currentRoute?.params?.chosenBlockchain) === 43113
+                                ? "Avalanche Netowrk"
+                                : ""
                                 } network. If you want to use it, please accept network change in your wallet. Otherwise you may continue use the website.`,
                         });
                         await _this.$root.core.changeNetwork(symbol);

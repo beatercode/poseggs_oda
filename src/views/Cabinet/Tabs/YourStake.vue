@@ -42,21 +42,21 @@
                             <div class="general-card profit">
                                 <div class="general-card-col">
                                     <span class="card-data-title">{{ translatesGet("TOTAL_PROFIT") }}</span>
-                                    <span class="h4" style="white-space: nowrap;">{{ getTotalWithdrawn }} {{ "BUSD" /*
+                                    <span class="h4" style="white-space: nowrap;">{{ getTotalWithdrawn }} {{ "USDC" /*
                                     currency */ }}</span>
                                 </div>
                             </div>
                             <div class="general-card reward">
                                 <div class="general-card-col">
                                     <span class="card-data-title">{{ translatesGet("EXPECTED_REWARD") }}</span>
-                                    <span class="h4" style="white-space: nowrap;">{{ getExpectedReward }} {{ "BUSD" /*
+                                    <span class="h4" style="white-space: nowrap;">{{ getExpectedReward }} {{ "USDC" /*
                                     currency */ }}</span>
                                 </div>
                             </div>
                             <div class="general-card claim">
                                 <div class="general-card-col">
                                     <span class="card-data-title">{{ translatesGet("AVAILABLE_CLAIM") }}</span>
-                                    <span class="h4" style="white-space: nowrap;">{{ getAvaliableForClaim }} {{ "BUSD"
+                                    <span class="h4" style="white-space: nowrap;">{{ getAvaliableForClaim }} {{ "USDC"
                                         /* currency */
                                     }}</span>
                                 </div>

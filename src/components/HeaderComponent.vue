@@ -51,18 +51,14 @@
                 </button>
                 <div class="networks">
                     <div class="list-networks">
-                        <div @click="changeNetwork('bsc')" class="network-item" :class="{ active: getBlockchainName[0] === 'BNB Chain' }">
-                            <i class="icon-network icon-bsc"></i>
-                            <span>BNB Chain</span>
+                        <div @click="changeNetwork('avax')" class="network-item" :class="{ active: getBlockchainName[0] === 'Avalanche Network' }">
+                            <i class="icon-network icon-avalanche"></i>
+                            <span>Avalanche</span>
                         </div>
-                        <div @click="changeNetwork('bsctest')" class="network-item" :class="{ active: getBlockchainName[0] === 'BNB Chain Testnet' }">
-                            <i class="icon-network icon-bsc"></i>
-                            <span>BNB Test</span>
+                        <div @click="changeNetwork('avaxtest')" class="network-item" :class="{ active: getBlockchainName[0] === 'Avalanche Fuji' }">
+                            <i class="icon-network icon-avalanche"></i>
+                            <span>Avalanche Fuji</span>
                         </div>
-                        <!--div @click="changeNetwork('poly')" class="network-item" :class="{ active: getBlockchainName[0] === 'Polygon' }">
-                            <i class="icon-network icon-matic"></i>
-                            <span>Polygon</span>
-                        </div-->
                     </div>
                 </div>
             </div>
@@ -77,11 +73,11 @@
                     <div class="btn-balance-wrap">
                         <div class="balance-title">{{ translatesGet("BALANCE") }}</div>
                         <div :class="{ active: !hideBalance }" class="balance">
-                            <div v-if="currentBlockchain && currentBlockchain === 56 || currentBlockchain === 97">{{ Number(userERC20Balance).toFixed(2) }} BUSD</div>
+                            <div v-if="currentBlockchain && currentBlockchain === 43114 || currentBlockchain === 43113">{{ Number(userERC20Balance).toFixed(2) }} USDC</div>
                             <div>{{ Number(userCoinBalance).toFixed(3) }} {{ currency }}</div>
                         </div>
                         <div :class="{ active: hideBalance }" class="balance">
-                            <div v-if="currentBlockchain && currentBlockchain === 56 || currentBlockchain === 97">*** BUSD</div>
+                            <div v-if="currentBlockchain && currentBlockchain === 43114 || currentBlockchain === 43113">*** USDC</div>
                             <div>*** {{ currency }}</div>
                         </div>
                     </div>
@@ -135,15 +131,15 @@
                         <div @click="hideBalance = !hideBalance" class="btn-balance-wrap">
                             <div class="balance-title">{{ translatesGet("BALANCE") }}</div>
                             <button :class="{ active: !hideBalance }" class="balance">
-                                <div v-if="currentBlockchain && currentBlockchain === 56 || currentBlockchain === 97">{{ Number(userERC20Balance).toFixed(2) }} BUSD</div>
+                                <div v-if="currentBlockchain && currentBlockchain === 56 || currentBlockchain === 97">{{ Number(userERC20Balance).toFixed(2) }} USDC</div>
                                 <div>{{ Number(userCoinBalance).toFixed(3) }} {{ currency }}</div>
                                 <div class="balance-icon icon-wrap">
                                     <i class="icon-eye-slash"></i>
                                 </div>
                             </button>
                             <button :class="{ active: hideBalance }" class="balance">
-                                <div v-if="currentBlockchain && currentBlockchain === 56 || currentBlockchain === 97">*** BUSD</div>
-                                <div>*** BUSD</div>
+                                <div v-if="currentBlockchain && currentBlockchain === 56 || currentBlockchain === 97">*** USDC</div>
+                                <div>*** USDC</div>
                                 <div class="balance-icon icon-wrap">
                                     <i class="icon-eye"></i>
                                 </div>
@@ -166,29 +162,21 @@
                         <div class="networks">
                             <div class="list-networks">
                                 <div
-                                    @click="changeNetwork('bsc'), (showProfile = false), (hideBalance = false)"
+                                    @click="changeNetwork('avax'), (showProfile = false), (hideBalance = false)"
                                     class="network-item"
-                                    :class="{ active: getBlockchainName[0] === 'BNB Chain' }"
+                                    :class="{ active: getBlockchainName[0] === 'Avalanche Network' }"
                                 >
-                                    <i class="icon-network icon-bsc"></i>
-                                    <span>BNB Chain</span>
+                                    <i class="icon-network icon-avalanche"></i>
+                                    <span>Avalance Network</span>
                                 </div>
                                 <div
-                                    @click="changeNetwork('bsctest'), (showProfile = false), (hideBalance = false)"
+                                    @click="changeNetwork('avaxtest'), (showProfile = false), (hideBalance = false)"
                                     class="network-item"
-                                    :class="{ active: getBlockchainName[0] === 'BNB Chain Testnet' }"
+                                    :class="{ active: getBlockchainName[0] === 'Avalanche Fuji Testnet' }"
                                 >
-                                    <i class="icon-network icon-bsc"></i>
-                                    <span>BNB Chain Test</span>
+                                    <i class="icon-network icon-avalanche"></i>
+                                    <span>Avalance Fuji Testet</span>
                                 </div>
-                                <!--div
-                                    @click="changeNetwork('poly'), (showProfile = false), (hideBalance = false)"
-                                    class="network-item"
-                                    :class="{ active: getBlockchainName[0] === 'Polygon' }"
-                                >
-                                    <i class="icon-network icon-matic"></i>
-                                    <span>Polygon</span>
-                                </div-->
                             </div>
                         </div>
                     </div>
@@ -282,7 +270,7 @@
                             ? "icon-harmony"
                             : "";
                     const name =
-                        Number(window?.ethereum?.chainId) === 56 ? "BNB Chain" : Number(window?.ethereum?.chainId) === 137 ? "Polygon" : Number(window?.ethereum?.chainId) === 97 ? "BNB Chain Testnet" : "Wrong Network";
+                        Number(window?.ethereum?.chainId) === 43114 ? "Avalanche Network" : Number(window?.ethereum?.chainId) === 43113 ? "Avalanche Fuji" : "Wrong Network";
                     return [name, iconName];
                 } else if (selectedWallet === "walletconnect") {
                     const WC_Obj = JSON.parse(window.localStorage.getItem("walletconnect"));
@@ -298,46 +286,35 @@
                             : Number(WC_Obj?.chainId) === 1666700000 || Number(WC_Obj?.chainId) === 1666600000
                             ? "icon-harmony"
                             : "";
-                    const name = WC_Obj?.chainId === 56 ? "BNB Chain" : Number(window?.ethereum?.chainId) === 137 ? "Polygon" : WC_Obj?.chainId === 97 ? "BNB Chain Testnet" : "Wrong Network";
+                    const name = WC_Obj?.chainId === 43114 ? "Avalanche Netowork" : Number(window?.ethereum?.chainId) === 43113 ? "Avalance Fuji Testnet" : "Wrong Network";
                     return [name, iconName];
                 }
-                return [conf.BLOCKCHAINS[56], "icon-bsc"];
+                return [conf.BLOCKCHAINS[43114], "icon-avalanche"];
             },
         },
         methods: {
             async changeNetwork(symbol) {
-                if (symbol === "poly") {
-                    if (this.currentBlockchain === 137) {
+                if (symbol === "avax") {
+                    if (this.currentBlockchain === 43114) {
                         this.$store.commit("push_notification", {
                             type: "success",
                             typeClass: "success",
-                            message: "Binance Smart Chain already selected",
+                            message: "Avalanche already selected",
                         });
                         return;
                     } else {
-                        await this.$root.core.changeNetwork("poly");
+                        await this.$root.core.changeNetwork("avax");
                     }
-                } else if (symbol === "bsctest") {
-                    if (this.currentBlockchain === 97) {
+                } else if (symbol === "avaxtest") {
+                    if (this.currentBlockchain === 43113) {
                         this.$store.commit("push_notification", {
                             type: "success",
                             typeClass: "success",
-                            message: "BSC Testnet already selected",
+                            message: "Avalanche Fuji Testnet already selected",
                         });
                         return;
                     } else {
-                        await this.$root.core.changeNetwork("bsctest");
-                    }
-                } else if (symbol === "bsc") {
-                    if (this.currentBlockchain === 56) {
-                        this.$store.commit("push_notification", {
-                            type: "success",
-                            typeClass: "success",
-                            message: "Binance Smart Chain already selected",
-                        });
-                        return;
-                    } else {
-                        await this.$root.core.changeNetwork("bsc");
+                        await this.$root.core.changeNetwork("avaxtest");
                     }
                 }
             },
@@ -345,9 +322,9 @@
             async addTokenToMetaMask() {
                 const token = {
                     address: conf[this.currentBlockchain].ERC20_CONTRACT,
-                    tag: "BUSD",
+                    tag: "USDC",
                     decimals: 18,
-                    image: "https://assets.coingecko.com/coins/images/9576/small/BUSD.png",
+                    image: "https://assets.coingecko.com/coins/images/9576/small/USDC.png",
                 };
                 if (window.ethereum && localStorage.getItem("selectedWallet") === "metamask") {
                     try {
@@ -360,7 +337,7 @@
                                     address: token.address,
                                     symbol: token.tag,
                                     decimals: token.decimals || 18, // The number of decimals in the token
-                                    image: `https://assets.coingecko.com/coins/images/9576/small/BUSD.png`, // A string url of the token logo
+                                    image: `https://assets.coingecko.com/coins/images/9576/small/USDC.png`, // A string url of the token logo
                                 },
                             },
                         });
@@ -377,7 +354,7 @@
                                     address: token.address,
                                     symbol: token.tag,
                                     decimals: token.decimals || 18, // The number of decimals in the token
-                                    image: `https://assets.coingecko.com/coins/images/9576/small/BUSD.png`, // A string url of the token logo
+                                    image: `https://assets.coingecko.com/coins/images/9576/small/USDC.png`, // A string url of the token logo
                                 },
                             },
                         });

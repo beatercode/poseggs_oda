@@ -101,9 +101,9 @@
             async addTokenToMetaMask() {
                 const token = {
                     address: conf[this.currentBlockchain].ERC20_CONTRACT,
-                    tag: "BUSD",
+                    tag: "USDC",
                     decimals: 18,
-                    image: "https://assets.coingecko.com/coins/images/9576/small/BUSD.png",
+                    image: "https://assets.coingecko.com/coins/images/9576/small/USDC.png",
                 };
                 if (window.ethereum && localStorage.getItem("selectedWallet") === "metamask") {
                     try {
@@ -116,7 +116,7 @@
                                     address: token.address,
                                     symbol: token.tag,
                                     decimals: token.decimals || 18, // The number of decimals in the token
-                                    image: `https://assets.coingecko.com/coins/images/9576/small/BUSD.png`, // A string url of the token logo
+                                    image: `https://assets.coingecko.com/coins/images/9576/small/USDC.png`, // A string url of the token logo
                                 },
                             },
                         });
@@ -133,7 +133,7 @@
                                     address: token.address,
                                     symbol: token.tag,
                                     decimals: token.decimals || 18, // The number of decimals in the token
-                                    image: `https://assets.coingecko.com/coins/images/9576/small/BUSD.png`, // A string url of the token logo
+                                    image: `https://assets.coingecko.com/coins/images/9576/small/USDC.png`, // A string url of the token logo
                                 },
                             },
                         });

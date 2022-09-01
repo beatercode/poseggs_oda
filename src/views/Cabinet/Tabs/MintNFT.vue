@@ -104,7 +104,7 @@
                                                                 <span type="number" @input="disablePercWatcher = true">
                                                                     {{ price }}
                                                                 </span>
-                                                                <span class="coin">BUSD</span>
+                                                                <span class="coin">USDC</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -236,7 +236,7 @@
                                                                     <span type="number"
                                                                         @input="disablePercWatcher = true"> {{ price }}
                                                                     </span>
-                                                                    <span class="coin">BUSD</span>
+                                                                    <span class="coin">USDC</span>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -453,7 +453,9 @@
                                                                 </div>
                                                                 <div v-if="showStats">
                                                                     <div class="box-main-stats">
-                                                                        <span style="font-weight: 700;">Total</span> <span style="font-weight: 700;">{{ "-" }}%</span>
+                                                                        <span style="font-weight: 700;">Total</span>
+                                                                        <span style="font-weight: 700;">{{ "-"
+                                                                        }}%</span>
                                                                     </div>
                                                                     <div class="cab-row cab-row-stats">
                                                                         <span
@@ -526,7 +528,7 @@ export default {
         return {
             lang: new MultiLang(this),
             inputActive: false,
-            busdAmount: "",
+            usdcAmount: "",
             showStats: true,
             prices: conf.EGG_DATA.prices,
             stats: conf.EGG_DATA.stats,
@@ -539,7 +541,7 @@ export default {
             amount3: false,
             amount4: false,
             freeEggSypply: 0,
-            busdApprovedAmount: 0,
+            usdcApprovedAmount: 0,
             showLoader: false,
             showInputError: false,
             inputErrorText: "",
@@ -609,15 +611,15 @@ export default {
             }
 
         },
-        async checkBusdAllowance() {
+        async checkUsdcAllowance() {
             let nftContract_Address = this.$root.core[`alphaTribeNft_${this.currentBlockchain}`].address;
-            let busdContract = this.$root.core[`BUSD_${this.currentBlockchain}`]
-            let res = await busdContract.allowance(this.currentAddress, nftContract_Address);
-            this.busdApprovedAmount = Number(res);
+            let usdcContract = this.$root.core[`USDC_${this.currentBlockchain}`]
+            let res = await usdcContract.allowance(this.currentAddress, nftContract_Address);
+            this.usdcApprovedAmount = Number(res);
         },
         isApproved(nft) {
             let needed = conf["EGG_DATA"]["prices"][(nft)];
-            return this.busdApprovedAmount >= needed * 1e18;
+            return this.usdcApprovedAmount >= needed * 1e18;
         },
         translatesGet(key) {
             try {
@@ -664,13 +666,13 @@ export default {
             if (this.selectedIndex == _selectedIndex) return;
             this.selectedIndex = _selectedIndex;
             this.slectedStats = [this.stats[_selectedIndex], this.stats[_selectedIndex], this.stats[_selectedIndex], this.stats[_selectedIndex]]
-            this.busdAmount = parseFloat(
+            this.usdcAmount = parseFloat(
                 Number(this.$root.core.withoutRound(amount, 4))
             );
         },
-        setbusdAmount(perc) {
+        setusdcAmount(perc) {
             const amount = (this.userERC20Balance * perc) / 100;
-            this.busdAmount = parseFloat(
+            this.usdcAmount = parseFloat(
                 Number(this.$root.core.withoutRound(amount, 4))
             );
         },
@@ -679,15 +681,15 @@ export default {
                 this.showLoader = true;
                 let stakeContract_Address = this.$root.core[`alphaTribeNft_${this.currentBlockchain}`].address;
                 let toApprove = BigInt((conf["EGG_DATA"]["prices"][(nft)]) * 1e21 * 1e21);
-                let busdContract = this.$root.core[`BUSD_${this.currentBlockchain}`]
-                let res = await busdContract.approve(stakeContract_Address, toApprove);
+                let usdcContract = this.$root.core[`USDC_${this.currentBlockchain}`]
+                let res = await usdcContract.approve(stakeContract_Address, toApprove);
                 if (res.wait) {
                     this.$store.commit("push_notification", {
                         type: "warning",
                         typeClass: "warning",
                         message: `Your transaction has successfully entered the blockchain! Waiting for enough confirmations...`,
                     });
-                    this.checkBusdAllowance();
+                    this.checkUsdcAllowance();
                     await res.wait();
                     this.$store.commit("push_notification", {
                         type: "success",
@@ -712,23 +714,23 @@ export default {
                 this.$emit("changeWallet");
                 return;
             }
-            if (!this.busdAmount) {
+            if (!this.usdcAmount) {
                 this.disablePercWatcher = true;
-                this.busdAmount =
+                this.usdcAmount =
                     this.currentBlockchain && this.currentBlockchain === 97 ? 17 : 0.01;
             }
 
-            if (this.busdAmount > 99999.9999) {
+            if (this.usdcAmount > 99999.9999) {
                 this.$store.commit("push_notification", {
                     type: "error",
                     typeClass: "error",
                     message: `Max purchase amount is 99999.9999`,
                 });
-                this.busdAmount = Math.min(
+                this.usdcAmount = Math.min(
                     (this.userERC20Balance * 98) / 100,
                     99999.9999
                 );
-            } else if (this.busdAmount > (this.userERC20Balance * 98) / 100) {
+            } else if (this.usdcAmount > (this.userERC20Balance * 98) / 100) {
                 this.$store.commit("push_notification", {
                     type: "error",
                     typeClass: "error",
@@ -737,11 +739,11 @@ export default {
                 return;
             }
 
-            this.busdAmount = parseFloat(
-                Number(this.$root.core.withoutRound(this.busdAmount, 4))
+            this.usdcAmount = parseFloat(
+                Number(this.$root.core.withoutRound(this.usdcAmount, 4))
             );
             try {
-                if (this.busdAmount < conf[this.currentBlockchain].MIN_NFT_PRICE) {
+                if (this.usdcAmount < conf[this.currentBlockchain].MIN_NFT_PRICE) {
                     this.$store.commit("push_notification", {
                         type: "error",
                         typeClass: "error",
@@ -825,7 +827,7 @@ export default {
         var i = setInterval(function () {
             if (_this.currentBlockchain) {
                 try {
-                    _this.checkBusdAllowance();
+                    _this.checkUsdcAllowance();
                     _this.checkFreeEggSupply();
                 } catch (err) { }
                 refreshRate = 10000;
@@ -845,7 +847,7 @@ export default {
                         Number(_this?.$router?.currentRoute?.params?.chosenBlockchain)
                     ) {
                         _this.disablePercWatcher = true;
-                        _this.busdAmount =
+                        _this.usdcAmount =
                             _this?.$router?.currentRoute?.params?.chosenPrice.toString();
                     } else if (
                         _this.currentBlockchain &&
@@ -860,26 +862,15 @@ export default {
                             })
                         );
                         const symbol =
-                            _this.currentBlockchain === 56 || _this.currentBlockchain === 97
-                                ? "bsc"
-                                : _this.currentBlockchain === 137
-                                    ? "poly"
-                                    : "";
+                            _this.currentBlockchain === 43114 ? "avax" : _this.currentBlockchain === 43113 ? "avaxtest" : "";
                         _this.$store.commit("push_notification", {
                             type: "warning",
                             typeClass: "warning",
                             message: `It seems that you preselected ${Number(
-                                _this?.$router?.currentRoute?.params?.chosenBlockchain
-                            ) === 56 ||
-                                Number(
-                                    _this?.$router?.currentRoute?.params?.chosenBlockchain
-                                ) === 97
-                                ? "BNB Chain"
-                                : Number(
-                                    _this?.$router?.currentRoute?.params?.chosenBlockchain
-                                ) === 137
-                                    ? "Polygon"
-                                    : ""
+                                _this?.$router?.currentRoute?.params?.chosenBlockchain) === 43114
+                                || Number(_this?.$router?.currentRoute?.params?.chosenBlockchain) === 43113
+                                ? "Avalanche"
+                                : ""
                                 } network. If you want to use it, please accept network change in your wallet. Otherwise you may continue use the website.`,
                         });
                         await _this.$root.core.changeNetwork(symbol);
@@ -926,7 +917,7 @@ export default {
                             Number(_this.currentBlockchain) === 97)
                     ) {
                         _this.disablePercWatcher = true;
-                        _this.busdAmount = obj.price.toString();
+                        _this.usdcAmount = obj.price.toString();
                         window.localStorage.removeItem("selectedPrice");
                     } else {
                         throw Error("No current blockchain or address");
@@ -968,55 +959,55 @@ export default {
         getImage() {
             if (this.currentBlockchain === 56 || this.currentBlockchain === 97) {
                 const eggNumber =
-                    Number(this.busdAmount) < 0.1
+                    Number(this.usdcAmount) < 0.1
                         ? "56" + "-1"
-                        : Number(this.busdAmount) < 1
+                        : Number(this.usdcAmount) < 1
                             ? "56" + "-2"
-                            : Number(this.busdAmount) < 2
+                            : Number(this.usdcAmount) < 2
                                 ? "56" + "-3"
-                                : Number(this.busdAmount) < 5
+                                : Number(this.usdcAmount) < 5
                                     ? "56" + "-4"
-                                    : Number(this.busdAmount) < 10
+                                    : Number(this.usdcAmount) < 10
                                         ? "56" + "-5"
-                                        : Number(this.busdAmount) < 50
+                                        : Number(this.usdcAmount) < 50
                                             ? "56" + "-6"
-                                            : Number(this.busdAmount) < 100
+                                            : Number(this.usdcAmount) < 100
                                                 ? "56" + "-7"
                                                 : "56" + "-8";
                 return `${eggNumber}`;
             } else if (this.currentBlockchain === 137) {
                 const eggNumber =
-                    Number(this.busdAmount) < 35
+                    Number(this.usdcAmount) < 35
                         ? "137" + "-1"
-                        : Number(this.busdAmount) < 350
+                        : Number(this.usdcAmount) < 350
                             ? "137" + "-2"
-                            : Number(this.busdAmount) < 700
+                            : Number(this.usdcAmount) < 700
                                 ? "137" + "-3"
-                                : Number(this.busdAmount) < 1700
+                                : Number(this.usdcAmount) < 1700
                                     ? "137" + "-4"
-                                    : Number(this.busdAmount) < 3500
+                                    : Number(this.usdcAmount) < 3500
                                         ? "137" + "-5"
-                                        : Number(this.busdAmount) < 17000
+                                        : Number(this.usdcAmount) < 17000
                                             ? "137" + "-6"
-                                            : Number(this.busdAmount) < 35000
+                                            : Number(this.usdcAmount) < 35000
                                                 ? "137" + "-7"
                                                 : "137" + "-8";
                 return `${eggNumber}`;
             } else if (!this.currentBlockchain) {
                 const eggNumber =
-                    Number(this.busdAmount) < 0.1
+                    Number(this.usdcAmount) < 0.1
                         ? "56-1"
-                        : Number(this.busdAmount) < 1
+                        : Number(this.usdcAmount) < 1
                             ? "56-2"
-                            : Number(this.busdAmount) < 2
+                            : Number(this.usdcAmount) < 2
                                 ? "56-3"
-                                : Number(this.busdAmount) < 5
+                                : Number(this.usdcAmount) < 5
                                     ? "56-4"
-                                    : Number(this.busdAmount) < 10
+                                    : Number(this.usdcAmount) < 10
                                         ? "56-5"
-                                        : Number(this.busdAmount) < 50
+                                        : Number(this.usdcAmount) < 50
                                             ? "56-6"
-                                            : Number(this.busdAmount) < 100
+                                            : Number(this.usdcAmount) < 100
                                                 ? "56-7"
                                                 : "56-8";
                 return `${eggNumber}`;
@@ -1078,9 +1069,9 @@ export default {
             }
         },
 
-        busdAmount: function (newVal, oldVal) {
+        usdcAmount: function (newVal, oldVal) {
             if (newVal.toString().length > 10) {
-                this.busdAmount = oldVal;
+                this.usdcAmount = oldVal;
                 setTimeout(() => {
                     this.showInputError = true;
                     this.inputErrorText = "Amount should be less than 10 digits ";

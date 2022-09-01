@@ -65,7 +65,7 @@
                                         style="width: 50%; text-align: right; white-space: nowrap;">
                                         <span type="number" @input="disablePercWatcher = true"> {{ price }}
                                         </span>
-                                        <span class="coin">BUSD</span>
+                                        <span class="coin">USDC</span>
                                     </div>
                                 </div>
                             </div>
@@ -117,13 +117,7 @@ export default {
                 56: [0.01, 0.1, 1, 2, 5, 10, 50, 100],
                 137: [5, 35, 350, 700, 1700, 3500, 17000, 35000],
             };
-            if (this.preselectedChain === 56) {
-                const price = prices[this.preselectedChain][image - 1];
-                this.$router.push({
-                    name: "MintNFT",
-                    params: { chosenPrice: price, chosenBlockchain: this.preselectedChain },
-                });
-            } else if (this.preselectedChain === 137) {
+            if (this.preselectedChain === 43114 || this.preselectedChain === 43113) {
                 const price = prices[this.preselectedChain][image - 1];
                 this.$router.push({
                     name: "MintNFT",
@@ -151,7 +145,7 @@ export default {
             return "ul-binance"
         },
         currency() {
-            return this.preselectedChain && this.preselectedChain === 137 ? "MATIC" : "BNB";
+            return this.preselectedChain && (this.preselectedChain === 43114 || this.preselectedChain === 43113) ? "AVAX" : "WRONG";
         },
     },
 };

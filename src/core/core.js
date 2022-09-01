@@ -101,7 +101,7 @@ export default class Core {
                 this[`alphaTribeNft_${chainId}`] = new ethers.Contract(conf[chainId].NFT_CONTRACT, nftAbi, this[`provider_${chainId}`]).connect(this[`provider_${chainId}`]);
                 this[`boostNft_${chainId}`] = new ethers.Contract(conf[chainId].BOOST_NFT_CONTRACT, boostAbi, this[`provider_${chainId}`]).connect(this[`provider_${chainId}`]);
                 this[`stake_${chainId}`] = new ethers.Contract(conf[chainId].STAKE_CONTRACT, stakeAbi, this[`provider_${chainId}`]).connect(this[`provider_${chainId}`]);
-                this[`BUSD_${chainId}`] = new ethers.Contract(conf[chainId].ERC20_CONTRACT, erc20, this[`provider_${chainId}`]).connect(this[`provider_${chainId}`]);
+                this[`USDC_${chainId}`] = new ethers.Contract(conf[chainId].ERC20_CONTRACT, erc20, this[`provider_${chainId}`]).connect(this[`provider_${chainId}`]);
                 // this[`airdrop_${chainId}`] = new ethers.Contract(conf[chainId].AIRDROP_CONTRACT, airdrop, this[`provider_${chainId}`]).connect(this[`provider_${chainId}`]);
 
                 if (blockchain === Number(chainId)) {
@@ -113,14 +113,14 @@ export default class Core {
                     this[`alphaTribeNft_${chainId}`] = new ethers.Contract(conf[chainId].NFT_CONTRACT, nftAbi, this.provider).connect(this.signer);
                     this[`boostNft_${chainId}`] = new ethers.Contract(conf[chainId].BOOST_NFT_CONTRACT, boostAbi, this.provider).connect(this.signer);
                     this[`stake_${chainId}`] = new ethers.Contract(conf[chainId].STAKE_CONTRACT, stakeAbi, this.provider).connect(this.signer);
-                    this[`BUSD_${chainId}`] = new ethers.Contract(conf[chainId].ERC20_CONTRACT, erc20, this.provider).connect(this.signer);
+                    this[`USDC_${chainId}`] = new ethers.Contract(conf[chainId].ERC20_CONTRACT, erc20, this.provider).connect(this.signer);
                     // this[`airdrop_${chainId}`] = new ethers.Contract(conf[chainId].AIRDROP_CONTRACT, airdrop, this.provider).connect(this.signer);
                 } else {
                     //TODO initialize ERC20? contract
                     this[`alphaTribeNft_${chainId}`].connect(this[`provider_${chainId}`]);
                     this[`boostNft_${chainId}`].connect(this[`provider_${chainId}`]);
                     this[`stake_${chainId}`].connect(this[`provider_${chainId}`]);
-                    this[`BUSD_${chainId}`].connect(this[`provider_${chainId}`]);
+                    this[`USDC_${chainId}`].connect(this[`provider_${chainId}`]);
                     // this[`airdrop_${chainId}`].connect(this[`provider_${chainId}`]);
                 }
             }
@@ -144,7 +144,7 @@ export default class Core {
                 this[`stake_${chainId}`] = new ethers.Contract(conf[chainId].STAKE_CONTRACT, stakeAbi, this[`provider_${chainId}`]).connect(
                     this[`provider_${chainId}`]
                 );
-                this[`BUSD_${chainId}`] = new ethers.Contract(conf[chainId].ERC20_CONTRACT, erc20, this[`provider_${chainId}`]).connect(
+                this[`USDC_${chainId}`] = new ethers.Contract(conf[chainId].ERC20_CONTRACT, erc20, this[`provider_${chainId}`]).connect(
                     this[`provider_${chainId}`]
                 );
                 this[`airdrop_${chainId}`] = new ethers.Contract(conf[chainId].AIRDROP_CONTRACT, airdrop, this[`provider_${chainId}`]).connect(
@@ -156,7 +156,7 @@ export default class Core {
                 this[`alphaTribeNft_${chainId}`] = new ethers.Contract(conf[chainId].NFT_CONTRACT, nftAbi, this[`provider_${chainId}`]).connect(this[`provider_${chainId}`])
                 this[`boostNft_${chainId}`] = null//new ethers.Contract(conf[chainId].BOOST_NFT_CONTRACT, boostAbi, this[`provider_${chainId}`]);
                 this[`stake_${chainId}`] = null//new ethers.Contract(conf[chainId].STAKE_CONTRACT, stakeAbi, this[`provider_${chainId}`]);
-                this[`BUSD_${chainId}`] = new ethers.Contract(conf[chainId].ERC20_CONTRACT, erc20, this[`provider_${chainId}`]);
+                this[`USDC_${chainId}`] = new ethers.Contract(conf[chainId].ERC20_CONTRACT, erc20, this[`provider_${chainId}`]);
                 // this[`airdrop_${chainId}`] = null//new ethers.Contract(conf[chainId].AIRDROP_CONTRACT, airdrop, this[`provider_${chainId}`]);
 
                 if (blockchain === Number(chainId)) {
@@ -168,14 +168,14 @@ export default class Core {
                     this[`alphaTribeNft_${chainId}`] = new ethers.Contract(conf[chainId].NFT_CONTRACT, nftAbi, this.provider).connect(this.signer);
                     this[`boostNft_${chainId}`] = new ethers.Contract(conf[chainId].BOOST_NFT_CONTRACT, boostAbi, this.provider).connect(this.signer);
                     this[`stake_${chainId}`] = new ethers.Contract(conf[chainId].STAKE_CONTRACT, stakeAbi, this.provider).connect(this.signer);
-                    this[`BUSD_${chainId}`] = new ethers.Contract(conf[chainId].ERC20_CONTRACT, erc20, this.provider).connect(this.signer);
+                    this[`USDC_${chainId}`] = new ethers.Contract(conf[chainId].ERC20_CONTRACT, erc20, this.provider).connect(this.signer);
                     // this[`airdrop_${chainId}`] = new ethers.Contract(conf[chainId].AIRDROP_CONTRACT, airdrop, this.provider).connect(this.signer);
                 } else {
                     // TODO  Create ERC20? contract instance
                     if (this[`alphaTribeNft_${chainId}`]) this[`alphaTribeNft_${chainId}`].connect(this[`provider_${chainId}`]);
                     if (this[`boostNft_${chainId}`]) this[`boostNft_${chainId}`].connect(this[`provider_${chainId}`]);
                     if (this[`stake_${chainId}`]) this[`stake_${chainId}`].connect(this[`provider_${chainId}`]);
-                    if (this[`BUSD_${chainId}`]) this[`BUSD_${chainId}`].connect(this[`provider_${chainId}`]);
+                    if (this[`USDC_${chainId}`]) this[`USDC_${chainId}`].connect(this[`provider_${chainId}`]);
                     // if (this[`airdrop_${chainId}`]) this[`airdrop_${chainId}`].connect(this[`provider_${chainId}`]);
                 }
             }
@@ -194,7 +194,7 @@ export default class Core {
                 this[`stake_${chainId}`] = new ethers.Contract(conf[chainId].STAKE_CONTRACT, stakeAbi, this[`provider_${chainId}`]).connect(
                     this[`provider_${chainId}`]
                 );
-                this[`BUSD_${chainId}`] = new ethers.Contract(conf[chainId].ERC20_CONTRACT, erc20, this[`provider_${chainId}`]).connect(
+                this[`USDC_${chainId}`] = new ethers.Contract(conf[chainId].ERC20_CONTRACT, erc20, this[`provider_${chainId}`]).connect(
                     this[`provider_${chainId}`]
                 );
                 this[`airdrop_${chainId}`] = new ethers.Contract(conf[chainId].AIRDROP_CONTRACT, airdrop, this[`provider_${chainId}`]).connect(
@@ -590,7 +590,7 @@ export default class Core {
     // async approvePDT(amount, decimals) {
     //     amount = ethers.utils.parseUnits(`${amount}`, decimals);
 
-    //     const rawTransaction = await this[`BUSD_${this.currentBlockchain}`].approve(this[`boostNft_${this.currentBlockchain}`].address, amount);
+    //     const rawTransaction = await this[`USDC_${this.currentBlockchain}`].approve(this[`boostNft_${this.currentBlockchain}`].address, amount);
     //     return rawTransaction;
     // }
 
@@ -1111,14 +1111,13 @@ export default class Core {
         try {
             const coinBalance = await this.provider.getBalance(address);
             let tokenBalance;
-            if (this.currentBlockchain === 56 || this.currentBlockchain === 97) {
-                tokenBalance = await this[`BUSD_${this.currentBlockchain}`].balanceOf(address);
+            if (this.currentBlockchain === 43114 || this.currentBlockchain === 43113) {
+                tokenBalance = await this[`USDC_${this.currentBlockchain}`].balanceOf(address);
                 return {
                     userCoinBalance: ethers.utils.formatEther(coinBalance),
                     userERC20Balance: ethers.utils.formatEther(tokenBalance),
                 };
             } else {
-                console.log("QUI 3");
                 return {
                     userCoinBalance: ethers.utils.formatEther(coinBalance),
                     userERC20Balance: "0",

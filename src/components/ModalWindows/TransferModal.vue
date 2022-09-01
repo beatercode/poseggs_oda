@@ -103,7 +103,7 @@
                                     <div class="block-info-row">
                                         <div class="block-info-td block-info-name">{{ translatesGet("BLOCKCHAIN") }}</div>
                                         <div class="block-info-td block-info-value">
-                                            {{ "BNB Chain" }}
+                                            {{ "Avalanche" }}
                                         </div>
                                     </div>
                                 </div>
@@ -253,7 +253,7 @@
                                     <div class="block-info-row">
                                         <div class="block-info-td block-info-name">{{ translatesGet("BLOCKCHAIN") }}</div>
                                         <div class="block-info-td block-info-value">
-                                            {{ "BNB Chain" }}
+                                            {{ "Avalanche" }}
                                         </div>
                                     </div>
                                 </div>
@@ -390,7 +390,6 @@
             },
         },
         created() {
-            console.log(this.nft)
             if ('name' in this.nft) {
                 let thisNftTimeBoost = this.nft.boostTimePercent;
                 let thisNftProfitBoost = this.nft.boostProfitPercent;
@@ -410,7 +409,7 @@
             },
             getPurchaseValue() {
                 // const currency = this.nft.image.includes("chainId=97") ? "BNB" : "MATIC";
-                const currency = "BUSD";
+                const currency = "USDC";
                 return `${this.nft.price} ${currency}`;
             },
             getBackgroundColor() {
@@ -419,7 +418,6 @@
             },
             getClassImg() {
                 let boostPercent = (Number(this.nft.boostTimePercent) != 0 ? Number(this.nft.boostTimePercent) : Number(this.nft.boostProfitPercent));
-                console.log(boostPercent)
                 let lvl = boostPercent == 2 ? 1 : boostPercent == 5 ? 2 : 3;
                 let nameFix = this.nft.boostType == 1 ? "time-" : "percent-";
                 var images = require.context("/src/assets/images/all/", false, /\.png$/);

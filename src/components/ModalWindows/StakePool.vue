@@ -68,7 +68,7 @@
                                 {{ translatesGet("YOUR_NFTS_0_DESCR") }}
                             </div>
                             <div class="empty-title h7" v-if="currentBlockchain === 137">
-                                {{ translatesGet("YOUR_NFTS_0_DESCR_BUSD") }}
+                                {{ translatesGet("YOUR_NFTS_0_DESCR_USDC") }}
                             </div>
 
                             <router-link :to="{ name: 'MintNFT' }" class="btn btn-buy-nft">{{ translatesGet("BUY_NFT") }}</router-link>
@@ -132,7 +132,7 @@
                 let price = nft.price == 0 ? 7 : nft.price;
                 let totalProfit = parseFloat((price * conf[this.currentBlockchain].STAKING_PLANS[this.selectedPool].perc) / 100).toFixed(2);
                 // totalProfit = totalProfit.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "\'")
-                return `${totalProfit} BUSD`;
+                return `${totalProfit} USDC`;
             },
             getEarnedReward(stake) {
                 const { lastWithdrawTimestamp, event_data } = stake;

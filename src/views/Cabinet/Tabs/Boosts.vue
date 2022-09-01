@@ -115,7 +115,7 @@
                                         {{ translatesGet("YOUR_BOOSTS_0_DESCR_BNB") }}
                                     </div>
                                     <div class="empty-title h7" v-if="currentBlockchain === 137">{{
-                                            translatesGet("YOUR_BOOSTS_0_DESCR_BUSD")
+                                            translatesGet("YOUR_BOOSTS_0_DESCR_USDC")
                                     }}</div>
                                 </div>
                                 <div v-else class="your-boosts">
@@ -210,19 +210,19 @@ export default {
             lang: new MultiLang(this),
             onlyData: false,
             showTimer: false,
-            busdApprovedAmount: 0,
+            usdcApprovedAmount: 0,
             disableChildLoader: false,
             unavailBlock: true,
             plans: {
                 56: [
-                    { BUSD: 15, BOOST_LEVEL_PERC: 2, id: 1 },
-                    { BUSD: 45, BOOST_LEVEL_PERC: 5, id: 2 },
-                    { BUSD: 120, BOOST_LEVEL_PERC: 10, id: 3 },
+                    { USDC: 15, BOOST_LEVEL_PERC: 2, id: 1 },
+                    { USDC: 45, BOOST_LEVEL_PERC: 5, id: 2 },
+                    { USDC: 120, BOOST_LEVEL_PERC: 10, id: 3 },
                 ],
                 97: [
-                    { BUSD: 15, BOOST_LEVEL_PERC: 2, id: 1 },
-                    { BUSD: 45, BOOST_LEVEL_PERC: 5, id: 2 },
-                    { BUSD: 120, BOOST_LEVEL_PERC: 10, id: 3 },
+                    { USDC: 15, BOOST_LEVEL_PERC: 2, id: 1 },
+                    { USDC: 45, BOOST_LEVEL_PERC: 5, id: 2 },
+                    { USDC: 120, BOOST_LEVEL_PERC: 10, id: 3 },
                 ],
                 137: [
                     { BOOST_LEVEL_PERC: 2, id: 1 },

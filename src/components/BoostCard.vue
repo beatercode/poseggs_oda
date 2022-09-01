@@ -29,9 +29,9 @@
                     <div class="price-card-wrap"
                         style="width: 100%; text-align: right; position: relative; right: 0;">
                         <span type="number"
-                            @input="disablePercWatcher = true"> {{ plan.BUSD }}
+                            @input="disablePercWatcher = true"> {{ plan.USDC }}
                         </span>
-                        <span class="coin">BUSD</span>
+                        <span class="coin">USDC</span>
                     </div>
                 </div>
             </div>
@@ -72,9 +72,9 @@
                     <div class="price-card-wrap"
                         style="width: 100%; text-align: right; position: relative; right: 0;">
                         <span type="number"
-                            @input="disablePercWatcher = true"> {{ plan.BUSD }}
+                            @input="disablePercWatcher = true"> {{ plan.USDC }}
                         </span>
-                        <span class="coin">BUSD</span>
+                        <span class="coin">USDC</span>
                     </div>
                 </div>
             </div>
@@ -141,15 +141,15 @@
         methods: {
             checkApproved() {
                 if (this.plan) {
-                    let needed = this.plan["BUSD"];
-                    return this.busdApprovedAmount >= needed * 1e18;
+                    let needed = this.plan["USDC"];
+                    return this.usdcApprovedAmount >= needed * 1e18;
                 }
             },
-            async checkBusdAllowance() {
+            async checkUsdcAllowance() {
                 let nftContract_Address = this.$root.core[`boostNft_${this.currentBlockchain}`].address;
-                let busdContract = this.$root.core[`BUSD_${this.currentBlockchain}`]
-                let res = await busdContract.allowance(this.currentAddress, nftContract_Address);
-                this.busdApprovedAmount = Number(res);
+                let usdcContract = this.$root.core[`USDC_${this.currentBlockchain}`]
+                let res = await usdcContract.allowance(this.currentAddress, nftContract_Address);
+                this.usdcApprovedAmount = Number(res);
             },
             translatesGet(key) {
                 try {
@@ -168,16 +168,16 @@
                 try {
                     this.showLoader = true;
                     let stakeContract_Address = this.$root.core[`boostNft_${this.currentBlockchain}`].address;
-                    let toApprove = BigInt(this.plan["BUSD"] * 1e18);
-                    let busdContract = this.$root.core[`BUSD_${this.currentBlockchain}`]
-                    let res = await busdContract.approve(stakeContract_Address, toApprove);
+                    let toApprove = BigInt(this.plan["USDC"] * 1e18);
+                    let usdcContract = this.$root.core[`USDC_${this.currentBlockchain}`]
+                    let res = await usdcContract.approve(stakeContract_Address, toApprove);
                     if (res.wait) {
                         this.$store.commit("push_notification", {
                             type: "warning",
                             typeClass: "warning",
                             message: `Your transaction has successfully entered the blockchain! Waiting for enough confirmations...`,
                         });
-                        this.checkBusdAllowance();
+                        this.checkUsdcAllowance();
                         await res.wait();
                         this.$store.commit("push_notification", {
                             type: "success",
@@ -199,7 +199,7 @@
                         this.$emit("changeWalletRequest");
                         return;
                     }
-                    if (Number(this.userERC20Balance) < this.plan["BUSD"]) {
+                    if (Number(this.userERC20Balance) < this.plan["USDC"]) {
                         this.$store.commit("push_notification", {
                             type: "error",
                             typeClass: "error",
@@ -358,7 +358,7 @@
                 if (_this.currentBlockchain) {
                     clearInterval(i);
                     try {
-                        _this.checkBusdAllowance();
+                        _this.checkUsdcAllowance();
                     } catch (err) {}
                 }
             }, 1000);

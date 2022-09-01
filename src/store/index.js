@@ -57,7 +57,7 @@ export default new Vuex.Store({
         fullStakeDetails: null,
         userRefData: null,
         userLeaderData: null,
-        preselectedChain: 56,
+        preselectedChain: 43114,
         airdropData: false,
     },
     mutations: {

@@ -47,7 +47,7 @@
                         <div class="modal-lead-block">
                             <div class="col">
                                 <div class="card-data-title">{{ translatesGet("MODAL_LEAD_BLOCK_1_3") }}</div>
-                                <div class="value">{{ getLeadDataForNextLevel[1] }} BUSD</div>
+                                <div class="value">{{ getLeadDataForNextLevel[1] }} USDC</div>
                             </div>
                         </div>
                     </div>
@@ -81,7 +81,7 @@
                         <div class="modal-lead-block">
                             <div class="col">
                                 <div class="card-data-title">{{ translatesGet("MODAL_LEAD_BLOCK_1_3") }}</div>
-                                <div class="value">{{ userLeaderData && userLeaderData.refTurnover }} BUSD</div>
+                                <div class="value">{{ userLeaderData && userLeaderData.refTurnover }} USDC</div>
                             </div>
                         </div>
                     </div>
@@ -112,7 +112,7 @@
                         <div class="modal-lead-block">
                             <div class="col">
                                 <div class="card-data-title">{{ translatesGet("MODAL_LEAD_BLOCK_2_3") }}</div>
-                                <div class="value">{{ userRefData && userRefData.refTurnover }} BUSD</div>
+                                <div class="value">{{ userRefData && userRefData.refTurnover }} USDC</div>
                             </div>
                         </div>
                     </div>

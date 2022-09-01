@@ -68,7 +68,7 @@
         [
             "AIRDROP",
             "",
-            "Airdrop BUSD"
+            "Airdrop USDC"
         ],
         [
             "MAIN",
@@ -469,10 +469,10 @@
         [
             "OUR_NFT_DESC",
             "",
-            "AlphaTribe has its own NFT collection launched on the BNB Chain net. There's 8 NFT types of the ERC-721 standard."
+            "AlphaTribe has its own NFT collection launched on the Avalanche Netowork. There's 8 NFT types of the ERC-721 standard."
         ],
         [
-            "OUR_NFT_DESC_BUSD",
+            "OUR_NFT_DESC_USDC",
             "",
             "AlphaTribe has its own NFT collection launched on the Polygon net. There's 8 NFT types of the ERC-721 standard."
         ],
@@ -504,12 +504,12 @@
         [
             "LIMITED_STAKING_DESC_3",
             "",
-            "Instant BUSD Payouts"
+            "Instant USDC Payouts"
         ],
         [
-            "LIMITED_STAKING_DESC_3_BUSD",
+            "LIMITED_STAKING_DESC_3_USDC",
             "",
-            "Instant BUSD Payouts",
+            "Instant USDC Payouts",
             "Polygon"
         ],
         [
@@ -560,13 +560,13 @@
         [
             "UNLIMITED_STAKING_DESC_1",
             "",
-            "Instant BUSD Payouts",
+            "Instant USDC Payouts",
             "Polygon"
         ],
         [
-            "UNLIMITED_STAKING_DESC_1_BUSD",
+            "UNLIMITED_STAKING_DESC_1_USDC",
             "",
-            "Instant BUSD Payouts"
+            "Instant USDC Payouts"
         ],
         [
             "UNLIMITED_STAKING_DESC_2",
@@ -616,10 +616,10 @@
         [
             "BOOSTS_DESC_BNB",
             "",
-            "Boosts are BNB Chain ERC-1155 NFTs that increase your staking rewards in different ways once applied."
+            "Boosts are Avalanche Chain ERC-1155 NFTs that increase your staking rewards in different ways once applied."
         ],
         [
-            "BOOSTS_DESC_BUSD",
+            "BOOSTS_DESC_USDC",
             "",
             "Boosts are Polygon ERC-1155 NFTs that increase your staking rewards in different ways once applied.",
             "Polygon"
@@ -707,7 +707,7 @@
         [
             "HOW_TO_EARN_LIST_TITLE_4",
             "",
-            "Earn BUSD Rewards"
+            "Earn USDC Rewards"
         ],
         [
             "HOW_TO_EARN_LIST_DESC_4",
@@ -722,57 +722,57 @@
         [
             "HOW_TO_EARN_LIST_DESC_5",
             "",
-            "The more people you refer to AlphaTribe, the more BUSD you're going to passively make."
+            "The more people you refer to AlphaTribe, the more USDC you're going to passively make."
         ],
         [
-            "HOW_TO_EARN_LIST_TITLE_1_BUSD",
+            "HOW_TO_EARN_LIST_TITLE_1_USDC",
             "",
             "Mint NFT"
         ],
         [
-            "HOW_TO_EARN_LIST_DESC_1_BUSD",
+            "HOW_TO_EARN_LIST_DESC_1_USDC",
             "",
             "Join the revolution, mint your nfts and become an alphaholder."
         ],
         [
-            "HOW_TO_EARN_LIST_TITLE_2_BUSD",
+            "HOW_TO_EARN_LIST_TITLE_2_USDC",
             "",
             "Stake"
         ],
         [
-            "HOW_TO_EARN_LIST_DESC_2_BUSD",
+            "HOW_TO_EARN_LIST_DESC_2_USDC",
             "",
             "Select the pool you prefer and remember, you only got a single bullet."
         ],
         [
-            "HOW_TO_EARN_LIST_TITLE_3_BUSD",
+            "HOW_TO_EARN_LIST_TITLE_3_USDC",
             "",
             "Boost Your NFTs"
         ],
         [
-            "HOW_TO_EARN_LIST_DESC_3_BUSD",
+            "HOW_TO_EARN_LIST_DESC_3_USDC",
             "",
             "Earn more rewards staking your AlphaTribe NFTs by applying time and profit boosts."
         ],
         [
-            "HOW_TO_EARN_LIST_TITLE_4_BUSD",
+            "HOW_TO_EARN_LIST_TITLE_4_USDC",
             "",
-            "Earn BUSD Rewards"
+            "Earn USDC Rewards"
         ],
         [
-            "HOW_TO_EARN_LIST_DESC_4_BUSD",
+            "HOW_TO_EARN_LIST_DESC_4_USDC",
             "",
             "Turn your AlphaTribe NFTs into powerful passive income generators."
         ],
         [
-            "HOW_TO_EARN_LIST_TITLE_5_BUSD",
+            "HOW_TO_EARN_LIST_TITLE_5_USDC",
             "",
             "Referral Program"
         ],
         [
-            "HOW_TO_EARN_LIST_DESC_5_BUSD",
+            "HOW_TO_EARN_LIST_DESC_5_USDC",
             "",
-            "The more people you refer to AlphaTribe, the more BUSD you're going to passively make."
+            "The more people you refer to AlphaTribe, the more USDC you're going to passively make."
         ],
         [
             "START_EARN",
@@ -878,12 +878,12 @@
         [
             "REFERRAL_PROGRAM_DESC",
             "",
-            "Referral Program enables its active users to earn passive BUSD income. Expand your structure by referring more people to the platform to get from 5 to 20 percent of each user transaction in your structure."
+            "Referral Program enables its active users to earn passive USDC income. Expand your structure by referring more people to the platform to get from 5 to 20 percent of each user transaction in your structure."
         ],
         [
-            "REFERRAL_PROGRAM_DESC_BUSD",
+            "REFERRAL_PROGRAM_DESC_USDC",
             "",
-            "Referral Program enables its active users to earn passive BUSD income. Expand your structure by referring more people to the platform to get from 5 to 20 percent of each user transaction in your structure.",
+            "Referral Program enables its active users to earn passive USDC income. Expand your structure by referring more people to the platform to get from 5 to 20 percent of each user transaction in your structure.",
             "Polygon"
         ],
         [
@@ -905,12 +905,12 @@
         [
             "REFERRAL_PROGRAM_ITEM_4",
             "",
-            "Your referrer level depends on your structure's BUSD turnover."
+            "Your referrer level depends on your structure's USDC turnover."
         ],
         [
-            "REFERRAL_PROGRAM_ITEM_4_BUSD",
+            "REFERRAL_PROGRAM_ITEM_4_USDC",
             "",
-            "Your referrer level depends on your structure's BUSD turnover.",
+            "Your referrer level depends on your structure's USDC turnover.",
             "Polygon"
         ],
         [
@@ -921,12 +921,12 @@
         [
             "MODAL_TIMER_DESCR",
             "",
-            "You haven't got any applicable Boosts yet. Come mint some with BUSD or get them from other platform users."
+            "You haven't got any applicable Boosts yet. Come mint some with USDC or get them from other platform users."
         ],
         [
             "MODAL_TIMER_DESCR_POLYGON",
             "",
-            "You haven't got any applicable Boosts yet. Come mint some with BUSD or get them from other platform users.",
+            "You haven't got any applicable Boosts yet. Come mint some with USDC or get them from other platform users.",
             "Polygon"
         ],
         [
@@ -1002,7 +1002,7 @@
         [
             "REF_PROG_DESCR",
             "",
-            "Referral Program enables its active users to earn passive BUSD income. Expand your structure by referring more people to the platform to get 5-20% of each AlphaTribe NFT or Boost purchased by your structure members."
+            "Referral Program enables its active users to earn passive USDC income. Expand your structure by referring more people to the platform to get 5-20% of each AlphaTribe NFT or Boost purchased by your structure members."
         ],
         [
             "REF_PROG_DESCR_COMING_SOON",
@@ -1047,7 +1047,7 @@
         [
             "REF_PROG_DESCR_POLYGON",
             "",
-            "Referral Program enables its active users to earn passive BUSD income. Expand your structure by referring more people to the platform to get 5-20% of each AlphaTribe NFT or Boost purchased by your structure members.",
+            "Referral Program enables its active users to earn passive USDC income. Expand your structure by referring more people to the platform to get 5-20% of each AlphaTribe NFT or Boost purchased by your structure members.",
             "Polygon"
         ],
         [
@@ -1080,12 +1080,12 @@
         [
             "YOUR_BOOSTS_0_DESCR_BNB",
             "",
-            "Use BUSD to mint some. You can also get Boosts from other people."
+            "Use USDC to mint some. You can also get Boosts from other people."
         ],
         [
-            "YOUR_BOOSTS_0_DESCR_BUSD",
+            "YOUR_BOOSTS_0_DESCR_USDC",
             "",
-            "Use BUSD to mint some. You can also get Boosts from other people."
+            "Use USDC to mint some. You can also get Boosts from other people."
         ],
         [
             "YOUR_NFTS",
@@ -1110,12 +1110,12 @@
         [
             "YOUR_NFTS_0_DESCR",
             "",
-            "Use BUSD to mint some. You can also get AlphaTribe NFTs from other people."
+            "Use USDC to mint some. You can also get AlphaTribe NFTs from other people."
         ],
         [
-            "YOUR_NFTS_0_DESCR_BUSD",
+            "YOUR_NFTS_0_DESCR_USDC",
             "",
-            "Use BUSD to mint some. You can also get AlphaTribe NFTs from other people."
+            "Use USDC to mint some. You can also get AlphaTribe NFTs from other people."
         ],
         [
             "YOUR_STAKE_0_TITLE",
@@ -1570,12 +1570,12 @@
         [
             "PROGRESS_REF_DESCRIBE_1",
             "",
-            "Check how your referrals are faring with their BUSD turnover to see if you upgraded to a new referral reward rate."
+            "Check how your referrals are faring with their USDC turnover to see if you upgraded to a new referral reward rate."
         ],
         [
             "PROGRESS_REF_DESCRIBE_1_POLYGON",
             "",
-            "Check how your referrals are faring with their BUSD turnover to see if you upgraded to a new referral reward rate.",
+            "Check how your referrals are faring with their USDC turnover to see if you upgraded to a new referral reward rate.",
             "Polygon"
         ],
         [
@@ -1739,7 +1739,7 @@
         [
             "BTN_CLAIM",
             "",
-            "Claim BUSD"
+            "Claim USDC"
         ],
         [
             "BUY_BOOST_AIRDROP",
@@ -1754,7 +1754,7 @@
         [
             "BTN_CLAIM_METAMASK",
             "",
-            "Add BUSD to MetaMask"
+            "Add USDC to MetaMask"
         ],
         [
             "CLAIM_TITLE_1",
@@ -1779,23 +1779,23 @@
         [
             "",
             "",
-            "You have sussessfully claimed your Airdrop BUSD tokens. The tokens should now appear in your crypto wallet."
+            "You have sussessfully claimed your Airdrop USDC tokens. The tokens should now appear in your crypto wallet."
         ],
         [],
         [
             "CLAIM_DESCR",
             "",
-            "Congrats on finishing off all the Airdrop tasks! Here's your fair share of BUSD rewards.Treat yourself, you deserved it!"
+            "Congrats on finishing off all the Airdrop tasks! Here's your fair share of USDC rewards.Treat yourself, you deserved it!"
         ],
         [
             "CLAIM_DESCR_2",
             "",
-            "You have successfully claimed your Airdrop BUSD tokens. Stick around for more BUSD giveaways!"
+            "You have successfully claimed your Airdrop USDC tokens. Stick around for more USDC giveaways!"
         ],
         [
             "CLAIM_DESCR_3",
             "",
-            "You missed out on the AlphaTribe Airdrop. But keep your bill up, there are new BUSD giveaways on their way. "
+            "You missed out on the AlphaTribe Airdrop. But keep your bill up, there are new USDC giveaways on their way. "
         ],
         [
             "CLAIM_DESCR_4",

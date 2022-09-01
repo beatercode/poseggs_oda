@@ -300,7 +300,7 @@
                             console.log(config.SUPPORTED_BLOCKCHAINS.indexOf(Number(WC_Obj.chainId)));
                             console.log(Number(WC_Obj.chainId));
                             if (config.SUPPORTED_BLOCKCHAINS.indexOf(Number(WC_Obj.chainId)) < 0) {
-                                alert("Change your wallet extension to Binance Smart Chain network");
+                                alert("Change your wallet extension to Avalanche Network");
                                 await _this.$root.core.changeNetwork(config.PRIMARY_BLOCKCHAIN.symbol);
                             }
                             if (currentAccount) {

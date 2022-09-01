@@ -23,7 +23,7 @@
     "vue-loader": "^15.10.0",
     "vue-router": "^3.5.4",
     "vue-slider-component": "^3.2.18",
-    "vue-template-compiler": "^2.3.0",
+    "vue-template-compiler": "2.3.0",
     "vuex": "^3.6.2",
     "web3": "^1.7.5",
     "web3-provider-engine": "^16.0.4"
