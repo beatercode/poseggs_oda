@@ -11,6 +11,8 @@ import NotificationList from "./components/NotificationList.vue";
 import conf from "../config.json";
 import { ethers } from "ethers";
 import { nftAbi } from "./assets/abi/nftAbi";
+import Core from "../src/core/core";
+
 export default {
     mounted() {
         let _this = this;
@@ -21,6 +23,7 @@ export default {
         ReferralController.setReferrerAddressIfExists(this);
         setTimeout(async function init() {
             try {
+
                 let siteInfo = await mainContract.getProjectInfo();
 
                 const data = {

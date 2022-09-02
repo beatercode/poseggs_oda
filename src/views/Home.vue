@@ -1,5 +1,5 @@
 <template>
-    <div class="main-home home-binance">
+    <div class="main-home home-binance" :class="{ 'lang-loader': langLoaded }">
         <header
             :class="{ 'header-fixed': fixedHeader, 'header-hidden': hiddenHeader, 'header-menu': showMenu == true }">
             <div class="container">
@@ -1355,7 +1355,7 @@ export default {
     data() {
         return {
             lang: new MultiLang(this),
-
+            langLoaded: false,
             fixedHeader: false,
             hiddenHeader: false,
             disableConnectButton: false,
@@ -1393,27 +1393,30 @@ export default {
         },
     },
     mounted() {
-        this.lang.init();
+
+        let _this = this;
+        _this.$root.core = new Core(_this);
+        _this.$root.core.getSiteTexts();
+
+        if (window.localStorage.getItem("interfaceTranslations") === null) {
+            let langReferesh = setInterval(() => {
+                if (window.localStorage.getItem("interfaceTranslations") !== null) {
+                    location.reload()
+                    clearInterval(langReferesh)
+                }
+            }, 300)
+        }
+
         this.handleScroll;
         window.addEventListener("scroll", this.handleScroll);
         this.arraySections = document.querySelectorAll("section");
+
         if (this.arraySections[0]) this.arraySections[0].classList.add("section-active");
         window.addEventListener("scroll", () => {
             setTimeout(() => {
                 this.checkScreen();
             }, 300);
         });
-
-        let _this = this;
-        setTimeout(async function initContract() {
-            try {
-                _this.$root.core = new Core(_this);
-                _this.$root.core.getSiteTexts();
-
-            } catch (ex) {
-                console.log(ex);
-            }
-        }, 400);
 
         // this.widthTable = document.querySelector(".container-table").getBoundingClientRect().width;
         // window.addEventListener("resize", () => {
