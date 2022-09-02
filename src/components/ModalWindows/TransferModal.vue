@@ -408,7 +408,6 @@
                 return config[this.currentBlockchain]["BOOST_NFT_CONTRACT"];
             },
             getPurchaseValue() {
-                // const currency = this.nft.image.includes("chainId=97") ? "BNB" : "MATIC";
                 const currency = "USDC";
                 return `${this.nft.price} ${currency}`;
             },

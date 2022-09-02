@@ -120,7 +120,7 @@ export default new Vuex.Store({
         },
         setCurrentBlockchain(state, data) {
             state.currentBlockchain = data;
-            state.currency = conf.NETWORK_PARAMS.find((el) => Number(el.chainId) === data) ?.params ?.nativeCurrency ?.symbol || "-";
+            state.currency = conf.NETWORK_PARAMS.find((el) => Number(el.chainId) === data)?.params?.nativeCurrency?.symbol || "-";
         },
         push_notification(state, notification) {
             const isMessageUnique = state.notifications.findIndex((el) => el.message.toLowerCase() === notification.message.toLowerCase());
@@ -145,6 +145,21 @@ export default new Vuex.Store({
         },
     },
     actions: {
+        async fetchLang({
+            commit
+        }, type) {
+            let lang = window.localStorage.getItem("lang") || "en";
+
+            if (langFile) {
+                let web = fetchLanguages(langFile.values);
+                commit("setInterfaceTranslations", web);
+                if (web && web.hasOwnProperty("en")) {
+                    window.localStorage.setItem("interfaceTranslations", JSON.stringify({
+                        lang: web[`${lang}`]
+                    }));
+                }
+            }
+        },
         async fetchNews({
             commit
         }, type) {
@@ -169,21 +184,6 @@ export default new Vuex.Store({
                 commit("setNews", arrayOfNews);
             } catch (error) {
                 console.log(error);
-            }
-        },
-        async fetchLang({
-            commit
-        }, type) {
-            let lang = window.localStorage.getItem("lang") || "en";
-
-            if (langFile) {
-                let web = fetchLanguages(langFile.values);
-                commit("setInterfaceTranslations", web);
-                if (web && web.hasOwnProperty("en")) {
-                    window.localStorage.setItem("interfaceTranslations", JSON.stringify({
-                        lang: web[`${lang}`]
-                    }));
-                }
             }
         },
         updateLanguage({

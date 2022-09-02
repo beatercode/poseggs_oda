@@ -14,7 +14,7 @@ import { nftAbi } from "./assets/abi/nftAbi";
 export default {
     mounted() {
         let _this = this;
-        let mainChainId = 97;
+        let mainChainId = 43114;
         let mainnetNode = conf[mainChainId]["NODE"];
         let primaryPovider = new ethers.providers.JsonRpcProvider(mainnetNode);
         let mainContract = new ethers.Contract(conf[mainChainId].NFT_CONTRACT, nftAbi, primaryPovider).connect(primaryPovider);
@@ -24,7 +24,7 @@ export default {
                 let siteInfo = await mainContract.getProjectInfo();
 
                 const data = {
-                    "97": {
+                    "43114": {
                         "NFT": {
                             "totalNftsSold": Number(siteInfo.nftsSold),
                             "totalAmountSoldNft": Number(siteInfo.nftsSalesVolume) / 1e18,

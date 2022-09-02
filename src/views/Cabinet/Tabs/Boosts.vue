@@ -210,21 +210,16 @@ export default {
             disableChildLoader: false,
             unavailBlock: true,
             plans: {
-                56: [
+                43114: [
                     { USDC: 15, BOOST_LEVEL_PERC: 2, id: 1 },
                     { USDC: 45, BOOST_LEVEL_PERC: 5, id: 2 },
                     { USDC: 120, BOOST_LEVEL_PERC: 10, id: 3 },
                 ],
-                97: [
+                43113: [
                     { USDC: 15, BOOST_LEVEL_PERC: 2, id: 1 },
                     { USDC: 45, BOOST_LEVEL_PERC: 5, id: 2 },
                     { USDC: 120, BOOST_LEVEL_PERC: 10, id: 3 },
-                ],
-                137: [
-                    { BOOST_LEVEL_PERC: 2, id: 1 },
-                    { BOOST_LEVEL_PERC: 5, id: 2 },
-                    { BOOST_LEVEL_PERC: 10, id: 3 },
-                ],
+                ]
             },
         };
     },
@@ -278,7 +273,7 @@ export default {
             if (this.currentBlockchain) {
                 return this.plans[this.currentBlockchain];
             } else {
-                return this.plans[97];
+                return this.plans[43114];
             }
         },
         nfts() {

@@ -12,7 +12,7 @@
             {
                 "level": 1,
                 "referrals": 0,
-                "turnover": 0.01,
+                "turnover": 10,
                 "perc": 5,
                 "toolTip": "The structure’s turnover is 0,01 AVAX."
             },
@@ -79,7 +79,7 @@
             {
                 "level": 1,
                 "referrals": 10,
-                "turnover": 0.01,
+                "turnover": 500,
                 "perc": 5,
                 "timePerc": "0",
                 "profitPerc": "1",
@@ -88,7 +88,7 @@
             {
                 "level": 2,
                 "referrals": 15,
-                "turnover": 30,
+                "turnover": 1500,
                 "perc": 7,
                 "timePerc": "1",
                 "profitPerc": "1.5",
@@ -97,7 +97,7 @@
             {
                 "level": 3,
                 "referrals": 25,
-                "turnover": 100,
+                "turnover": 3500,
                 "perc": 9,
                 "timePerc": "1.5",
                 "profitPerc": "2",
@@ -106,7 +106,7 @@
             {
                 "level": 4,
                 "referrals": 50,
-                "turnover": 300,
+                "turnover": 6500,
                 "perc": 11,
                 "timePerc": "2",
                 "profitPerc": "2.5",
@@ -115,7 +115,7 @@
             {
                 "level": 5,
                 "referrals": 100,
-                "turnover": 500,
+                "turnover": 9500,
                 "perc": 14,
                 "timePerc": "2.5",
                 "profitPerc": "3",
@@ -124,7 +124,7 @@
             {
                 "level": 6,
                 "referrals": 150,
-                "turnover": 1000,
+                "turnover": 12500,
                 "perc": 16,
                 "timePerc": "3",
                 "profitPerc": "3.5",
@@ -133,7 +133,7 @@
             {
                 "level": 7,
                 "referrals": 300,
-                "turnover": 3000,
+                "turnover": 15000,
                 "perc": 18,
                 "timePerc": "3.5",
                 "profitPerc": "4",
@@ -142,7 +142,7 @@
             {
                 "level": 8,
                 "referrals": 500,
-                "turnover": 10000,
+                "turnover": 20000,
                 "perc": 20,
                 "timePerc": "4",
                 "profitPerc": "4.5",
@@ -151,7 +151,7 @@
             {
                 "level": 9,
                 "referrals": 1000,
-                "turnover": 20000,
+                "turnover": 30000,
                 "perc": 20,
                 "timePerc": "4.5",
                 "profitPerc": "5",
@@ -160,7 +160,7 @@
             {
                 "level": 10,
                 "referrals": 2500,
-                "turnover": 50000,
+                "turnover": 40000,
                 "perc": 20,
                 "timePerc": "5",
                 "profitPerc": "5.5",
@@ -232,7 +232,7 @@
             {
                 "level": 1,
                 "referrals": 0,
-                "turnover": 0.01,
+                "turnover": 10,
                 "perc": 5,
                 "toolTip": "The structure’s turnover is 0,01 AVAX."
             },
@@ -299,7 +299,7 @@
             {
                 "level": 1,
                 "referrals": 10,
-                "turnover": 0.01,
+                "turnover": 500,
                 "perc": 5,
                 "timePerc": "0",
                 "profitPerc": "1",
@@ -308,7 +308,7 @@
             {
                 "level": 2,
                 "referrals": 15,
-                "turnover": 30,
+                "turnover": 1500,
                 "perc": 7,
                 "timePerc": "1",
                 "profitPerc": "1.5",
@@ -317,7 +317,7 @@
             {
                 "level": 3,
                 "referrals": 25,
-                "turnover": 100,
+                "turnover": 3500,
                 "perc": 9,
                 "timePerc": "1.5",
                 "profitPerc": "2",
@@ -326,7 +326,7 @@
             {
                 "level": 4,
                 "referrals": 50,
-                "turnover": 300,
+                "turnover": 6500,
                 "perc": 11,
                 "timePerc": "2",
                 "profitPerc": "2.5",
@@ -335,7 +335,7 @@
             {
                 "level": 5,
                 "referrals": 100,
-                "turnover": 500,
+                "turnover": 9500,
                 "perc": 14,
                 "timePerc": "2.5",
                 "profitPerc": "3",
@@ -344,7 +344,7 @@
             {
                 "level": 6,
                 "referrals": 150,
-                "turnover": 1000,
+                "turnover": 12500,
                 "perc": 16,
                 "timePerc": "3",
                 "profitPerc": "3.5",
@@ -353,7 +353,7 @@
             {
                 "level": 7,
                 "referrals": 300,
-                "turnover": 3000,
+                "turnover": 15000,
                 "perc": 18,
                 "timePerc": "3.5",
                 "profitPerc": "4",
@@ -362,7 +362,7 @@
             {
                 "level": 8,
                 "referrals": 500,
-                "turnover": 10000,
+                "turnover": 20000,
                 "perc": 20,
                 "timePerc": "4",
                 "profitPerc": "4.5",
@@ -371,7 +371,7 @@
             {
                 "level": 9,
                 "referrals": 1000,
-                "turnover": 20000,
+                "turnover": 30000,
                 "perc": 20,
                 "timePerc": "4.5",
                 "profitPerc": "5",
@@ -380,7 +380,7 @@
             {
                 "level": 10,
                 "referrals": 2500,
-                "turnover": 50000,
+                "turnover": 40000,
                 "perc": 20,
                 "timePerc": "5",
                 "profitPerc": "5.5",
@@ -452,7 +452,7 @@
             {
                 "level": 1,
                 "referrals": 0,
-                "turnover": 0.01,
+                "turnover": 10,
                 "perc": 5,
                 "toolTip": "The structure’s turnover is 0,01 BNB."
             },
@@ -519,7 +519,7 @@
             {
                 "level": 1,
                 "referrals": 10,
-                "turnover": 0.01,
+                "turnover": 10,
                 "perc": 5,
                 "timePerc": "0",
                 "profitPerc": "1",
@@ -672,7 +672,7 @@
             {
                 "level": 1,
                 "referrals": 0,
-                "turnover": 0.01,
+                "turnover": 10,
                 "perc": 5,
                 "toolTip": "The structure’s turnover is 0,01 BNB."
             },
@@ -739,7 +739,7 @@
             {
                 "level": 1,
                 "referrals": 10,
-                "turnover": 0.01,
+                "turnover": 10,
                 "perc": 5,
                 "timePerc": "0",
                 "profitPerc": "1",

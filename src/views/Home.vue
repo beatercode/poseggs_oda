@@ -30,7 +30,9 @@
                                     <div class="network-title">
                                         {{ translatesGet("SWITCH_NET") }}
                                     </div>
-                                    <span style="text-transform: none !important;">{{ getPreselectedChain == 'avax' ? "Avalance Netowrk" : "Avalanche Fuji" }}</span>
+                                    <span style="text-transform: none !important;">{{ getPreselectedChain == 'avax' ?
+                                            "Avalance Netowrk" : "Avalanche Fuji"
+                                    }}</span>
                                 </div>
                                 <i class="icon-current-network"
                                     :class="{ 'icon-avalanche': (getPreselectedChain == 'avax' || getPreselectedChain == 'avaxtest') }"></i>
@@ -1347,6 +1349,7 @@
 import { mapState } from "vuex";
 import SliderNFT from "@/components/SliderNFT.vue";
 import MultiLang from "@/core/multilang";
+import Core from "../../src/core/core.js";
 export default {
     name: "Home",
     data() {
@@ -1360,7 +1363,7 @@ export default {
             switcher2: false,
             showMenu: false,
             // widthTable: 0,
-            mainChain: 97,
+            mainChain: 43114,
             lastScroll: 0,
             scrollLeft: 0,
             arraySections: "",
@@ -1400,6 +1403,18 @@ export default {
                 this.checkScreen();
             }, 300);
         });
+
+        let _this = this;
+        setTimeout(async function initContract() {
+            try {
+                _this.$root.core = new Core(_this);
+                _this.$root.core.getSiteTexts();
+
+            } catch (ex) {
+                console.log(ex);
+            }
+        }, 400);
+
         // this.widthTable = document.querySelector(".container-table").getBoundingClientRect().width;
         // window.addEventListener("resize", () => {
         //     setTimeout(() => {

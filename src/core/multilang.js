@@ -1,4 +1,4 @@
-//import lang from "../assets/lang/lang.json";
+//import lang from "../../lang.json";
 let lang;
 
 export default class MultiLang {
