@@ -917,8 +917,6 @@ export default class Core {
                 referralsNumber += Number(res[3][i].toString());
             }
 
-            console.log(res)
-
             return {
                 referrer: res[0],
                 bonus: ethers.utils.formatEther(res[1]._hex),

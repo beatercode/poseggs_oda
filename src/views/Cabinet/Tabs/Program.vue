@@ -9,13 +9,13 @@
             <div class="cab-row-card section-wrap-blocks">
                 <div class="section-block-switcher">
                     <div class="switcher">
-                        <button class="btn-switcher" :class="{ active: isLeaderProgram }"
-                            @click="(isRefProgram = false), (isLeaderProgram = true)">
-                            {{ translatesGet("LEADERSHIP") }}
-                        </button>
                         <button class="btn-switcher" :class="{ active: isRefProgram }"
                             @click="(isRefProgram = true), (isLeaderProgram = false)">
                             {{ translatesGet("REFERRAL") }}
+                        </button>
+                        <button class="btn-switcher" :class="{ active: isLeaderProgram }"
+                            @click="(isRefProgram = false), (isLeaderProgram = true)">
+                            {{ translatesGet("LEADERSHIP") }}
                         </button>
                     </div>
                 </div>
@@ -104,7 +104,7 @@
                 </div>
             </section>
         </div>
-        <div class="show-selected-program">
+        <div v-if="isRefProgram" class="show-selected-program">
             <section class="cab-row">
                 <div class="cab-row-card">
                     <div class="cab-card-wrap stake-card">
@@ -324,7 +324,7 @@
                 </div>
             </section>
         </div>
-        <div class="show-selected-program">
+        <div v-else-if="isLeaderProgram" class="show-selected-program">
             <section class="cab-row">
                 <div class="cab-row-card">
                     <div class="cab-card-wrap stake-card">
@@ -856,8 +856,8 @@ export default {
         return {
             value: `${conf.REF_BASE}?ref=`,
             lang: new MultiLang(this),
-            isLeaderProgram: true,
-            isRefProgram: false,
+            isRefProgram: true,
+            isLeaderProgram: false,
             widthPercRef: 0,
             widthPercLead: 0,
             showLeadModal: false,
